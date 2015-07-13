@@ -1,0 +1,213 @@
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/pm/matrix.c}
+\label{walsh__hadamard__lib_2pm_2matrix_8c}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/pm/matrix.c@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+}
+{\tt \#include \char`\"{}matrix.h\char`\"{}}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$memory.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_e2651d62fad27cd482ddc4840ae62420}{allocMatrix} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_e55e3ff581f9fea0a9492cba696ea4a1}{imageToMatrix} (\hyperlink{struct_image}{Image} $\ast$image)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_c24445e9ac9bf05cf4c9f3a9062f3a3a}{matrixToImage} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_093cd57d92bc0a4a25bf73a200f5807f}{destroyMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_7d2daf21d136f6f0fd8a2f64caf76138}{fillMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} cellValue)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_3a5f6ba791013cee04d947e1bf53b776}{addMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_3d13707f4dce886dcd41d7e003ba205d}{subMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_0a8b1ecc621f3bed9d716fa3752e9647}{mulMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_27aecc34626240faadb44affcf24ce50}{divMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+int \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_b8d861abd2a3cfab7783d3839c548b10}{sumMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_86c8d1e9657ad1747c5d1b1724d09c95}{minMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_026b2f260dff8880370b3af3935c4c4a}{maxMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_368705f484251b9b09b9cb34c7ebf802}{mulMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_36f25578c616ae9eef3a415c4a2629cf}{divMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_cafac4b7f2a0681fa93efe150bb23b09}{addConstToMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+int \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_7eba9a6bc31825849077a736f1b83c2c}{dotProductMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_9dfe0eeefac1b3c3cc63c443938f35d6}{zeroPadMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startCol)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_2dd9b18d5aad7fac22714b8be0be2ed5}{rotate180Matrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_57243bea80a1e7d9ed383da23e05eadf}{convoluteMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{struct_matrix}{Matrix} $\ast$mask)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_b92ec93e974d556c963b23b989aba0a0}{cloneMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_c8dd4a661e4c6cbf7d824242fa195c68}{normalizeMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__lib_2pm_2matrix_8c_f8e5cf7806a77bc0245e838c4b7e49b9}{copyMatrixSegment} (\hyperlink{struct_matrix}{Matrix} $\ast$source, \hyperlink{struct_matrix}{Matrix} $\ast$dest, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfCols)
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_cafac4b7f2a0681fa93efe150bb23b09}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!addConstToMatrix@{addConstToMatrix}}
+\index{addConstToMatrix@{addConstToMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{addConstToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addConstToMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_cafac4b7f2a0681fa93efe150bb23b09}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_3a5f6ba791013cee04d947e1bf53b776}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!addMatrix@{addMatrix}}
+\index{addMatrix@{addMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{addMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_3a5f6ba791013cee04d947e1bf53b776}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_e2651d62fad27cd482ddc4840ae62420}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!allocMatrix@{allocMatrix}}
+\index{allocMatrix@{allocMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{allocMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ allocMatrix ({\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_e2651d62fad27cd482ddc4840ae62420}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_b92ec93e974d556c963b23b989aba0a0}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!cloneMatrix@{cloneMatrix}}
+\index{cloneMatrix@{cloneMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{cloneMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ cloneMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_b92ec93e974d556c963b23b989aba0a0}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_57243bea80a1e7d9ed383da23e05eadf}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!convoluteMatrix@{convoluteMatrix}}
+\index{convoluteMatrix@{convoluteMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{convoluteMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ convoluteMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf Matrix} $\ast$ {\em mask})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_57243bea80a1e7d9ed383da23e05eadf}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_f8e5cf7806a77bc0245e838c4b7e49b9}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!copyMatrixSegment@{copyMatrixSegment}}
+\index{copyMatrixSegment@{copyMatrixSegment}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{copyMatrixSegment}]{\setlength{\rightskip}{0pt plus 5cm}void copyMatrixSegment ({\bf Matrix} $\ast$ {\em source}, \/  {\bf Matrix} $\ast$ {\em dest}, \/  {\bf coordT} {\em sourceStartRow}, \/  {\bf coordT} {\em destStartRow}, \/  {\bf coordT} {\em numOfRows}, \/  {\bf coordT} {\em sourceStartCol}, \/  {\bf coordT} {\em destStartCol}, \/  {\bf coordT} {\em numOfCols})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_f8e5cf7806a77bc0245e838c4b7e49b9}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_093cd57d92bc0a4a25bf73a200f5807f}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!destroyMatrix@{destroyMatrix}}
+\index{destroyMatrix@{destroyMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{destroyMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void destroyMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_093cd57d92bc0a4a25bf73a200f5807f}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_27aecc34626240faadb44affcf24ce50}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!divMatrix@{divMatrix}}
+\index{divMatrix@{divMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{divMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_27aecc34626240faadb44affcf24ce50}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_36f25578c616ae9eef3a415c4a2629cf}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!divMatrixByConst@{divMatrixByConst}}
+\index{divMatrixByConst@{divMatrixByConst}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{divMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_36f25578c616ae9eef3a415c4a2629cf}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_7eba9a6bc31825849077a736f1b83c2c}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!dotProductMatrix@{dotProductMatrix}}
+\index{dotProductMatrix@{dotProductMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{dotProductMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int dotProductMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_7eba9a6bc31825849077a736f1b83c2c}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_7d2daf21d136f6f0fd8a2f64caf76138}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!fillMatrix@{fillMatrix}}
+\index{fillMatrix@{fillMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{fillMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void fillMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em cellValue})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_7d2daf21d136f6f0fd8a2f64caf76138}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_e55e3ff581f9fea0a9492cba696ea4a1}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!imageToMatrix@{imageToMatrix}}
+\index{imageToMatrix@{imageToMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{imageToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ imageToMatrix ({\bf Image} $\ast$ {\em image})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_e55e3ff581f9fea0a9492cba696ea4a1}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_c24445e9ac9bf05cf4c9f3a9062f3a3a}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!matrixToImage@{matrixToImage}}
+\index{matrixToImage@{matrixToImage}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{matrixToImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ matrixToImage ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_c24445e9ac9bf05cf4c9f3a9062f3a3a}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_026b2f260dff8880370b3af3935c4c4a}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!maxMatrix@{maxMatrix}}
+\index{maxMatrix@{maxMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{maxMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} maxMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_026b2f260dff8880370b3af3935c4c4a}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_86c8d1e9657ad1747c5d1b1724d09c95}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!minMatrix@{minMatrix}}
+\index{minMatrix@{minMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{minMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} minMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_86c8d1e9657ad1747c5d1b1724d09c95}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_0a8b1ecc621f3bed9d716fa3752e9647}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!mulMatrix@{mulMatrix}}
+\index{mulMatrix@{mulMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{mulMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_0a8b1ecc621f3bed9d716fa3752e9647}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_368705f484251b9b09b9cb34c7ebf802}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!mulMatrixByConst@{mulMatrixByConst}}
+\index{mulMatrixByConst@{mulMatrixByConst}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{mulMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_368705f484251b9b09b9cb34c7ebf802}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_c8dd4a661e4c6cbf7d824242fa195c68}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!normalizeMatrix@{normalizeMatrix}}
+\index{normalizeMatrix@{normalizeMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{normalizeMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void normalizeMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_c8dd4a661e4c6cbf7d824242fa195c68}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_2dd9b18d5aad7fac22714b8be0be2ed5}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!rotate180Matrix@{rotate180Matrix}}
+\index{rotate180Matrix@{rotate180Matrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{rotate180Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ rotate180Matrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_2dd9b18d5aad7fac22714b8be0be2ed5}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_3d13707f4dce886dcd41d7e003ba205d}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!subMatrix@{subMatrix}}
+\index{subMatrix@{subMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{subMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void subMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_3d13707f4dce886dcd41d7e003ba205d}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_b8d861abd2a3cfab7783d3839c548b10}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!sumMatrix@{sumMatrix}}
+\index{sumMatrix@{sumMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{sumMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int sumMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_b8d861abd2a3cfab7783d3839c548b10}
+
+
+\hypertarget{walsh__hadamard__lib_2pm_2matrix_8c_9dfe0eeefac1b3c3cc63c443938f35d6}{
+\index{walsh\_\-hadamard\_\-lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}!zeroPadMatrix@{zeroPadMatrix}}
+\index{zeroPadMatrix@{zeroPadMatrix}!walsh_hadamard_lib/pm/matrix.c@{walsh\_\-hadamard\_\-lib/pm/matrix.c}}
+\subsubsection[{zeroPadMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ zeroPadMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols}, \/  {\bf coordT} {\em startRow}, \/  {\bf coordT} {\em startCol})}}
+\label{walsh__hadamard__lib_2pm_2matrix_8c_9dfe0eeefac1b3c3cc63c443938f35d6}
+
+

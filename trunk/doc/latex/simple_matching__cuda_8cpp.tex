@@ -1,0 +1,118 @@
+\hypertarget{simple_matching__cuda_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simpleMatching\_\-cuda.cpp}
+\label{simple_matching__cuda_8cpp}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simpleMatching\_\-cuda.cpp@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simpleMatching\_\-cuda.cpp}}
+}
+{\tt \#include $<$conio.h$>$}\par
+{\tt \#include $<$algorithm$>$}\par
+{\tt \#include $<$fstream$>$}\par
+{\tt \#include \char`\"{}bmp/EasyBMP.h\char`\"{}}\par
+{\tt \#include \char`\"{}pm/whimport.h\char`\"{}}\par
+{\tt \#include \char`\"{}simple/simple.h\char`\"{}}\par
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef unsigned char($\ast$ \hyperlink{simple_matching__cuda_8cpp_f179b724e8502f3d77ef713385ed2555}{TMethod} )(\hyperlink{struct_r_g_b_apixel}{RGBApixel})
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+void \hyperlink{simple_matching__cuda_8cpp_4cebdacbdee561119bb615ae18d3d506}{cudaPatternMatch} ()
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{simple_matching__cuda_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}{createImage2} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} $\ast$pixels, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+void \hyperlink{simple_matching__cuda_8cpp_76e6bbf2dc8db703a21bce9a5fd9cd95}{runTest} (int argc, char $\ast$$\ast$argv)
+\item 
+unsigned char $\ast$ \hyperlink{simple_matching__cuda_8cpp_fc788118d03a4c52faa29e816f0b951e}{simpleMatchingCuda} (int argc, char $\ast$$\ast$argv, unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnWidth, int \_\-ptnHeight)
+\item 
+unsigned char \hyperlink{simple_matching__cuda_8cpp_017828ccde9e86dedd48b5d4f3462b6d}{grayScale} (\hyperlink{struct_r_g_b_apixel}{RGBApixel} \_\-pixel)
+\item 
+unsigned char $\ast$ \hyperlink{simple_matching__cuda_8cpp_ab3b8954b0ceea95e3f7a6a13bd42a7b}{loadImage} (\hyperlink{classcpp_b_m_p}{cppBMP} $\ast$\_\-bitmap, int \&\_\-width, int \&\_\-height)
+\item 
+unsigned char $\ast$ \hyperlink{simple_matching__cuda_8cpp_7542cf893e429eb8648b56548f5a26ed}{loadPatternImage} (\hyperlink{classcpp_b_m_p}{cppBMP} $\ast$\_\-bitmap, int \&\_\-width, int \&\_\-height)
+\item 
+int \hyperlink{simple_matching__cuda_8cpp_0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+\hyperlink{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}{TMethod} \hyperlink{simple_matching__cuda_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{method} = grayScale
+\end{CompactItemize}
+
+
+\subsection{Типы}
+\hypertarget{simple_matching__cuda_8cpp_f179b724e8502f3d77ef713385ed2555}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!TMethod@{TMethod}}
+\index{TMethod@{TMethod}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{TMethod}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char($\ast$ {\bf TMethod})({\bf RGBApixel})}}
+\label{simple_matching__cuda_8cpp_f179b724e8502f3d77ef713385ed2555}
+
+
+
+
+\subsection{Функции}
+\hypertarget{simple_matching__cuda_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!createImage2@{createImage2}}
+\index{createImage2@{createImage2}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{createImage2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ createImage2 ({\bf pixelT} $\ast$ {\em pixels}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{simple_matching__cuda_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}
+
+
+\hypertarget{simple_matching__cuda_8cpp_4cebdacbdee561119bb615ae18d3d506}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!cudaPatternMatch@{cudaPatternMatch}}
+\index{cudaPatternMatch@{cudaPatternMatch}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{cudaPatternMatch}]{\setlength{\rightskip}{0pt plus 5cm}void cudaPatternMatch ()}}
+\label{simple_matching__cuda_8cpp_4cebdacbdee561119bb615ae18d3d506}
+
+
+\hypertarget{simple_matching__cuda_8cpp_017828ccde9e86dedd48b5d4f3462b6d}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!grayScale@{grayScale}}
+\index{grayScale@{grayScale}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{grayScale}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char grayScale ({\bf RGBApixel} {\em \_\-pixel})}}
+\label{simple_matching__cuda_8cpp_017828ccde9e86dedd48b5d4f3462b6d}
+
+
+\hypertarget{simple_matching__cuda_8cpp_ab3b8954b0ceea95e3f7a6a13bd42a7b}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{loadImage}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ loadImage ({\bf cppBMP} $\ast$ {\em \_\-bitmap}, \/  int \& {\em \_\-width}, \/  int \& {\em \_\-height})}}
+\label{simple_matching__cuda_8cpp_ab3b8954b0ceea95e3f7a6a13bd42a7b}
+
+
+\hypertarget{simple_matching__cuda_8cpp_7542cf893e429eb8648b56548f5a26ed}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!loadPatternImage@{loadPatternImage}}
+\index{loadPatternImage@{loadPatternImage}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{loadPatternImage}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ loadPatternImage ({\bf cppBMP} $\ast$ {\em \_\-bitmap}, \/  int \& {\em \_\-width}, \/  int \& {\em \_\-height})}}
+\label{simple_matching__cuda_8cpp_7542cf893e429eb8648b56548f5a26ed}
+
+
+\hypertarget{simple_matching__cuda_8cpp_0ddf1224851353fc92bfbff6f499fa97}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!main@{main}}
+\index{main@{main}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{simple_matching__cuda_8cpp_0ddf1224851353fc92bfbff6f499fa97}
+
+
+\hypertarget{simple_matching__cuda_8cpp_76e6bbf2dc8db703a21bce9a5fd9cd95}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!runTest@{runTest}}
+\index{runTest@{runTest}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{runTest}]{\setlength{\rightskip}{0pt plus 5cm}void runTest (int {\em argc}, \/  char $\ast$$\ast$ {\em argv})}}
+\label{simple_matching__cuda_8cpp_76e6bbf2dc8db703a21bce9a5fd9cd95}
+
+
+\hypertarget{simple_matching__cuda_8cpp_fc788118d03a4c52faa29e816f0b951e}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!simpleMatchingCuda@{simpleMatchingCuda}}
+\index{simpleMatchingCuda@{simpleMatchingCuda}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{simpleMatchingCuda}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ simpleMatchingCuda (int {\em argc}, \/  char $\ast$$\ast$ {\em argv}, \/  unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnWidth}, \/  int {\em \_\-ptnHeight})}}
+\label{simple_matching__cuda_8cpp_fc788118d03a4c52faa29e816f0b951e}
+
+
+
+
+\subsection{Переменные}
+\hypertarget{simple_matching__cuda_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{
+\index{simpleMatching\_\-cuda.cpp@{simpleMatching\_\-cuda.cpp}!method@{method}}
+\index{method@{method}!simpleMatching_cuda.cpp@{simpleMatching\_\-cuda.cpp}}
+\subsubsection[{method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TMethod} {\bf method} = grayScale}}
+\label{simple_matching__cuda_8cpp_884bc9c4b36f5374b842d2aca48e34fb}
+
+

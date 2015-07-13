@@ -1,0 +1,106 @@
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+}
+\subsection*{Структуры данных}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_r_g_b_apixel}{RGBApixel}
+\item 
+class \hyperlink{class_b_m_f_h}{BMFH}
+\item 
+class \hyperlink{class_b_m_i_h}{BMIH}
+\end{CompactItemize}
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef unsigned char \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_05a8d0fee523be837bbfb6dcd147009f}{ebmpBYTE}
+\item 
+typedef unsigned short \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_5a51f6f2df4a239a0da076c4d1430c0c}{ebmpWORD}
+\item 
+typedef unsigned int \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_20a57d22320667d61e226cbc6c4f6c8c}{ebmpDWORD}
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+double \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_8e24ca8974baacbdab1b564da5439845}{Square} (double number)
+\item 
+int \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_11374fd1247aaf2dd8e95e5c4853ba05}{IntSquare} (int number)
+\item 
+int \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f52dc2e4faaa0a793efd117aac7473c9}{IntPow} (int base, int exponent)
+\item 
+bool \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_c6ab566aa4b7764fb0cbcaab5afab089}{IsBigEndian} ()
+\item 
+\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h_5a51f6f2df4a239a0da076c4d1430c0c}{ebmpWORD} \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f747c0c8ddceeffab9b86640d59cb14a}{FlipWORD} (\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h_5a51f6f2df4a239a0da076c4d1430c0c}{ebmpWORD} in)
+\item 
+\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h_20a57d22320667d61e226cbc6c4f6c8c}{ebmpDWORD} \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_109ee493d87625eee6f8a528ee85eec4}{FlipDWORD} (\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h_20a57d22320667d61e226cbc6c4f6c8c}{ebmpDWORD} in)
+\end{CompactItemize}
+
+
+\subsection{Типы}
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_05a8d0fee523be837bbfb6dcd147009f}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!ebmpBYTE@{ebmpBYTE}}
+\index{ebmpBYTE@{ebmpBYTE}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{ebmpBYTE}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf ebmpBYTE}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_05a8d0fee523be837bbfb6dcd147009f}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_20a57d22320667d61e226cbc6c4f6c8c}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!ebmpDWORD@{ebmpDWORD}}
+\index{ebmpDWORD@{ebmpDWORD}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{ebmpDWORD}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf ebmpDWORD}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_20a57d22320667d61e226cbc6c4f6c8c}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_5a51f6f2df4a239a0da076c4d1430c0c}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!ebmpWORD@{ebmpWORD}}
+\index{ebmpWORD@{ebmpWORD}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{ebmpWORD}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf ebmpWORD}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_5a51f6f2df4a239a0da076c4d1430c0c}
+
+
+
+
+\subsection{Функции}
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_109ee493d87625eee6f8a528ee85eec4}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!FlipDWORD@{FlipDWORD}}
+\index{FlipDWORD@{FlipDWORD}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{FlipDWORD}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ebmpDWORD} FlipDWORD ({\bf ebmpDWORD} {\em in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_109ee493d87625eee6f8a528ee85eec4}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f747c0c8ddceeffab9b86640d59cb14a}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!FlipWORD@{FlipWORD}}
+\index{FlipWORD@{FlipWORD}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{FlipWORD}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ebmpWORD} FlipWORD ({\bf ebmpWORD} {\em in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f747c0c8ddceeffab9b86640d59cb14a}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f52dc2e4faaa0a793efd117aac7473c9}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!IntPow@{IntPow}}
+\index{IntPow@{IntPow}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{IntPow}]{\setlength{\rightskip}{0pt plus 5cm}int IntPow (int {\em base}, \/  int {\em exponent})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_f52dc2e4faaa0a793efd117aac7473c9}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_11374fd1247aaf2dd8e95e5c4853ba05}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!IntSquare@{IntSquare}}
+\index{IntSquare@{IntSquare}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{IntSquare}]{\setlength{\rightskip}{0pt plus 5cm}int IntSquare (int {\em number})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_11374fd1247aaf2dd8e95e5c4853ba05}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_c6ab566aa4b7764fb0cbcaab5afab089}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!IsBigEndian@{IsBigEndian}}
+\index{IsBigEndian@{IsBigEndian}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{IsBigEndian}]{\setlength{\rightskip}{0pt plus 5cm}bool IsBigEndian ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_c6ab566aa4b7764fb0cbcaab5afab089}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_8e24ca8974baacbdab1b564da5439845}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}!Square@{Square}}
+\index{Square@{Square}!simple_matching_run/bmp/EasyBMP_DataStructures.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-DataStructures.h}}
+\subsubsection[{Square}]{\setlength{\rightskip}{0pt plus 5cm}double Square (double {\em number})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h_8e24ca8974baacbdab1b564da5439845}
+
+

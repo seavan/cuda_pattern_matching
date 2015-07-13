@@ -1,0 +1,218 @@
+\hypertarget{matrix__funcs_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix\_\-funcs.h}
+\label{matrix__funcs_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix\_\-funcs.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix\_\-funcs.h}}
+}
+{\tt \#include \char`\"{}matrix.h\char`\"{}}\par
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+\_\-\_\-inline \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT} \hyperlink{matrix__funcs_8h_1411e90b906c182ab9940fdbe216c7eb}{findMatrixDistance} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startCol, \hyperlink{struct_matrix}{Matrix} $\ast$win)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_e2651d62fad27cd482ddc4840ae62420}{allocMatrix} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+void \hyperlink{matrix__funcs_8h_093cd57d92bc0a4a25bf73a200f5807f}{destroyMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_b92ec93e974d556c963b23b989aba0a0}{cloneMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_e55e3ff581f9fea0a9492cba696ea4a1}{imageToMatrix} (\hyperlink{struct_image}{Image} $\ast$image)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{matrix__funcs_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}{matrixToImage} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{matrix__funcs_8h_7d2daf21d136f6f0fd8a2f64caf76138}{fillMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} cellValue)
+\item 
+void \hyperlink{matrix__funcs_8h_c8dd4a661e4c6cbf7d824242fa195c68}{normalizeMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{matrix__funcs_8h_3a5f6ba791013cee04d947e1bf53b776}{addMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{matrix__funcs_8h_3d13707f4dce886dcd41d7e003ba205d}{subMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{matrix__funcs_8h_0a8b1ecc621f3bed9d716fa3752e9647}{mulMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{matrix__funcs_8h_27aecc34626240faadb44affcf24ce50}{divMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+int \hyperlink{matrix__funcs_8h_7eba9a6bc31825849077a736f1b83c2c}{dotProductMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{matrix__funcs_8h_368705f484251b9b09b9cb34c7ebf802}{mulMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{matrix__funcs_8h_36f25578c616ae9eef3a415c4a2629cf}{divMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{matrix__funcs_8h_cafac4b7f2a0681fa93efe150bb23b09}{addConstToMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+int \hyperlink{matrix__funcs_8h_b8d861abd2a3cfab7783d3839c548b10}{sumMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{matrix__funcs_8h_86c8d1e9657ad1747c5d1b1724d09c95}{minMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{matrix__funcs_8h_026b2f260dff8880370b3af3935c4c4a}{maxMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_57243bea80a1e7d9ed383da23e05eadf}{convoluteMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{struct_matrix}{Matrix} $\ast$mask)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_9dfe0eeefac1b3c3cc63c443938f35d6}{zeroPadMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startCol)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{matrix__funcs_8h_2dd9b18d5aad7fac22714b8be0be2ed5}{rotate180Matrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{matrix__funcs_8h_f8e5cf7806a77bc0245e838c4b7e49b9}{copyMatrixSegment} (\hyperlink{struct_matrix}{Matrix} $\ast$source, \hyperlink{struct_matrix}{Matrix} $\ast$dest, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfCols)
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{matrix__funcs_8h_cafac4b7f2a0681fa93efe150bb23b09}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!addConstToMatrix@{addConstToMatrix}}
+\index{addConstToMatrix@{addConstToMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{addConstToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addConstToMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{matrix__funcs_8h_cafac4b7f2a0681fa93efe150bb23b09}
+
+
+\hypertarget{matrix__funcs_8h_3a5f6ba791013cee04d947e1bf53b776}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!addMatrix@{addMatrix}}
+\index{addMatrix@{addMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{addMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{matrix__funcs_8h_3a5f6ba791013cee04d947e1bf53b776}
+
+
+\hypertarget{matrix__funcs_8h_e2651d62fad27cd482ddc4840ae62420}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!allocMatrix@{allocMatrix}}
+\index{allocMatrix@{allocMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{allocMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ allocMatrix ({\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{matrix__funcs_8h_e2651d62fad27cd482ddc4840ae62420}
+
+
+\hypertarget{matrix__funcs_8h_b92ec93e974d556c963b23b989aba0a0}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!cloneMatrix@{cloneMatrix}}
+\index{cloneMatrix@{cloneMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{cloneMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ cloneMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_b92ec93e974d556c963b23b989aba0a0}
+
+
+\hypertarget{matrix__funcs_8h_57243bea80a1e7d9ed383da23e05eadf}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!convoluteMatrix@{convoluteMatrix}}
+\index{convoluteMatrix@{convoluteMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{convoluteMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ convoluteMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf Matrix} $\ast$ {\em mask})}}
+\label{matrix__funcs_8h_57243bea80a1e7d9ed383da23e05eadf}
+
+
+\hypertarget{matrix__funcs_8h_f8e5cf7806a77bc0245e838c4b7e49b9}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!copyMatrixSegment@{copyMatrixSegment}}
+\index{copyMatrixSegment@{copyMatrixSegment}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{copyMatrixSegment}]{\setlength{\rightskip}{0pt plus 5cm}void copyMatrixSegment ({\bf Matrix} $\ast$ {\em source}, \/  {\bf Matrix} $\ast$ {\em dest}, \/  {\bf coordT} {\em sourceStartRow}, \/  {\bf coordT} {\em destStartRow}, \/  {\bf coordT} {\em numOfRows}, \/  {\bf coordT} {\em sourceStartCol}, \/  {\bf coordT} {\em destStartCol}, \/  {\bf coordT} {\em numOfCols})}}
+\label{matrix__funcs_8h_f8e5cf7806a77bc0245e838c4b7e49b9}
+
+
+\hypertarget{matrix__funcs_8h_093cd57d92bc0a4a25bf73a200f5807f}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!destroyMatrix@{destroyMatrix}}
+\index{destroyMatrix@{destroyMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{destroyMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void destroyMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_093cd57d92bc0a4a25bf73a200f5807f}
+
+
+\hypertarget{matrix__funcs_8h_27aecc34626240faadb44affcf24ce50}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!divMatrix@{divMatrix}}
+\index{divMatrix@{divMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{divMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{matrix__funcs_8h_27aecc34626240faadb44affcf24ce50}
+
+
+\hypertarget{matrix__funcs_8h_36f25578c616ae9eef3a415c4a2629cf}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!divMatrixByConst@{divMatrixByConst}}
+\index{divMatrixByConst@{divMatrixByConst}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{divMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{matrix__funcs_8h_36f25578c616ae9eef3a415c4a2629cf}
+
+
+\hypertarget{matrix__funcs_8h_7eba9a6bc31825849077a736f1b83c2c}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!dotProductMatrix@{dotProductMatrix}}
+\index{dotProductMatrix@{dotProductMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{dotProductMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int dotProductMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{matrix__funcs_8h_7eba9a6bc31825849077a736f1b83c2c}
+
+
+\hypertarget{matrix__funcs_8h_7d2daf21d136f6f0fd8a2f64caf76138}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!fillMatrix@{fillMatrix}}
+\index{fillMatrix@{fillMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{fillMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void fillMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em cellValue})}}
+\label{matrix__funcs_8h_7d2daf21d136f6f0fd8a2f64caf76138}
+
+
+\hypertarget{matrix__funcs_8h_1411e90b906c182ab9940fdbe216c7eb}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!findMatrixDistance@{findMatrixDistance}}
+\index{findMatrixDistance@{findMatrixDistance}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{findMatrixDistance}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-inline {\bf distanceT} findMatrixDistance ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} {\em startRow}, \/  {\bf coordT} {\em startCol}, \/  {\bf Matrix} $\ast$ {\em win})}}
+\label{matrix__funcs_8h_1411e90b906c182ab9940fdbe216c7eb}
+
+
+\hypertarget{matrix__funcs_8h_e55e3ff581f9fea0a9492cba696ea4a1}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!imageToMatrix@{imageToMatrix}}
+\index{imageToMatrix@{imageToMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{imageToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ imageToMatrix ({\bf Image} $\ast$ {\em image})}}
+\label{matrix__funcs_8h_e55e3ff581f9fea0a9492cba696ea4a1}
+
+
+\hypertarget{matrix__funcs_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!matrixToImage@{matrixToImage}}
+\index{matrixToImage@{matrixToImage}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{matrixToImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ matrixToImage ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}
+
+
+\hypertarget{matrix__funcs_8h_026b2f260dff8880370b3af3935c4c4a}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!maxMatrix@{maxMatrix}}
+\index{maxMatrix@{maxMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{maxMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} maxMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{matrix__funcs_8h_026b2f260dff8880370b3af3935c4c4a}
+
+
+\hypertarget{matrix__funcs_8h_86c8d1e9657ad1747c5d1b1724d09c95}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!minMatrix@{minMatrix}}
+\index{minMatrix@{minMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{minMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} minMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{matrix__funcs_8h_86c8d1e9657ad1747c5d1b1724d09c95}
+
+
+\hypertarget{matrix__funcs_8h_0a8b1ecc621f3bed9d716fa3752e9647}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!mulMatrix@{mulMatrix}}
+\index{mulMatrix@{mulMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{mulMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{matrix__funcs_8h_0a8b1ecc621f3bed9d716fa3752e9647}
+
+
+\hypertarget{matrix__funcs_8h_368705f484251b9b09b9cb34c7ebf802}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!mulMatrixByConst@{mulMatrixByConst}}
+\index{mulMatrixByConst@{mulMatrixByConst}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{mulMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{matrix__funcs_8h_368705f484251b9b09b9cb34c7ebf802}
+
+
+\hypertarget{matrix__funcs_8h_c8dd4a661e4c6cbf7d824242fa195c68}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!normalizeMatrix@{normalizeMatrix}}
+\index{normalizeMatrix@{normalizeMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{normalizeMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void normalizeMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_c8dd4a661e4c6cbf7d824242fa195c68}
+
+
+\hypertarget{matrix__funcs_8h_2dd9b18d5aad7fac22714b8be0be2ed5}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!rotate180Matrix@{rotate180Matrix}}
+\index{rotate180Matrix@{rotate180Matrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{rotate180Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ rotate180Matrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_2dd9b18d5aad7fac22714b8be0be2ed5}
+
+
+\hypertarget{matrix__funcs_8h_3d13707f4dce886dcd41d7e003ba205d}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!subMatrix@{subMatrix}}
+\index{subMatrix@{subMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{subMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void subMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{matrix__funcs_8h_3d13707f4dce886dcd41d7e003ba205d}
+
+
+\hypertarget{matrix__funcs_8h_b8d861abd2a3cfab7783d3839c548b10}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!sumMatrix@{sumMatrix}}
+\index{sumMatrix@{sumMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{sumMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int sumMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{matrix__funcs_8h_b8d861abd2a3cfab7783d3839c548b10}
+
+
+\hypertarget{matrix__funcs_8h_9dfe0eeefac1b3c3cc63c443938f35d6}{
+\index{matrix\_\-funcs.h@{matrix\_\-funcs.h}!zeroPadMatrix@{zeroPadMatrix}}
+\index{zeroPadMatrix@{zeroPadMatrix}!matrix_funcs.h@{matrix\_\-funcs.h}}
+\subsubsection[{zeroPadMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ zeroPadMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols}, \/  {\bf coordT} {\em startRow}, \/  {\bf coordT} {\em startCol})}}
+\label{matrix__funcs_8h_9dfe0eeefac1b3c3cc63c443938f35d6}
+
+

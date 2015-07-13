@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/wh_main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/wh_main.cpp</h1><code>#include &lt;conio.h&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
+<code>#include &lt;fstream&gt;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h_source.html">bmp/EasyBMP.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h_source.html">pm/whimport.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Определения типов</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a> )(<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>)</td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#ef3e4ac6a6da6b6cc0c4a7d287cfcd8c">createImage2</a> (<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#f5e9e5ca61f31dcf78bc441dfad2ed78">loadImage</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> *_bitmap)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#a6186258931fec652e173a4790287117">loadPatternImage</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> *_bitmap)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#7c403b20bce50d7ffaecb9b41ec5a8dd">grayScale</a> (<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#559431a6e84d91f4d97ada603d14bafe">colorScaleB</a> (<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#972a8c4f1038ee9ea7e3ac2e75347225">colorScaleG</a> (<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#4373f11a1b203cade32c95354f58e028">colorScaleR</a> (<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#cce9fc445267a2d4fb467a02cbdb9ea2">doProcess</a> (const char *featureFileName, const char *patternFileName, int corrpercent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="wh__main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = colorScaleB</td></tr>
+
+</table>
+<hr><h2>Типы</h2>
+<a class="anchor" name="5882544fccae5d66b769ad92980a4802"></a><!-- doxytag: member="wh_main.cpp::TMethod" ref="5882544fccae5d66b769ad92980a4802" args=")(RGBApixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>(* <a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>)(<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="559431a6e84d91f4d97ada603d14bafe"></a><!-- doxytag: member="wh_main.cpp::colorScaleB" ref="559431a6e84d91f4d97ada603d14bafe" args="(RGBApixel _pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> colorScaleB           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="972a8c4f1038ee9ea7e3ac2e75347225"></a><!-- doxytag: member="wh_main.cpp::colorScaleG" ref="972a8c4f1038ee9ea7e3ac2e75347225" args="(RGBApixel _pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> colorScaleG           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4373f11a1b203cade32c95354f58e028"></a><!-- doxytag: member="wh_main.cpp::colorScaleR" ref="4373f11a1b203cade32c95354f58e028" args="(RGBApixel _pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> colorScaleR           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ef3e4ac6a6da6b6cc0c4a7d287cfcd8c"></a><!-- doxytag: member="wh_main.cpp::createImage2" ref="ef3e4ac6a6da6b6cc0c4a7d287cfcd8c" args="(pixelT *pixels, coordT rows, coordT cols)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_image.html">Image</a>* createImage2           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *&nbsp;</td>
+          <td class="paramname"> <em>pixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>cols</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="cce9fc445267a2d4fb467a02cbdb9ea2"></a><!-- doxytag: member="wh_main.cpp::doProcess" ref="cce9fc445267a2d4fb467a02cbdb9ea2" args="(const char *featureFileName, const char *patternFileName, int corrpercent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_w_h_setup.html">WHSetup</a> * doProcess           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>featureFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>patternFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>corrpercent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7c403b20bce50d7ffaecb9b41ec5a8dd"></a><!-- doxytag: member="wh_main.cpp::grayScale" ref="7c403b20bce50d7ffaecb9b41ec5a8dd" args="(RGBApixel _pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> grayScale           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f5e9e5ca61f31dcf78bc441dfad2ed78"></a><!-- doxytag: member="wh_main.cpp::loadImage" ref="f5e9e5ca61f31dcf78bc441dfad2ed78" args="(cppBMP *_bitmap)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_image.html">Image</a> * loadImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> *&nbsp;</td>
+          <td class="paramname"> <em>_bitmap</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="a6186258931fec652e173a4790287117"></a><!-- doxytag: member="wh_main.cpp::loadPatternImage" ref="a6186258931fec652e173a4790287117" args="(cppBMP *_bitmap)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_image.html">Image</a> * loadPatternImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> *&nbsp;</td>
+          <td class="paramname"> <em>_bitmap</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0ddf1224851353fc92bfbff6f499fa97"></a><!-- doxytag: member="wh_main.cpp::main" ref="0ddf1224851353fc92bfbff6f499fa97" args="(int argc, char *argv[])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>argv</em>[]</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="884bc9c4b36f5374b842d2aca48e34fb"></a><!-- doxytag: member="wh_main.cpp::method" ref="884bc9c4b36f5374b842d2aca48e34fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a> <a class="el" href="wh__main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = colorScaleB          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

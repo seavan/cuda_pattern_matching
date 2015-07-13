@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/simple_matching_run/simpleMatching_cuda.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/simple_matching_run/simpleMatching_cuda.cpp</h1><code>#include &lt;conio.h&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
+<code>#include &lt;fstream&gt;</code><br>
+<code>#include &quot;<a class="el" href="simple__matching__run_2bmp_2_easy_b_m_p_8h_source.html">bmp/EasyBMP.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="simple__matching__run_2pm_2whimport_8h_source.html">pm/whimport.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="simple_8h_source.html">simple/simple.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Определения типов</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef unsigned char(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#f179b724e8502f3d77ef713385ed2555">TMethod</a> )(<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>)</td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#4cebdacbdee561119bb615ae18d3d506">cudaPatternMatch</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#ef3e4ac6a6da6b6cc0c4a7d287cfcd8c">createImage2</a> (<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#76e6bbf2dc8db703a21bce9a5fd9cd95">runTest</a> (int argc, char **argv)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#fc788118d03a4c52faa29e816f0b951e">simpleMatchingCuda</a> (int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnWidth, int _ptnHeight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#017828ccde9e86dedd48b5d4f3462b6d">grayScale</a> (<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#ab3b8954b0ceea95e3f7a6a13bd42a7b">loadImage</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> *_bitmap, int &amp;_width, int &amp;_height)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#7542cf893e429eb8648b56548f5a26ed">loadPatternImage</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> *_bitmap, int &amp;_width, int &amp;_height)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_matching__cuda_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = grayScale</td></tr>
+
+</table>
+<hr><h2>Типы</h2>
+<a class="anchor" name="f179b724e8502f3d77ef713385ed2555"></a><!-- doxytag: member="simpleMatching_cuda.cpp::TMethod" ref="f179b724e8502f3d77ef713385ed2555" args=")(RGBApixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned char(* <a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>)(<a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="ef3e4ac6a6da6b6cc0c4a7d287cfcd8c"></a><!-- doxytag: member="simpleMatching_cuda.cpp::createImage2" ref="ef3e4ac6a6da6b6cc0c4a7d287cfcd8c" args="(pixelT *pixels, coordT rows, coordT cols)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_image.html">Image</a>* createImage2           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *&nbsp;</td>
+          <td class="paramname"> <em>pixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>cols</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4cebdacbdee561119bb615ae18d3d506"></a><!-- doxytag: member="simpleMatching_cuda.cpp::cudaPatternMatch" ref="4cebdacbdee561119bb615ae18d3d506" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cudaPatternMatch           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="017828ccde9e86dedd48b5d4f3462b6d"></a><!-- doxytag: member="simpleMatching_cuda.cpp::grayScale" ref="017828ccde9e86dedd48b5d4f3462b6d" args="(RGBApixel _pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char grayScale           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ab3b8954b0ceea95e3f7a6a13bd42a7b"></a><!-- doxytag: member="simpleMatching_cuda.cpp::loadImage" ref="ab3b8954b0ceea95e3f7a6a13bd42a7b" args="(cppBMP *_bitmap, int &amp;_width, int &amp;_height)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* loadImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> *&nbsp;</td>
+          <td class="paramname"> <em>_bitmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_height</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7542cf893e429eb8648b56548f5a26ed"></a><!-- doxytag: member="simpleMatching_cuda.cpp::loadPatternImage" ref="7542cf893e429eb8648b56548f5a26ed" args="(cppBMP *_bitmap, int &amp;_width, int &amp;_height)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* loadPatternImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> *&nbsp;</td>
+          <td class="paramname"> <em>_bitmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_height</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0ddf1224851353fc92bfbff6f499fa97"></a><!-- doxytag: member="simpleMatching_cuda.cpp::main" ref="0ddf1224851353fc92bfbff6f499fa97" args="(int argc, char *argv[])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>argv</em>[]</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="76e6bbf2dc8db703a21bce9a5fd9cd95"></a><!-- doxytag: member="simpleMatching_cuda.cpp::runTest" ref="76e6bbf2dc8db703a21bce9a5fd9cd95" args="(int argc, char **argv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void runTest           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fc788118d03a4c52faa29e816f0b951e"></a><!-- doxytag: member="simpleMatching_cuda.cpp::simpleMatchingCuda" ref="fc788118d03a4c52faa29e816f0b951e" args="(int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnWidth, int _ptnHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* simpleMatchingCuda           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="884bc9c4b36f5374b842d2aca48e34fb"></a><!-- doxytag: member="simpleMatching_cuda.cpp::method" ref="884bc9c4b36f5374b842d2aca48e34fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a> <a class="el" href="wh__main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = grayScale          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

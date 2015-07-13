@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/whimport.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/whimport.h</h1><a href="walsh__hadamard__run_2pm_2whimport_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00003"></a>00003 <span class="comment"> *****************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment"> * file:        defs.h                                                       *</span>
+<a name="l00005"></a>00005 <span class="comment"> *                                                                           *</span>
+<a name="l00006"></a>00006 <span class="comment"> * description: The project's common definitions.                            *</span>
+<a name="l00007"></a>00007 <span class="comment"> *****************************************************************************/</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef _defs_h_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define _defs_h_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#696db3d7aea6d9d091f2ac73432b948b">00017</a> <span class="keyword">typedef</span> _int8 <a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a>;
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="keywordtype">char</span> *message);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#endif</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00027"></a>00027 <span class="comment">/*****************************************************************************</span>
+<a name="l00028"></a>00028 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00029"></a>00029 <span class="comment"> *****************************************************************************</span>
+<a name="l00030"></a>00030 <span class="comment"> * file:        image.h                                                      *</span>
+<a name="l00031"></a>00031 <span class="comment"> *                                                                           *</span>
+<a name="l00032"></a>00032 <span class="comment"> * description: Utilities for handling 8-bit grey level images.              *</span>
+<a name="l00033"></a>00033 <span class="comment"> *              An Image is created using an array of pixels (each pixel     *</span>
+<a name="l00034"></a>00034 <span class="comment"> *              indicates a grey level) and the image's dimensions.          *</span>
+<a name="l00035"></a>00035 <span class="comment"> *              The pixel array should be in rows order, i.e. the top row    *</span>
+<a name="l00036"></a>00036 <span class="comment"> *              from left to right, then the second row from left to right,  *</span>
+<a name="l00037"></a>00037 <span class="comment"> *              etc.                                                         *</span>
+<a name="l00038"></a>00038 <span class="comment"> *              The image data should be accessed only using the available   *</span>
+<a name="l00039"></a>00039 <span class="comment"> *              macros.                                                      *</span>
+<a name="l00040"></a>00040 <span class="comment"> ****************************************************************************/</span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#ifndef _image_h_</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#define _image_h_</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2defs_8h.html">defs.h</a>"</span>
+<a name="l00046"></a>00046 
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">00049</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">00051</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00054"></a>00054         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, cols;
+<a name="l00055"></a>00055         <a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels; <span class="comment">// P0,0..P0,width  P1,0..P1,width ... Pheigth,0..Pheight,width</span>
+<a name="l00056"></a>00056 } <a class="code" href="struct_image.html">Image</a>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#768f8aeac010667e17b502625102794f">00061</a> <span class="preprocessor">#define imRows(im)    (im-&gt;rows)</span>
+<a name="l00062"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#a9db98794d88c4e96ad91bfeb5bf353b">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define imCols(im)    (im-&gt;cols)</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span>
+<a name="l00064"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#91c8a9019f0fa2ae91a1c8a0d9d5cca2">00064</a> <span class="preprocessor">#define pixelsPtr(im) (im-&gt;pixels)</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>
+<a name="l00066"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#289bb81030befd89fcf48246db78552e">00066</a> <span class="preprocessor">#define pixelVal(im, y, x) (im-&gt;pixels[y * im-&gt;cols + x])</span>
+<a name="l00067"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#6d8fc9a340714a1c62da73a9496f7d74">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define pixelValD(im, i)   (im-&gt;pixels[i])</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <a class="code" href="struct_image.html">Image</a> * <a class="code" href="simple__matching__run_2pm_2image_8c.html#f0ed98a439633805c834ce41bba31bf5">createImage</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols);
+<a name="l00072"></a>00072 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2image_8c.html#fac650c01cf1fdc985e41e1979d563f4">destroyImage</a>(<a class="code" href="struct_image.html">Image</a> *image);
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2image_8c.html#2ed0e79edb3905e7fb8da4055915cc83">logImage</a>(<a class="code" href="struct_image.html">Image</a> *image);
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2image_8c.html#5b1eb316cbff69b93f2989dcaa4170a3">copyImageSegment</a>(<a class="code" href="struct_image.html">Image</a> *source, <a class="code" href="struct_image.html">Image</a> *dest,
+<a name="l00077"></a>00077                                           <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfRows,
+<a name="l00078"></a>00078                                           <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfCols);
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="preprocessor">#endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span><span class="comment">/*****************************************************************************</span>
+<a name="l00082"></a>00082 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00083"></a>00083 <span class="comment"> *****************************************************************************</span>
+<a name="l00084"></a>00084 <span class="comment"> * file:        matrix.h                                                     *</span>
+<a name="l00085"></a>00085 <span class="comment"> *                                                                           *</span>
+<a name="l00086"></a>00086 <span class="comment"> * description: Utilities for handling 2-D matrices with 32-bit values.      *</span>
+<a name="l00087"></a>00087 <span class="comment"> *              A Matrix is allocated using it's dimensions (rows,cols).     *</span>
+<a name="l00088"></a>00088 <span class="comment"> *              It is also possible to create a matrix from a given image.   *</span>
+<a name="l00089"></a>00089 <span class="comment"> *              The Matrix data should be accessed only using the available  *</span>
+<a name="l00090"></a>00090 <span class="comment"> *              macros.                                                      *</span>
+<a name="l00091"></a>00091 <span class="comment"> *****************************************************************************/</span>
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="preprocessor">#ifndef _matrix_h_</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define _matrix_h_</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00096"></a>00096 
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">00099</a> <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>;
+<a name="l00100"></a>00100 
+<a name="l00101"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#7b872890b3a65c758de9e62cdf739754">00101</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a>;
+<a name="l00102"></a>00102 
+<a name="l00103"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">00103</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a>;
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00106"></a>00106         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, cols;
+<a name="l00107"></a>00107         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#156878bfbcff0c64d75da712abe72bd6">size</a>;
+<a name="l00108"></a>00108         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *cellValues;
+<a name="l00109"></a>00109         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> **rowsPtr;
+<a name="l00110"></a>00110 } <a class="code" href="struct_matrix.html">Matrix</a>;
+<a name="l00111"></a>00111 
+<a name="l00113"></a>00113 
+<a name="l00114"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#64532c673824aaf7357c8dd5ee2bb840">00114</a> <span class="preprocessor">#define HIGHEST_CELL_VALUE 0x7fffffff</span>
+<a name="l00115"></a>00115 <span class="preprocessor"></span>
+<a name="l00116"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#8eb64dd5bf0124215d7005db399a7c95">00116</a> <span class="preprocessor">#define LOWEST_CELL_VALUE 0x80000000</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span>
+<a name="l00119"></a>00119 
+<a name="l00120"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#7956d21aff5d9ffe6de094f60f3a161d">00120</a> <span class="preprocessor">#define matVal(mat, y, x)       (mat-&gt;rowsPtr[y][x])</span>
+<a name="l00121"></a>00121 <span class="preprocessor"></span>
+<a name="l00122"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#d3ab0f5f302717285a12303f1f5a9e86">00122</a> <span class="preprocessor">#define matValD(mat, i)         (mat-&gt;cellValues[i])</span>
+<a name="l00123"></a>00123 <span class="preprocessor"></span>
+<a name="l00124"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#1379a049272f210908e5461b2b668ba7">00124</a> <span class="preprocessor">#define matValPtr(mat)      (mat-&gt;cellValues)</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span>
+<a name="l00126"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#ff1179b18ab2047060bab837df4a4527">00126</a> <span class="preprocessor">#define matCols(mat)            (mat-&gt;cols)</span>
+<a name="l00127"></a>00127 <span class="preprocessor"></span>
+<a name="l00128"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#6c80e2fcef10381dd06bd211dbdcf530">00128</a> <span class="preprocessor">#define matRows(mat)            (mat-&gt;rows)</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span>
+<a name="l00130"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">00130</a> <span class="preprocessor">#define matSize(mat)            (mat-&gt;size)</span>
+<a name="l00131"></a>00131 <span class="preprocessor"></span>
+<a name="l00132"></a>00132 
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="comment">/*</span>
+<a name="l00136"></a>00136 <span class="comment">Returns the distance between the given win and the segment from the given matrix</span>
+<a name="l00137"></a>00137 <span class="comment">that starts in (startRow, startCol). The segment's size will be as the win's size.</span>
+<a name="l00138"></a>00138 <span class="comment">*/</span>
+<a name="l00139"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#1411e90b906c182ab9940fdbe216c7eb">00139</a> __inline <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> <a class="code" href="matrix__funcs_8h.html#1411e90b906c182ab9940fdbe216c7eb">findMatrixDistance</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startCol, <a class="code" href="struct_matrix.html">Matrix</a> *win) {
+<a name="l00140"></a>00140         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *matPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(mat) + startRow * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(mat) + startCol,
+<a name="l00141"></a>00141                    *winPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(win);
+<a name="l00142"></a>00142         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6c80e2fcef10381dd06bd211dbdcf530">matRows</a>(win), cols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(win), col;
+<a name="l00143"></a>00143         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> colsDif = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(mat) - cols;
+<a name="l00144"></a>00144         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> result = 0;
+<a name="l00145"></a>00145         <span class="keywordflow">while</span> (rows--) {
+<a name="l00146"></a>00146                 col = cols;
+<a name="l00147"></a>00147                 <span class="keywordflow">while</span> (col--) {
+<a name="l00148"></a>00148                         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> dif = *(matPtr++) - *(winPtr++);
+<a name="l00149"></a>00149                         result += dif * dif;
+<a name="l00150"></a>00150                 }
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152                 matPtr += colsDif;
+<a name="l00153"></a>00153         }
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155         <span class="keywordflow">return</span> result;
+<a name="l00156"></a>00156 }
+<a name="l00157"></a>00157 
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e2651d62fad27cd482ddc4840ae62420">allocMatrix</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols);
+<a name="l00161"></a>00161 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#093cd57d92bc0a4a25bf73a200f5807f">destroyMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00162"></a>00162 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#b92ec93e974d556c963b23b989aba0a0">cloneMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e55e3ff581f9fea0a9492cba696ea4a1">imageToMatrix</a>(<a class="code" href="struct_image.html">Image</a> *image);
+<a name="l00165"></a>00165 <a class="code" href="struct_image.html">Image</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#c24445e9ac9bf05cf4c9f3a9062f3a3a">matrixToImage</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#7d2daf21d136f6f0fd8a2f64caf76138">fillMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> cellValue);
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#c8dd4a661e4c6cbf7d824242fa195c68">normalizeMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#3a5f6ba791013cee04d947e1bf53b776">addMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00172"></a>00172 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#3d13707f4dce886dcd41d7e003ba205d">subMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00173"></a>00173 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#0a8b1ecc621f3bed9d716fa3752e9647">mulMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00174"></a>00174 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#27aecc34626240faadb44affcf24ce50">divMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00175"></a>00175 <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#7eba9a6bc31825849077a736f1b83c2c">dotProductMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00176"></a>00176 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#368705f484251b9b09b9cb34c7ebf802">mulMatrixByConst</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00177"></a>00177 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#36f25578c616ae9eef3a415c4a2629cf">divMatrixByConst</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00178"></a>00178 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#cafac4b7f2a0681fa93efe150bb23b09">addConstToMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#b8d861abd2a3cfab7783d3839c548b10">sumMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00181"></a>00181 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#86c8d1e9657ad1747c5d1b1724d09c95">minMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x);
+<a name="l00182"></a>00182 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#026b2f260dff8880370b3af3935c4c4a">maxMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x);
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#57243bea80a1e7d9ed383da23e05eadf">convoluteMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="struct_matrix.html">Matrix</a> *mask);
+<a name="l00185"></a>00185 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#9dfe0eeefac1b3c3cc63c443938f35d6">zeroPadMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startCol);
+<a name="l00186"></a>00186 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#2dd9b18d5aad7fac22714b8be0be2ed5">rotate180Matrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#f8e5cf7806a77bc0245e838c4b7e49b9">copyMatrixSegment</a>(<a class="code" href="struct_matrix.html">Matrix</a> *source, <a class="code" href="struct_matrix.html">Matrix</a> *dest,
+<a name="l00189"></a>00189                                            <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfRows,
+<a name="l00190"></a>00190                                            <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfCols);
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192 <span class="preprocessor">#endif</span>
+<a name="l00193"></a>00193 <span class="preprocessor"></span><span class="comment">/*****************************************************************************</span>
+<a name="l00194"></a>00194 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00195"></a>00195 <span class="comment"> *****************************************************************************</span>
+<a name="l00196"></a>00196 <span class="comment"> * file:        wh.h                                                         *</span>
+<a name="l00197"></a>00197 <span class="comment"> *                                                                           *</span>
+<a name="l00198"></a>00198 <span class="comment"> * description: A utility for performing pattern matching using projection   *</span>
+<a name="l00199"></a>00199 <span class="comment"> *              on Walsh Hadamard kernels.                                   *</span>
+<a name="l00200"></a>00200 <span class="comment"> *              A WHSetup struct should be created first, defining the       *</span>
+<a name="l00201"></a>00201 <span class="comment"> *              sizes of the source image and the pattern, and the required  *</span>
+<a name="l00202"></a>00202 <span class="comment"> *              amount of WH kernels to be used.                             *</span>
+<a name="l00203"></a>00203 <span class="comment"> *              Next, the desired source image and pattern for matching      *</span>
+<a name="l00204"></a>00204 <span class="comment"> *              should be specified.                                         *</span>
+<a name="l00205"></a>00205 <span class="comment"> *              Now the pattern matching may be performed, and the results   *</span>
+<a name="l00206"></a>00206 <span class="comment"> *              may be obtained from the WHSetup using the available         *</span>
+<a name="l00207"></a>00207 <span class="comment"> *              macros. The results include an array of Matches (each match  *</span>
+<a name="l00208"></a>00208 <span class="comment"> *              contains the location of the match in the source image and   *</span>
+<a name="l00209"></a>00209 <span class="comment"> *              the euclidean distance of the match from the pattern) and    *</span>
+<a name="l00210"></a>00210 <span class="comment"> *              number of matches that were found.                           *</span>
+<a name="l00211"></a>00211 <span class="comment"> *****************************************************************************/</span>
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213 <span class="preprocessor">#ifndef _walsh_h_</span>
+<a name="l00214"></a>00214 <span class="preprocessor"></span><span class="preprocessor">#define _walsh_h_</span>
+<a name="l00215"></a>00215 <span class="preprocessor"></span>
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 <span class="comment">// define only one of the following three definitions according to the required pattern size:</span>
+<a name="l00219"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#779dbe79f385842ec6084a7b4cdc2f03">00219</a> <span class="preprocessor">#define MAX_PATTERN_32 // define if max pattern size is 32x32</span>
+<a name="l00220"></a>00220 <span class="preprocessor"></span><span class="comment">//#define MAX_PATTERN_64 // define if max pattern size is 64x64</span>
+<a name="l00221"></a>00221 <span class="comment">//#define MAX_PATTERN_128 // define if max pattern size is 128x128</span>
+<a name="l00222"></a>00222 
+<a name="l00223"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#39bb8f7702939d842b16ba48024d07a3">00223</a> <span class="preprocessor">#define MAX_BASIS_1024 // define if up to 1024 basis are used (which is always the case in 32x32)</span>
+<a name="l00224"></a>00224 <span class="preprocessor"></span>
+<a name="l00225"></a>00225 <span class="comment">// the following values should only be changed if they produce better running time</span>
+<a name="l00226"></a>00226 <span class="comment">// on the specific machine.</span>
+<a name="l00227"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#90eb498bf38dedbae958f1ee5bea9954">00227</a> <span class="preprocessor">#define BUFFER_SIZE_32 16832 // the buffer size to use for patterns sizes up to 32x32</span>
+<a name="l00228"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#dd413e620f5e31f4f42f74080a0bda56">00228</a> <span class="preprocessor"></span><span class="preprocessor">#define BUFFER_SIZE_64 34664 // the buffer size to use for patterns sizes up to 64x64</span>
+<a name="l00229"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#2bd1b712d38fe5f23ec3975a4b717a2f">00229</a> <span class="preprocessor"></span><span class="preprocessor">#define BUFFER_SIZE_128 69328 // the buffer size to use for patterns sizes up to 128x128</span>
+<a name="l00230"></a>00230 <span class="preprocessor"></span>
+<a name="l00232"></a>00232 
+<a name="l00233"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">00233</a> <span class="keyword">typedef</span> <span class="keywordtype">signed</span> _int32 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>;
+<a name="l00234"></a>00234 
+<a name="l00235"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#22f5977248d0f2af892f3ac9af10b1a7">00235</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> _int8 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>;
+<a name="l00236"></a>00236 
+<a name="l00237"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">00237</a> <span class="keyword">typedef</span> _int8 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a>;
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239 <span class="comment">// A branch in the WH tree. Every node contains a matrix.</span>
+<a name="l00240"></a>00240 <span class="comment">// The top matrix is the original image, and the leaf is the convolution of the</span>
+<a name="l00241"></a>00241 <span class="comment">// original image with the corresponding WH basis.</span>
+<a name="l00242"></a>00242 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00243"></a>00243         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> depth;  <span class="comment">// number of levels in the branch (excluding the top original image)</span>
+<a name="l00244"></a>00244         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd; <span class="comment">// current basis index of the branch</span>
+<a name="l00245"></a>00245         <a class="code" href="struct_matrix.html">Matrix</a> **matrices; <span class="comment">// array of depth size: the matrices in each level</span>
+<a name="l00246"></a>00246         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *delta; <span class="comment">// array of depth size: the delta between pixels that are added/subtracted in each level</span>
+<a name="l00247"></a>00247         <a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a> *horizontal; <span class="comment">// array of depth size: the direction of addition/subtraction in each level (true=horizontal,false=vertical)</span>
+<a name="l00248"></a>00248         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> **sign; <span class="comment">// array [depth][numOfBasis]: the sign (addition/subtraction) for each level and basis index</span>
+<a name="l00249"></a>00249         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **nodeID; <span class="comment">// array [depth + 1][numOfBasis]: the ID of each node in the WH tree (in post order)</span>
+<a name="l00250"></a>00250         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *pixelNodeIDValues; <span class="comment">// array of the original image size: the node ID to which each pixel in the matrix is updated for.</span>
+<a name="l00251"></a>00251         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **pixelNodeIDRowsPtr; <span class="comment">// rows pointer for the pixelNodeIDValues array.</span>
+<a name="l00252"></a>00252 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00253"></a>00253 <span class="preprocessor"></span>        <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> **climbLevels; <span class="comment">// array [numOfBasis][numOfBasis]: the levels to climb in the tree when moving from one basis index to another.</span>
+<a name="l00254"></a>00254 <span class="preprocessor">#else </span>
+<a name="l00255"></a>00255 <span class="preprocessor"></span>        <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *climbLevels; <span class="comment">// array of numOfBasis size: the levels to climb in the tree when moving from a basis index to the following basis.</span>
+<a name="l00256"></a>00256 <span class="preprocessor">#endif</span>
+<a name="l00257"></a>00257 <span class="preprocessor"></span>} <a class="code" href="struct_branch.html">Branch</a>;
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 <span class="comment">// A match between the pattern and the source image.</span>
+<a name="l00260"></a>00260 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00261"></a>00261         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, x; <span class="comment">// the location of the match in the source image</span>
+<a name="l00262"></a>00262         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> distance; <span class="comment">// the euclidean distance between the pattern and the match</span>
+<a name="l00263"></a>00263 } <a class="code" href="struct_match.html">Match</a>;
+<a name="l00264"></a>00264 
+<a name="l00265"></a>00265 <span class="comment">// A setup for pattern matching. A setup is created per source image size, pattern size &amp;</span>
+<a name="l00266"></a>00266 <span class="comment">// required number of WH basis. Whenever the source image or pattern are </span>
+<a name="l00267"></a>00267 <span class="comment">// changed (and their size remain the same), the setup should be updated. It is also</span>
+<a name="l00268"></a>00268 <span class="comment">// possible to set the percentage that control the pattern matching method.</span>
+<a name="l00269"></a>00269 <span class="comment">// The result of the pattern matching are updated in the setup (the matches array and</span>
+<a name="l00270"></a>00270 <span class="comment">// numOfMatches).</span>
+<a name="l00271"></a>00271 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00272"></a>00272         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows; <span class="comment">// number of rows in the source image</span>
+<a name="l00273"></a>00273         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols; <span class="comment">// number of cols in the source image</span>
+<a name="l00274"></a>00274         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows; <span class="comment">// number of rows (and cols) in the pattern image</span>
+<a name="l00275"></a>00275         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis; <span class="comment">// number of supported WH basis</span>
+<a name="l00276"></a>00276         <a class="code" href="struct_matrix.html">Matrix</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e546127c403cf0cbb041e0ebeb8ba664">sourceImage</a>; <span class="comment">// source image</span>
+<a name="l00277"></a>00277         <a class="code" href="struct_matrix.html">Matrix</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e009f5822ff50acfdf0873c916f5a834">patternImage</a>; <span class="comment">// pattern image</span>
+<a name="l00278"></a>00278         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *patternProjections; <span class="comment">// array of numOfBasis size: the projections of the pattern on the first numOfBasis WH basis</span>
+<a name="l00279"></a>00279         <a class="code" href="struct_branch.html">Branch</a> *branch; <span class="comment">// a branch in the WH tree</span>
+<a name="l00280"></a>00280         <span class="keywordtype">float</span> startBottomUpPercent; <span class="comment">// for suspected windows under this percentage, the bottom up method should be used</span>
+<a name="l00281"></a>00281         <span class="keywordtype">float</span> startDistancePercent; <span class="comment">// for suspected windows under this percentage, the direct distance method should be used</span>
+<a name="l00282"></a>00282         <a class="code" href="struct_match.html">Match</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">matches</a>; <span class="comment">// an array of matches that were found in the pattern matching process</span>
+<a name="l00283"></a>00283         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> <a class="code" href="simple__matching__run_2pm_2wh_8h.html#69fc91113933df80ff4538183d57b500">numOfMatches</a>; <span class="comment">// number of matches found in the pattern matching process</span>
+<a name="l00284"></a>00284 } <a class="code" href="struct_w_h_setup.html">WHSetup</a>;
+<a name="l00285"></a>00285 
+<a name="l00287"></a>00287 
+<a name="l00288"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">00288</a> <span class="preprocessor">#define PLUS 1 // represents the plus sign</span>
+<a name="l00289"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#5381a445a1e4bdc36460151d82eed95a">00289</a> <span class="preprocessor"></span><span class="preprocessor">#define MINUS -1 // represents the minus sign</span>
+<a name="l00290"></a>00290 <span class="preprocessor"></span>
+<a name="l00291"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#220ef7e31d8d839246660bf0aa8f3eee">00291</a> <span class="preprocessor">#define DEFAULT_BOTTOM_UP_PERCENT 10.0 // default percentage under which the bottom up method should be used</span>
+<a name="l00292"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#e3b6e60cca467e955b438882e4506614">00292</a> <span class="preprocessor"></span><span class="preprocessor">#define DEFAULT_DISTANCE_PERCENT 2.0 // default percentage under which the direct distance method should be used</span>
+<a name="l00293"></a>00293 <span class="preprocessor"></span>
+<a name="l00294"></a>00294 <span class="preprocessor">#ifdef MAX_PATTERN_32</span>
+<a name="l00295"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#6b20d41d6252e9871430c242cb1a56e7">00295</a> <span class="preprocessor"></span><span class="preprocessor">        #define BUFFER_SIZE BUFFER_SIZE_32</span>
+<a name="l00296"></a>00296 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00297"></a>00297 <span class="preprocessor"></span><span class="preprocessor">        #ifdef MAX_PATTERN_64</span>
+<a name="l00298"></a>00298 <span class="preprocessor"></span><span class="preprocessor">                #define BUFFER_SIZE BUFFER_SIZE_64</span>
+<a name="l00299"></a>00299 <span class="preprocessor"></span><span class="preprocessor">        #else</span>
+<a name="l00300"></a>00300 <span class="preprocessor"></span><span class="preprocessor">                #define BUFFER_SIZE BUFFER_SIZE_128</span>
+<a name="l00301"></a>00301 <span class="preprocessor"></span><span class="preprocessor">        #endif</span>
+<a name="l00302"></a>00302 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00303"></a>00303 <span class="preprocessor"></span>
+<a name="l00305"></a>00305 
+<a name="l00306"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#bcaa56f51c20292898754fce33b5a991">00306</a> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>[<a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]; <span class="comment">// buffer for heavy memory operations</span>
+<a name="l00307"></a>00307 
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 <span class="comment">// Branch</span>
+<a name="l00311"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">00311</a> <span class="preprocessor">#define branchMat(branch, matNo)                (branch-&gt;matrices[matNo])</span>
+<a name="l00312"></a>00312 <span class="preprocessor"></span>
+<a name="l00313"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#1c79dde1ae3480ce56fa4e8f64649437">00313</a> <span class="preprocessor">#define branchDepth(branch)                 (branch-&gt;depth)</span>
+<a name="l00314"></a>00314 <span class="preprocessor"></span>
+<a name="l00315"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#4f3d00962845d4993ce72f5dabc809bb">00315</a> <span class="preprocessor">#define branchBasisInd(branch)          (branch-&gt;basisInd)</span>
+<a name="l00316"></a>00316 <span class="preprocessor"></span>
+<a name="l00317"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">00317</a> <span class="preprocessor">#define branchDelta(branch, matNo)      (branch-&gt;delta[matNo])</span>
+<a name="l00318"></a>00318 <span class="preprocessor"></span>
+<a name="l00319"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#031bfe7195c8d69ce52a0765914a0975">00319</a> <span class="preprocessor">#define branchHorizontal(branch, matNo)    (branch-&gt;horizontal[matNo])</span>
+<a name="l00320"></a>00320 <span class="preprocessor"></span>
+<a name="l00321"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#de04439c7240984ad37d2469bb4314f0">00321</a> <span class="preprocessor">#define branchSign(branch, matNo, basisInd) (branch-&gt;sign[matNo][basisInd])</span>
+<a name="l00322"></a>00322 <span class="preprocessor"></span>
+<a name="l00323"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#950a2bdc868f52ecb16c26efb89c26f0">00323</a> <span class="preprocessor">#define branchNodeID(branch, matNo, basisInd) (branch-&gt;nodeID[matNo][basisInd])</span>
+<a name="l00324"></a>00324 <span class="preprocessor"></span>
+<a name="l00325"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#7b7e5d114a9e9cab35111bdd0d6d8d04">00325</a> <span class="preprocessor">#define branchPixelNodeID(branch, y, x) (branch-&gt;pixelNodeIDRowsPtr[y][x])</span>
+<a name="l00326"></a>00326 <span class="preprocessor"></span>
+<a name="l00327"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#1dcc45ac7e24a99e3c41f607a0b79b22">00327</a> <span class="preprocessor">#define branchPixelNodeIDPtr(branch) (branch-&gt;pixelNodeIDValues)</span>
+<a name="l00328"></a>00328 <span class="preprocessor"></span>
+<a name="l00329"></a>00329 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00330"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#c49d8ecb153f3f6ce620045c9f122dee">00330</a> <span class="preprocessor"></span><span class="preprocessor">        #define branchClimbLevels(branch, toBasisInd) (branch-&gt;climbLevels[branch-&gt;basisInd][toBasisInd])</span>
+<a name="l00331"></a>00331 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00332"></a>00332 <span class="preprocessor"></span><span class="preprocessor">        #define branchClimbLevels(branch, toBasisInd) ((toBasisInd - branch-&gt;basisInd == 1) ? branch-&gt;climbLevels[branch-&gt;basisInd] : getClimbLevels(toBasisInd, branch-&gt;basisInd))</span>
+<a name="l00333"></a>00333 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00334"></a>00334 <span class="preprocessor"></span>
+<a name="l00335"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#783480734d7ad3d7573206e765ac9145">00335</a> <span class="preprocessor">#define branchMatVal(branch, matNo, y, x)    (matVal(branch-&gt;matrices[matNo], y, x))</span>
+<a name="l00336"></a>00336 <span class="preprocessor"></span>
+<a name="l00337"></a>00337 <span class="comment">// Match</span>
+<a name="l00338"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#a66d385c2e91f8d7c80afea53fd62e00">00338</a> <span class="preprocessor">#define matchY(match)        (match-&gt;y)</span>
+<a name="l00339"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#e41ed6a5b2e5512f4a01b68870782bef">00339</a> <span class="preprocessor"></span><span class="preprocessor">#define matchX(match)        (match-&gt;x)</span>
+<a name="l00340"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">00340</a> <span class="preprocessor"></span><span class="preprocessor">#define matchDistance(match) (match-&gt;distance)</span>
+<a name="l00341"></a>00341 <span class="preprocessor"></span>
+<a name="l00342"></a>00342 <span class="comment">// WHSetup</span>
+<a name="l00343"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#1818f71e58a09056d2c3d8658d25cf7d">00343</a> <span class="preprocessor">#define matches(setup)      (setup-&gt;matches)</span>
+<a name="l00344"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#69fc91113933df80ff4538183d57b500">00344</a> <span class="preprocessor"></span><span class="preprocessor">#define numOfMatches(setup) (setup-&gt;numOfMatches)</span>
+<a name="l00345"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#e546127c403cf0cbb041e0ebeb8ba664">00345</a> <span class="preprocessor"></span><span class="preprocessor">#define sourceImage(setup)  (setup-&gt;sourceImage)</span>
+<a name="l00346"></a><a class="code" href="walsh__hadamard__run_2pm_2whimport_8h.html#e009f5822ff50acfdf0873c916f5a834">00346</a> <span class="preprocessor"></span><span class="preprocessor">#define patternImage(setup) (setup-&gt;patternImage)</span>
+<a name="l00347"></a>00347 <span class="preprocessor"></span>
+<a name="l00349"></a>00349 
+<a name="l00350"></a>00350 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <a class="code" href="struct_w_h_setup.html">WHSetup</a> *<a class="code" href="simple__matching__run_2pm_2wh_8c.html#66afe4ca6ff6ee07c3d3d6e00fce94de">createWHSetup</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis);
+<a name="l00351"></a>00351 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#149d1e82609813b9b9f911aa2d43f8a4">destroyWHSetup</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup);
+<a name="l00352"></a>00352 
+<a name="l00353"></a>00353 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#86a52c3d80ad4fd61b122306675c4718">setPatternImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *pattern);
+<a name="l00354"></a>00354 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fa05aa21c32b80945192afdaec72fae7">setSourceImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *source);
+<a name="l00355"></a>00355 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#da6128fb2d8fc2053aa760648a81ed53">setMethodStartPercent</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <span class="keywordtype">float</span> bottomUpStartPercent, <span class="keywordtype">float</span> distanceStartPercent);
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#ea0a46965a2dea1e086f8d0b6875e180">whPatternMatch</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> rejectThresh);
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

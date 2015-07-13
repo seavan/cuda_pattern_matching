@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/filtration_run/filtrationMain.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/filtration_run/filtrationMain.cpp</h1><a href="filtration__run_2filtration_main_8cpp.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "../image_lib/imageLibrary.h"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include "../filtration_lib/filtrationLibrary.h"</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="filtration__run_2filtration_main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">00007</a> <span class="keywordtype">int</span> <a class="code" href="correlation_cuda_main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])
+<a name="l00008"></a>00008 {
+<a name="l00009"></a>00009         <span class="keywordtype">int</span> width, height;
+<a name="l00010"></a>00010         <span class="keywordtype">int</span> methodIndex = 0;
+<a name="l00011"></a>00011         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* input = <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(argv[1], width, height);
+<a name="l00012"></a>00012         
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014         <span class="keywordtype">float</span> coeff = 0.25;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016         <span class="keywordflow">if</span>( argc &gt; 3 )
+<a name="l00017"></a>00017         {       
+<a name="l00018"></a>00018                 <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = argv[3];
+<a name="l00019"></a>00019                 <span class="keyword">const</span> <span class="keywordtype">char</span>* scale = argv[4];
+<a name="l00020"></a>00020                 <span class="keywordtype">float</span> scaleF = atoi(scale);
+<a name="l00021"></a>00021                 scaleF /= 100.0;
+<a name="l00022"></a>00022                 coeff = scaleF;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024                 <span class="keywordflow">if</span>( strstr(method, <span class="stringliteral">"puritt"</span>) != <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a> )
+<a name="l00025"></a>00025                 {
+<a name="l00026"></a>00026                         methodIndex = 1;
+<a name="l00027"></a>00027                 }
+<a name="l00028"></a>00028                 <span class="keywordflow">else</span>
+<a name="l00029"></a>00029                         <span class="keywordflow">if</span>( strstr(method, <span class="stringliteral">"laplas"</span>) != <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a> )
+<a name="l00030"></a>00030                 {
+<a name="l00031"></a>00031                         methodIndex = 2;
+<a name="l00032"></a>00032                 }
+<a name="l00033"></a>00033                 <span class="keywordflow">else</span>
+<a name="l00034"></a>00034                 {
+<a name="l00035"></a>00035                         methodIndex = 0;
+<a name="l00036"></a>00036                 }
+<a name="l00037"></a>00037         }
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* result = <a class="code" href="filtration_library_8cpp.html#dc50f2b023b0cd92e536bfbaa612380b">filtration</a>(input, width, height, methodIndex, coeff);
+<a name="l00040"></a>00040         <a class="code" href="correlation_main_8cpp.html#9bfd5275785bd0a8fd3b49a48853bcdc">saveImage</a>(argv[2], result, width, height);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042         <span class="keywordflow">return</span> 0;
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:40:44 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

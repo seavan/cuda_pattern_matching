@@ -1,0 +1,181 @@
+\documentclass[a4paper]{book}
+\usepackage{a4wide}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{times}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large MatchingSolution \\[1ex]\large 1.0 }\\
+\vspace*{1cm}
+{\large Создано системой Doxygen 1.5.9}\\
+\vspace*{0.5cm}
+{\small Tue Jun 2 22:50:43 2009}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+\chapter{Алфавитный указатель пространств имен}
+\input{namespaces}
+\chapter{Алфавитный указатель структур данных}
+\input{annotated}
+\chapter{Список файлов}
+\input{files}
+\chapter{Пространства имен}
+\input{namespacecuda_forms}
+\include{namespace_pattern_matching_gui}
+\include{namespace_pattern_matching_gui_1_1_properties}
+\include{namespace_windows_application1}
+\chapter{Структуры данных}
+\input{struct_block}
+\include{class_b_m_f_h}
+\include{class_b_m_i_h}
+\include{struct_branch}
+\include{class_cache_file}
+\include{classcpp_b_m_p}
+\include{struct_image}
+\include{classcuda_forms_1_1_main_form}
+\include{struct_match}
+\include{struct_matrix}
+\include{class_pattern_matching_gui_1_1_properties_1_1_resources}
+\include{struct_r_g_b_apixel}
+\include{class_pattern_matching_gui_1_1_properties_1_1_settings}
+\include{structtag_b_i_t_m_a_p_i_n_f_o}
+\include{structtag_b_i_t_m_a_p_i_n_f_o_h_e_a_d_e_r}
+\include{structtag_f_i_c_o_m_p_l_e_x}
+\include{structtag_f_i_r_g_b16}
+\include{structtag_f_i_r_g_b_a16}
+\include{structtag_f_i_r_g_b_a_f}
+\include{structtag_f_i_r_g_b_f}
+\include{structtag_r_g_b_q_u_a_d}
+\include{structtag_r_g_b_t_r_i_p_l_e}
+\include{struct_w_h_setup}
+\chapter{Файлы}
+\input{correlation_cuda_library_8cpp}
+\include{correlation_cuda_library_8h}
+\include{correlation_main_8cpp}
+\include{correlation__cuda__lib_2_free_image_8h}
+\include{filtration__cuda__lib_2_free_image_8h}
+\include{filtration__run_2free_image_2_free_image_8h}
+\include{correlation_cuda_main_8cpp}
+\include{filtration_cuda_library_8cpp}
+\include{filtration_cuda_library_8h}
+\include{filtration__cuda__lib_2filtration_main_8cpp}
+\include{filtration__lib_2filtration_main_8cpp}
+\include{filtration__run_2filtration_main_8cpp}
+\include{filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp}
+\include{filtration__run_2bmp_2_easy_b_m_p_8cpp}
+\include{simple__matching__run_2bmp_2_easy_b_m_p_8cpp}
+\include{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp}
+\include{filtration__cuda__run_2bmp_2_easy_b_m_p_8h}
+\include{filtration__run_2bmp_2_easy_b_m_p_8h}
+\include{simple__matching__run_2bmp_2_easy_b_m_p_8h}
+\include{walsh__hadamard__run_2bmp_2_easy_b_m_p_8h}
+\include{filtration__cuda__run_2bmp_2_easy_b_m_p___b_m_p_8h}
+\include{filtration__run_2bmp_2_easy_b_m_p___b_m_p_8h}
+\include{simple__matching__run_2bmp_2_easy_b_m_p___b_m_p_8h}
+\include{walsh__hadamard__run_2bmp_2_easy_b_m_p___b_m_p_8h}
+\include{filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h}
+\include{filtration__run_2bmp_2_easy_b_m_p___data_structures_8h}
+\include{simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h}
+\include{walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h}
+\include{filtration__cuda__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}
+\include{filtration__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}
+\include{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}
+\include{walsh__hadamard__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}
+\include{filtration_cuda_main_8cpp}
+\include{filtration_library_8cpp}
+\include{filtration_library_8h}
+\include{_cache_file_8h}
+\include{stdafx_8cpp}
+\include{stdafx_8h}
+\include{image_library_8cpp}
+\include{image_library_8h}
+\include{image_main_8cpp}
+\include{_main_form_8cs}
+\include{_main_form_8_designer_8cs}
+\include{_program_8cs}
+\include{_assembly_info_8cs}
+\include{_resources_8_designer_8cs}
+\include{_settings_8_designer_8cs}
+\include{simple__matching__run_2pm_2defs_8c}
+\include{walsh__hadamard__lib_2pm_2defs_8c}
+\include{walsh__hadamard__run_2pm_2defs_8c}
+\include{simple__matching__run_2pm_2defs_8h}
+\include{walsh__hadamard__lib_2pm_2defs_8h}
+\include{walsh__hadamard__run_2pm_2defs_8h}
+\include{simple__matching__run_2pm_2image_8c}
+\include{walsh__hadamard__lib_2pm_2image_8c}
+\include{walsh__hadamard__run_2pm_2image_8c}
+\include{simple__matching__run_2pm_2image_8h}
+\include{walsh__hadamard__lib_2pm_2image_8h}
+\include{walsh__hadamard__run_2pm_2image_8h}
+\include{image__funcs_8h}
+\include{simple__matching__run_2pm_2matrix_8c}
+\include{walsh__hadamard__lib_2pm_2matrix_8c}
+\include{walsh__hadamard__run_2pm_2matrix_8c}
+\include{simple__matching__run_2pm_2matrix_8h}
+\include{walsh__hadamard__lib_2pm_2matrix_8h}
+\include{walsh__hadamard__run_2pm_2matrix_8h}
+\include{matrix__funcs_8h}
+\include{simple__matching__run_2pm_2wh_8c}
+\include{walsh__hadamard__lib_2pm_2wh_8c}
+\include{walsh__hadamard__run_2pm_2wh_8c}
+\include{simple__matching__run_2pm_2wh_8h}
+\include{walsh__hadamard__lib_2pm_2wh_8h}
+\include{walsh__hadamard__run_2pm_2wh_8h}
+\include{wh__funcs_8h}
+\include{wh__host_8c}
+\include{wh__new_8c}
+\include{simple__matching__run_2pm_2whimport_8h}
+\include{walsh__hadamard__lib_2pm_2whimport_8h}
+\include{walsh__hadamard__run_2pm_2whimport_8h}
+\include{simple_8cpp}
+\include{simple_8h}
+\include{simple_matching__cuda_8cpp}
+\include{template__gold_8cpp}
+\include{walsh_hadamard_library_8cpp}
+\include{walsh_hadamard_library_8h}
+\include{walsh_hadamard_main_8cpp}
+\include{wh__main_8cpp}
+\printindex
+\end{document}

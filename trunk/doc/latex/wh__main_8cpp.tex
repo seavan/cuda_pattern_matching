@@ -1,0 +1,126 @@
+\hypertarget{wh__main_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/wh\_\-main.cpp}
+\label{wh__main_8cpp}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/wh\_\-main.cpp@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/wh\_\-main.cpp}}
+}
+{\tt \#include $<$conio.h$>$}\par
+{\tt \#include $<$algorithm$>$}\par
+{\tt \#include $<$fstream$>$}\par
+{\tt \#include \char`\"{}bmp/EasyBMP.h\char`\"{}}\par
+{\tt \#include \char`\"{}pm/whimport.h\char`\"{}}\par
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT}($\ast$ \hyperlink{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}{TMethod} )(\hyperlink{struct_r_g_b_apixel}{RGBApixel})
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{wh__main_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}{createImage2} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} $\ast$pixels, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{wh__main_8cpp_f5e9e5ca61f31dcf78bc441dfad2ed78}{loadImage} (\hyperlink{classcpp_b_m_p}{cppBMP} $\ast$\_\-bitmap)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{wh__main_8cpp_a6186258931fec652e173a4790287117}{loadPatternImage} (\hyperlink{classcpp_b_m_p}{cppBMP} $\ast$\_\-bitmap)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} \hyperlink{wh__main_8cpp_7c403b20bce50d7ffaecb9b41ec5a8dd}{grayScale} (\hyperlink{struct_r_g_b_apixel}{RGBApixel} \_\-pixel)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} \hyperlink{wh__main_8cpp_559431a6e84d91f4d97ada603d14bafe}{colorScaleB} (\hyperlink{struct_r_g_b_apixel}{RGBApixel} \_\-pixel)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} \hyperlink{wh__main_8cpp_972a8c4f1038ee9ea7e3ac2e75347225}{colorScaleG} (\hyperlink{struct_r_g_b_apixel}{RGBApixel} \_\-pixel)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} \hyperlink{wh__main_8cpp_4373f11a1b203cade32c95354f58e028}{colorScaleR} (\hyperlink{struct_r_g_b_apixel}{RGBApixel} \_\-pixel)
+\item 
+\hyperlink{struct_w_h_setup}{WHSetup} $\ast$ \hyperlink{wh__main_8cpp_cce9fc445267a2d4fb467a02cbdb9ea2}{doProcess} (const char $\ast$featureFileName, const char $\ast$patternFileName, int corrpercent)
+\item 
+int \hyperlink{wh__main_8cpp_0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+\hyperlink{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}{TMethod} \hyperlink{wh__main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{method} = colorScaleB
+\end{CompactItemize}
+
+
+\subsection{Типы}
+\hypertarget{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!TMethod@{TMethod}}
+\index{TMethod@{TMethod}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{TMethod}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf pixelT}($\ast$ {\bf TMethod})({\bf RGBApixel})}}
+\label{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}
+
+
+
+
+\subsection{Функции}
+\hypertarget{wh__main_8cpp_559431a6e84d91f4d97ada603d14bafe}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!colorScaleB@{colorScaleB}}
+\index{colorScaleB@{colorScaleB}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{colorScaleB}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pixelT} colorScaleB ({\bf RGBApixel} {\em \_\-pixel})}}
+\label{wh__main_8cpp_559431a6e84d91f4d97ada603d14bafe}
+
+
+\hypertarget{wh__main_8cpp_972a8c4f1038ee9ea7e3ac2e75347225}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!colorScaleG@{colorScaleG}}
+\index{colorScaleG@{colorScaleG}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{colorScaleG}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pixelT} colorScaleG ({\bf RGBApixel} {\em \_\-pixel})}}
+\label{wh__main_8cpp_972a8c4f1038ee9ea7e3ac2e75347225}
+
+
+\hypertarget{wh__main_8cpp_4373f11a1b203cade32c95354f58e028}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!colorScaleR@{colorScaleR}}
+\index{colorScaleR@{colorScaleR}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{colorScaleR}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pixelT} colorScaleR ({\bf RGBApixel} {\em \_\-pixel})}}
+\label{wh__main_8cpp_4373f11a1b203cade32c95354f58e028}
+
+
+\hypertarget{wh__main_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!createImage2@{createImage2}}
+\index{createImage2@{createImage2}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{createImage2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ createImage2 ({\bf pixelT} $\ast$ {\em pixels}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{wh__main_8cpp_ef3e4ac6a6da6b6cc0c4a7d287cfcd8c}
+
+
+\hypertarget{wh__main_8cpp_cce9fc445267a2d4fb467a02cbdb9ea2}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!doProcess@{doProcess}}
+\index{doProcess@{doProcess}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{doProcess}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WHSetup} $\ast$ doProcess (const char $\ast$ {\em featureFileName}, \/  const char $\ast$ {\em patternFileName}, \/  int {\em corrpercent})}}
+\label{wh__main_8cpp_cce9fc445267a2d4fb467a02cbdb9ea2}
+
+
+\hypertarget{wh__main_8cpp_7c403b20bce50d7ffaecb9b41ec5a8dd}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!grayScale@{grayScale}}
+\index{grayScale@{grayScale}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{grayScale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pixelT} grayScale ({\bf RGBApixel} {\em \_\-pixel})}}
+\label{wh__main_8cpp_7c403b20bce50d7ffaecb9b41ec5a8dd}
+
+
+\hypertarget{wh__main_8cpp_f5e9e5ca61f31dcf78bc441dfad2ed78}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{loadImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image} $\ast$ loadImage ({\bf cppBMP} $\ast$ {\em \_\-bitmap})}}
+\label{wh__main_8cpp_f5e9e5ca61f31dcf78bc441dfad2ed78}
+
+
+\hypertarget{wh__main_8cpp_a6186258931fec652e173a4790287117}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!loadPatternImage@{loadPatternImage}}
+\index{loadPatternImage@{loadPatternImage}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{loadPatternImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image} $\ast$ loadPatternImage ({\bf cppBMP} $\ast$ {\em \_\-bitmap})}}
+\label{wh__main_8cpp_a6186258931fec652e173a4790287117}
+
+
+\hypertarget{wh__main_8cpp_0ddf1224851353fc92bfbff6f499fa97}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!main@{main}}
+\index{main@{main}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{wh__main_8cpp_0ddf1224851353fc92bfbff6f499fa97}
+
+
+
+
+\subsection{Переменные}
+\hypertarget{wh__main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{
+\index{wh\_\-main.cpp@{wh\_\-main.cpp}!method@{method}}
+\index{method@{method}!wh_main.cpp@{wh\_\-main.cpp}}
+\subsubsection[{method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TMethod} {\bf method} = colorScaleB}}
+\label{wh__main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}
+
+

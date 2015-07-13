@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_lib/walshHadamardMain.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_lib/walshHadamardMain.cpp</h1><a href="walsh_hadamard_main_8cpp.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// alg2.cpp : Defines the entry point for the console application.</span>
+<a name="l00002"></a>00002 <span class="comment">//</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="stdafx_8h.html">stdafx.h</a>"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;conio.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include "bmp/EasyBMP.h"</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="filtration__run_2free_image_2_free_image_8h.html">FreeImage.h</a>"</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="correlation_cuda_library_8cpp.html#3106e348f2f7c1251cc32cc07d5eaed6">correlationCuda</a>( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv, 
+<a name="l00012"></a>00012                                                                    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _input, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _height, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _pattern, <span class="keywordtype">int</span> _ptnwidth, <span class="keywordtype">int</span> _ptnheight);
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="correlation_cuda_library_8cpp.html#68b2cd9e202f4b22c9ac08d2e44ef039">correlationCpu</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _input, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _height, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _pattern, <span class="keywordtype">int</span> _ptnwidth, <span class="keywordtype">int</span> _ptnheight);
+<a name="l00015"></a>00015 
+<a name="l00016"></a><a class="code" href="walsh_hadamard_main_8cpp.html#21f294357250b2513bab932511573c6f">00016</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> char (*<a class="code" href="correlation_main_8cpp.html#21f294357250b2513bab932511573c6f">TMethod</a>) (<a class="code" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a>*);
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="walsh_hadamard_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">00018</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>(<a class="code" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a>* _pixel)
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020         <span class="keywordflow">return</span> (_pixel-&gt;<a class="code" href="structtag_r_g_b_q_u_a_d.html#a143fcd3ff08a04b152bee9d410821a6">rgbRed</a> + _pixel-&gt;<a class="code" href="structtag_r_g_b_q_u_a_d.html#4dae0a7db2f4d432cb4da3de4ef337bd">rgbGreen</a> + _pixel-&gt;<a class="code" href="structtag_r_g_b_q_u_a_d.html#d99c50770a73c6fae3ee1ea627da1c60">rgbBlue</a>) / 3;
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="walsh_hadamard_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">00024</a> <a class="code" href="correlation_main_8cpp.html#21f294357250b2513bab932511573c6f">TMethod</a> <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>;
+<a name="l00025"></a>00025 
+<a name="l00026"></a><a class="code" href="walsh_hadamard_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">00026</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* _fileName, <span class="keywordtype">int</span>&amp; _width, <span class="keywordtype">int</span>&amp; _height)
+<a name="l00027"></a>00027 {
+<a name="l00028"></a>00028         FREE_IMAGE_FORMAT fif = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#2d62273dfb5c3a1dffc9d24e9311afe5">FreeImage_GetFileType</a>(_fileName);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030         FIBITMAP *dib = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#ac0d206608af4a0f418afb8e2c4073c1">FreeImage_Load</a>(fif, _fileName, 0);
+<a name="l00031"></a>00031         
+<a name="l00032"></a>00032         <span class="keywordtype">int</span> dimX = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#d2cf8c4a86e0cd21d70d2b44d494f456">FreeImage_GetWidth</a>(dib);
+<a name="l00033"></a>00033         <span class="keywordtype">int</span> dimY = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#e2969119e1fdf8528c53f30026c429d9">FreeImage_GetHeight</a>(dib);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* result = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>) * dimX * dimY);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         <span class="keywordtype">int</span> index = 0;
+<a name="l00038"></a>00038         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> y = 1; y &lt;= dimY; ++y)
+<a name="l00039"></a>00039         {
+<a name="l00040"></a>00040                 <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> x = 0; x &lt; dimX; ++x)
+<a name="l00041"></a>00041                 {
+<a name="l00042"></a>00042                         <a class="code" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a> pixel;
+<a name="l00043"></a>00043                         <span class="keywordtype">bool</span> ok = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#3ce17486a31ced8c98cff95b5ca0b216">FreeImage_GetPixelColor</a>(dib, x, dimY - y, &amp;pixel);
+<a name="l00044"></a>00044                         result[index] = <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a>( &amp;pixel );
+<a name="l00045"></a>00045                         ++index;
+<a name="l00046"></a>00046                 }
+<a name="l00047"></a>00047         }
+<a name="l00048"></a>00048         _width = dimX;
+<a name="l00049"></a>00049         _height = dimY;
+<a name="l00050"></a>00050         <span class="keywordflow">return</span> result;
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="walsh_hadamard_main_8cpp.html#9bfd5275785bd0a8fd3b49a48853bcdc">00053</a> <span class="keywordtype">void</span> <a class="code" href="correlation_main_8cpp.html#9bfd5275785bd0a8fd3b49a48853bcdc">saveImage</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* _fileName, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _image, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _height)
+<a name="l00054"></a>00054 {
+<a name="l00055"></a>00055         FIBITMAP* resultImage = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#afd5b889d2614dcd188676661e29f48f">FreeImage_Allocate</a>(_width, _height, 24);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 1; y &lt;= _height; ++y)
+<a name="l00058"></a>00058                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; _width; ++x)
+<a name="l00059"></a>00059                 {
+<a name="l00060"></a>00060                         <span class="keywordtype">int</span> color = *_image;
+<a name="l00061"></a>00061                         color = (color &lt;&lt; 8) | (color &lt;&lt; 16) | (color) | (color &lt;&lt; 24);
+<a name="l00062"></a>00062                         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#6c4ef2021e9455cecf77a2453194da57">FreeImage_SetPixelColor</a>(resultImage, x, _height - y, (<a class="code" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a>*)(&amp;color));
+<a name="l00063"></a>00063                         ++_image;
+<a name="l00064"></a>00064                 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#d3a16d9310e7ba63cb2a3e23e97406e6">FreeImage_Save</a>(FIF_BMP, resultImage, _fileName);
+<a name="l00067"></a>00067 }
+<a name="l00068"></a>00068 
+<a name="l00069"></a><a class="code" href="walsh_hadamard_main_8cpp.html#353674c5af92be7fb389265cde4e5e03">00069</a> <span class="keywordtype">int</span> <a class="code" href="correlation_main_8cpp.html#353674c5af92be7fb389265cde4e5e03">_tmain</a>(<span class="keywordtype">int</span> argc, _TCHAR* argv[])
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071         printf(<span class="stringliteral">"Filtration\n"</span>);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073         printf(<span class="stringliteral">"Usage: correlationCuda.exe &lt;input.bmp&gt; &lt;pattern.bmp&gt; &lt;output&gt; &lt;coeff&gt; &lt;method&gt;\n"</span>);
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075         
+<a name="l00076"></a>00076         _TCHAR* featureFileName = argv[1];
+<a name="l00077"></a>00077         _TCHAR* patternFileName = argv[2];
+<a name="l00078"></a>00078         _TCHAR* coeffStr = argv[4];
+<a name="l00079"></a>00079         _TCHAR* outputFileName = argv[3];
+<a name="l00080"></a>00080         _TCHAR* methodStr = argv[5];
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082         <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>;
+<a name="l00083"></a>00083         <span class="keywordtype">int</span> coeff = (100 - atoi(coeffStr)) * 255 / 100;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         printf(<span class="stringliteral">"source image: %s\n"</span>, featureFileName);
+<a name="l00086"></a>00086         <span class="keywordtype">int</span> imwidth, imheight;
+<a name="l00087"></a>00087         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* image = <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(featureFileName, imwidth, imheight);
+<a name="l00088"></a>00088         printf(<span class="stringliteral">"width: %d, height: %d\n"</span>, imwidth, imheight);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         printf(<span class="stringliteral">"pattern image: %s\n"</span>, patternFileName);
+<a name="l00091"></a>00091         <span class="keywordtype">int</span> ptnwidth, ptnheight;
+<a name="l00092"></a>00092         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pattern = <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(patternFileName, ptnwidth, ptnheight);
+<a name="l00093"></a>00093         printf(<span class="stringliteral">"width: %d, height: %d\n"</span>, ptnwidth, ptnheight);
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* cudaResult = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097         <span class="keywordflow">if</span>( strstr(methodStr, <span class="stringliteral">"cuda"</span>) != <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a> )
+<a name="l00098"></a>00098         {
+<a name="l00099"></a>00099                 printf(<span class="stringliteral">"===\nMethod - CUDA\n===\nInitializing CUDA kernel...\n"</span>);
+<a name="l00100"></a>00100                 cudaResult = <a class="code" href="correlation_cuda_library_8cpp.html#3106e348f2f7c1251cc32cc07d5eaed6">correlationCuda</a>(1, argv, image, imwidth, imheight, pattern, ptnwidth, ptnheight);
+<a name="l00101"></a>00101         }
+<a name="l00102"></a>00102         <span class="keywordflow">else</span>
+<a name="l00103"></a>00103         {
+<a name="l00104"></a>00104                 printf(<span class="stringliteral">"===\nMethod - CPU\n===\nCPU emulation...\n"</span>);
+<a name="l00105"></a>00105                 cudaResult = <a class="code" href="correlation_cuda_library_8cpp.html#68b2cd9e202f4b22c9ac08d2e44ef039">correlationCpu</a>(image, imwidth, imheight, pattern, ptnwidth, ptnheight);
+<a name="l00106"></a>00106         }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* cudaOriginal = cudaResult;
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110         printf(<span class="stringliteral">"Processing finished\nWriting output data\n"</span>);
+<a name="l00111"></a>00111         <span class="comment">//saveImage(outputFileName, cudaResult, imwidth, imheight);</span>
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113         FILE* file = fopen(outputFileName, <span class="stringliteral">"wt"</span>);
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; imheight; ++y)
+<a name="l00116"></a>00116                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; imwidth; ++x)
+<a name="l00117"></a>00117                 {
+<a name="l00118"></a>00118                         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> value = *cudaResult;
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120                         <span class="keywordflow">if</span>( value &lt; coeff )
+<a name="l00121"></a>00121                                 fprintf(file, <span class="stringliteral">"%d %d %d\n"</span>, x, y, value);
+<a name="l00122"></a>00122                         ++cudaResult;
+<a name="l00123"></a>00123                 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         fclose(file);
+<a name="l00126"></a>00126         free(cudaOriginal);
+<a name="l00127"></a>00127         free(image);
+<a name="l00128"></a>00128         free(pattern);
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130         <span class="keywordflow">return</span> 0;
+<a name="l00131"></a>00131 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:40:44 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

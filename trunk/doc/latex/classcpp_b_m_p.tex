@@ -1,0 +1,747 @@
+\hypertarget{classcpp_b_m_p}{
+\section{Класс cppBMP}
+\label{classcpp_b_m_p}\index{cppBMP@{cppBMP}}
+}
+{\tt \#include $<$EasyBMP\_\-BMP.h$>$}
+
+\subsection*{Открытые члены}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{TellBitDepth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{TellWidth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{TellHeight} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{TellNumberOfColors} (void)
+\item 
+void \hyperlink{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{SetDPI} (int HorizontalDPI, int VerticalDPI)
+\item 
+int \hyperlink{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{TellVerticalDPI} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{TellHorizontalDPI} (void)
+\item 
+\hyperlink{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{cppBMP} ()
+\item 
+\hyperlink{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{cppBMP} (\hyperlink{classcpp_b_m_p}{cppBMP} \&Input)
+\item 
+\hyperlink{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{$\sim$cppBMP} ()
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} $\ast$ \hyperlink{classcpp_b_m_p_ffad438a22f268b9cf73d8dcbbcbb13f}{operator()} (int i, int j)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{GetPixel} (int i, int j) const 
+\item 
+bool \hyperlink{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{SetPixel} (int i, int j, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewPixel)
+\item 
+bool \hyperlink{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{CreateStandardColorTable} (void)
+\item 
+bool \hyperlink{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{SetSize} (int NewWidth, int NewHeight)
+\item 
+bool \hyperlink{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{SetBitDepth} (int NewDepth)
+\item 
+bool \hyperlink{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{WriteToFile} (const char $\ast$FileName)
+\item 
+bool \hyperlink{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{ReadFromFile} (const char $\ast$FileName)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{GetColor} (int ColorNumber)
+\item 
+bool \hyperlink{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{SetColor} (int ColorNumber, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewColor)
+\item 
+int \hyperlink{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{TellBitDepth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{TellWidth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{TellHeight} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{TellNumberOfColors} (void)
+\item 
+void \hyperlink{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{SetDPI} (int HorizontalDPI, int VerticalDPI)
+\item 
+int \hyperlink{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{TellVerticalDPI} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{TellHorizontalDPI} (void)
+\item 
+\hyperlink{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{cppBMP} ()
+\item 
+\hyperlink{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{cppBMP} (\hyperlink{classcpp_b_m_p}{cppBMP} \&Input)
+\item 
+\hyperlink{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{$\sim$cppBMP} ()
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} $\ast$ \hyperlink{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{operator()} (int i, int j)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{GetPixel} (int i, int j) const 
+\item 
+bool \hyperlink{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{SetPixel} (int i, int j, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewPixel)
+\item 
+bool \hyperlink{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{CreateStandardColorTable} (void)
+\item 
+bool \hyperlink{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{SetSize} (int NewWidth, int NewHeight)
+\item 
+bool \hyperlink{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{SetBitDepth} (int NewDepth)
+\item 
+bool \hyperlink{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{WriteToFile} (const char $\ast$FileName)
+\item 
+bool \hyperlink{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{ReadFromFile} (const char $\ast$FileName)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{GetColor} (int ColorNumber)
+\item 
+bool \hyperlink{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{SetColor} (int ColorNumber, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewColor)
+\item 
+int \hyperlink{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{TellBitDepth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{TellWidth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{TellHeight} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{TellNumberOfColors} (void)
+\item 
+void \hyperlink{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{SetDPI} (int HorizontalDPI, int VerticalDPI)
+\item 
+int \hyperlink{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{TellVerticalDPI} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{TellHorizontalDPI} (void)
+\item 
+\hyperlink{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{cppBMP} ()
+\item 
+\hyperlink{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{cppBMP} (\hyperlink{classcpp_b_m_p}{cppBMP} \&Input)
+\item 
+\hyperlink{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{$\sim$cppBMP} ()
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} $\ast$ \hyperlink{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{operator()} (int i, int j)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{GetPixel} (int i, int j) const 
+\item 
+bool \hyperlink{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{SetPixel} (int i, int j, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewPixel)
+\item 
+bool \hyperlink{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{CreateStandardColorTable} (void)
+\item 
+bool \hyperlink{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{SetSize} (int NewWidth, int NewHeight)
+\item 
+bool \hyperlink{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{SetBitDepth} (int NewDepth)
+\item 
+bool \hyperlink{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{WriteToFile} (const char $\ast$FileName)
+\item 
+bool \hyperlink{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{ReadFromFile} (const char $\ast$FileName)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{GetColor} (int ColorNumber)
+\item 
+bool \hyperlink{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{SetColor} (int ColorNumber, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewColor)
+\item 
+int \hyperlink{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{TellBitDepth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{TellWidth} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{TellHeight} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{TellNumberOfColors} (void)
+\item 
+void \hyperlink{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{SetDPI} (int HorizontalDPI, int VerticalDPI)
+\item 
+int \hyperlink{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{TellVerticalDPI} (void)
+\item 
+int \hyperlink{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{TellHorizontalDPI} (void)
+\item 
+\hyperlink{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{cppBMP} ()
+\item 
+\hyperlink{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{cppBMP} (\hyperlink{classcpp_b_m_p}{cppBMP} \&Input)
+\item 
+\hyperlink{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{$\sim$cppBMP} ()
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} $\ast$ \hyperlink{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{operator()} (int i, int j)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{GetPixel} (int i, int j) const 
+\item 
+bool \hyperlink{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{SetPixel} (int i, int j, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewPixel)
+\item 
+bool \hyperlink{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{CreateStandardColorTable} (void)
+\item 
+bool \hyperlink{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{SetSize} (int NewWidth, int NewHeight)
+\item 
+bool \hyperlink{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{SetBitDepth} (int NewDepth)
+\item 
+bool \hyperlink{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{WriteToFile} (const char $\ast$FileName)
+\item 
+bool \hyperlink{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{ReadFromFile} (const char $\ast$FileName)
+\item 
+\hyperlink{struct_r_g_b_apixel}{RGBApixel} \hyperlink{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{GetColor} (int ColorNumber)
+\item 
+bool \hyperlink{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{SetColor} (int ColorNumber, \hyperlink{struct_r_g_b_apixel}{RGBApixel} NewColor)
+\end{CompactItemize}
+
+
+\subsection{Конструктор(ы)}
+\hypertarget{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ()}}
+\label{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}
+
+
+\hypertarget{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ({\bf cppBMP} \& {\em Input})}}
+\label{classcpp_b_m_p_97909a5d65342669eb673dc264600058}
+
+
+\hypertarget{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{
+\index{cppBMP@{cppBMP}!$\sim$cppBMP@{$\sim$cppBMP}}
+\index{$\sim$cppBMP@{$\sim$cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{$\sim$cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::$\sim$cppBMP ()}}
+\label{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}
+
+
+\hypertarget{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ()}}
+\label{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}
+
+
+\hypertarget{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ({\bf cppBMP} \& {\em Input})}}
+\label{classcpp_b_m_p_97909a5d65342669eb673dc264600058}
+
+
+\hypertarget{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{
+\index{cppBMP@{cppBMP}!$\sim$cppBMP@{$\sim$cppBMP}}
+\index{$\sim$cppBMP@{$\sim$cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{$\sim$cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::$\sim$cppBMP ()}}
+\label{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}
+
+
+\hypertarget{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ()}}
+\label{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}
+
+
+\hypertarget{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ({\bf cppBMP} \& {\em Input})}}
+\label{classcpp_b_m_p_97909a5d65342669eb673dc264600058}
+
+
+\hypertarget{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{
+\index{cppBMP@{cppBMP}!$\sim$cppBMP@{$\sim$cppBMP}}
+\index{$\sim$cppBMP@{$\sim$cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{$\sim$cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::$\sim$cppBMP ()}}
+\label{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}
+
+
+\hypertarget{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ()}}
+\label{classcpp_b_m_p_dd999f78c5b629a718c9ff82dca1b64a}
+
+
+\hypertarget{classcpp_b_m_p_97909a5d65342669eb673dc264600058}{
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\index{cppBMP@{cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::cppBMP ({\bf cppBMP} \& {\em Input})}}
+\label{classcpp_b_m_p_97909a5d65342669eb673dc264600058}
+
+
+\hypertarget{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}{
+\index{cppBMP@{cppBMP}!$\sim$cppBMP@{$\sim$cppBMP}}
+\index{$\sim$cppBMP@{$\sim$cppBMP}!cppBMP@{cppBMP}}
+\subsubsection[{$\sim$cppBMP}]{\setlength{\rightskip}{0pt plus 5cm}cppBMP::$\sim$cppBMP ()}}
+\label{classcpp_b_m_p_ea62579b6a8a25449e108121de524019}
+
+
+
+
+\subsection{Методы}
+\hypertarget{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{
+\index{cppBMP@{cppBMP}!CreateStandardColorTable@{CreateStandardColorTable}}
+\index{CreateStandardColorTable@{CreateStandardColorTable}!cppBMP@{cppBMP}}
+\subsubsection[{CreateStandardColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::CreateStandardColorTable (void)}}
+\label{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}
+
+
+\hypertarget{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{
+\index{cppBMP@{cppBMP}!CreateStandardColorTable@{CreateStandardColorTable}}
+\index{CreateStandardColorTable@{CreateStandardColorTable}!cppBMP@{cppBMP}}
+\subsubsection[{CreateStandardColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::CreateStandardColorTable (void)}}
+\label{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}
+
+
+\hypertarget{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{
+\index{cppBMP@{cppBMP}!CreateStandardColorTable@{CreateStandardColorTable}}
+\index{CreateStandardColorTable@{CreateStandardColorTable}!cppBMP@{cppBMP}}
+\subsubsection[{CreateStandardColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::CreateStandardColorTable (void)}}
+\label{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}
+
+
+\hypertarget{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}{
+\index{cppBMP@{cppBMP}!CreateStandardColorTable@{CreateStandardColorTable}}
+\index{CreateStandardColorTable@{CreateStandardColorTable}!cppBMP@{cppBMP}}
+\subsubsection[{CreateStandardColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::CreateStandardColorTable (void)}}
+\label{classcpp_b_m_p_2784c5b22510793c4f33bb9f566de4a7}
+
+
+\hypertarget{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{
+\index{cppBMP@{cppBMP}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!cppBMP@{cppBMP}}
+\subsubsection[{GetColor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetColor (int {\em ColorNumber})}}
+\label{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}
+
+
+\hypertarget{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{
+\index{cppBMP@{cppBMP}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!cppBMP@{cppBMP}}
+\subsubsection[{GetColor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetColor (int {\em ColorNumber})}}
+\label{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}
+
+
+\hypertarget{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{
+\index{cppBMP@{cppBMP}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!cppBMP@{cppBMP}}
+\subsubsection[{GetColor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetColor (int {\em ColorNumber})}}
+\label{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}
+
+
+\hypertarget{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}{
+\index{cppBMP@{cppBMP}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!cppBMP@{cppBMP}}
+\subsubsection[{GetColor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetColor (int {\em ColorNumber})}}
+\label{classcpp_b_m_p_fa347d92080c6aa4870eb4b076d1aeba}
+
+
+\hypertarget{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{
+\index{cppBMP@{cppBMP}!GetPixel@{GetPixel}}
+\index{GetPixel@{GetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{GetPixel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetPixel (int {\em i}, \/  int {\em j}) const}}
+\label{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}
+
+
+\hypertarget{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{
+\index{cppBMP@{cppBMP}!GetPixel@{GetPixel}}
+\index{GetPixel@{GetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{GetPixel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetPixel (int {\em i}, \/  int {\em j}) const}}
+\label{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}
+
+
+\hypertarget{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{
+\index{cppBMP@{cppBMP}!GetPixel@{GetPixel}}
+\index{GetPixel@{GetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{GetPixel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetPixel (int {\em i}, \/  int {\em j}) const}}
+\label{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}
+
+
+\hypertarget{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}{
+\index{cppBMP@{cppBMP}!GetPixel@{GetPixel}}
+\index{GetPixel@{GetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{GetPixel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} cppBMP::GetPixel (int {\em i}, \/  int {\em j}) const}}
+\label{classcpp_b_m_p_230d6694feababb803a9b4cdd4885d4d}
+
+
+\hypertarget{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{
+\index{cppBMP@{cppBMP}!operator()@{operator()}}
+\index{operator()@{operator()}!cppBMP@{cppBMP}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel}$\ast$ cppBMP::operator() (int {\em i}, \/  int {\em j})}}
+\label{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}
+
+
+\hypertarget{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{
+\index{cppBMP@{cppBMP}!operator()@{operator()}}
+\index{operator()@{operator()}!cppBMP@{cppBMP}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel}$\ast$ cppBMP::operator() (int {\em i}, \/  int {\em j})}}
+\label{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}
+
+
+\hypertarget{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}{
+\index{cppBMP@{cppBMP}!operator()@{operator()}}
+\index{operator()@{operator()}!cppBMP@{cppBMP}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel}$\ast$ cppBMP::operator() (int {\em i}, \/  int {\em j})}}
+\label{classcpp_b_m_p_02a494f74cfc7d319e6ea9c1ab70c672}
+
+
+\hypertarget{classcpp_b_m_p_ffad438a22f268b9cf73d8dcbbcbb13f}{
+\index{cppBMP@{cppBMP}!operator()@{operator()}}
+\index{operator()@{operator()}!cppBMP@{cppBMP}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RGBApixel} $\ast$ cppBMP::operator() (int {\em i}, \/  int {\em j})}}
+\label{classcpp_b_m_p_ffad438a22f268b9cf73d8dcbbcbb13f}
+
+
+\hypertarget{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{
+\index{cppBMP@{cppBMP}!ReadFromFile@{ReadFromFile}}
+\index{ReadFromFile@{ReadFromFile}!cppBMP@{cppBMP}}
+\subsubsection[{ReadFromFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::ReadFromFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}
+
+
+\hypertarget{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{
+\index{cppBMP@{cppBMP}!ReadFromFile@{ReadFromFile}}
+\index{ReadFromFile@{ReadFromFile}!cppBMP@{cppBMP}}
+\subsubsection[{ReadFromFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::ReadFromFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}
+
+
+\hypertarget{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{
+\index{cppBMP@{cppBMP}!ReadFromFile@{ReadFromFile}}
+\index{ReadFromFile@{ReadFromFile}!cppBMP@{cppBMP}}
+\subsubsection[{ReadFromFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::ReadFromFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}
+
+
+\hypertarget{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}{
+\index{cppBMP@{cppBMP}!ReadFromFile@{ReadFromFile}}
+\index{ReadFromFile@{ReadFromFile}!cppBMP@{cppBMP}}
+\subsubsection[{ReadFromFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::ReadFromFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_b6b3269e3dc09cc5a9650578d5f5aa45}
+
+
+\hypertarget{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{
+\index{cppBMP@{cppBMP}!SetBitDepth@{SetBitDepth}}
+\index{SetBitDepth@{SetBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{SetBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetBitDepth (int {\em NewDepth})}}
+\label{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}
+
+
+\hypertarget{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{
+\index{cppBMP@{cppBMP}!SetBitDepth@{SetBitDepth}}
+\index{SetBitDepth@{SetBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{SetBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetBitDepth (int {\em NewDepth})}}
+\label{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}
+
+
+\hypertarget{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{
+\index{cppBMP@{cppBMP}!SetBitDepth@{SetBitDepth}}
+\index{SetBitDepth@{SetBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{SetBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetBitDepth (int {\em NewDepth})}}
+\label{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}
+
+
+\hypertarget{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}{
+\index{cppBMP@{cppBMP}!SetBitDepth@{SetBitDepth}}
+\index{SetBitDepth@{SetBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{SetBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetBitDepth (int {\em NewDepth})}}
+\label{classcpp_b_m_p_4929652b47f073d3519b07fc05ed9eab}
+
+
+\hypertarget{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{
+\index{cppBMP@{cppBMP}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!cppBMP@{cppBMP}}
+\subsubsection[{SetColor}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetColor (int {\em ColorNumber}, \/  {\bf RGBApixel} {\em NewColor})}}
+\label{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}
+
+
+\hypertarget{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{
+\index{cppBMP@{cppBMP}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!cppBMP@{cppBMP}}
+\subsubsection[{SetColor}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetColor (int {\em ColorNumber}, \/  {\bf RGBApixel} {\em NewColor})}}
+\label{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}
+
+
+\hypertarget{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{
+\index{cppBMP@{cppBMP}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!cppBMP@{cppBMP}}
+\subsubsection[{SetColor}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetColor (int {\em ColorNumber}, \/  {\bf RGBApixel} {\em NewColor})}}
+\label{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}
+
+
+\hypertarget{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}{
+\index{cppBMP@{cppBMP}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!cppBMP@{cppBMP}}
+\subsubsection[{SetColor}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetColor (int {\em ColorNumber}, \/  {\bf RGBApixel} {\em NewColor})}}
+\label{classcpp_b_m_p_954ee0b08e8b0e9455fe5c4a9e7a7181}
+
+
+\hypertarget{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{
+\index{cppBMP@{cppBMP}!SetDPI@{SetDPI}}
+\index{SetDPI@{SetDPI}!cppBMP@{cppBMP}}
+\subsubsection[{SetDPI}]{\setlength{\rightskip}{0pt plus 5cm}void cppBMP::SetDPI (int {\em HorizontalDPI}, \/  int {\em VerticalDPI})}}
+\label{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}
+
+
+\hypertarget{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{
+\index{cppBMP@{cppBMP}!SetDPI@{SetDPI}}
+\index{SetDPI@{SetDPI}!cppBMP@{cppBMP}}
+\subsubsection[{SetDPI}]{\setlength{\rightskip}{0pt plus 5cm}void cppBMP::SetDPI (int {\em HorizontalDPI}, \/  int {\em VerticalDPI})}}
+\label{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}
+
+
+\hypertarget{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{
+\index{cppBMP@{cppBMP}!SetDPI@{SetDPI}}
+\index{SetDPI@{SetDPI}!cppBMP@{cppBMP}}
+\subsubsection[{SetDPI}]{\setlength{\rightskip}{0pt plus 5cm}void cppBMP::SetDPI (int {\em HorizontalDPI}, \/  int {\em VerticalDPI})}}
+\label{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}
+
+
+\hypertarget{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}{
+\index{cppBMP@{cppBMP}!SetDPI@{SetDPI}}
+\index{SetDPI@{SetDPI}!cppBMP@{cppBMP}}
+\subsubsection[{SetDPI}]{\setlength{\rightskip}{0pt plus 5cm}void cppBMP::SetDPI (int {\em HorizontalDPI}, \/  int {\em VerticalDPI})}}
+\label{classcpp_b_m_p_96505f0e4666bd19d0c60e8eed948158}
+
+
+\hypertarget{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{
+\index{cppBMP@{cppBMP}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{SetPixel}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetPixel (int {\em i}, \/  int {\em j}, \/  {\bf RGBApixel} {\em NewPixel})}}
+\label{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}
+
+
+\hypertarget{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{
+\index{cppBMP@{cppBMP}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{SetPixel}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetPixel (int {\em i}, \/  int {\em j}, \/  {\bf RGBApixel} {\em NewPixel})}}
+\label{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}
+
+
+\hypertarget{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{
+\index{cppBMP@{cppBMP}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{SetPixel}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetPixel (int {\em i}, \/  int {\em j}, \/  {\bf RGBApixel} {\em NewPixel})}}
+\label{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}
+
+
+\hypertarget{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}{
+\index{cppBMP@{cppBMP}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!cppBMP@{cppBMP}}
+\subsubsection[{SetPixel}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetPixel (int {\em i}, \/  int {\em j}, \/  {\bf RGBApixel} {\em NewPixel})}}
+\label{classcpp_b_m_p_3d02d63c0abf0c87bb3698b26ac78dae}
+
+
+\hypertarget{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{
+\index{cppBMP@{cppBMP}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!cppBMP@{cppBMP}}
+\subsubsection[{SetSize}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetSize (int {\em NewWidth}, \/  int {\em NewHeight})}}
+\label{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}
+
+
+\hypertarget{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{
+\index{cppBMP@{cppBMP}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!cppBMP@{cppBMP}}
+\subsubsection[{SetSize}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetSize (int {\em NewWidth}, \/  int {\em NewHeight})}}
+\label{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}
+
+
+\hypertarget{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{
+\index{cppBMP@{cppBMP}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!cppBMP@{cppBMP}}
+\subsubsection[{SetSize}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetSize (int {\em NewWidth}, \/  int {\em NewHeight})}}
+\label{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}
+
+
+\hypertarget{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}{
+\index{cppBMP@{cppBMP}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!cppBMP@{cppBMP}}
+\subsubsection[{SetSize}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::SetSize (int {\em NewWidth}, \/  int {\em NewHeight})}}
+\label{classcpp_b_m_p_9a6372827cbeb056c76f418bf764455d}
+
+
+\hypertarget{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{
+\index{cppBMP@{cppBMP}!TellBitDepth@{TellBitDepth}}
+\index{TellBitDepth@{TellBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{TellBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellBitDepth (void)}}
+\label{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}
+
+
+\hypertarget{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{
+\index{cppBMP@{cppBMP}!TellBitDepth@{TellBitDepth}}
+\index{TellBitDepth@{TellBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{TellBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellBitDepth (void)}}
+\label{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}
+
+
+\hypertarget{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{
+\index{cppBMP@{cppBMP}!TellBitDepth@{TellBitDepth}}
+\index{TellBitDepth@{TellBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{TellBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellBitDepth (void)}}
+\label{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}
+
+
+\hypertarget{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}{
+\index{cppBMP@{cppBMP}!TellBitDepth@{TellBitDepth}}
+\index{TellBitDepth@{TellBitDepth}!cppBMP@{cppBMP}}
+\subsubsection[{TellBitDepth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellBitDepth (void)}}
+\label{classcpp_b_m_p_95cf17f997cf74cbfaf889572bf7d751}
+
+
+\hypertarget{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{
+\index{cppBMP@{cppBMP}!TellHeight@{TellHeight}}
+\index{TellHeight@{TellHeight}!cppBMP@{cppBMP}}
+\subsubsection[{TellHeight}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHeight (void)}}
+\label{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}
+
+
+\hypertarget{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{
+\index{cppBMP@{cppBMP}!TellHeight@{TellHeight}}
+\index{TellHeight@{TellHeight}!cppBMP@{cppBMP}}
+\subsubsection[{TellHeight}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHeight (void)}}
+\label{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}
+
+
+\hypertarget{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{
+\index{cppBMP@{cppBMP}!TellHeight@{TellHeight}}
+\index{TellHeight@{TellHeight}!cppBMP@{cppBMP}}
+\subsubsection[{TellHeight}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHeight (void)}}
+\label{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}
+
+
+\hypertarget{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}{
+\index{cppBMP@{cppBMP}!TellHeight@{TellHeight}}
+\index{TellHeight@{TellHeight}!cppBMP@{cppBMP}}
+\subsubsection[{TellHeight}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHeight (void)}}
+\label{classcpp_b_m_p_8dd563361efe9adc4bbe8ac88681811b}
+
+
+\hypertarget{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{
+\index{cppBMP@{cppBMP}!TellHorizontalDPI@{TellHorizontalDPI}}
+\index{TellHorizontalDPI@{TellHorizontalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellHorizontalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHorizontalDPI (void)}}
+\label{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}
+
+
+\hypertarget{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{
+\index{cppBMP@{cppBMP}!TellHorizontalDPI@{TellHorizontalDPI}}
+\index{TellHorizontalDPI@{TellHorizontalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellHorizontalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHorizontalDPI (void)}}
+\label{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}
+
+
+\hypertarget{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{
+\index{cppBMP@{cppBMP}!TellHorizontalDPI@{TellHorizontalDPI}}
+\index{TellHorizontalDPI@{TellHorizontalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellHorizontalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHorizontalDPI (void)}}
+\label{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}
+
+
+\hypertarget{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}{
+\index{cppBMP@{cppBMP}!TellHorizontalDPI@{TellHorizontalDPI}}
+\index{TellHorizontalDPI@{TellHorizontalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellHorizontalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellHorizontalDPI (void)}}
+\label{classcpp_b_m_p_b0d8279d21b6890e9f7664bc46d4ff64}
+
+
+\hypertarget{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{
+\index{cppBMP@{cppBMP}!TellNumberOfColors@{TellNumberOfColors}}
+\index{TellNumberOfColors@{TellNumberOfColors}!cppBMP@{cppBMP}}
+\subsubsection[{TellNumberOfColors}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellNumberOfColors (void)}}
+\label{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}
+
+
+\hypertarget{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{
+\index{cppBMP@{cppBMP}!TellNumberOfColors@{TellNumberOfColors}}
+\index{TellNumberOfColors@{TellNumberOfColors}!cppBMP@{cppBMP}}
+\subsubsection[{TellNumberOfColors}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellNumberOfColors (void)}}
+\label{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}
+
+
+\hypertarget{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{
+\index{cppBMP@{cppBMP}!TellNumberOfColors@{TellNumberOfColors}}
+\index{TellNumberOfColors@{TellNumberOfColors}!cppBMP@{cppBMP}}
+\subsubsection[{TellNumberOfColors}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellNumberOfColors (void)}}
+\label{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}
+
+
+\hypertarget{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}{
+\index{cppBMP@{cppBMP}!TellNumberOfColors@{TellNumberOfColors}}
+\index{TellNumberOfColors@{TellNumberOfColors}!cppBMP@{cppBMP}}
+\subsubsection[{TellNumberOfColors}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellNumberOfColors (void)}}
+\label{classcpp_b_m_p_aef114087d702d456ef994bb64535e6e}
+
+
+\hypertarget{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{
+\index{cppBMP@{cppBMP}!TellVerticalDPI@{TellVerticalDPI}}
+\index{TellVerticalDPI@{TellVerticalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellVerticalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellVerticalDPI (void)}}
+\label{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}
+
+
+\hypertarget{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{
+\index{cppBMP@{cppBMP}!TellVerticalDPI@{TellVerticalDPI}}
+\index{TellVerticalDPI@{TellVerticalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellVerticalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellVerticalDPI (void)}}
+\label{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}
+
+
+\hypertarget{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{
+\index{cppBMP@{cppBMP}!TellVerticalDPI@{TellVerticalDPI}}
+\index{TellVerticalDPI@{TellVerticalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellVerticalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellVerticalDPI (void)}}
+\label{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}
+
+
+\hypertarget{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}{
+\index{cppBMP@{cppBMP}!TellVerticalDPI@{TellVerticalDPI}}
+\index{TellVerticalDPI@{TellVerticalDPI}!cppBMP@{cppBMP}}
+\subsubsection[{TellVerticalDPI}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellVerticalDPI (void)}}
+\label{classcpp_b_m_p_809856c4aae1027fa37a7c3dd94d06c9}
+
+
+\hypertarget{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{
+\index{cppBMP@{cppBMP}!TellWidth@{TellWidth}}
+\index{TellWidth@{TellWidth}!cppBMP@{cppBMP}}
+\subsubsection[{TellWidth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellWidth (void)}}
+\label{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}
+
+
+\hypertarget{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{
+\index{cppBMP@{cppBMP}!TellWidth@{TellWidth}}
+\index{TellWidth@{TellWidth}!cppBMP@{cppBMP}}
+\subsubsection[{TellWidth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellWidth (void)}}
+\label{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}
+
+
+\hypertarget{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{
+\index{cppBMP@{cppBMP}!TellWidth@{TellWidth}}
+\index{TellWidth@{TellWidth}!cppBMP@{cppBMP}}
+\subsubsection[{TellWidth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellWidth (void)}}
+\label{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}
+
+
+\hypertarget{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}{
+\index{cppBMP@{cppBMP}!TellWidth@{TellWidth}}
+\index{TellWidth@{TellWidth}!cppBMP@{cppBMP}}
+\subsubsection[{TellWidth}]{\setlength{\rightskip}{0pt plus 5cm}int cppBMP::TellWidth (void)}}
+\label{classcpp_b_m_p_539ec9582a0ebd2853d168eae6bfc68f}
+
+
+\hypertarget{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{
+\index{cppBMP@{cppBMP}!WriteToFile@{WriteToFile}}
+\index{WriteToFile@{WriteToFile}!cppBMP@{cppBMP}}
+\subsubsection[{WriteToFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::WriteToFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}
+
+
+\hypertarget{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{
+\index{cppBMP@{cppBMP}!WriteToFile@{WriteToFile}}
+\index{WriteToFile@{WriteToFile}!cppBMP@{cppBMP}}
+\subsubsection[{WriteToFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::WriteToFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}
+
+
+\hypertarget{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{
+\index{cppBMP@{cppBMP}!WriteToFile@{WriteToFile}}
+\index{WriteToFile@{WriteToFile}!cppBMP@{cppBMP}}
+\subsubsection[{WriteToFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::WriteToFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}
+
+
+\hypertarget{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}{
+\index{cppBMP@{cppBMP}!WriteToFile@{WriteToFile}}
+\index{WriteToFile@{WriteToFile}!cppBMP@{cppBMP}}
+\subsubsection[{WriteToFile}]{\setlength{\rightskip}{0pt plus 5cm}bool cppBMP::WriteToFile (const char $\ast$ {\em FileName})}}
+\label{classcpp_b_m_p_bee4a161c6d3ad3d627b70b62735259d}
+
+
+
+
+Объявления и описания членов классов находятся в файлах:\begin{CompactItemize}
+\item 
+D:/Projects/MatchingSolution/source/filtration\_\-cuda\_\-run/bmp/\hyperlink{filtration__cuda__run_2bmp_2_easy_b_m_p___b_m_p_8h}{EasyBMP\_\-BMP.h}\item 
+D:/Projects/MatchingSolution/source/filtration\_\-run/bmp/\hyperlink{filtration__run_2bmp_2_easy_b_m_p___b_m_p_8h}{EasyBMP\_\-BMP.h}\item 
+D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/\hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___b_m_p_8h}{EasyBMP\_\-BMP.h}\item 
+D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/bmp/\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p___b_m_p_8h}{EasyBMP\_\-BMP.h}\item 
+D:/Projects/MatchingSolution/source/filtration\_\-cuda\_\-run/bmp/\hyperlink{filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp}{EasyBMP.cpp}\item 
+D:/Projects/MatchingSolution/source/filtration\_\-run/bmp/\hyperlink{filtration__run_2bmp_2_easy_b_m_p_8cpp}{EasyBMP.cpp}\item 
+D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/\hyperlink{simple__matching__run_2bmp_2_easy_b_m_p_8cpp}{EasyBMP.cpp}\item 
+D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/bmp/\hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp}{EasyBMP.cpp}\end{CompactItemize}

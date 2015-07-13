@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/filtration_run/freeImage/CacheFile.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/filtration_run/freeImage/CacheFile.h</h1><a href="_cache_file_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// ==========================================================</span>
+<a name="l00002"></a>00002 <span class="comment">// Multi-Page functions</span>
+<a name="l00003"></a>00003 <span class="comment">//</span>
+<a name="l00004"></a>00004 <span class="comment">// Design and implementation by</span>
+<a name="l00005"></a>00005 <span class="comment">// - Floris van den Berg (flvdberg@wxs.nl)</span>
+<a name="l00006"></a>00006 <span class="comment">//</span>
+<a name="l00007"></a>00007 <span class="comment">// This file is part of FreeImage 3</span>
+<a name="l00008"></a>00008 <span class="comment">//</span>
+<a name="l00009"></a>00009 <span class="comment">// COVERED CODE IS PROVIDED UNDER THIS LICENSE ON AN "AS IS" BASIS, WITHOUT WARRANTY</span>
+<a name="l00010"></a>00010 <span class="comment">// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES</span>
+<a name="l00011"></a>00011 <span class="comment">// THAT THE COVERED CODE IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE</span>
+<a name="l00012"></a>00012 <span class="comment">// OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE COVERED</span>
+<a name="l00013"></a>00013 <span class="comment">// CODE IS WITH YOU. SHOULD ANY COVERED CODE PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT</span>
+<a name="l00014"></a>00014 <span class="comment">// THE INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY</span>
+<a name="l00015"></a>00015 <span class="comment">// SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL</span>
+<a name="l00016"></a>00016 <span class="comment">// PART OF THIS LICENSE. NO USE OF ANY COVERED CODE IS AUTHORIZED HEREUNDER EXCEPT UNDER</span>
+<a name="l00017"></a>00017 <span class="comment">// THIS DISCLAIMER.</span>
+<a name="l00018"></a>00018 <span class="comment">//</span>
+<a name="l00019"></a>00019 <span class="comment">// Use at your own risk!</span>
+<a name="l00020"></a>00020 <span class="comment">// ==========================================================</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="preprocessor">#ifndef CACHEFILE_H</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define CACHEFILE_H</span>
+<a name="l00024"></a>00024 <span class="preprocessor"></span>
+<a name="l00025"></a>00025 <span class="comment">// ----------------------------------------------------------</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#include "<a class="code" href="filtration__run_2free_image_2_free_image_8h.html">FreeImage.h</a>"</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include "Utilities.h"</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="comment">// ----------------------------------------------------------</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> CACHE_SIZE = 32;
+<a name="l00033"></a>00033 <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> BLOCK_SIZE = (64 * 1024) - 8;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="comment">// ----------------------------------------------------------</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="preprocessor">#ifdef _WIN32</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#pragma pack(push, 1)</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#pragma pack(1)</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#endif // _WIN32</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a><a class="code" href="struct_block.html">00043</a> <span class="keyword">struct </span><a class="code" href="struct_block.html">Block</a> {
+<a name="l00044"></a><a class="code" href="struct_block.html#8a2c57f902ae78af007fc459eb992820">00044</a>      <span class="keywordtype">unsigned</span> <a class="code" href="struct_block.html#8a2c57f902ae78af007fc459eb992820">nr</a>;
+<a name="l00045"></a><a class="code" href="struct_block.html#bc90e39660a2bd32b60566010d3ad1a4">00045</a>      <span class="keywordtype">unsigned</span> <a class="code" href="struct_block.html#bc90e39660a2bd32b60566010d3ad1a4">next</a>;
+<a name="l00046"></a><a class="code" href="struct_block.html#1eee91dadc23eaafdb45eaaf8beeae23">00046</a>      <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#ae9749d96e15ccb4f482dd5f55d98f9b">BYTE</a> *<a class="code" href="struct_block.html#1eee91dadc23eaafdb45eaaf8beeae23">data</a>;
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#ifdef _WIN32</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#pragma pack(pop)</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#pragma pack()</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#endif // _WIN32</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span>
+<a name="l00055"></a>00055 <span class="comment">// ----------------------------------------------------------</span>
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="class_cache_file.html">00057</a> <span class="keyword">class </span><a class="code" href="class_cache_file.html">CacheFile</a> {
+<a name="l00058"></a>00058         <span class="keyword">typedef</span> std::list&lt;Block *&gt; PageCache;
+<a name="l00059"></a>00059         <span class="keyword">typedef</span> std::list&lt;Block *&gt;::iterator PageCacheIt;
+<a name="l00060"></a>00060         <span class="keyword">typedef</span> std::map&lt;int, PageCacheIt&gt; PageMap;
+<a name="l00061"></a>00061         <span class="keyword">typedef</span> std::map&lt;int, PageCacheIt&gt;::iterator PageMapIt;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">public</span> :
+<a name="l00064"></a>00064         <a class="code" href="class_cache_file.html#7a018ff6f8416e7c797ca344df0e74e7">CacheFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> keep_in_memory);
+<a name="l00065"></a>00065         <a class="code" href="class_cache_file.html#19596f187818008dad37012d2e7b9dd8">~CacheFile</a>();
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> <a class="code" href="class_cache_file.html#19854d9816d80a55a55176e90de9d6e6">open</a>();
+<a name="l00068"></a>00068         <span class="keywordtype">void</span> <a class="code" href="class_cache_file.html#3ca771e4b8f81fb85a51067461630e77">close</a>();
+<a name="l00069"></a>00069         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> <a class="code" href="class_cache_file.html#eb99cac63e110c6d21a5866200763fa9">readFile</a>(<a class="code" href="correlation__cuda__lib_2_free_image_8h.html#ae9749d96e15ccb4f482dd5f55d98f9b">BYTE</a> *data, <span class="keywordtype">int</span> nr, <span class="keywordtype">int</span> <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#156878bfbcff0c64d75da712abe72bd6">size</a>);
+<a name="l00070"></a>00070         <span class="keywordtype">int</span> <a class="code" href="class_cache_file.html#6c425a1386901f1760db7dc4992c2edb">writeFile</a>(<a class="code" href="correlation__cuda__lib_2_free_image_8h.html#ae9749d96e15ccb4f482dd5f55d98f9b">BYTE</a> *data, <span class="keywordtype">int</span> size);
+<a name="l00071"></a>00071         <span class="keywordtype">void</span> <a class="code" href="class_cache_file.html#8691ef7017c4e585b07201fae31b694e">deleteFile</a>(<span class="keywordtype">int</span> nr);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">private</span> :
+<a name="l00074"></a>00074         <span class="keywordtype">void</span> cleanupMemCache();
+<a name="l00075"></a>00075         <span class="keywordtype">int</span> allocateBlock();
+<a name="l00076"></a>00076         <a class="code" href="struct_block.html">Block</a> *lockBlock(<span class="keywordtype">int</span> nr);
+<a name="l00077"></a>00077         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> unlockBlock(<span class="keywordtype">int</span> nr);
+<a name="l00078"></a>00078         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> deleteBlock(<span class="keywordtype">int</span> nr);
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="keyword">private</span> :
+<a name="l00081"></a>00081         FILE *m_file;
+<a name="l00082"></a>00082         std::string m_filename;
+<a name="l00083"></a>00083         std::list&lt;int&gt; m_free_pages;
+<a name="l00084"></a>00084         PageCache m_page_cache_mem;
+<a name="l00085"></a>00085         PageCache m_page_cache_disk;
+<a name="l00086"></a>00086         PageMap m_page_map;
+<a name="l00087"></a>00087         <span class="keywordtype">int</span> m_page_count;
+<a name="l00088"></a>00088         <a class="code" href="struct_block.html">Block</a> *m_current_block;
+<a name="l00089"></a>00089         <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#975dbe9e4396bf9e0064ce01827fa372">BOOL</a> m_keep_in_memory;
+<a name="l00090"></a>00090 };
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="preprocessor">#endif // CACHEFILE_H</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

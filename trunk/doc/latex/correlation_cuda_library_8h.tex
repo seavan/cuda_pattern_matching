@@ -1,0 +1,57 @@
+\hypertarget{correlation_cuda_library_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.h}
+\label{correlation_cuda_library_8h}\index{D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.h@{D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.h}}
+}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{correlation_cuda_library_8h_8ef2f5d30cebcf335b515d49c1fadef6}{CORRELATIONCUDALIBRARY\_\-API}~\_\-\_\-declspec(dllimport)
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+CORRELATIONCUDALIBRARY\_\-API unsigned char $\ast$ \hyperlink{correlation_cuda_library_8h_21f10c929b861522d7ec4ab7ed9a7b36}{correlationCpuL} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+CORRELATIONCUDALIBRARY\_\-API unsigned char $\ast$ \hyperlink{correlation_cuda_library_8h_a9ddcf57c210622669c1a5699adfdf48}{correlationCudaL} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{correlation_cuda_library_8h_8ef2f5d30cebcf335b515d49c1fadef6}{
+\index{correlationCudaLibrary.h@{correlationCudaLibrary.h}!CORRELATIONCUDALIBRARY\_\-API@{CORRELATIONCUDALIBRARY\_\-API}}
+\index{CORRELATIONCUDALIBRARY\_\-API@{CORRELATIONCUDALIBRARY\_\-API}!correlationCudaLibrary.h@{correlationCudaLibrary.h}}
+\subsubsection[{CORRELATIONCUDALIBRARY\_\-API}]{\setlength{\rightskip}{0pt plus 5cm}\#define CORRELATIONCUDALIBRARY\_\-API~\_\-\_\-declspec(dllimport)}}
+\label{correlation_cuda_library_8h_8ef2f5d30cebcf335b515d49c1fadef6}
+
+
+
+
+\subsection{Функции}
+\hypertarget{correlation_cuda_library_8h_21f10c929b861522d7ec4ab7ed9a7b36}{
+\index{correlationCudaLibrary.h@{correlationCudaLibrary.h}!correlationCpuL@{correlationCpuL}}
+\index{correlationCpuL@{correlationCpuL}!correlationCudaLibrary.h@{correlationCudaLibrary.h}}
+\subsubsection[{correlationCpuL}]{\setlength{\rightskip}{0pt plus 5cm}CORRELATIONCUDALIBRARY\_\-API unsigned char$\ast$ correlationCpuL (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8h_21f10c929b861522d7ec4ab7ed9a7b36}
+
+
+! Просчет корреляции средствами CPU \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчный массив с исходным изображением \item[{\em \_\-width}]Ширина исходного изображения \item[{\em \_\-height}]Высота исходного изображения \item[{\em \_\-pattern}]Построчный массив с шаблоном \item[{\em \_\-ptnwidth}]Ширина шаблона \item[{\em \_\-ptnheight}]Высота шаблона \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]\end{Desc}
+\hypertarget{correlation_cuda_library_8h_a9ddcf57c210622669c1a5699adfdf48}{
+\index{correlationCudaLibrary.h@{correlationCudaLibrary.h}!correlationCudaL@{correlationCudaL}}
+\index{correlationCudaL@{correlationCudaL}!correlationCudaLibrary.h@{correlationCudaLibrary.h}}
+\subsubsection[{correlationCudaL}]{\setlength{\rightskip}{0pt plus 5cm}CORRELATIONCUDALIBRARY\_\-API unsigned char$\ast$ correlationCudaL (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8h_a9ddcf57c210622669c1a5699adfdf48}
+
+
+! Просчет корреляции средствами видеокарты \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчный массив с исходным изображением \item[{\em \_\-width}]Ширина исходного изображения \item[{\em \_\-height}]Высота исходного изображения \item[{\em \_\-pattern}]Построчный массив с шаблоном \item[{\em \_\-ptnwidth}]Ширина шаблона \item[{\em \_\-ptnheight}]Высота шаблона \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]\end{Desc}

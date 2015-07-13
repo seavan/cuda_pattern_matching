@@ -1,0 +1,307 @@
+\hypertarget{simple__matching__run_2pm_2wh_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh.h}
+\label{simple__matching__run_2pm_2wh_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh.h}}
+}
+{\tt \#include \char`\"{}defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}matrix.h\char`\"{}}\par
+{\tt \#include \char`\"{}image.h\char`\"{}}\par
+\subsection*{Структуры данных}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_branch}{Branch}
+\item 
+struct \hyperlink{struct_match}{Match}
+\item 
+struct \hyperlink{struct_w_h_setup}{WHSetup}
+\end{CompactItemize}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_93a65f53ddc9aab0ba551cc7d89f3e88}{MAX\_\-PATTERN\_\-128}
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_39bb8f7702939d842b16ba48024d07a3}{MAX\_\-BASIS\_\-1024}
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_90eb498bf38dedbae958f1ee5bea9954}{BUFFER\_\-SIZE\_\-32}~16832
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_dd413e620f5e31f4f42f74080a0bda56}{BUFFER\_\-SIZE\_\-64}~34664
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_2bd1b712d38fe5f23ec3975a4b717a2f}{BUFFER\_\-SIZE\_\-128}~69328
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_0ea7ff5947c5f5430a29fdd98391eb2a}{PLUS}~1
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_5381a445a1e4bdc36460151d82eed95a}{MINUS}~-1
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_220ef7e31d8d839246660bf0aa8f3eee}{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}~10.0
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_e3b6e60cca467e955b438882e4506614}{DEFAULT\_\-DISTANCE\_\-PERCENT}~2.0
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_\-SIZE}~BUFFER\_\-SIZE\_\-128
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_05c2a39bc9d9c3bf57641f06785b7f70}{branchMat}(branch, matNo)~(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_1c79dde1ae3480ce56fa4e8f64649437}{branchDepth}(branch)~(branch $\rightarrow$ depth)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_4f3d00962845d4993ce72f5dabc809bb}{branchBasisInd}(branch)~(branch $\rightarrow$ basisInd)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_5d1fad4fca13ec080c34a6eba4d31f47}{branchDelta}(branch, matNo)~(branch $\rightarrow$ delta\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_031bfe7195c8d69ce52a0765914a0975}{branchHorizontal}(branch, matNo)~(branch $\rightarrow$ horizontal\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_de04439c7240984ad37d2469bb4314f0}{branchSign}(branch, matNo, basisInd)~(branch $\rightarrow$ sign\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_950a2bdc868f52ecb16c26efb89c26f0}{branchNodeID}(branch, matNo, basisInd)~(branch $\rightarrow$ nodeID\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}{branchPixelNodeID}(branch, y, x)~(branch $\rightarrow$ pixelNodeIDRowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_1dcc45ac7e24a99e3c41f607a0b79b22}{branchPixelNodeIDPtr}(branch)~(branch $\rightarrow$ pixelNodeIDValues)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_c49d8ecb153f3f6ce620045c9f122dee}{branchClimbLevels}(branch, toBasisInd)~(branch $\rightarrow$ climbLevels\mbox{[}branch $\rightarrow$ basisInd\mbox{]}\mbox{[}toBasisInd\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_783480734d7ad3d7573206e765ac9145}{branchMatVal}(branch, matNo, y, x)~(matVal(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]}, y, x))
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_a66d385c2e91f8d7c80afea53fd62e00}{matchY}(match)~(match $\rightarrow$ y)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_e41ed6a5b2e5512f4a01b68870782bef}{matchX}(match)~(match $\rightarrow$ x)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_78dfc6921c8a1c7d2c90a954b45e9280}{matchDistance}(match)~(match $\rightarrow$ distance)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_1818f71e58a09056d2c3d8658d25cf7d}{matches}(setup)~(setup $\rightarrow$ matches)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_69fc91113933df80ff4538183d57b500}{numOfMatches}(setup)~(setup $\rightarrow$ numOfMatches)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_e546127c403cf0cbb041e0ebeb8ba664}{sourceImage}(setup)~(setup $\rightarrow$ sourceImage)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2wh_8h_e009f5822ff50acfdf0873c916f5a834}{patternImage}(setup)~(setup $\rightarrow$ patternImage)
+\end{CompactItemize}
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef signed \_\-int32 \hyperlink{simple__matching__run_2pm_2wh_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{basisT}
+\item 
+typedef unsigned \_\-int8 \hyperlink{simple__matching__run_2pm_2wh_8h_22f5977248d0f2af892f3ac9af10b1a7}{depthT}
+\item 
+typedef \_\-int8 \hyperlink{simple__matching__run_2pm_2wh_8h_14e3c9888ccc350e9e7af9cff09ebcc5}{signT}
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{simple__matching__run_2pm_2wh_8h_4f3d00962845d4993ce72f5dabc809bb}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchBasisInd@{branchBasisInd}}
+\index{branchBasisInd@{branchBasisInd}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchBasisInd}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchBasisInd(branch)~(branch $\rightarrow$ basisInd)}}
+\label{simple__matching__run_2pm_2wh_8h_4f3d00962845d4993ce72f5dabc809bb}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_c49d8ecb153f3f6ce620045c9f122dee}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchClimbLevels@{branchClimbLevels}}
+\index{branchClimbLevels@{branchClimbLevels}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchClimbLevels}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchClimbLevels(branch, \/  toBasisInd)~(branch $\rightarrow$ climbLevels\mbox{[}branch $\rightarrow$ basisInd\mbox{]}\mbox{[}toBasisInd\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_c49d8ecb153f3f6ce620045c9f122dee}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_5d1fad4fca13ec080c34a6eba4d31f47}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchDelta@{branchDelta}}
+\index{branchDelta@{branchDelta}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchDelta}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchDelta(branch, \/  matNo)~(branch $\rightarrow$ delta\mbox{[}matNo\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_5d1fad4fca13ec080c34a6eba4d31f47}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_1c79dde1ae3480ce56fa4e8f64649437}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchDepth@{branchDepth}}
+\index{branchDepth@{branchDepth}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchDepth}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchDepth(branch)~(branch $\rightarrow$ depth)}}
+\label{simple__matching__run_2pm_2wh_8h_1c79dde1ae3480ce56fa4e8f64649437}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_031bfe7195c8d69ce52a0765914a0975}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchHorizontal@{branchHorizontal}}
+\index{branchHorizontal@{branchHorizontal}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchHorizontal}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchHorizontal(branch, \/  matNo)~(branch $\rightarrow$ horizontal\mbox{[}matNo\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_031bfe7195c8d69ce52a0765914a0975}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_05c2a39bc9d9c3bf57641f06785b7f70}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchMat@{branchMat}}
+\index{branchMat@{branchMat}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchMat}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchMat(branch, \/  matNo)~(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_05c2a39bc9d9c3bf57641f06785b7f70}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_783480734d7ad3d7573206e765ac9145}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchMatVal@{branchMatVal}}
+\index{branchMatVal@{branchMatVal}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchMatVal}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchMatVal(branch, \/  matNo, \/  y, \/  x)~(matVal(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]}, y, x))}}
+\label{simple__matching__run_2pm_2wh_8h_783480734d7ad3d7573206e765ac9145}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_950a2bdc868f52ecb16c26efb89c26f0}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchNodeID@{branchNodeID}}
+\index{branchNodeID@{branchNodeID}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchNodeID}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchNodeID(branch, \/  matNo, \/  basisInd)~(branch $\rightarrow$ nodeID\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_950a2bdc868f52ecb16c26efb89c26f0}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchPixelNodeID@{branchPixelNodeID}}
+\index{branchPixelNodeID@{branchPixelNodeID}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchPixelNodeID}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchPixelNodeID(branch, \/  y, \/  x)~(branch $\rightarrow$ pixelNodeIDRowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_1dcc45ac7e24a99e3c41f607a0b79b22}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchPixelNodeIDPtr@{branchPixelNodeIDPtr}}
+\index{branchPixelNodeIDPtr@{branchPixelNodeIDPtr}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchPixelNodeIDPtr}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchPixelNodeIDPtr(branch)~(branch $\rightarrow$ pixelNodeIDValues)}}
+\label{simple__matching__run_2pm_2wh_8h_1dcc45ac7e24a99e3c41f607a0b79b22}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_de04439c7240984ad37d2469bb4314f0}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!branchSign@{branchSign}}
+\index{branchSign@{branchSign}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{branchSign}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchSign(branch, \/  matNo, \/  basisInd)~(branch $\rightarrow$ sign\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})}}
+\label{simple__matching__run_2pm_2wh_8h_de04439c7240984ad37d2469bb4314f0}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_6b20d41d6252e9871430c242cb1a56e7}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!BUFFER\_\-SIZE@{BUFFER\_\-SIZE}}
+\index{BUFFER\_\-SIZE@{BUFFER\_\-SIZE}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE~BUFFER\_\-SIZE\_\-128}}
+\label{simple__matching__run_2pm_2wh_8h_6b20d41d6252e9871430c242cb1a56e7}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_2bd1b712d38fe5f23ec3975a4b717a2f}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!BUFFER\_\-SIZE\_\-128@{BUFFER\_\-SIZE\_\-128}}
+\index{BUFFER\_\-SIZE\_\-128@{BUFFER\_\-SIZE\_\-128}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-128}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-128~69328}}
+\label{simple__matching__run_2pm_2wh_8h_2bd1b712d38fe5f23ec3975a4b717a2f}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_90eb498bf38dedbae958f1ee5bea9954}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!BUFFER\_\-SIZE\_\-32@{BUFFER\_\-SIZE\_\-32}}
+\index{BUFFER\_\-SIZE\_\-32@{BUFFER\_\-SIZE\_\-32}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-32}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-32~16832}}
+\label{simple__matching__run_2pm_2wh_8h_90eb498bf38dedbae958f1ee5bea9954}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_dd413e620f5e31f4f42f74080a0bda56}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!BUFFER\_\-SIZE\_\-64@{BUFFER\_\-SIZE\_\-64}}
+\index{BUFFER\_\-SIZE\_\-64@{BUFFER\_\-SIZE\_\-64}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-64}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-64~34664}}
+\label{simple__matching__run_2pm_2wh_8h_dd413e620f5e31f4f42f74080a0bda56}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_220ef7e31d8d839246660bf0aa8f3eee}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT@{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}}
+\index{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT@{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT~10.0}}
+\label{simple__matching__run_2pm_2wh_8h_220ef7e31d8d839246660bf0aa8f3eee}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_e3b6e60cca467e955b438882e4506614}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!DEFAULT\_\-DISTANCE\_\-PERCENT@{DEFAULT\_\-DISTANCE\_\-PERCENT}}
+\index{DEFAULT\_\-DISTANCE\_\-PERCENT@{DEFAULT\_\-DISTANCE\_\-PERCENT}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{DEFAULT\_\-DISTANCE\_\-PERCENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-DISTANCE\_\-PERCENT~2.0}}
+\label{simple__matching__run_2pm_2wh_8h_e3b6e60cca467e955b438882e4506614}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_78dfc6921c8a1c7d2c90a954b45e9280}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!matchDistance@{matchDistance}}
+\index{matchDistance@{matchDistance}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{matchDistance}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchDistance(match)~(match $\rightarrow$ distance)}}
+\label{simple__matching__run_2pm_2wh_8h_78dfc6921c8a1c7d2c90a954b45e9280}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_1818f71e58a09056d2c3d8658d25cf7d}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!matches@{matches}}
+\index{matches@{matches}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{matches}]{\setlength{\rightskip}{0pt plus 5cm}\#define matches(setup)~(setup $\rightarrow$ matches)}}
+\label{simple__matching__run_2pm_2wh_8h_1818f71e58a09056d2c3d8658d25cf7d}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_e41ed6a5b2e5512f4a01b68870782bef}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!matchX@{matchX}}
+\index{matchX@{matchX}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{matchX}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchX(match)~(match $\rightarrow$ x)}}
+\label{simple__matching__run_2pm_2wh_8h_e41ed6a5b2e5512f4a01b68870782bef}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_a66d385c2e91f8d7c80afea53fd62e00}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!matchY@{matchY}}
+\index{matchY@{matchY}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{matchY}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchY(match)~(match $\rightarrow$ y)}}
+\label{simple__matching__run_2pm_2wh_8h_a66d385c2e91f8d7c80afea53fd62e00}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_39bb8f7702939d842b16ba48024d07a3}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!MAX\_\-BASIS\_\-1024@{MAX\_\-BASIS\_\-1024}}
+\index{MAX\_\-BASIS\_\-1024@{MAX\_\-BASIS\_\-1024}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{MAX\_\-BASIS\_\-1024}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-BASIS\_\-1024}}
+\label{simple__matching__run_2pm_2wh_8h_39bb8f7702939d842b16ba48024d07a3}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_93a65f53ddc9aab0ba551cc7d89f3e88}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!MAX\_\-PATTERN\_\-128@{MAX\_\-PATTERN\_\-128}}
+\index{MAX\_\-PATTERN\_\-128@{MAX\_\-PATTERN\_\-128}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{MAX\_\-PATTERN\_\-128}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-PATTERN\_\-128}}
+\label{simple__matching__run_2pm_2wh_8h_93a65f53ddc9aab0ba551cc7d89f3e88}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_5381a445a1e4bdc36460151d82eed95a}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!MINUS@{MINUS}}
+\index{MINUS@{MINUS}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{MINUS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MINUS~-1}}
+\label{simple__matching__run_2pm_2wh_8h_5381a445a1e4bdc36460151d82eed95a}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_69fc91113933df80ff4538183d57b500}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!numOfMatches@{numOfMatches}}
+\index{numOfMatches@{numOfMatches}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{numOfMatches}]{\setlength{\rightskip}{0pt plus 5cm}\#define numOfMatches(setup)~(setup $\rightarrow$ numOfMatches)}}
+\label{simple__matching__run_2pm_2wh_8h_69fc91113933df80ff4538183d57b500}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_e009f5822ff50acfdf0873c916f5a834}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!patternImage@{patternImage}}
+\index{patternImage@{patternImage}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{patternImage}]{\setlength{\rightskip}{0pt plus 5cm}\#define patternImage(setup)~(setup $\rightarrow$ patternImage)}}
+\label{simple__matching__run_2pm_2wh_8h_e009f5822ff50acfdf0873c916f5a834}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_0ea7ff5947c5f5430a29fdd98391eb2a}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!PLUS@{PLUS}}
+\index{PLUS@{PLUS}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{PLUS}]{\setlength{\rightskip}{0pt plus 5cm}\#define PLUS~1}}
+\label{simple__matching__run_2pm_2wh_8h_0ea7ff5947c5f5430a29fdd98391eb2a}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_e546127c403cf0cbb041e0ebeb8ba664}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!sourceImage@{sourceImage}}
+\index{sourceImage@{sourceImage}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{sourceImage}]{\setlength{\rightskip}{0pt plus 5cm}\#define sourceImage(setup)~(setup $\rightarrow$ sourceImage)}}
+\label{simple__matching__run_2pm_2wh_8h_e546127c403cf0cbb041e0ebeb8ba664}
+
+
+
+
+\subsection{Типы}
+\hypertarget{simple__matching__run_2pm_2wh_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!basisT@{basisT}}
+\index{basisT@{basisT}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{basisT}]{\setlength{\rightskip}{0pt plus 5cm}typedef signed \_\-int32 {\bf basisT}}}
+\label{simple__matching__run_2pm_2wh_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_22f5977248d0f2af892f3ac9af10b1a7}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!depthT@{depthT}}
+\index{depthT@{depthT}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{depthT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned \_\-int8 {\bf depthT}}}
+\label{simple__matching__run_2pm_2wh_8h_22f5977248d0f2af892f3ac9af10b1a7}
+
+
+\hypertarget{simple__matching__run_2pm_2wh_8h_14e3c9888ccc350e9e7af9cff09ebcc5}{
+\index{simple\_\-matching\_\-run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}!signT@{signT}}
+\index{signT@{signT}!simple_matching_run/pm/wh.h@{simple\_\-matching\_\-run/pm/wh.h}}
+\subsubsection[{signT}]{\setlength{\rightskip}{0pt plus 5cm}typedef \_\-int8 {\bf signT}}}
+\label{simple__matching__run_2pm_2wh_8h_14e3c9888ccc350e9e7af9cff09ebcc5}
+
+

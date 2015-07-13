@@ -1,0 +1,761 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.c</h1><a href="walsh__hadamard__run_2pm_2wh_8c.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00003"></a>00003 <span class="comment"> *****************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment"> * file:        wh.c                                                         *</span>
+<a name="l00005"></a>00005 <span class="comment"> *                                                                           *</span>
+<a name="l00006"></a>00006 <span class="comment"> * description: A utility for performing pattern matching using projection   *</span>
+<a name="l00007"></a>00007 <span class="comment"> *              on Walsh Hadamard kernels.                                   *</span>
+<a name="l00008"></a>00008 <span class="comment"> *              A WHSetup struct should be created first, defining the       *</span>
+<a name="l00009"></a>00009 <span class="comment"> *              sizes of the source image and the pattern, and the required  *</span>
+<a name="l00010"></a>00010 <span class="comment"> *              amount of WH kernels to be used.                             *</span>
+<a name="l00011"></a>00011 <span class="comment"> *              Next, the desired source image and pattern for matching      *</span>
+<a name="l00012"></a>00012 <span class="comment"> *              should be specified.                                         *</span>
+<a name="l00013"></a>00013 <span class="comment"> *              Now the pattern matching may be performed, and the results   *</span>
+<a name="l00014"></a>00014 <span class="comment"> *              may be obtained from the WHSetup using the available         *</span>
+<a name="l00015"></a>00015 <span class="comment"> *              macros. The results include an array of Matches (each match  *</span>
+<a name="l00016"></a>00016 <span class="comment"> *              contains the location of the match in the source image and   *</span>
+<a name="l00017"></a>00017 <span class="comment"> *              the euclidean distance of the match from the pattern) and    *</span>
+<a name="l00018"></a>00018 <span class="comment"> *              number of matches that were found.                           *</span>
+<a name="l00019"></a>00019 <span class="comment"> *****************************************************************************/</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html">wh.h</a>"</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;math.h&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;memory.h&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#pragma inline_recursion(on)</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 <span class="preprocessor">#ifdef MAX_PATTERN_32</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">        #pragma inline_depth(10)</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">        #ifdef MAX_PATTERN_64</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">                #pragma inline_depth(12)</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">        #else</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">                #pragma inline_depth(14)</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">        #endif</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038 
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="comment">// holds the Walsh-Hadamard tree signs order</span>
+<a name="l00042"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#d5d464d1a4b160d559a6f288a3f6a379">00042</a> <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#d5d464d1a4b160d559a6f288a3f6a379">signs</a>[8] = {<a class="code" href="simple__matching__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">PLUS</a>,<a class="code" href="simple__matching__run_2pm_2wh_8h.html#5381a445a1e4bdc36460151d82eed95a">MINUS</a>,<a class="code" href="simple__matching__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">PLUS</a>,MINUS,MINUS,PLUS,MINUS,PLUS};
+<a name="l00043"></a>00043 
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <a class="code" href="struct_branch.html">Branch</a> * <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f983d5045ead211cd9f5da2f5d2a12a9">allocBranch</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> depth, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis);
+<a name="l00047"></a>00047 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#8ef73114ea9c6239953d600ee9374dac">destoryBranch</a>(<a class="code" href="struct_branch.html">Branch</a> *branch);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fc79c17842279e16aa50fa105b148721">addH</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta);
+<a name="l00050"></a>00050 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#d3728777521bddbf6623474cbc2d0122">subH</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta);
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#1fa179c00bda48d72c45399283be9767">addV</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta);
+<a name="l00052"></a>00052 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#7155db0c64d8546f36bb1a50fabf1e34">subV</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#b2f9653eea631eb69404b9328c28bd2d">getSign</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> levelFromBottom);
+<a name="l00055"></a>00055 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#03a3041b69f88d852faf180f3a617d1e">getClimbLevels</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> sourceBasisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> destBasisInd);
+<a name="l00056"></a>00056 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(<a class="code" href="struct_branch.html">Branch</a> *branch, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> currentMatNo, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> x);
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061 
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">/*</span>
+<a name="l00065"></a>00065 <span class="comment">Allocates and returns an Branch of the given depth with the given matrix sizes.</span>
+<a name="l00066"></a>00066 <span class="comment">The number of matrices created in the branch is (2 * depth) + 1:</span>
+<a name="l00067"></a>00067 <span class="comment"> - The top matrix is reserved for the source matrix, and is not allocated.</span>
+<a name="l00068"></a>00068 <span class="comment"> - each unit of depth allocates two matrices, one for the horizontal convolution and one</span>
+<a name="l00069"></a>00069 <span class="comment">   for the vertical convolution.</span>
+<a name="l00070"></a>00070 <span class="comment">The basis index of the branch is initialized to -1.</span>
+<a name="l00071"></a>00071 <span class="comment">*/</span>
+<a name="l00072"></a>00072 <a class="code" href="struct_branch.html">Branch</a> *<a class="code" href="simple__matching__run_2pm_2wh_8c.html#f983d5045ead211cd9f5da2f5d2a12a9">allocBranch</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> depth, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis)
+<a name="l00073"></a>00073 {
+<a name="l00074"></a>00074         <a class="code" href="struct_branch.html">Branch</a> *branch;
+<a name="l00075"></a>00075         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta, row;
+<a name="l00076"></a>00076         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> numOfMatrices = (depth &lt;&lt; 1) + 1;
+<a name="l00077"></a>00077         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfLeaves = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>)pow(2, numOfMatrices - 1);
+<a name="l00078"></a>00078         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> divider = 2;
+<a name="l00079"></a>00079         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> matInd;
+<a name="l00080"></a>00080         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> *signPtr;
+<a name="l00081"></a>00081         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *nodeIDPtr, *pixelIDPtr;
+<a name="l00082"></a>00082         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *climbPtr = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *)1; <span class="comment">// init with dummy value</span>
+<a name="l00083"></a>00083         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> i = 0, j = 0; <span class="comment">// init with dummy values</span>
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         <span class="comment">// allocate branch</span>
+<a name="l00086"></a>00086         branch = (<a class="code" href="struct_branch.html">Branch</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="struct_branch.html">Branch</a>));
+<a name="l00087"></a>00087         <span class="keywordflow">if</span> (!branch)
+<a name="l00088"></a>00088                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in allocBranch: can't allocate branch."</span>);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         <span class="comment">// allocate matrices</span>
+<a name="l00091"></a>00091         branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a> = (<a class="code" href="struct_matrix.html">Matrix</a> **)malloc(numOfMatrices * <span class="keyword">sizeof</span>(<a class="code" href="struct_matrix.html">Matrix</a> *));
+<a name="l00092"></a>00092         <span class="keywordflow">if</span> (!branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a>)
+<a name="l00093"></a>00093                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in allocBranch: can't allocate matrices array mapping."</span>);
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095         branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a> = depth &lt;&lt; 1;
+<a name="l00096"></a>00096         branch-&gt;<a class="code" href="struct_branch.html#4a485bc75f8beb1a6ec65ee2f5094b6c">basisInd</a> = -1;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098         <span class="comment">// allocate branch data</span>
+<a name="l00099"></a>00099         branch-&gt;<a class="code" href="struct_branch.html#b9ee20f7f190a7f72b4cfa38c3266c40">delta</a> = (<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *)malloc(branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a> * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>));
+<a name="l00100"></a>00100         branch-&gt;<a class="code" href="struct_branch.html#a3d658a618e1bdf88f5368537374a9e0">horizontal</a> = (<a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a> *)malloc(branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a> * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a>));
+<a name="l00101"></a>00101         branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a> = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> **)malloc(branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a> * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> *));
+<a name="l00102"></a>00102         signPtr = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> *)malloc(branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a> * numOfBasis * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a>));
+<a name="l00103"></a>00103         branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a> = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **)malloc(numOfMatrices * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *));
+<a name="l00104"></a>00104         nodeIDPtr = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *)malloc(numOfMatrices * numOfBasis * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>));
+<a name="l00105"></a>00105         branch-&gt;<a class="code" href="struct_branch.html#00e58d523bde4e600765612208c90567">pixelNodeIDRowsPtr</a> = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **)malloc(rows * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *));
+<a name="l00106"></a>00106         branch-&gt;<a class="code" href="struct_branch.html#24aac183ab445e108aa8437acd9402b8">pixelNodeIDValues</a> = pixelIDPtr = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *)malloc(rows * cols * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>));
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span>        branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a> = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> **)malloc(numOfBasis * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *));
+<a name="l00110"></a>00110         climbPtr = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *)malloc(numOfBasis * numOfBasis * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>));
+<a name="l00111"></a>00111 <span class="preprocessor">#else</span>
+<a name="l00112"></a>00112 <span class="preprocessor"></span>        branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a> = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *)malloc(numOfBasis * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *));
+<a name="l00113"></a>00113 <span class="preprocessor">#endif</span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span>        
+<a name="l00115"></a>00115         <span class="keywordflow">if</span> (!branch-&gt;<a class="code" href="struct_branch.html#b9ee20f7f190a7f72b4cfa38c3266c40">delta</a> || !branch-&gt;<a class="code" href="struct_branch.html#a3d658a618e1bdf88f5368537374a9e0">horizontal</a> || !branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a> || !branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a>
+<a name="l00116"></a>00116                 || !branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a> || !branch-&gt;<a class="code" href="struct_branch.html#00e58d523bde4e600765612208c90567">pixelNodeIDRowsPtr</a> || !signPtr || !climbPtr || !nodeIDPtr
+<a name="l00117"></a>00117                 || !pixelIDPtr)
+<a name="l00118"></a>00118                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in allocBranch: can't allocate branch data."</span>);
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120         <span class="comment">// create pixel node ID 2-d array (uninitialized)</span>
+<a name="l00121"></a>00121         <span class="keywordflow">for</span> (row = 0; row &lt; rows ; row++, pixelIDPtr += cols)
+<a name="l00122"></a>00122                 branch-&gt;<a class="code" href="struct_branch.html#00e58d523bde4e600765612208c90567">pixelNodeIDRowsPtr</a>[row] = pixelIDPtr;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124         branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a>[0] = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00125"></a>00125         
+<a name="l00126"></a>00126         <span class="comment">// allocate matrices, where each matrix has 2^i less rows than the previous matrix</span>
+<a name="l00127"></a>00127         <span class="comment">// matrices[0] is not allocated at this point.</span>
+<a name="l00128"></a>00128         <span class="comment">// Also sets the appropriate delta, horizontal &amp; sign array for each level.</span>
+<a name="l00129"></a>00129         for (matInd = 1, delta = 1; matInd &lt; numOfMatrices; matInd += 2, delta &lt;&lt;= 1) {
+<a name="l00130"></a>00130                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> levelFromBottom = numOfMatrices - matInd;
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132                 <span class="comment">// fill horizontal &amp; delta array</span>
+<a name="l00133"></a>00133                 branch-&gt;<a class="code" href="struct_branch.html#a3d658a618e1bdf88f5368537374a9e0">horizontal</a>[matInd - 1] = 1;
+<a name="l00134"></a>00134                 branch-&gt;<a class="code" href="struct_branch.html#a3d658a618e1bdf88f5368537374a9e0">horizontal</a>[matInd] = 0;
+<a name="l00135"></a>00135                 branch-&gt;<a class="code" href="struct_branch.html#b9ee20f7f190a7f72b4cfa38c3266c40">delta</a>[matInd - 1] = delta;
+<a name="l00136"></a>00136                 branch-&gt;<a class="code" href="struct_branch.html#b9ee20f7f190a7f72b4cfa38c3266c40">delta</a>[matInd] = delta;
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138                 <span class="comment">// fill sign 2-d array</span>
+<a name="l00139"></a>00139                 branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a>[matInd - 1] = signPtr;
+<a name="l00140"></a>00140                 branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a>[matInd] = signPtr + numOfBasis;
+<a name="l00141"></a>00141                 i = 0;
+<a name="l00142"></a>00142                 <span class="keywordflow">while</span> (i &lt; numOfBasis) {
+<a name="l00143"></a>00143                         *signPtr = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#b2f9653eea631eb69404b9328c28bd2d">getSign</a>(i, levelFromBottom);
+<a name="l00144"></a>00144                         *(signPtr + numOfBasis) = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#b2f9653eea631eb69404b9328c28bd2d">getSign</a>(i, (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>)(levelFromBottom - 1));
+<a name="l00145"></a>00145                         signPtr++;
+<a name="l00146"></a>00146                         i++;
+<a name="l00147"></a>00147                 }
+<a name="l00148"></a>00148                 signPtr += numOfBasis;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150                 <span class="comment">// fill matrices array</span>
+<a name="l00151"></a>00151                 branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a>[matInd] = <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e2651d62fad27cd482ddc4840ae62420">allocMatrix</a>(rows, cols - delta);
+<a name="l00152"></a>00152                 branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a>[matInd + 1] = <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e2651d62fad27cd482ddc4840ae62420">allocMatrix</a>(rows - delta, cols - delta);
+<a name="l00153"></a>00153                 rows -= delta;
+<a name="l00154"></a>00154                 cols -= delta;
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156         
+<a name="l00157"></a>00157         <span class="comment">// fill node ID 2-d array</span>
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159         branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>[0] = nodeIDPtr;
+<a name="l00160"></a>00160         
+<a name="l00161"></a>00161         <span class="keywordflow">for</span> (i = 0; i &lt; numOfBasis; i++) <span class="comment">// init node ID of first level (level 0)</span>
+<a name="l00162"></a>00162                 *(nodeIDPtr++) = 0;
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164         <span class="keywordflow">for</span> (matInd = 1, divider = 2; matInd &lt; numOfMatrices; matInd++, divider *= 2, nodeIDPtr += numOfBasis) {
+<a name="l00165"></a>00165                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> limit = numOfLeaves / divider;
+<a name="l00166"></a>00166                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> addedValue = 1;
+<a name="l00167"></a>00167                 <a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a> exit = 0;
+<a name="l00168"></a>00168                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd = 0;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170                 branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>[matInd] = nodeIDPtr;
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172                 <span class="keywordflow">for</span> (i = 0; i &lt; divider &amp;&amp; !exit; i++) {
+<a name="l00173"></a>00173                         <span class="keywordflow">for</span> (j = 0; j &lt; limit &amp;&amp; !exit; j++, basisInd++) {
+<a name="l00174"></a>00174                                 exit = (basisInd &gt;= numOfBasis);
+<a name="l00175"></a>00175                                 <span class="keywordflow">if</span> (!exit)
+<a name="l00176"></a>00176                                         branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>[matInd][basisInd] = branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>[matInd - 1][basisInd] + addedValue;
+<a name="l00177"></a>00177                         }
+<a name="l00178"></a>00178                         addedValue = limit * 2 - addedValue + 1;
+<a name="l00179"></a>00179                 }
+<a name="l00180"></a>00180         }
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182         <span class="comment">// fill climb levels array</span>
+<a name="l00183"></a>00183         i = 0;
+<a name="l00184"></a>00184         <span class="keywordflow">while</span> (i &lt; numOfBasis) {
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00187"></a>00187 <span class="preprocessor"></span>                branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a>[i] = climbPtr;  <span class="comment">// fill 2-d array</span>
+<a name="l00188"></a>00188                 j = 0;
+<a name="l00189"></a>00189                 <span class="keywordflow">while</span> (j &lt; numOfBasis) {
+<a name="l00190"></a>00190                         *(climbPtr++) = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#03a3041b69f88d852faf180f3a617d1e">getClimbLevels</a>(i, j);
+<a name="l00191"></a>00191                         j++;
+<a name="l00192"></a>00192                 }
+<a name="l00193"></a>00193 <span class="preprocessor">#else</span>
+<a name="l00194"></a>00194 <span class="preprocessor"></span>                branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a>[i] = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#03a3041b69f88d852faf180f3a617d1e">getClimbLevels</a>(i, i + 1); <span class="comment">// fill 1-d array</span>
+<a name="l00195"></a>00195 <span class="preprocessor">#endif</span>
+<a name="l00196"></a>00196 <span class="preprocessor"></span>
+<a name="l00197"></a>00197                 i++;
+<a name="l00198"></a>00198         }
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200         <span class="keywordflow">return</span>(branch);
+<a name="l00201"></a>00201 }
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204 <span class="comment">/*</span>
+<a name="l00205"></a>00205 <span class="comment">Frees the given branch.</span>
+<a name="l00206"></a>00206 <span class="comment">*/</span>
+<a name="l00207"></a>00207 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#8ef73114ea9c6239953d600ee9374dac">destoryBranch</a>(<a class="code" href="struct_branch.html">Branch</a> *branch) {
+<a name="l00208"></a>00208         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> i;
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210         <span class="keywordflow">for</span> (i = 1; i &lt;= branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a>; i++)
+<a name="l00211"></a>00211                 <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#093cd57d92bc0a4a25bf73a200f5807f">destroyMatrix</a>(branch-&gt;<a class="code" href="struct_branch.html#cc4d33e5fbaf7fff785ddfc7fab518e8">matrices</a>[i]);
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213         free(branch-&gt;<a class="code" href="struct_branch.html#b9ee20f7f190a7f72b4cfa38c3266c40">delta</a>);
+<a name="l00214"></a>00214         free(branch-&gt;<a class="code" href="struct_branch.html#a3d658a618e1bdf88f5368537374a9e0">horizontal</a>);
+<a name="l00215"></a>00215         free(branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a>[0]);
+<a name="l00216"></a>00216         free(branch-&gt;<a class="code" href="struct_branch.html#3603ab846d5e5fea006d5ec7427af1ef">sign</a>);
+<a name="l00217"></a>00217         free(branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>[0]);
+<a name="l00218"></a>00218         free(branch-&gt;<a class="code" href="struct_branch.html#0839e32a3ff06919e32a3408a3f4cfaa">nodeID</a>);
+<a name="l00219"></a>00219         free(branch-&gt;<a class="code" href="struct_branch.html#24aac183ab445e108aa8437acd9402b8">pixelNodeIDValues</a>);
+<a name="l00220"></a>00220         free(branch-&gt;<a class="code" href="struct_branch.html#00e58d523bde4e600765612208c90567">pixelNodeIDRowsPtr</a>);
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00223"></a>00223 <span class="preprocessor"></span>        free(branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a>[0]);
+<a name="l00224"></a>00224 <span class="preprocessor">#endif</span>
+<a name="l00225"></a>00225 <span class="preprocessor"></span>
+<a name="l00226"></a>00226         free(branch-&gt;<a class="code" href="struct_branch.html#5d1c06b200e9a85db3a776537e546ea6">climbLevels</a>);
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228         free(branch);
+<a name="l00229"></a>00229 }
+<a name="l00230"></a>00230 
+<a name="l00232"></a>00232 
+<a name="l00233"></a>00233 <span class="comment">/*</span>
+<a name="l00234"></a>00234 <span class="comment">Updates destMat such that destMat[y][x] = sourceMat[y][x] + sourceMat[y][x+delta].</span>
+<a name="l00235"></a>00235 <span class="comment">destMat should have delta columns less than sourceMat.</span>
+<a name="l00236"></a>00236 <span class="comment">*/</span>
+<a name="l00237"></a>00237 __inline <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fc79c17842279e16aa50fa105b148721">addH</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta) {
+<a name="l00238"></a>00238         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *sourcePtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(sourceMat),
+<a name="l00239"></a>00239                        *destPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(destMat);
+<a name="l00240"></a>00240         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destCols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(destMat),
+<a name="l00241"></a>00241                    sourceCols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(sourceMat);
+<a name="l00242"></a>00242         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> total = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(sourceMat);
+<a name="l00243"></a>00243         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxBuffer = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> / sourceCols) * sourceCols;
+<a name="l00244"></a>00244 
+<a name="l00245"></a>00245         <span class="keywordflow">while</span> (total) {
+<a name="l00246"></a>00246                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#f1a8c3733912ea624de2f517dd4e34a0">count</a> = min(total, maxBuffer);
+<a name="l00247"></a>00247                 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *bufferPtr = memcpy(<a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, sourcePtr, count &lt;&lt; 2);
+<a name="l00248"></a>00248                 sourcePtr += count;
+<a name="l00249"></a>00249                 total -= count;
+<a name="l00250"></a>00250                 <span class="keywordflow">while</span> (count) {
+<a name="l00251"></a>00251                         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> col = destCols;
+<a name="l00252"></a>00252                         <span class="keywordflow">while</span> (col--)
+<a name="l00253"></a>00253                                 *(destPtr++) = *(bufferPtr) + *(bufferPtr++ + delta);
+<a name="l00254"></a>00254                         bufferPtr += delta;
+<a name="l00255"></a>00255                         count -= sourceCols;
+<a name="l00256"></a>00256                 }
+<a name="l00257"></a>00257         }
+<a name="l00258"></a>00258 }
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260 <span class="comment">/*</span>
+<a name="l00261"></a>00261 <span class="comment">Updates destMat such that destMat[y][x] = sourceMat[y][x] - sourceMat[y][x+delta].</span>
+<a name="l00262"></a>00262 <span class="comment">destMat should have delta columns less than sourceMat.</span>
+<a name="l00263"></a>00263 <span class="comment">*/</span>
+<a name="l00264"></a>00264 __inline <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#d3728777521bddbf6623474cbc2d0122">subH</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta) {
+<a name="l00265"></a>00265         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *sourcePtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(sourceMat),
+<a name="l00266"></a>00266                            *destPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(destMat);
+<a name="l00267"></a>00267         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destCols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(destMat),
+<a name="l00268"></a>00268                    sourceCols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(sourceMat);
+<a name="l00269"></a>00269         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> total = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(sourceMat);
+<a name="l00270"></a>00270         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxBuffer = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> / sourceCols) * sourceCols;
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272         <span class="keywordflow">while</span> (total) {
+<a name="l00273"></a>00273                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = min(total, maxBuffer);
+<a name="l00274"></a>00274                 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *bufferPtr = memcpy(<a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, sourcePtr, count &lt;&lt; 2);
+<a name="l00275"></a>00275                 sourcePtr += count;
+<a name="l00276"></a>00276                 total -= count;
+<a name="l00277"></a>00277                 <span class="keywordflow">while</span> (count) {
+<a name="l00278"></a>00278                         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> col = destCols;
+<a name="l00279"></a>00279                         <span class="keywordflow">while</span> (col--)
+<a name="l00280"></a>00280                                 *(destPtr++) = *(bufferPtr) - *(bufferPtr++ + delta);
+<a name="l00281"></a>00281                         bufferPtr += delta;
+<a name="l00282"></a>00282                         count -= sourceCols;
+<a name="l00283"></a>00283                 }
+<a name="l00284"></a>00284         }
+<a name="l00285"></a>00285 }
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 <span class="comment">/*</span>
+<a name="l00288"></a>00288 <span class="comment">Updates destMat such that destMat[y][x] = sourceMat[y][x] + sourceMat[y+delta][x].</span>
+<a name="l00289"></a>00289 <span class="comment">destMat should have delta rows less than sourceMat.</span>
+<a name="l00290"></a>00290 <span class="comment">*/</span>
+<a name="l00291"></a>00291 __inline <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#1fa179c00bda48d72c45399283be9767">addV</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta) {
+<a name="l00292"></a>00292         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> total = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(destMat);
+<a name="l00293"></a>00293         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d = delta * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(destMat),
+<a name="l00294"></a>00294                          maxBuffer = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> - d;
+<a name="l00295"></a>00295         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *sourcePtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(sourceMat),
+<a name="l00296"></a>00296                        *destPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(destMat),
+<a name="l00297"></a>00297                        *nextBufferPtr = <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a> + d;
+<a name="l00298"></a>00298 
+<a name="l00299"></a>00299         <span class="keywordflow">while</span> (total) {
+<a name="l00300"></a>00300                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = min(total, maxBuffer);
+<a name="l00301"></a>00301                 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *bufferPtr = memcpy(<a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, sourcePtr, (count + d) &lt;&lt; 2),
+<a name="l00302"></a>00302                            *bufferPtr1 = nextBufferPtr;
+<a name="l00303"></a>00303                 sourcePtr += count;
+<a name="l00304"></a>00304                 total -= count;
+<a name="l00305"></a>00305                 <span class="keywordflow">while</span> (count--)
+<a name="l00306"></a>00306                         *(destPtr++) = *(bufferPtr++) + *(bufferPtr1++);
+<a name="l00307"></a>00307         }
+<a name="l00308"></a>00308 }
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 <span class="comment">/*</span>
+<a name="l00311"></a>00311 <span class="comment">Updates destMat such that destMat[y][x] = sourceMat[y][x] - sourceMat[y+delta][x].</span>
+<a name="l00312"></a>00312 <span class="comment">destMat should have delta rows less than sourceMat.</span>
+<a name="l00313"></a>00313 <span class="comment">*/</span>
+<a name="l00314"></a>00314 __inline <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#7155db0c64d8546f36bb1a50fabf1e34">subV</a>(<a class="code" href="struct_matrix.html">Matrix</a> *sourceMat, <a class="code" href="struct_matrix.html">Matrix</a> *destMat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> delta) {
+<a name="l00315"></a>00315         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> total = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(destMat);
+<a name="l00316"></a>00316         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d = delta * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(destMat),
+<a name="l00317"></a>00317                          maxBuffer = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> - d;
+<a name="l00318"></a>00318         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *sourcePtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(sourceMat),
+<a name="l00319"></a>00319                        *destPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(destMat),
+<a name="l00320"></a>00320                        *nextBufferPtr = <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a> + d;
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322         <span class="keywordflow">while</span> (total) {
+<a name="l00323"></a>00323                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = min(total, maxBuffer);
+<a name="l00324"></a>00324                 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *bufferPtr = memcpy(<a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, sourcePtr, (count + d) &lt;&lt; 2),
+<a name="l00325"></a>00325                                    *bufferPtr1 = nextBufferPtr;
+<a name="l00326"></a>00326                 sourcePtr += count;
+<a name="l00327"></a>00327                 total -= count;
+<a name="l00328"></a>00328                 <span class="keywordflow">while</span> (count--)
+<a name="l00329"></a>00329                         *(destPtr++) = *(bufferPtr++) - *(bufferPtr1++);
+<a name="l00330"></a>00330         }
+<a name="l00331"></a>00331 }
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333 <span class="comment">/*</span>
+<a name="l00334"></a>00334 <span class="comment">Returns the convolution sign according to the basis index and level from the bottom</span>
+<a name="l00335"></a>00335 <span class="comment">of the tree (leafs are considered in level 0).</span>
+<a name="l00336"></a>00336 <span class="comment">The returned value is PLUS or MINUS.</span>
+<a name="l00337"></a>00337 <span class="comment">*/</span>
+<a name="l00338"></a>00338 __inline <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#b2f9653eea631eb69404b9328c28bd2d">getSign</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> levelFromBottom) {
+<a name="l00339"></a>00339         <span class="keywordflow">return</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#d5d464d1a4b160d559a6f288a3f6a379">signs</a>[(basisInd &gt;&gt; (levelFromBottom - 1)) &amp; 7]; 
+<a name="l00340"></a>00340 }
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342 <span class="comment">/*</span>
+<a name="l00343"></a>00343 <span class="comment">Finds the number of levels to climb in the wh tree from the source basis index to the dest</span>
+<a name="l00344"></a>00344 <span class="comment">basis index in order to find the lowest common matrix of the two given basis.</span>
+<a name="l00345"></a>00345 <span class="comment">*/</span>
+<a name="l00346"></a>00346 __inline <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#03a3041b69f88d852faf180f3a617d1e">getClimbLevels</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> sourceBasisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> destBasisInd) {
+<a name="l00347"></a>00347         <span class="comment">// XOR the current and new basis indice</span>
+<a name="l00348"></a>00348         <span class="keywordtype">int</span> xorInd = sourceBasisInd ^ destBasisInd;
+<a name="l00349"></a>00349         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> result;
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351         <span class="comment">// find num of levels to go up.</span>
+<a name="l00352"></a>00352         <span class="keywordflow">for</span> (result = 0; xorInd &gt; 0; xorInd &gt;&gt;= 1, result++); 
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354         <span class="keywordflow">return</span> result;
+<a name="l00355"></a>00355 }
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357 <span class="comment">/*</span>
+<a name="l00358"></a>00358 <span class="comment">Computes, sets and returns the (y,x) pixel of matrix number matNo of the given basis</span>
+<a name="l00359"></a>00359 <span class="comment">in the given branch.</span>
+<a name="l00360"></a>00360 <span class="comment">*/</span>
+<a name="l00361"></a>00361 __inline <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(<a class="code" href="struct_branch.html">Branch</a> *branch, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> matNo, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> x) {
+<a name="l00362"></a>00362 
+<a name="l00363"></a>00363         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> secondVal, result;
+<a name="l00364"></a>00364         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> nextMatNo = matNo - 1;
+<a name="l00365"></a>00365         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> nodeID = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#950a2bdc868f52ecb16c26efb89c26f0">branchNodeID</a>(branch, nextMatNo, basisInd);
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367         <span class="comment">// pixel is not updated for the current node - find value recursively.</span>
+<a name="l00368"></a>00368         <span class="keywordflow">if</span> (nodeID &gt; <a class="code" href="simple__matching__run_2pm_2wh_8h.html#7b7e5d114a9e9cab35111bdd0d6d8d04">branchPixelNodeID</a>(branch, y, x)) {
+<a name="l00369"></a>00369                 <span class="comment">// find second value according to horizontal/vertical</span>
+<a name="l00370"></a>00370                 <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#031bfe7195c8d69ce52a0765914a0975">branchHorizontal</a>(branch, nextMatNo))
+<a name="l00371"></a>00371                         secondVal = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(branch, basisInd, nextMatNo, 
+<a name="l00372"></a>00372                                                                          y, (<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>)(x + <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, nextMatNo)));
+<a name="l00373"></a>00373                 <span class="keywordflow">else</span> 
+<a name="l00374"></a>00374                         secondVal = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(branch, basisInd, nextMatNo,
+<a name="l00375"></a>00375                                                                          (<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>)(y + <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, nextMatNo)), x);
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377                 <span class="comment">// add/sub second value to/from base value according to sign</span>
+<a name="l00378"></a>00378                 result = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(branch, basisInd, nextMatNo, y, x)
+<a name="l00379"></a>00379                              + <a class="code" href="simple__matching__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">branchSign</a>(branch, nextMatNo, basisInd) * secondVal;
+<a name="l00380"></a>00380 
+<a name="l00381"></a>00381                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#7b7e5d114a9e9cab35111bdd0d6d8d04">branchPixelNodeID</a>(branch, y, x) = nodeID;
+<a name="l00382"></a>00382         }
+<a name="l00383"></a>00383         <span class="comment">// pixel is updated for the current node - just add/sub.</span>
+<a name="l00384"></a>00384         <span class="keywordflow">else</span> {
+<a name="l00385"></a>00385                 <span class="comment">// find second value according to horizontal/vertical</span>
+<a name="l00386"></a>00386                 <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#031bfe7195c8d69ce52a0765914a0975">branchHorizontal</a>(branch, nextMatNo))
+<a name="l00387"></a>00387                         secondVal = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">branchMatVal</a>(branch, nextMatNo, y, (<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>)(x + <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, nextMatNo)));
+<a name="l00388"></a>00388                 <span class="keywordflow">else</span> 
+<a name="l00389"></a>00389                         secondVal = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">branchMatVal</a>(branch, nextMatNo, (<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>)(y + <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, nextMatNo)), x);
+<a name="l00390"></a>00390 
+<a name="l00391"></a>00391                 <span class="comment">// add/sub second value to/from base value according to sign</span>
+<a name="l00392"></a>00392                 result = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">branchMatVal</a>(branch, nextMatNo, y, x) + secondVal * <a class="code" href="simple__matching__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">branchSign</a>(branch, nextMatNo, basisInd);
+<a name="l00393"></a>00393         }
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">branchMatVal</a>(branch, matNo, y, x) = result;
+<a name="l00396"></a>00396         <span class="keywordflow">return</span> result;
+<a name="l00397"></a>00397 }
+<a name="l00398"></a>00398 
+<a name="l00400"></a>00400 
+<a name="l00401"></a>00401 <span class="comment">// notifies the branch that all the pixels are updated according to the branch's basis index.</span>
+<a name="l00402"></a>00402 <span class="comment">// (updates the nodeID of all pixels with the nodeID of the current branch's leaf).</span>
+<a name="l00403"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#0ed15bdab2d3cb3dab7eee94a1c9e00c">00403</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#0ed15bdab2d3cb3dab7eee94a1c9e00c">updateNodeID</a>(<a class="code" href="struct_branch.html">Branch</a> *branch) {
+<a name="l00404"></a>00404         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> nodeID = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#950a2bdc868f52ecb16c26efb89c26f0">branchNodeID</a>(branch, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">branchBasisInd</a>(branch));
+<a name="l00405"></a>00405         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *ptr = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1dcc45ac7e24a99e3c41f607a0b79b22">branchPixelNodeIDPtr</a>(branch);
+<a name="l00406"></a>00406         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> count = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, 0));
+<a name="l00407"></a>00407 
+<a name="l00408"></a>00408         <span class="keywordflow">while</span> (count--)
+<a name="l00409"></a>00409                 *(ptr++) = nodeID;
+<a name="l00410"></a>00410 }
+<a name="l00411"></a>00411 
+<a name="l00412"></a>00412 <span class="comment">/*</span>
+<a name="l00413"></a>00413 <span class="comment">Computes and returns the value of the (y,x) pixel of leaf number basisInd.</span>
+<a name="l00414"></a>00414 <span class="comment">If the currentBranch is not of basisInd, it will become such.</span>
+<a name="l00415"></a>00415 <span class="comment">*/</span>
+<a name="l00416"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#87a5b4e4c4ce47d265bd0d459b2f53e0">00416</a> __inline <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#87a5b4e4c4ce47d265bd0d459b2f53e0">whPixel</a>(<a class="code" href="struct_branch.html">Branch</a> *branch, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> x) {
+<a name="l00417"></a>00417         <span class="keywordflow">return</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f2788d0b9cf6706422b66632bbe65c1e">computePixel</a>(branch, basisInd, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch), y, x);
+<a name="l00418"></a>00418 }
+<a name="l00419"></a>00419 
+<a name="l00420"></a>00420 <span class="comment">/*</span>
+<a name="l00421"></a>00421 <span class="comment">Updates the current branch to contain the matrix branch of the given basis index.</span>
+<a name="l00422"></a>00422 <span class="comment">The leaf matrix of the updated branch is returned.</span>
+<a name="l00423"></a>00423 <span class="comment">*/</span>
+<a name="l00424"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#5a4e4cc69152e878929d3cedf6ced620">00424</a> __inline <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2wh_8c.html#5a4e4cc69152e878929d3cedf6ced620">whMatrix</a>(<a class="code" href="struct_branch.html">Branch</a> *branch, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd) {
+<a name="l00425"></a>00425         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> climbLevels, level;
+<a name="l00426"></a>00426 
+<a name="l00427"></a>00427         <span class="comment">// if no basis was created in the branch yet, the whole branch is created assuming</span>
+<a name="l00428"></a>00428         <span class="comment">// that the top matrix exists</span>
+<a name="l00429"></a>00429         <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">branchBasisInd</a>(branch) == -1) {
+<a name="l00430"></a>00430                 level = 0;
+<a name="l00431"></a>00431                 climbLevels = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch);
+<a name="l00432"></a>00432         }
+<a name="l00433"></a>00433         <span class="comment">// a basis was created in this branch before, compute the required starting level</span>
+<a name="l00434"></a>00434         <span class="keywordflow">else</span> {
+<a name="l00435"></a>00435                 <span class="comment">// find num of levels to go up.</span>
+<a name="l00436"></a>00436                 climbLevels = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#c49d8ecb153f3f6ce620045c9f122dee">branchClimbLevels</a>(branch, basisInd);
+<a name="l00437"></a>00437 
+<a name="l00438"></a>00438                 <span class="comment">// find level in which the convolution should start</span>
+<a name="l00439"></a>00439                 level = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch) - climbLevels; 
+<a name="l00440"></a>00440         }
+<a name="l00441"></a>00441 
+<a name="l00442"></a>00442         <span class="comment">// replace required matrices in branch starting from the starting level</span>
+<a name="l00443"></a>00443         <span class="keywordflow">for</span> (; level &lt; <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch); level++, climbLevels--) {
+<a name="l00444"></a>00444                 
+<a name="l00445"></a>00445                 <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#031bfe7195c8d69ce52a0765914a0975">branchHorizontal</a>(branch, level)) {
+<a name="l00446"></a>00446                         <span class="comment">// add/sub the current matrix into the next one horizontally (using the current delta)</span>
+<a name="l00447"></a>00447                         <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">branchSign</a>(branch, level, basisInd) == <a class="code" href="simple__matching__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">PLUS</a>)
+<a name="l00448"></a>00448                                 <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fc79c17842279e16aa50fa105b148721">addH</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level + 1),
+<a name="l00449"></a>00449                                      <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, level));
+<a name="l00450"></a>00450                         <span class="keywordflow">else</span>
+<a name="l00451"></a>00451                                 <a class="code" href="simple__matching__run_2pm_2wh_8c.html#d3728777521bddbf6623474cbc2d0122">subH</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level + 1),
+<a name="l00452"></a>00452                                      <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, level));
+<a name="l00453"></a>00453                 }
+<a name="l00454"></a>00454                 <span class="keywordflow">else</span> {
+<a name="l00455"></a>00455                         <span class="comment">// add/sub the current matrix into the next one vertically (using the current delta)</span>
+<a name="l00456"></a>00456                         <span class="keywordflow">if</span> (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">branchSign</a>(branch, level, basisInd) == <a class="code" href="simple__matching__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">PLUS</a>)
+<a name="l00457"></a>00457                                 <a class="code" href="simple__matching__run_2pm_2wh_8c.html#1fa179c00bda48d72c45399283be9767">addV</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level + 1),
+<a name="l00458"></a>00458                                          <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, level));
+<a name="l00459"></a>00459                         <span class="keywordflow">else</span>
+<a name="l00460"></a>00460                                 <a class="code" href="simple__matching__run_2pm_2wh_8c.html#7155db0c64d8546f36bb1a50fabf1e34">subV</a>(<a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level + 1),
+<a name="l00461"></a>00461                                          <a class="code" href="simple__matching__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, level));
+<a name="l00462"></a>00462                 }
+<a name="l00463"></a>00463         }
+<a name="l00464"></a>00464 
+<a name="l00465"></a>00465         <span class="comment">// set the new basis index.</span>
+<a name="l00466"></a>00466         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">branchBasisInd</a>(branch) = basisInd;
+<a name="l00467"></a>00467 
+<a name="l00468"></a>00468         <span class="comment">// return the bottom matrix - the projection value of the given basis index</span>
+<a name="l00469"></a>00469         <span class="keywordflow">return</span> <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, level);
+<a name="l00470"></a>00470 }
+<a name="l00471"></a>00471 
+<a name="l00472"></a>00472 <span class="comment">/*</span>
+<a name="l00473"></a>00473 <span class="comment">Returns basisNo values which are the projections of win onto basisNo Walsh-Hadamard</span>
+<a name="l00474"></a>00474 <span class="comment">basis vectors. The size of the basis vectors is the same as the size of win.</span>
+<a name="l00475"></a>00475 <span class="comment">The size of the given win should be 2^k (a power of two).</span>
+<a name="l00476"></a>00476 <span class="comment">*/</span>
+<a name="l00477"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#4c4f7d2e14f4441aa0323f9c86a2f1b8">00477</a> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> * <a class="code" href="simple__matching__run_2pm_2wh_8c.html#aa5947be1638611c3cb018192e3b04fb">whWin</a>(<a class="code" href="struct_matrix.html">Matrix</a> *win, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisNo) {
+<a name="l00478"></a>00478 
+<a name="l00479"></a>00479         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *result = (<a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *)malloc(basisNo * <span class="keyword">sizeof</span>(<a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>));
+<a name="l00480"></a>00480         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> depth = (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>)(log10(win-&gt;<a class="code" href="struct_matrix.html#19291f2c7f02b29d07db619d632e8724">rows</a>) / log10(2));
+<a name="l00481"></a>00481 
+<a name="l00482"></a>00482         <a class="code" href="struct_branch.html">Branch</a> *branch;
+<a name="l00483"></a>00483         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basis;
+<a name="l00484"></a>00484 
+<a name="l00485"></a>00485         branch = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f983d5045ead211cd9f5da2f5d2a12a9">allocBranch</a>(<a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6c80e2fcef10381dd06bd211dbdcf530">matRows</a>(win), <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(win), depth, basisNo);
+<a name="l00486"></a>00486         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, 0) = win;
+<a name="l00487"></a>00487 
+<a name="l00488"></a>00488         <span class="keywordflow">for</span> (basis = 0; basis &lt; basisNo; basis++)
+<a name="l00489"></a>00489                 result[basis] = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7956d21aff5d9ffe6de094f60f3a161d">matVal</a>(<a class="code" href="simple__matching__run_2pm_2wh_8c.html#5a4e4cc69152e878929d3cedf6ced620">whMatrix</a>(branch, basis), 0, 0);
+<a name="l00490"></a>00490         
+<a name="l00491"></a>00491         <a class="code" href="simple__matching__run_2pm_2wh_8c.html#8ef73114ea9c6239953d600ee9374dac">destoryBranch</a>(branch);
+<a name="l00492"></a>00492 
+<a name="l00493"></a>00493         <span class="keywordflow">return</span> result;
+<a name="l00494"></a>00494 }
+<a name="l00495"></a>00495 
+<a name="l00496"></a>00496 
+<a name="l00498"></a>00498 
+<a name="l00499"></a>00499 <span class="comment">/******************************************************************************</span>
+<a name="l00500"></a>00500 <span class="comment"> * Creates and returns a WHSetup that supports source matrices of size        *</span>
+<a name="l00501"></a>00501 <span class="comment"> * (sourceRows,sourceCols), patterns of size (patternRows, patternRows) and   *</span>
+<a name="l00502"></a>00502 <span class="comment"> * the given number of WH kernels to be used for projection.                  *</span>
+<a name="l00503"></a>00503 <span class="comment"> ******************************************************************************/</span>
+<a name="l00504"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#3534f26e4654fc23f764d313133e7e14">00504</a> <a class="code" href="struct_w_h_setup.html">WHSetup</a> *<a class="code" href="simple__matching__run_2pm_2wh_8c.html#66afe4ca6ff6ee07c3d3d6e00fce94de">createWHSetup</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows,
+<a name="l00505"></a>00505                                                          <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis) {
+<a name="l00506"></a>00506         <a class="code" href="struct_w_h_setup.html">WHSetup</a> *result = (<a class="code" href="struct_w_h_setup.html">WHSetup</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="struct_w_h_setup.html">WHSetup</a>));
+<a name="l00507"></a>00507 
+<a name="l00508"></a>00508         <span class="keywordflow">if</span> (!result)
+<a name="l00509"></a>00509                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in createWHSetup: can't allocate setup."</span>);
+<a name="l00510"></a>00510 
+<a name="l00511"></a>00511         result-&gt;<a class="code" href="struct_w_h_setup.html#d54de1e0cef8bd64fb69b1e370e4fbdc">sourceRows</a> = sourceRows;
+<a name="l00512"></a>00512         result-&gt;<a class="code" href="struct_w_h_setup.html#8159bb556441ae7837ab542835a857a7">sourceCols</a> = sourceCols;
+<a name="l00513"></a>00513         result-&gt;<a class="code" href="struct_w_h_setup.html#53049af7b7b6b0ece05c8815dd9b96d1">patternRows</a> = patternRows;
+<a name="l00514"></a>00514         result-&gt;<a class="code" href="struct_w_h_setup.html#f77e9027cf9c402e8ab60fad370acd39">numOfBasis</a> = numOfBasis;
+<a name="l00515"></a>00515         
+<a name="l00516"></a>00516         result-&gt;<a class="code" href="struct_w_h_setup.html#862a743cf81ffe212002e65275690fd5">startBottomUpPercent</a> = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#220ef7e31d8d839246660bf0aa8f3eee">DEFAULT_BOTTOM_UP_PERCENT</a>;
+<a name="l00517"></a>00517         result-&gt;<a class="code" href="struct_w_h_setup.html#10aec4c3c91906bb2cb318efcabf4b1a">startDistancePercent</a> = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e3b6e60cca467e955b438882e4506614">DEFAULT_DISTANCE_PERCENT</a>;
+<a name="l00518"></a>00518 
+<a name="l00519"></a>00519         result-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a> = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#f983d5045ead211cd9f5da2f5d2a12a9">allocBranch</a>(sourceRows, sourceCols,
+<a name="l00520"></a>00520                                                                           (<a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>)(log10(patternRows) / log10(2)), numOfBasis);
+<a name="l00521"></a>00521         <span class="keywordflow">if</span> (!result-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a>)
+<a name="l00522"></a>00522                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in createWHSetup: can't allocate branch."</span>);
+<a name="l00523"></a>00523 
+<a name="l00524"></a>00524         result-&gt;<a class="code" href="struct_w_h_setup.html#52dac046e6fd7f085a22d36b47265b50">matches</a> = (<a class="code" href="struct_match.html">Match</a> *)malloc((sourceRows - patternRows + 1) *
+<a name="l00525"></a>00525                                                                           (sourceCols - patternRows + 1) * <span class="keyword">sizeof</span>(<a class="code" href="struct_match.html">Match</a>));
+<a name="l00526"></a>00526         <span class="keywordflow">if</span> (!result-&gt;<a class="code" href="struct_w_h_setup.html#52dac046e6fd7f085a22d36b47265b50">matches</a>)
+<a name="l00527"></a>00527                 <a class="code" href="simple__matching__run_2pm_2defs_8c.html#659b96445aaa02061098d2a7c183dcfb">exitWithError</a>(<span class="stringliteral">"ERROR in createWHSetup: can't allocate matches area."</span>);
+<a name="l00528"></a>00528 
+<a name="l00529"></a>00529         <span class="keywordflow">return</span> result;
+<a name="l00530"></a>00530 }
+<a name="l00531"></a>00531 
+<a name="l00532"></a>00532 <span class="comment">/******************************************************************************</span>
+<a name="l00533"></a>00533 <span class="comment"> * Notifies the setup on the given pattern. The pattern must be of the        *</span>
+<a name="l00534"></a>00534 <span class="comment"> * size that the setup was created with.                                      *</span>
+<a name="l00535"></a>00535 <span class="comment"> ******************************************************************************/</span>
+<a name="l00536"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#9c54b2b6010eb7b4c98c15532d03e24d">00536</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#86a52c3d80ad4fd61b122306675c4718">setPatternImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *pattern) {
+<a name="l00537"></a>00537         setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a> = <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e55e3ff581f9fea0a9492cba696ea4a1">imageToMatrix</a>(pattern);
+<a name="l00538"></a>00538         setup-&gt;<a class="code" href="struct_w_h_setup.html#c06e481008f29fdd02c95eec15cf9eee">patternProjections</a> = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#aa5947be1638611c3cb018192e3b04fb">whWin</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a>, setup-&gt;<a class="code" href="struct_w_h_setup.html#f77e9027cf9c402e8ab60fad370acd39">numOfBasis</a>);
+<a name="l00539"></a>00539 }
+<a name="l00540"></a>00540 
+<a name="l00541"></a>00541 <span class="comment">/******************************************************************************</span>
+<a name="l00542"></a>00542 <span class="comment"> * Notifies the setup on the given source image. The image must be of the     *</span>
+<a name="l00543"></a>00543 <span class="comment"> * size that the setup was created with.                                      *</span>
+<a name="l00544"></a>00544 <span class="comment"> ******************************************************************************/</span>
+<a name="l00545"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#d2ab0e9bb1416c9e7def0c3abba79750">00545</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fa05aa21c32b80945192afdaec72fae7">setSourceImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *source) {
+<a name="l00546"></a>00546         setup-&gt;<a class="code" href="struct_w_h_setup.html#d6f1b6fadb5c22745c10df2fdcd466f9">sourceImage</a> = <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e55e3ff581f9fea0a9492cba696ea4a1">imageToMatrix</a>(source);
+<a name="l00547"></a>00547         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a>, 0) = setup-&gt;<a class="code" href="struct_w_h_setup.html#d6f1b6fadb5c22745c10df2fdcd466f9">sourceImage</a>;
+<a name="l00548"></a>00548         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">branchBasisInd</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a>) = -1;
+<a name="l00549"></a>00549 }
+<a name="l00550"></a>00550 
+<a name="l00551"></a>00551 <span class="comment">/******************************************************************************</span>
+<a name="l00552"></a>00552 <span class="comment"> * Notifies the setup on the percentage that should be used for determining   *</span>
+<a name="l00553"></a>00553 <span class="comment"> * the pattern matching method. In the pattern matching process, when the     *</span>
+<a name="l00554"></a>00554 <span class="comment"> * percentage of suspected windows goes below bottomUpStartPercent, the       *</span>
+<a name="l00555"></a>00555 <span class="comment"> * method changes from top down to bottom up. when the percentage of          *</span>
+<a name="l00556"></a>00556 <span class="comment"> * suspected windows goes below distanceStartPercent, the method changes from *</span>
+<a name="l00557"></a>00557 <span class="comment"> * bottom up to direct distance.                                              *</span>
+<a name="l00558"></a>00558 <span class="comment"> ******************************************************************************/</span>
+<a name="l00559"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#da6128fb2d8fc2053aa760648a81ed53">00559</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#da6128fb2d8fc2053aa760648a81ed53">setMethodStartPercent</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <span class="keywordtype">float</span> bottomUpStartPercent, <span class="keywordtype">float</span> distanceStartPercent) {
+<a name="l00560"></a>00560         setup-&gt;<a class="code" href="struct_w_h_setup.html#862a743cf81ffe212002e65275690fd5">startBottomUpPercent</a> = bottomUpStartPercent;
+<a name="l00561"></a>00561         setup-&gt;<a class="code" href="struct_w_h_setup.html#10aec4c3c91906bb2cb318efcabf4b1a">startDistancePercent</a> = distanceStartPercent;
+<a name="l00562"></a>00562 }
+<a name="l00563"></a>00563 
+<a name="l00564"></a>00564 <span class="comment">/*****************************************************************************</span>
+<a name="l00565"></a>00565 <span class="comment"> * Destroys the given WHSetup.                                               *</span>
+<a name="l00566"></a>00566 <span class="comment"> *****************************************************************************/</span>
+<a name="l00567"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#e5520182a27a209d6e6f1e387cbc6609">00567</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#149d1e82609813b9b9f911aa2d43f8a4">destroyWHSetup</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup) {
+<a name="l00568"></a>00568         <a class="code" href="simple__matching__run_2pm_2wh_8c.html#8ef73114ea9c6239953d600ee9374dac">destoryBranch</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a>);
+<a name="l00569"></a>00569         free(setup-&gt;<a class="code" href="struct_w_h_setup.html#c06e481008f29fdd02c95eec15cf9eee">patternProjections</a>);
+<a name="l00570"></a>00570         free(setup-&gt;<a class="code" href="struct_w_h_setup.html#52dac046e6fd7f085a22d36b47265b50">matches</a>);
+<a name="l00571"></a>00571         free(setup);
+<a name="l00572"></a>00572 }
+<a name="l00573"></a>00573 
+<a name="l00575"></a>00575 
+<a name="l00576"></a>00576 <span class="comment">/*****************************************************************************</span>
+<a name="l00577"></a>00577 <span class="comment"> * Performs pattern matching on the given setup. The given rejectThresh      *</span>
+<a name="l00578"></a>00578 <span class="comment"> * specifies the maximum mean difference (in pixels) between the pattern and *</span>
+<a name="l00579"></a>00579 <span class="comment"> * a match.                                                                                                                                      *</span>
+<a name="l00580"></a>00580 <span class="comment"> *                                                                                                                                                       *</span>
+<a name="l00581"></a>00581 <span class="comment"> * After the execution of this function, the resulting matches array and the *</span>
+<a name="l00582"></a>00582 <span class="comment"> * number of matches that were found are available in the setup, and can be  *</span>
+<a name="l00583"></a>00583 <span class="comment"> * obtained using matches(setup) &amp; numOfMatches(setup).                                          *</span>
+<a name="l00584"></a>00584 <span class="comment"> *                                                                                                                                                       *</span>
+<a name="l00585"></a>00585 <span class="comment"> * The pattern matching process is done using three methods, in this order:  *</span>
+<a name="l00586"></a>00586 <span class="comment"> * Top Down - the whole image is projected on the WH kernels, starting with  *</span>
+<a name="l00587"></a>00587 <span class="comment"> *            the lowest frequency kernel. Each such projection rejects some *</span>
+<a name="l00588"></a>00588 <span class="comment"> *            of the suspected windows. After each projection, the percentage*</span>
+<a name="l00589"></a>00589 <span class="comment"> *            of remaining suspected windows is measured.                                        *</span>
+<a name="l00590"></a>00590 <span class="comment"> * Bottom Up - when the percentage of suspected windows goes under a certain *</span>
+<a name="l00591"></a>00591 <span class="comment"> *             margin, the Top Down method is replaced by Bottom Up. In this *</span>
+<a name="l00592"></a>00592 <span class="comment"> *             method, only the remaining suspected windows are projected,   *</span>
+<a name="l00593"></a>00593 <span class="comment"> *             instead of the whole image. Here as well, each projection     *</span>
+<a name="l00594"></a>00594 <span class="comment"> *             rejects some more suspected windows, effecting the percentage *</span>
+<a name="l00595"></a>00595 <span class="comment"> *                         of remaining windows. The percentage margin for moving to     *</span>
+<a name="l00596"></a>00596 <span class="comment"> *             Bottom Up is initially 10%, and it can be changed using the   *</span>
+<a name="l00597"></a>00597 <span class="comment"> *             setMethodStartPercent() function.                                                     *</span>
+<a name="l00598"></a>00598 <span class="comment"> * Direct Distance - when the percentage of suspected windows goes under     *</span>
+<a name="l00599"></a>00599 <span class="comment"> *                   a second margin, the Bottom Up method is replaced by    *</span>
+<a name="l00600"></a>00600 <span class="comment"> *                   Direct Distance. In this method, the eculidean distance *</span>
+<a name="l00601"></a>00601 <span class="comment"> *                   between each of the remaining suspected windows and the *</span>
+<a name="l00602"></a>00602 <span class="comment"> *                   pattern is computed, enabling the final rejection of    *</span>
+<a name="l00603"></a>00603 <span class="comment"> *                   all the windows with distance above the threshold. The  *</span>
+<a name="l00604"></a>00604 <span class="comment"> *                                   percentage margin for moving to Direct Distance is      *</span>
+<a name="l00605"></a>00605 <span class="comment"> *                                   initially 2%, and it can be changed using the           *</span>
+<a name="l00606"></a>00606 <span class="comment"> *                   setMethodStartPercent() function.                                           *</span>
+<a name="l00607"></a>00607 <span class="comment"> *****************************************************************************/</span>
+<a name="l00608"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8c.html#ea0a46965a2dea1e086f8d0b6875e180">00608</a> <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#ea0a46965a2dea1e086f8d0b6875e180">whPatternMatch</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> rejectThresh) {
+<a name="l00609"></a>00609 
+<a name="l00610"></a>00610         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, x, projCols;
+<a name="l00611"></a>00611         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dif;
+<a name="l00612"></a>00612         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> numOfWins, suspectedCount, total;
+<a name="l00613"></a>00613         <a class="code" href="struct_matrix.html">Matrix</a> *proj;
+<a name="l00614"></a>00614         <a class="code" href="struct_branch.html">Branch</a> *branch = setup-&gt;<a class="code" href="struct_w_h_setup.html#f137dfd1194da79dde80b124941564a2">branch</a>;
+<a name="l00615"></a>00615         <a class="code" href="struct_match.html">Match</a> *currentMatch = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">matches</a>(setup),
+<a name="l00616"></a>00616                   *baseMatch = <a class="code" href="simple__matching__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">matches</a>(setup);
+<a name="l00617"></a>00617         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *projPtr;
+<a name="l00618"></a>00618         <span class="keywordtype">float</span> suspectedPercent, percentFactor;
+<a name="l00619"></a>00619 
+<a name="l00620"></a>00620         <a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a> performBottomUp = 0;
+<a name="l00621"></a>00621         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> distanceShiftAmount = branch-&gt;<a class="code" href="struct_branch.html#18e1d6a7e4e0ea1c47f009194b9b8ec1">depth</a>;
+<a name="l00622"></a>00622         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *patternProj  = setup-&gt;<a class="code" href="struct_w_h_setup.html#c06e481008f29fdd02c95eec15cf9eee">patternProjections</a>;
+<a name="l00623"></a>00623         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> currentBasis = 1;
+<a name="l00624"></a>00624         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> threshold = rejectThresh * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a>); <span class="comment">// don't square yet - for first scan</span>
+<a name="l00625"></a>00625 
+<a name="l00626"></a>00626         <span class="comment">// Perform initial projection of basis 0</span>
+<a name="l00627"></a>00627         proj = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#5a4e4cc69152e878929d3cedf6ced620">whMatrix</a>(branch, 0);
+<a name="l00628"></a>00628 
+<a name="l00629"></a>00629         numOfWins = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(proj);
+<a name="l00630"></a>00630         percentFactor = (float)100 / (<span class="keywordtype">float</span>)numOfWins;
+<a name="l00631"></a>00631 
+<a name="l00632"></a>00632         <span class="comment">// save the locations &amp; distance of all suspected windows in the matches array.</span>
+<a name="l00633"></a>00633         projPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(proj);
+<a name="l00634"></a>00634         total = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(proj);
+<a name="l00635"></a>00635         projCols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(proj);
+<a name="l00636"></a>00636         x = 0; y = 0;
+<a name="l00637"></a>00637         <span class="keywordflow">while</span> (total) {
+<a name="l00638"></a>00638                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = min(total, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>);
+<a name="l00639"></a>00639                 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *bufferPtr = memcpy(<a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, projPtr, count &lt;&lt; 2);
+<a name="l00640"></a>00640                 projPtr += count;
+<a name="l00641"></a>00641                 total -= count;
+<a name="l00642"></a>00642                 <span class="keywordflow">while</span> (count--) {
+<a name="l00643"></a>00643                         <span class="keywordflow">if</span> ((dif = abs(*bufferPtr - *patternProj)) &lt;= threshold) {
+<a name="l00644"></a>00644                                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">matchY</a>(currentMatch) = y;
+<a name="l00645"></a>00645                                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">matchX</a>(currentMatch) = x;
+<a name="l00646"></a>00646                                 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">matchDistance</a>(currentMatch++) = dif * dif;
+<a name="l00647"></a>00647                         }
+<a name="l00648"></a>00648                         bufferPtr++;
+<a name="l00649"></a>00649                         <span class="keywordflow">if</span> (++x == projCols) {
+<a name="l00650"></a>00650                                 x = 0;
+<a name="l00651"></a>00651                                 y++;
+<a name="l00652"></a>00652                         }
+<a name="l00653"></a>00653                 }
+<a name="l00654"></a>00654         }
+<a name="l00655"></a>00655 
+<a name="l00656"></a>00656         suspectedCount = currentMatch - baseMatch;
+<a name="l00657"></a>00657         suspectedPercent = (float)suspectedCount * percentFactor;
+<a name="l00658"></a>00658         threshold *= rejectThresh * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a>); <span class="comment">// square thresh - for next scans</span>
+<a name="l00659"></a>00659         patternProj++;
+<a name="l00660"></a>00660 
+<a name="l00661"></a>00661         <span class="comment">// Top Down phase: perform full projections for each basis</span>
+<a name="l00662"></a>00662         <span class="comment">// and udpate the "suspected" windows list according to the threshhold.</span>
+<a name="l00663"></a>00663         <span class="keywordflow">while</span> (suspectedPercent &gt; setup-&gt;<a class="code" href="struct_w_h_setup.html#862a743cf81ffe212002e65275690fd5">startBottomUpPercent</a> &amp;&amp; currentBasis &lt; setup-&gt;numOfBasis) {
+<a name="l00664"></a>00664                 total = 0;
+<a name="l00665"></a>00665                 proj = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#5a4e4cc69152e878929d3cedf6ced620">whMatrix</a>(branch, currentBasis);
+<a name="l00666"></a>00666                 currentMatch = baseMatch;
+<a name="l00667"></a>00667 
+<a name="l00668"></a>00668                 <span class="keywordflow">while</span> (suspectedCount--) {
+<a name="l00669"></a>00669                         dif = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7956d21aff5d9ffe6de094f60f3a161d">matVal</a>(proj, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">matchY</a>(currentMatch), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">matchX</a>(currentMatch)) - *patternProj;
+<a name="l00670"></a>00670                         <span class="keywordflow">if</span> ((<a class="code" href="simple__matching__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">matchDistance</a>(currentMatch) += dif * dif) &lt;= threshold)
+<a name="l00671"></a>00671                                 baseMatch[total++] = *currentMatch;
+<a name="l00672"></a>00672                         currentMatch++;
+<a name="l00673"></a>00673                 }
+<a name="l00674"></a>00674 
+<a name="l00675"></a>00675                 suspectedCount = total;
+<a name="l00676"></a>00676                 suspectedPercent = (float)suspectedCount * percentFactor;
+<a name="l00677"></a>00677                 currentBasis++;
+<a name="l00678"></a>00678                 patternProj++;
+<a name="l00679"></a>00679         }
+<a name="l00680"></a>00680 
+<a name="l00681"></a>00681         <span class="comment">// check whether Bottom Up phase is needed, or maybe we should go directly to the </span>
+<a name="l00682"></a>00682         <span class="comment">// Direct Distance phase.</span>
+<a name="l00683"></a>00683         performBottomUp = suspectedPercent &gt; setup-&gt;<a class="code" href="struct_w_h_setup.html#10aec4c3c91906bb2cb318efcabf4b1a">startDistancePercent</a> &amp;&amp;
+<a name="l00684"></a>00684                                           currentBasis &lt; setup-&gt;<a class="code" href="struct_w_h_setup.html#f77e9027cf9c402e8ab60fad370acd39">numOfBasis</a> &amp;&amp; suspectedCount;
+<a name="l00685"></a>00685 
+<a name="l00686"></a>00686         <span class="comment">// when Top Down phase has ended, the nodeID of the last updated leaf should be updated</span>
+<a name="l00687"></a>00687         <span class="comment">// for all pixels, as a preparation for the Bottom Up phase (if necessary)</span>
+<a name="l00688"></a>00688         <span class="keywordflow">if</span> (performBottomUp)
+<a name="l00689"></a>00689                 <a class="code" href="simple__matching__run_2pm_2wh_8c.html#0ed15bdab2d3cb3dab7eee94a1c9e00c">updateNodeID</a>(branch);
+<a name="l00690"></a>00690 
+<a name="l00691"></a>00691         <span class="comment">// Bottom Up phase: Scan basis, for each one find the projections of the "suspected" windows</span>
+<a name="l00692"></a>00692         <span class="comment">// and udpate the "suspected" windows list according to the threshhold.</span>
+<a name="l00693"></a>00693         <span class="keywordflow">while</span> (performBottomUp) {
+<a name="l00694"></a>00694                 total = 0;
+<a name="l00695"></a>00695                 currentMatch = baseMatch;
+<a name="l00696"></a>00696 
+<a name="l00697"></a>00697                 <span class="keywordflow">while</span> (suspectedCount--) {
+<a name="l00698"></a>00698                         <span class="comment">// increase lower bound by the distance of the current basis</span>
+<a name="l00699"></a>00699                         dif = <a class="code" href="simple__matching__run_2pm_2wh_8c.html#87a5b4e4c4ce47d265bd0d459b2f53e0">whPixel</a>(branch, currentBasis, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">matchY</a>(currentMatch), <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">matchX</a>(currentMatch)) - *patternProj;
+<a name="l00700"></a>00700                         <span class="comment">// if lower bound is under threshold, save the current win in the updated win list</span>
+<a name="l00701"></a>00701                         <span class="keywordflow">if</span> ((<a class="code" href="simple__matching__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">matchDistance</a>(currentMatch) += dif * dif) &lt;= threshold)
+<a name="l00702"></a>00702                                 baseMatch[total++] = *currentMatch;
+<a name="l00703"></a>00703 
+<a name="l00704"></a>00704                         currentMatch++;
+<a name="l00705"></a>00705                 }
+<a name="l00706"></a>00706 
+<a name="l00707"></a>00707                 suspectedCount = total;
+<a name="l00708"></a>00708                 suspectedPercent = (float)suspectedCount * percentFactor;
+<a name="l00709"></a>00709                 currentBasis++;
+<a name="l00710"></a>00710                 patternProj++;
+<a name="l00711"></a>00711                 performBottomUp = suspectedPercent &gt; setup-&gt;<a class="code" href="struct_w_h_setup.html#10aec4c3c91906bb2cb318efcabf4b1a">startDistancePercent</a> &amp;&amp;
+<a name="l00712"></a>00712                                                   currentBasis &lt; setup-&gt;<a class="code" href="struct_w_h_setup.html#f77e9027cf9c402e8ab60fad370acd39">numOfBasis</a> &amp;&amp; suspectedCount;
+<a name="l00713"></a>00713         }
+<a name="l00714"></a>00714 
+<a name="l00715"></a>00715         <span class="comment">// Direct Distance phase: compute the direct distance of each suspected window and update</span>
+<a name="l00716"></a>00716         <span class="comment">// the suspected windows list accordingly.</span>
+<a name="l00717"></a>00717         <span class="keywordflow">if</span> (suspectedCount) {
+<a name="l00718"></a>00718                 total = 0;
+<a name="l00719"></a>00719                 threshold /= <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">matSize</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a>);
+<a name="l00720"></a>00720                 currentMatch  = baseMatch;
+<a name="l00721"></a>00721 
+<a name="l00722"></a>00722                 <span class="keywordflow">while</span> (suspectedCount--) {
+<a name="l00723"></a>00723                         <span class="comment">// if lower bound is under threshold, save the current win in the updated win list</span>
+<a name="l00724"></a>00724                         <span class="keywordflow">if</span> ((<a class="code" href="simple__matching__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">matchDistance</a>(currentMatch) = <a class="code" href="matrix__funcs_8h.html#1411e90b906c182ab9940fdbe216c7eb">findMatrixDistance</a>(setup-&gt;<a class="code" href="struct_w_h_setup.html#d6f1b6fadb5c22745c10df2fdcd466f9">sourceImage</a>,
+<a name="l00725"></a>00725                                                                                                                               <a class="code" href="simple__matching__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">matchY</a>(currentMatch),
+<a name="l00726"></a>00726                                                                                                                                   <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">matchX</a>(currentMatch),
+<a name="l00727"></a>00727                                                                                                                                   setup-&gt;<a class="code" href="struct_w_h_setup.html#2560e4e508feab69e07fc4298889ed39">patternImage</a>))
+<a name="l00728"></a>00728                                         &lt;= threshold)
+<a name="l00729"></a>00729                                 baseMatch[total++] = *currentMatch;
+<a name="l00730"></a>00730 
+<a name="l00731"></a>00731                         currentMatch++;
+<a name="l00732"></a>00732                 }
+<a name="l00733"></a>00733 
+<a name="l00734"></a>00734                 suspectedCount = total;
+<a name="l00735"></a>00735         }
+<a name="l00736"></a>00736 
+<a name="l00737"></a>00737         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#69fc91113933df80ff4538183d57b500">numOfMatches</a>(setup) = suspectedCount;
+<a name="l00738"></a>00738 }
+<a name="l00739"></a>00739 
+<a name="l00740"></a>00740 
+<a name="l00741"></a>00741 <span class="preprocessor">#pragma inline_recursion(off)</span>
+<a name="l00742"></a>00742 <span class="preprocessor"></span><span class="preprocessor">#pragma inline_depth()</span>
+<a name="l00743"></a>00743 <span class="preprocessor"></span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:40:44 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

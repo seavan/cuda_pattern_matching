@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP.h</h1><code>#include &lt;iostream&gt;</code><br>
+<code>#include &lt;cmath&gt;</code><br>
+<code>#include &lt;cctype&gt;</code><br>
+<code>#include &lt;cstring&gt;</code><br>
+<code>#include &lt;cstdio&gt;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p___data_structures_8h_source.html">EasyBMP_DataStructures.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_source.html">EasyBMP_VariousBMPutilities.h</a>&quot;</code><br>
+
+<p>
+<a href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h_source.html">См. исходные тексты.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Макросы</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#f7eb31fa97b9d2c823bb12255dfb725a">DefaultXPelsPerMeter</a>&nbsp;&nbsp;&nbsp;3780</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#e07aa0909b1dce7af7b038e84beef89d">DefaultYPelsPerMeter</a>&nbsp;&nbsp;&nbsp;3780</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#603da21fb9911d4e9ed84ffe16d61297">_EasyBMP_Version_</a>&nbsp;&nbsp;&nbsp;1.06</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#9c97040f27886f2282883c58a1882eef">_EasyBMP_Version_Integer_</a>&nbsp;&nbsp;&nbsp;106</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#4d893b3d4354ace9917ea74dc0822775">_EasyBMP_Version_String_</a>&nbsp;&nbsp;&nbsp;&quot;1.06&quot;</td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#a572cda955cea246911a9d44fa19f96d">SetEasyBMPwarningsOff</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#c27f66464409775cfc3833843bff8245">SetEasyBMPwarningsOn</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h.html#7de7f5371407388438c70e9e33c61395">GetEasyBMPwarningState</a> (void)</td></tr>
+
+</table>
+<hr><h2>Макросы</h2>
+<a class="anchor" name="603da21fb9911d4e9ed84ffe16d61297"></a><!-- doxytag: member="EasyBMP.h::_EasyBMP_Version_" ref="603da21fb9911d4e9ed84ffe16d61297" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _EasyBMP_Version_&nbsp;&nbsp;&nbsp;1.06          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9c97040f27886f2282883c58a1882eef"></a><!-- doxytag: member="EasyBMP.h::_EasyBMP_Version_Integer_" ref="9c97040f27886f2282883c58a1882eef" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _EasyBMP_Version_Integer_&nbsp;&nbsp;&nbsp;106          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4d893b3d4354ace9917ea74dc0822775"></a><!-- doxytag: member="EasyBMP.h::_EasyBMP_Version_String_" ref="4d893b3d4354ace9917ea74dc0822775" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _EasyBMP_Version_String_&nbsp;&nbsp;&nbsp;&quot;1.06&quot;          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f7eb31fa97b9d2c823bb12255dfb725a"></a><!-- doxytag: member="EasyBMP.h::DefaultXPelsPerMeter" ref="f7eb31fa97b9d2c823bb12255dfb725a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DefaultXPelsPerMeter&nbsp;&nbsp;&nbsp;3780          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e07aa0909b1dce7af7b038e84beef89d"></a><!-- doxytag: member="EasyBMP.h::DefaultYPelsPerMeter" ref="e07aa0909b1dce7af7b038e84beef89d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DefaultYPelsPerMeter&nbsp;&nbsp;&nbsp;3780          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="7de7f5371407388438c70e9e33c61395"></a><!-- doxytag: member="EasyBMP.h::GetEasyBMPwarningState" ref="7de7f5371407388438c70e9e33c61395" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GetEasyBMPwarningState           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="a572cda955cea246911a9d44fa19f96d"></a><!-- doxytag: member="EasyBMP.h::SetEasyBMPwarningsOff" ref="a572cda955cea246911a9d44fa19f96d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetEasyBMPwarningsOff           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c27f66464409775cfc3833843bff8245"></a><!-- doxytag: member="EasyBMP.h::SetEasyBMPwarningsOn" ref="c27f66464409775cfc3833843bff8245" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetEasyBMPwarningsOn           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

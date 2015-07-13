@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/simple_matching_run/pm/wh_funcs.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/simple_matching_run/pm/wh_funcs.h</h1><a href="wh__funcs_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef WHFUNCS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define WHFUNCS_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="simple__matching__run_2pm_2wh_8h.html">wh.h</a>"</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">00006</a> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>[<a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]; <span class="comment">// buffer for heavy memory operations</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <a class="code" href="struct_w_h_setup.html">WHSetup</a> *<a class="code" href="simple__matching__run_2pm_2wh_8c.html#66afe4ca6ff6ee07c3d3d6e00fce94de">createWHSetup</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis);
+<a name="l00009"></a>00009 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#149d1e82609813b9b9f911aa2d43f8a4">destroyWHSetup</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup);
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#86a52c3d80ad4fd61b122306675c4718">setPatternImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *pattern);
+<a name="l00012"></a>00012 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fa05aa21c32b80945192afdaec72fae7">setSourceImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *source);
+<a name="l00013"></a>00013 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#da6128fb2d8fc2053aa760648a81ed53">setMethodStartPercent</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <span class="keywordtype">float</span> bottomUpStartPercent, <span class="keywordtype">float</span> distanceStartPercent);
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#ea0a46965a2dea1e086f8d0b6875e180">whPatternMatch</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> rejectThresh);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

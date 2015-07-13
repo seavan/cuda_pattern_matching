@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/simple_matching_run/simple/simple.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/simple_matching_run/simple/simple.h</h1>
+<p>
+<a href="simple_8h_source.html">См. исходные тексты.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple_8h.html#f88ff23d148fb2e06334c8461b24f08d">simpleMatchingCPU</a> (int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnWidth, int _ptnHeight)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Интерфейс к методу корреляции.  <a href="#f88ff23d148fb2e06334c8461b24f08d"></a><br></td></tr>
+</table>
+<hr><h2>Функции</h2>
+<a class="anchor" name="f88ff23d148fb2e06334c8461b24f08d"></a><!-- doxytag: member="simple.h::simpleMatchingCPU" ref="f88ff23d148fb2e06334c8461b24f08d" args="(int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnWidth, int _ptnHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* simpleMatchingCPU           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Интерфейс к методу корреляции. 
+<p>
+<dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>argc</em>&nbsp;</td><td>Не используется. Для совместимости с CUDA </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>argv</em>&nbsp;</td><td>Не используется. Для совместимости с CUDA </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_input</em>&nbsp;</td><td>Построчное входное изображение оригинала </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_width</em>&nbsp;</td><td>Ширина изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_height</em>&nbsp;</td><td>Высота изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_pattern</em>&nbsp;</td><td>Построчное входное изображение шаблона </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_ptnWidth</em>&nbsp;</td><td>Ширина изображения шаблона </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_ptnHeight</em>&nbsp;</td><td>Высота изображения шаблона </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

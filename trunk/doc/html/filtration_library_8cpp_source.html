@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/filtration_lib/filtrationLibrary.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/filtration_lib/filtrationLibrary.cpp</h1><a href="filtration_library_8cpp.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="filtration_library_8h.html">filtrationLibrary.h</a>"</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a><a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">00005</a> <span class="keywordtype">void</span> <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(<span class="keywordtype">int</span> _src[3][3], <span class="keywordtype">int</span> _dest[3][3])
+<a name="l00006"></a>00006 {
+<a name="l00007"></a>00007         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)
+<a name="l00008"></a>00008         {
+<a name="l00009"></a>00009                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j)
+<a name="l00010"></a>00010                 {
+<a name="l00011"></a>00011                         _dest[i][j] = _src[i][j];
+<a name="l00012"></a>00012                 }
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014         }
+<a name="l00015"></a>00015 }
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="filtration_library_8cpp.html#db27b675c987c67ef36144b816c7191e">00017</a> <span class="preprocessor">#define SOBEL 0</span>
+<a name="l00018"></a><a class="code" href="filtration_library_8cpp.html#5eb647ae76dd2541eac495641beac74a">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define PURITT 1</span>
+<a name="l00019"></a><a class="code" href="filtration_library_8cpp.html#77fa9233a64557e19855c7d6a2625d53">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define LAPLAS 2</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span>
+<a name="l00021"></a><a class="code" href="filtration_library_8cpp.html#14548e8643a11294c09a1942d4fcd81d">00021</a> <span class="preprocessor">#define GET_PIXEL(_input, _x, _y, _width) (_input)[(_x) + (_y) * (_width)]</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00023"></a><a class="code" href="walsh_hadamard_library_8h.html#426460b10f7ee354dc2d14bff87485da">00023</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="filtration_library_8cpp.html#dc50f2b023b0cd92e536bfbaa612380b">filtration</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _input, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _height, <span class="keywordtype">int</span> _method, <span class="keywordtype">float</span> _coeff)
+<a name="l00024"></a>00024 {
+<a name="l00025"></a>00025         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* result = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)malloc(_width * _height * <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028         <span class="keywordtype">int</span>     sobel_GX[3][3];
+<a name="l00029"></a>00029         <span class="keywordtype">int</span>     sobel_GY[3][3];
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031         <span class="comment">/* 3x3 sobel_GX Sobel mask. */</span>
+<a name="l00032"></a>00032         sobel_GX[0][0] = -1; sobel_GX[0][1] = 0; sobel_GX[0][2] = 1;
+<a name="l00033"></a>00033         sobel_GX[1][0] = -2; sobel_GX[1][1] = 0; sobel_GX[1][2] = 2;
+<a name="l00034"></a>00034         sobel_GX[2][0] = -1; sobel_GX[2][1] = 0; sobel_GX[2][2] = 1;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036         <span class="comment">/* 3x3 sobel_GY Sobel mask. */</span>
+<a name="l00037"></a>00037         sobel_GY[0][0] =  1; sobel_GY[0][1] =  2; sobel_GY[0][2] =  1;
+<a name="l00038"></a>00038         sobel_GY[1][0] =  0; sobel_GY[1][1] =  0; sobel_GY[1][2] =  0;
+<a name="l00039"></a>00039         sobel_GY[2][0] = -1; sobel_GY[2][1] = -2; sobel_GY[2][2] = -1;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <span class="comment">/* 3x3 puritt_GX puritt mask. */</span>
+<a name="l00042"></a>00042         <span class="keywordtype">int</span>     puritt_GX[3][3];
+<a name="l00043"></a>00043         <span class="keywordtype">int</span>     puritt_GY[3][3];
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         puritt_GX[0][0] = -1; puritt_GX[0][1] = 0; puritt_GX[0][2] = 1;
+<a name="l00046"></a>00046         puritt_GX[1][0] = -1; puritt_GX[1][1] = 0; puritt_GX[1][2] = 1;
+<a name="l00047"></a>00047         puritt_GX[2][0] = -1; puritt_GX[2][1] = 0; puritt_GX[2][2] = 1;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049         <span class="comment">/* 3x3 puritt_GY puritt mask*/</span>
+<a name="l00050"></a>00050         puritt_GY[0][0] =  1; puritt_GY[0][1] =  1; puritt_GY[0][2] =  1;
+<a name="l00051"></a>00051         puritt_GY[1][0] =  0; puritt_GY[1][1] =  0; puritt_GY[1][2] =  0;
+<a name="l00052"></a>00052         puritt_GY[2][0] = -1; puritt_GY[2][1] = -1; puritt_GY[2][2] = -1;
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054         <span class="comment">/* 3x3 laplas_GX laplas mask.*/</span>
+<a name="l00055"></a>00055         <span class="keywordtype">int</span>     laplas_GX[3][3];
+<a name="l00056"></a>00056         <span class="keywordtype">int</span>     laplas_GY[3][3];
+<a name="l00057"></a>00057         laplas_GX[0][0] = 0; laplas_GX[0][1] = 1; laplas_GX[0][2] = 0;
+<a name="l00058"></a>00058         laplas_GX[1][0] = 1; laplas_GX[1][1] = -4; laplas_GX[1][2] = 1;
+<a name="l00059"></a>00059         laplas_GX[2][0] = 0; laplas_GX[2][1] = 1; laplas_GX[2][2] = 0;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <span class="comment">/* 3x3 laplas_GY laplas mask.*/</span>
+<a name="l00062"></a>00062         laplas_GY[0][0] =  0; laplas_GY[0][1] =  1; laplas_GY[0][2] =  0;
+<a name="l00063"></a>00063         laplas_GY[1][0] =  1; laplas_GY[1][1] =  -4; laplas_GY[1][2] =  1;
+<a name="l00064"></a>00064         laplas_GY[2][0] = 0; laplas_GY[2][1] = 1; laplas_GY[2][2] = 0;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066         <span class="keywordtype">double</span> coeff = _coeff;
+<a name="l00067"></a>00067         <span class="keywordtype">int</span> GX[3][3];
+<a name="l00068"></a>00068         <span class="keywordtype">int</span> GY[3][3];
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="keywordflow">switch</span>(_method)
+<a name="l00071"></a>00071         {
+<a name="l00072"></a>00072         <span class="keywordflow">case</span> <a class="code" href="filtration_library_8cpp.html#db27b675c987c67ef36144b816c7191e">SOBEL</a>: 
+<a name="l00073"></a>00073                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(sobel_GX, GX);
+<a name="l00074"></a>00074                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(sobel_GY, GY);       
+<a name="l00075"></a>00075                 <span class="keywordflow">break</span>;
+<a name="l00076"></a>00076         <span class="keywordflow">case</span> <a class="code" href="filtration_library_8cpp.html#5eb647ae76dd2541eac495641beac74a">PURITT</a>: 
+<a name="l00077"></a>00077                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(puritt_GX, GX);
+<a name="l00078"></a>00078                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(puritt_GY, GY);      
+<a name="l00079"></a>00079                 <span class="keywordflow">break</span>;
+<a name="l00080"></a>00080         <span class="keywordflow">case</span> <a class="code" href="filtration_library_8cpp.html#77fa9233a64557e19855c7d6a2625d53">LAPLAS</a>: 
+<a name="l00081"></a>00081                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(laplas_GX, GX);
+<a name="l00082"></a>00082                 <a class="code" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a>(laplas_GY, GY);              
+<a name="l00083"></a>00083                 <span class="keywordflow">break</span>;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086         <span class="comment">/*---------------------------------------------------</span>
+<a name="l00087"></a>00087 <span class="comment">        convolution</span>
+<a name="l00088"></a>00088 <span class="comment">        ---------------------------------------------------*/</span>
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* current = result;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> Y = 0; Y &lt; _height; ++Y)  {
+<a name="l00093"></a>00093                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> X = 0; X &lt; _width; ++X)  {
+<a name="l00094"></a>00094                         <span class="keywordtype">int</span> SUM;
+<a name="l00095"></a>00095                         <span class="keywordtype">int</span> sumX = 0;
+<a name="l00096"></a>00096                         <span class="keywordtype">int</span> sumY = 0;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098                         <span class="comment">/* image boundaries */</span>
+<a name="l00099"></a>00099                         <span class="keywordflow">if</span>(Y == 0 || Y == _height - 1)
+<a name="l00100"></a>00100                                 SUM = 0;
+<a name="l00101"></a>00101                         <span class="keywordflow">else</span> 
+<a name="l00102"></a>00102                                 <span class="keywordflow">if</span>( X == 0 || X == _width - 1)
+<a name="l00103"></a>00103                                         SUM = 0;
+<a name="l00104"></a>00104                         <span class="comment">/* Convolution starts here */</span>
+<a name="l00105"></a>00105                                 <span class="keywordflow">else</span>   {
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107                                         <span class="comment">/*-------X GRADIENT APPROXIMATION------*/</span>
+<a name="l00108"></a>00108                                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> I = -1; I &lt;= 1; I++)  {
+<a name="l00109"></a>00109                                                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> J=-1 ; J&lt;=1; J++)  {
+<a name="l00110"></a>00110                                                         sumX = sumX + <a class="code" href="filtration_library_8cpp.html#14548e8643a11294c09a1942d4fcd81d">GET_PIXEL</a>(_input, X + I, Y + J, _width) * GX[I+1][J+1];
+<a name="l00111"></a>00111                                                 }
+<a name="l00112"></a>00112                                         }
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114                                         <span class="comment">/*-------Y GRADIENT APPROXIMATION-------*/</span>
+<a name="l00115"></a>00115                                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> I=-1; I&lt;=1; I++)  {
+<a name="l00116"></a>00116                                                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> J=-1; J&lt;=1; J++)  {
+<a name="l00117"></a>00117                                                         sumY = sumY + <a class="code" href="filtration_library_8cpp.html#14548e8643a11294c09a1942d4fcd81d">GET_PIXEL</a>(_input, X + I, Y + J, _width) * GY[I+1][J+1];
+<a name="l00118"></a>00118                                                 }
+<a name="l00119"></a>00119                                         }
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121                                         <span class="comment">/*---GRADIENT MAGNITUDE APPROXIMATION----*/</span>
+<a name="l00122"></a>00122                                         SUM = coeff * (abs(sumX) + abs(sumY));
+<a name="l00123"></a>00123                                 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125                         <span class="keywordflow">if</span>(SUM&gt;255) SUM=255;
+<a name="l00126"></a>00126                         <span class="keywordflow">if</span>(SUM&lt;0) SUM=0;
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128                         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> val = 255 - (<span class="keywordtype">unsigned</span> char)(SUM);
+<a name="l00129"></a>00129                         *current = val;
+<a name="l00130"></a>00130                         ++current;
+<a name="l00131"></a>00131                 }
+<a name="l00132"></a>00132         }
+<a name="l00133"></a>00133         <span class="keywordflow">return</span> result;
+<a name="l00134"></a>00134 }
+<a name="l00135"></a>00135 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:40:44 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

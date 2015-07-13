@@ -1,0 +1,122 @@
+\hypertarget{simple__matching__run_2pm_2matrix_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix.h}
+\label{simple__matching__run_2pm_2matrix_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/matrix.h}}
+}
+{\tt \#include \char`\"{}defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}image.h\char`\"{}}\par
+\subsection*{Структуры данных}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_matrix}{Matrix}
+\end{CompactItemize}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_64532c673824aaf7357c8dd5ee2bb840}{HIGHEST\_\-CELL\_\-VALUE}~0x7fffffff
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_8eb64dd5bf0124215d7005db399a7c95}{LOWEST\_\-CELL\_\-VALUE}~0x80000000
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_7956d21aff5d9ffe6de094f60f3a161d}{matVal}(mat, y, x)~(mat $\rightarrow$ rowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_d3ab0f5f302717285a12303f1f5a9e86}{matValD}(mat, i)~(mat $\rightarrow$ cellValues\mbox{[}i\mbox{]})
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_1379a049272f210908e5461b2b668ba7}{matValPtr}(mat)~(mat $\rightarrow$ cellValues)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_ff1179b18ab2047060bab837df4a4527}{matCols}(mat)~(mat $\rightarrow$ cols)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_6c80e2fcef10381dd06bd211dbdcf530}{matRows}(mat)~(mat $\rightarrow$ rows)
+\item 
+\#define \hyperlink{simple__matching__run_2pm_2matrix_8h_b1dc6c39709ef7d2160f2f4d4761fd57}{matSize}(mat)~(mat $\rightarrow$ \hyperlink{filtration__run_2free_image_2_free_image_8h_156878bfbcff0c64d75da712abe72bd6}{size})
+\end{CompactItemize}
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef signed int \hyperlink{simple__matching__run_2pm_2matrix_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT}
+\item 
+typedef unsigned int \hyperlink{simple__matching__run_2pm_2matrix_8h_7b872890b3a65c758de9e62cdf739754}{matrixSizeT}
+\item 
+typedef unsigned int \hyperlink{simple__matching__run_2pm_2matrix_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT}
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{simple__matching__run_2pm_2matrix_8h_64532c673824aaf7357c8dd5ee2bb840}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!HIGHEST\_\-CELL\_\-VALUE@{HIGHEST\_\-CELL\_\-VALUE}}
+\index{HIGHEST\_\-CELL\_\-VALUE@{HIGHEST\_\-CELL\_\-VALUE}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{HIGHEST\_\-CELL\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}\#define HIGHEST\_\-CELL\_\-VALUE~0x7fffffff}}
+\label{simple__matching__run_2pm_2matrix_8h_64532c673824aaf7357c8dd5ee2bb840}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_8eb64dd5bf0124215d7005db399a7c95}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!LOWEST\_\-CELL\_\-VALUE@{LOWEST\_\-CELL\_\-VALUE}}
+\index{LOWEST\_\-CELL\_\-VALUE@{LOWEST\_\-CELL\_\-VALUE}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{LOWEST\_\-CELL\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOWEST\_\-CELL\_\-VALUE~0x80000000}}
+\label{simple__matching__run_2pm_2matrix_8h_8eb64dd5bf0124215d7005db399a7c95}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_ff1179b18ab2047060bab837df4a4527}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matCols@{matCols}}
+\index{matCols@{matCols}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matCols}]{\setlength{\rightskip}{0pt plus 5cm}\#define matCols(mat)~(mat $\rightarrow$ cols)}}
+\label{simple__matching__run_2pm_2matrix_8h_ff1179b18ab2047060bab837df4a4527}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_6c80e2fcef10381dd06bd211dbdcf530}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matRows@{matRows}}
+\index{matRows@{matRows}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matRows}]{\setlength{\rightskip}{0pt plus 5cm}\#define matRows(mat)~(mat $\rightarrow$ rows)}}
+\label{simple__matching__run_2pm_2matrix_8h_6c80e2fcef10381dd06bd211dbdcf530}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_b1dc6c39709ef7d2160f2f4d4761fd57}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matSize@{matSize}}
+\index{matSize@{matSize}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matSize}]{\setlength{\rightskip}{0pt plus 5cm}\#define matSize(mat)~(mat $\rightarrow$ {\bf size})}}
+\label{simple__matching__run_2pm_2matrix_8h_b1dc6c39709ef7d2160f2f4d4761fd57}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_7956d21aff5d9ffe6de094f60f3a161d}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matVal@{matVal}}
+\index{matVal@{matVal}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matVal}]{\setlength{\rightskip}{0pt plus 5cm}\#define matVal(mat, \/  y, \/  x)~(mat $\rightarrow$ rowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})}}
+\label{simple__matching__run_2pm_2matrix_8h_7956d21aff5d9ffe6de094f60f3a161d}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_d3ab0f5f302717285a12303f1f5a9e86}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matValD@{matValD}}
+\index{matValD@{matValD}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matValD}]{\setlength{\rightskip}{0pt plus 5cm}\#define matValD(mat, \/  i)~(mat $\rightarrow$ cellValues\mbox{[}i\mbox{]})}}
+\label{simple__matching__run_2pm_2matrix_8h_d3ab0f5f302717285a12303f1f5a9e86}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_1379a049272f210908e5461b2b668ba7}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matValPtr@{matValPtr}}
+\index{matValPtr@{matValPtr}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matValPtr}]{\setlength{\rightskip}{0pt plus 5cm}\#define matValPtr(mat)~(mat $\rightarrow$ cellValues)}}
+\label{simple__matching__run_2pm_2matrix_8h_1379a049272f210908e5461b2b668ba7}
+
+
+
+
+\subsection{Типы}
+\hypertarget{simple__matching__run_2pm_2matrix_8h_6a63c2ffcfd00315baff593b8895f32a}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!cellValueT@{cellValueT}}
+\index{cellValueT@{cellValueT}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{cellValueT}]{\setlength{\rightskip}{0pt plus 5cm}typedef signed int {\bf cellValueT}}}
+\label{simple__matching__run_2pm_2matrix_8h_6a63c2ffcfd00315baff593b8895f32a}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!distanceT@{distanceT}}
+\index{distanceT@{distanceT}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{distanceT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf distanceT}}}
+\label{simple__matching__run_2pm_2matrix_8h_c1c41d7d1d0ed2da28d8a632864fdd86}
+
+
+\hypertarget{simple__matching__run_2pm_2matrix_8h_7b872890b3a65c758de9e62cdf739754}{
+\index{simple\_\-matching\_\-run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}!matrixSizeT@{matrixSizeT}}
+\index{matrixSizeT@{matrixSizeT}!simple_matching_run/pm/matrix.h@{simple\_\-matching\_\-run/pm/matrix.h}}
+\subsubsection[{matrixSizeT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf matrixSizeT}}}
+\label{simple__matching__run_2pm_2matrix_8h_7b872890b3a65c758de9e62cdf739754}
+
+

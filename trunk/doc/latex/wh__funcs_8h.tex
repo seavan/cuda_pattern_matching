@@ -1,0 +1,80 @@
+\hypertarget{wh__funcs_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh\_\-funcs.h}
+\label{wh__funcs_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh\_\-funcs.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/pm/wh\_\-funcs.h}}
+}
+{\tt \#include \char`\"{}wh.h\char`\"{}}\par
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct_w_h_setup}{WHSetup} $\ast$ \hyperlink{wh__funcs_8h_3534f26e4654fc23f764d313133e7e14}{createWHSetup} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceCols, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} patternRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{basisT} numOfBasis)
+\item 
+void \hyperlink{wh__funcs_8h_e5520182a27a209d6e6f1e387cbc6609}{destroyWHSetup} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup)
+\item 
+void \hyperlink{wh__funcs_8h_9c54b2b6010eb7b4c98c15532d03e24d}{setPatternImage} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{struct_image}{Image} $\ast$pattern)
+\item 
+void \hyperlink{wh__funcs_8h_d2ab0e9bb1416c9e7def0c3abba79750}{setSourceImage} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{struct_image}{Image} $\ast$source)
+\item 
+void \hyperlink{wh__funcs_8h_da6128fb2d8fc2053aa760648a81ed53}{setMethodStartPercent} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, float bottomUpStartPercent, float distanceStartPercent)
+\item 
+void \hyperlink{wh__funcs_8h_ea0a46965a2dea1e086f8d0b6875e180}{whPatternMatch} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT} rejectThresh)
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{wh__funcs_8h_bcaa56f51c20292898754fce33b5a991}{buffer} \mbox{[}BUFFER\_\-SIZE\mbox{]}
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{wh__funcs_8h_3534f26e4654fc23f764d313133e7e14}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!createWHSetup@{createWHSetup}}
+\index{createWHSetup@{createWHSetup}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{createWHSetup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WHSetup}$\ast$ createWHSetup ({\bf coordT} {\em sourceRows}, \/  {\bf coordT} {\em sourceCols}, \/  {\bf coordT} {\em patternRows}, \/  {\bf basisT} {\em numOfBasis})}}
+\label{wh__funcs_8h_3534f26e4654fc23f764d313133e7e14}
+
+
+\hypertarget{wh__funcs_8h_e5520182a27a209d6e6f1e387cbc6609}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!destroyWHSetup@{destroyWHSetup}}
+\index{destroyWHSetup@{destroyWHSetup}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{destroyWHSetup}]{\setlength{\rightskip}{0pt plus 5cm}void destroyWHSetup ({\bf WHSetup} $\ast$ {\em setup})}}
+\label{wh__funcs_8h_e5520182a27a209d6e6f1e387cbc6609}
+
+
+\hypertarget{wh__funcs_8h_da6128fb2d8fc2053aa760648a81ed53}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!setMethodStartPercent@{setMethodStartPercent}}
+\index{setMethodStartPercent@{setMethodStartPercent}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{setMethodStartPercent}]{\setlength{\rightskip}{0pt plus 5cm}void setMethodStartPercent ({\bf WHSetup} $\ast$ {\em setup}, \/  float {\em bottomUpStartPercent}, \/  float {\em distanceStartPercent})}}
+\label{wh__funcs_8h_da6128fb2d8fc2053aa760648a81ed53}
+
+
+\hypertarget{wh__funcs_8h_9c54b2b6010eb7b4c98c15532d03e24d}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!setPatternImage@{setPatternImage}}
+\index{setPatternImage@{setPatternImage}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{setPatternImage}]{\setlength{\rightskip}{0pt plus 5cm}void setPatternImage ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf Image} $\ast$ {\em pattern})}}
+\label{wh__funcs_8h_9c54b2b6010eb7b4c98c15532d03e24d}
+
+
+\hypertarget{wh__funcs_8h_d2ab0e9bb1416c9e7def0c3abba79750}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!setSourceImage@{setSourceImage}}
+\index{setSourceImage@{setSourceImage}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{setSourceImage}]{\setlength{\rightskip}{0pt plus 5cm}void setSourceImage ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf Image} $\ast$ {\em source})}}
+\label{wh__funcs_8h_d2ab0e9bb1416c9e7def0c3abba79750}
+
+
+\hypertarget{wh__funcs_8h_ea0a46965a2dea1e086f8d0b6875e180}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!whPatternMatch@{whPatternMatch}}
+\index{whPatternMatch@{whPatternMatch}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{whPatternMatch}]{\setlength{\rightskip}{0pt plus 5cm}void whPatternMatch ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf distanceT} {\em rejectThresh})}}
+\label{wh__funcs_8h_ea0a46965a2dea1e086f8d0b6875e180}
+
+
+
+
+\subsection{Переменные}
+\hypertarget{wh__funcs_8h_bcaa56f51c20292898754fce33b5a991}{
+\index{wh\_\-funcs.h@{wh\_\-funcs.h}!buffer@{buffer}}
+\index{buffer@{buffer}!wh_funcs.h@{wh\_\-funcs.h}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} {\bf buffer}\mbox{[}BUFFER\_\-SIZE\mbox{]}}}
+\label{wh__funcs_8h_bcaa56f51c20292898754fce33b5a991}
+
+

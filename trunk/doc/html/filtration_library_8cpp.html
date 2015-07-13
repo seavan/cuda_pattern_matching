@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/filtration_lib/filtrationLibrary.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/filtration_lib/filtrationLibrary.cpp</h1><code>#include &quot;<a class="el" href="filtration_library_8h_source.html">filtrationLibrary.h</a>&quot;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Макросы</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#db27b675c987c67ef36144b816c7191e">SOBEL</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#5eb647ae76dd2541eac495641beac74a">PURITT</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#77fa9233a64557e19855c7d6a2625d53">LAPLAS</a>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#14548e8643a11294c09a1942d4fcd81d">GET_PIXEL</a>(_input, _x, _y, _width)&nbsp;&nbsp;&nbsp;(_input)[(_x) + (_y) * (_width)]</td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#bbceec583aa33f26f888690417296e5c">copyMatrix</a> (int _src[3][3], int _dest[3][3])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration_library_8cpp.html#dc50f2b023b0cd92e536bfbaa612380b">filtration</a> (unsigned char *_input, int _width, int _height, int _method, float _coeff)</td></tr>
+
+</table>
+<hr><h2>Макросы</h2>
+<a class="anchor" name="14548e8643a11294c09a1942d4fcd81d"></a><!-- doxytag: member="filtrationLibrary.cpp::GET_PIXEL" ref="14548e8643a11294c09a1942d4fcd81d" args="(_input, _x, _y, _width)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GET_PIXEL          </td>
+          <td>(</td>
+          <td class="paramtype">_input,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">_x,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">_y,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">_width&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(_input)[(_x) + (_y) * (_width)]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="77fa9233a64557e19855c7d6a2625d53"></a><!-- doxytag: member="filtrationLibrary.cpp::LAPLAS" ref="77fa9233a64557e19855c7d6a2625d53" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LAPLAS&nbsp;&nbsp;&nbsp;2          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5eb647ae76dd2541eac495641beac74a"></a><!-- doxytag: member="filtrationLibrary.cpp::PURITT" ref="5eb647ae76dd2541eac495641beac74a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PURITT&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="db27b675c987c67ef36144b816c7191e"></a><!-- doxytag: member="filtrationLibrary.cpp::SOBEL" ref="db27b675c987c67ef36144b816c7191e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SOBEL&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="bbceec583aa33f26f888690417296e5c"></a><!-- doxytag: member="filtrationLibrary.cpp::copyMatrix" ref="bbceec583aa33f26f888690417296e5c" args="(int _src[3][3], int _dest[3][3])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void copyMatrix           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_src</em>[3][3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_dest</em>[3][3]</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="dc50f2b023b0cd92e536bfbaa612380b"></a><!-- doxytag: member="filtrationLibrary.cpp::filtration" ref="dc50f2b023b0cd92e536bfbaa612380b" args="(unsigned char *_input, int _width, int _height, int _method, float _coeff)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* filtration           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>_coeff</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Фильтрация изображения заданным методом (CPU) <dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>_input</em>&nbsp;</td><td>Построчный массив с исходным изображением </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_width</em>&nbsp;</td><td>Ширина исходного изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_height</em>&nbsp;</td><td>Высота исходного изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_method</em>&nbsp;</td><td>Метод (0 - Собель, 1 - Пюритт, 2 - Лаплас) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_scale</em>&nbsp;</td><td>Резкость фильтрации </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>Массив байт с отфильтрованным изображением с глубиной цвета - 8 (grayscale) </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

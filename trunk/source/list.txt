@@ -1,0 +1,11 @@
+correlation_cuda_lib\
+correlation_cuda_run\
+filtration_cuda_lib\
+filtration_cuda_run\
+filtration_lib\
+filtration_run\
+image_lib\
+pattern_matching_gui_run\
+simple_matching_run\
+walsh_hadamard_lib\
+walsh_hadamard_run\

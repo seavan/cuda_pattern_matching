@@ -1,0 +1,921 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.h</h1><code>#include &quot;<a class="el" href="walsh__hadamard__run_2pm_2defs_8h_source.html">defs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2pm_2matrix_8h_source.html">matrix.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2pm_2image_8h_source.html">image.h</a>&quot;</code><br>
+
+<p>
+<a href="walsh__hadamard__run_2pm_2wh_8h_source.html">См. исходные тексты.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Структуры данных</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_branch.html">Branch</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_match.html">Match</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_w_h_setup.html">WHSetup</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Макросы</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#93a65f53ddc9aab0ba551cc7d89f3e88">MAX_PATTERN_128</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#39bb8f7702939d842b16ba48024d07a3">MAX_BASIS_1024</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#90eb498bf38dedbae958f1ee5bea9954">BUFFER_SIZE_32</a>&nbsp;&nbsp;&nbsp;16832</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#dd413e620f5e31f4f42f74080a0bda56">BUFFER_SIZE_64</a>&nbsp;&nbsp;&nbsp;34664</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#2bd1b712d38fe5f23ec3975a4b717a2f">BUFFER_SIZE_128</a>&nbsp;&nbsp;&nbsp;69328</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">PLUS</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#5381a445a1e4bdc36460151d82eed95a">MINUS</a>&nbsp;&nbsp;&nbsp;-1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#220ef7e31d8d839246660bf0aa8f3eee">DEFAULT_BOTTOM_UP_PERCENT</a>&nbsp;&nbsp;&nbsp;10.0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e3b6e60cca467e955b438882e4506614">DEFAULT_DISTANCE_PERCENT</a>&nbsp;&nbsp;&nbsp;2.0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>&nbsp;&nbsp;&nbsp;BUFFER_SIZE_128</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">branchMat</a>(branch, matNo)&nbsp;&nbsp;&nbsp;(branch-&gt;matrices[matNo])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">branchDepth</a>(branch)&nbsp;&nbsp;&nbsp;(branch-&gt;depth)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">branchBasisInd</a>(branch)&nbsp;&nbsp;&nbsp;(branch-&gt;basisInd)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">branchDelta</a>(branch, matNo)&nbsp;&nbsp;&nbsp;(branch-&gt;delta[matNo])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#031bfe7195c8d69ce52a0765914a0975">branchHorizontal</a>(branch, matNo)&nbsp;&nbsp;&nbsp;(branch-&gt;horizontal[matNo])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">branchSign</a>(branch, matNo, basisInd)&nbsp;&nbsp;&nbsp;(branch-&gt;sign[matNo][basisInd])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#950a2bdc868f52ecb16c26efb89c26f0">branchNodeID</a>(branch, matNo, basisInd)&nbsp;&nbsp;&nbsp;(branch-&gt;nodeID[matNo][basisInd])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#7b7e5d114a9e9cab35111bdd0d6d8d04">branchPixelNodeID</a>(branch, y, x)&nbsp;&nbsp;&nbsp;(branch-&gt;pixelNodeIDRowsPtr[y][x])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#1dcc45ac7e24a99e3c41f607a0b79b22">branchPixelNodeIDPtr</a>(branch)&nbsp;&nbsp;&nbsp;(branch-&gt;pixelNodeIDValues)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#c49d8ecb153f3f6ce620045c9f122dee">branchClimbLevels</a>(branch, toBasisInd)&nbsp;&nbsp;&nbsp;(branch-&gt;climbLevels[branch-&gt;basisInd][toBasisInd])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">branchMatVal</a>(branch, matNo, y, x)&nbsp;&nbsp;&nbsp;(matVal(branch-&gt;matrices[matNo], y, x))</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">matchY</a>(match)&nbsp;&nbsp;&nbsp;(match-&gt;y)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">matchX</a>(match)&nbsp;&nbsp;&nbsp;(match-&gt;x)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">matchDistance</a>(match)&nbsp;&nbsp;&nbsp;(match-&gt;distance)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">matches</a>(setup)&nbsp;&nbsp;&nbsp;(setup-&gt;matches)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#69fc91113933df80ff4538183d57b500">numOfMatches</a>(setup)&nbsp;&nbsp;&nbsp;(setup-&gt;numOfMatches)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e546127c403cf0cbb041e0ebeb8ba664">sourceImage</a>(setup)&nbsp;&nbsp;&nbsp;(setup-&gt;sourceImage)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e009f5822ff50acfdf0873c916f5a834">patternImage</a>(setup)&nbsp;&nbsp;&nbsp;(setup-&gt;patternImage)</td></tr>
+
+<tr><td colspan="2"><br><h2>Определения типов</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef signed _int32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef unsigned _int8&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef _int8&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#3534f26e4654fc23f764d313133e7e14">createWHSetup</a> (<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#e5520182a27a209d6e6f1e387cbc6609">destroyWHSetup</a> (<a class="el" href="struct_w_h_setup.html">WHSetup</a> *setup)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#9c54b2b6010eb7b4c98c15532d03e24d">setPatternImage</a> (<a class="el" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="el" href="struct_image.html">Image</a> *pattern)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#d2ab0e9bb1416c9e7def0c3abba79750">setSourceImage</a> (<a class="el" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="el" href="struct_image.html">Image</a> *source)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#da6128fb2d8fc2053aa760648a81ed53">setMethodStartPercent</a> (<a class="el" href="struct_w_h_setup.html">WHSetup</a> *setup, float bottomUpStartPercent, float distanceStartPercent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#ea0a46965a2dea1e086f8d0b6875e180">whPatternMatch</a> (<a class="el" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> rejectThresh)</td></tr>
+
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2pm_2wh_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a> [BUFFER_SIZE]</td></tr>
+
+</table>
+<hr><h2>Макросы</h2>
+<a class="anchor" name="4f3d00962845d4993ce72f5dabc809bb"></a><!-- doxytag: member="wh.h::branchBasisInd" ref="4f3d00962845d4993ce72f5dabc809bb" args="(branch)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchBasisInd          </td>
+          <td>(</td>
+          <td class="paramtype">branch&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;basisInd)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c49d8ecb153f3f6ce620045c9f122dee"></a><!-- doxytag: member="wh.h::branchClimbLevels" ref="c49d8ecb153f3f6ce620045c9f122dee" args="(branch, toBasisInd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchClimbLevels          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">toBasisInd&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;climbLevels[branch-&gt;basisInd][toBasisInd])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5d1fad4fca13ec080c34a6eba4d31f47"></a><!-- doxytag: member="wh.h::branchDelta" ref="5d1fad4fca13ec080c34a6eba4d31f47" args="(branch, matNo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchDelta          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;delta[matNo])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="1c79dde1ae3480ce56fa4e8f64649437"></a><!-- doxytag: member="wh.h::branchDepth" ref="1c79dde1ae3480ce56fa4e8f64649437" args="(branch)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchDepth          </td>
+          <td>(</td>
+          <td class="paramtype">branch&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;depth)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="031bfe7195c8d69ce52a0765914a0975"></a><!-- doxytag: member="wh.h::branchHorizontal" ref="031bfe7195c8d69ce52a0765914a0975" args="(branch, matNo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchHorizontal          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;horizontal[matNo])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="05c2a39bc9d9c3bf57641f06785b7f70"></a><!-- doxytag: member="wh.h::branchMat" ref="05c2a39bc9d9c3bf57641f06785b7f70" args="(branch, matNo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchMat          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;matrices[matNo])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="783480734d7ad3d7573206e765ac9145"></a><!-- doxytag: member="wh.h::branchMatVal" ref="783480734d7ad3d7573206e765ac9145" args="(branch, matNo, y, x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchMatVal          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">y,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">x&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(matVal(branch-&gt;matrices[matNo], y, x))</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="950a2bdc868f52ecb16c26efb89c26f0"></a><!-- doxytag: member="wh.h::branchNodeID" ref="950a2bdc868f52ecb16c26efb89c26f0" args="(branch, matNo, basisInd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchNodeID          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">basisInd&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;nodeID[matNo][basisInd])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7b7e5d114a9e9cab35111bdd0d6d8d04"></a><!-- doxytag: member="wh.h::branchPixelNodeID" ref="7b7e5d114a9e9cab35111bdd0d6d8d04" args="(branch, y, x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchPixelNodeID          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">y,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">x&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;pixelNodeIDRowsPtr[y][x])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="1dcc45ac7e24a99e3c41f607a0b79b22"></a><!-- doxytag: member="wh.h::branchPixelNodeIDPtr" ref="1dcc45ac7e24a99e3c41f607a0b79b22" args="(branch)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchPixelNodeIDPtr          </td>
+          <td>(</td>
+          <td class="paramtype">branch&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;pixelNodeIDValues)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="de04439c7240984ad37d2469bb4314f0"></a><!-- doxytag: member="wh.h::branchSign" ref="de04439c7240984ad37d2469bb4314f0" args="(branch, matNo, basisInd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define branchSign          </td>
+          <td>(</td>
+          <td class="paramtype">branch,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matNo,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">basisInd&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(branch-&gt;sign[matNo][basisInd])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="6b20d41d6252e9871430c242cb1a56e7"></a><!-- doxytag: member="wh.h::BUFFER_SIZE" ref="6b20d41d6252e9871430c242cb1a56e7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SIZE&nbsp;&nbsp;&nbsp;BUFFER_SIZE_128          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2bd1b712d38fe5f23ec3975a4b717a2f"></a><!-- doxytag: member="wh.h::BUFFER_SIZE_128" ref="2bd1b712d38fe5f23ec3975a4b717a2f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SIZE_128&nbsp;&nbsp;&nbsp;69328          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="90eb498bf38dedbae958f1ee5bea9954"></a><!-- doxytag: member="wh.h::BUFFER_SIZE_32" ref="90eb498bf38dedbae958f1ee5bea9954" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SIZE_32&nbsp;&nbsp;&nbsp;16832          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="dd413e620f5e31f4f42f74080a0bda56"></a><!-- doxytag: member="wh.h::BUFFER_SIZE_64" ref="dd413e620f5e31f4f42f74080a0bda56" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SIZE_64&nbsp;&nbsp;&nbsp;34664          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="220ef7e31d8d839246660bf0aa8f3eee"></a><!-- doxytag: member="wh.h::DEFAULT_BOTTOM_UP_PERCENT" ref="220ef7e31d8d839246660bf0aa8f3eee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_BOTTOM_UP_PERCENT&nbsp;&nbsp;&nbsp;10.0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e3b6e60cca467e955b438882e4506614"></a><!-- doxytag: member="wh.h::DEFAULT_DISTANCE_PERCENT" ref="e3b6e60cca467e955b438882e4506614" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_DISTANCE_PERCENT&nbsp;&nbsp;&nbsp;2.0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="78dfc6921c8a1c7d2c90a954b45e9280"></a><!-- doxytag: member="wh.h::matchDistance" ref="78dfc6921c8a1c7d2c90a954b45e9280" args="(match)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define matchDistance          </td>
+          <td>(</td>
+          <td class="paramtype">match&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(match-&gt;distance)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="1818f71e58a09056d2c3d8658d25cf7d"></a><!-- doxytag: member="wh.h::matches" ref="1818f71e58a09056d2c3d8658d25cf7d" args="(setup)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define matches          </td>
+          <td>(</td>
+          <td class="paramtype">setup&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(setup-&gt;matches)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e41ed6a5b2e5512f4a01b68870782bef"></a><!-- doxytag: member="wh.h::matchX" ref="e41ed6a5b2e5512f4a01b68870782bef" args="(match)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define matchX          </td>
+          <td>(</td>
+          <td class="paramtype">match&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(match-&gt;x)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="a66d385c2e91f8d7c80afea53fd62e00"></a><!-- doxytag: member="wh.h::matchY" ref="a66d385c2e91f8d7c80afea53fd62e00" args="(match)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define matchY          </td>
+          <td>(</td>
+          <td class="paramtype">match&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(match-&gt;y)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="39bb8f7702939d842b16ba48024d07a3"></a><!-- doxytag: member="wh.h::MAX_BASIS_1024" ref="39bb8f7702939d842b16ba48024d07a3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_BASIS_1024          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="93a65f53ddc9aab0ba551cc7d89f3e88"></a><!-- doxytag: member="wh.h::MAX_PATTERN_128" ref="93a65f53ddc9aab0ba551cc7d89f3e88" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PATTERN_128          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5381a445a1e4bdc36460151d82eed95a"></a><!-- doxytag: member="wh.h::MINUS" ref="5381a445a1e4bdc36460151d82eed95a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MINUS&nbsp;&nbsp;&nbsp;-1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="69fc91113933df80ff4538183d57b500"></a><!-- doxytag: member="wh.h::numOfMatches" ref="69fc91113933df80ff4538183d57b500" args="(setup)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define numOfMatches          </td>
+          <td>(</td>
+          <td class="paramtype">setup&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(setup-&gt;numOfMatches)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e009f5822ff50acfdf0873c916f5a834"></a><!-- doxytag: member="wh.h::patternImage" ref="e009f5822ff50acfdf0873c916f5a834" args="(setup)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define patternImage          </td>
+          <td>(</td>
+          <td class="paramtype">setup&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(setup-&gt;patternImage)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0ea7ff5947c5f5430a29fdd98391eb2a"></a><!-- doxytag: member="wh.h::PLUS" ref="0ea7ff5947c5f5430a29fdd98391eb2a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PLUS&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e546127c403cf0cbb041e0ebeb8ba664"></a><!-- doxytag: member="wh.h::sourceImage" ref="e546127c403cf0cbb041e0ebeb8ba664" args="(setup)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define sourceImage          </td>
+          <td>(</td>
+          <td class="paramtype">setup&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(setup-&gt;sourceImage)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Типы</h2>
+<a class="anchor" name="e75f61aaa63d0b7478b8fc8f4f8a15cb"></a><!-- doxytag: member="wh.h::basisT" ref="e75f61aaa63d0b7478b8fc8f4f8a15cb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef signed _int32 <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="22f5977248d0f2af892f3ac9af10b1a7"></a><!-- doxytag: member="wh.h::depthT" ref="22f5977248d0f2af892f3ac9af10b1a7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned _int8 <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="14e3c9888ccc350e9e7af9cff09ebcc5"></a><!-- doxytag: member="wh.h::signT" ref="14e3c9888ccc350e9e7af9cff09ebcc5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef _int8 <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="3534f26e4654fc23f764d313133e7e14"></a><!-- doxytag: member="wh.h::createWHSetup" ref="3534f26e4654fc23f764d313133e7e14" args="(coordT sourceRows, coordT sourceCols, coordT patternRows, basisT numOfBasis)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_w_h_setup.html">WHSetup</a>* createWHSetup           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>sourceRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>sourceCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>patternRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>&nbsp;</td>
+          <td class="paramname"> <em>numOfBasis</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e5520182a27a209d6e6f1e387cbc6609"></a><!-- doxytag: member="wh.h::destroyWHSetup" ref="e5520182a27a209d6e6f1e387cbc6609" args="(WHSetup *setup)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyWHSetup           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td>
+          <td class="paramname"> <em>setup</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="da6128fb2d8fc2053aa760648a81ed53"></a><!-- doxytag: member="wh.h::setMethodStartPercent" ref="da6128fb2d8fc2053aa760648a81ed53" args="(WHSetup *setup, float bottomUpStartPercent, float distanceStartPercent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setMethodStartPercent           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td>
+          <td class="paramname"> <em>setup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>bottomUpStartPercent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>distanceStartPercent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9c54b2b6010eb7b4c98c15532d03e24d"></a><!-- doxytag: member="wh.h::setPatternImage" ref="9c54b2b6010eb7b4c98c15532d03e24d" args="(WHSetup *setup, Image *pattern)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPatternImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td>
+          <td class="paramname"> <em>setup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td>
+          <td class="paramname"> <em>pattern</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="d2ab0e9bb1416c9e7def0c3abba79750"></a><!-- doxytag: member="wh.h::setSourceImage" ref="d2ab0e9bb1416c9e7def0c3abba79750" args="(WHSetup *setup, Image *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setSourceImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td>
+          <td class="paramname"> <em>setup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td>
+          <td class="paramname"> <em>source</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ea0a46965a2dea1e086f8d0b6875e180"></a><!-- doxytag: member="wh.h::whPatternMatch" ref="ea0a46965a2dea1e086f8d0b6875e180" args="(WHSetup *setup, distanceT rejectThresh)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void whPatternMatch           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_w_h_setup.html">WHSetup</a> *&nbsp;</td>
+          <td class="paramname"> <em>setup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a>&nbsp;</td>
+          <td class="paramname"> <em>rejectThresh</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="bcaa56f51c20292898754fce33b5a991"></a><!-- doxytag: member="wh.h::buffer" ref="bcaa56f51c20292898754fce33b5a991" args="[BUFFER_SIZE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>[BUFFER_SIZE]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

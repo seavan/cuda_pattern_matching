@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/filtration_cuda_run/bmp/EasyBMP_BMP.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/filtration_cuda_run/bmp/EasyBMP_BMP.h</h1><a href="filtration__cuda__run_2bmp_2_easy_b_m_p___b_m_p_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">*                                                *</span>
+<a name="l00003"></a>00003 <span class="comment">*  EasyBMP Cross-Platform Windows Bitmap Library * </span>
+<a name="l00004"></a>00004 <span class="comment">*                                                *</span>
+<a name="l00005"></a>00005 <span class="comment">*  Author: Paul Macklin                          *</span>
+<a name="l00006"></a>00006 <span class="comment">*   email: macklin01@users.sourceforge.net       *</span>
+<a name="l00007"></a>00007 <span class="comment">* support: http://easybmp.sourceforge.net        *</span>
+<a name="l00008"></a>00008 <span class="comment">*                                                *</span>
+<a name="l00009"></a>00009 <span class="comment">*          file: EasyBMP_VariousBMPutilities.h   *</span>
+<a name="l00010"></a>00010 <span class="comment">*    date added: 05-02-2005                      *</span>
+<a name="l00011"></a>00011 <span class="comment">* date modified: 12-01-2006                      *</span>
+<a name="l00012"></a>00012 <span class="comment">*       version: 1.06                            *</span>
+<a name="l00013"></a>00013 <span class="comment">*                                                *</span>
+<a name="l00014"></a>00014 <span class="comment">*   License: BSD (revised/modified)              *</span>
+<a name="l00015"></a>00015 <span class="comment">* Copyright: 2005-6 by the EasyBMP Project       * </span>
+<a name="l00016"></a>00016 <span class="comment">*                                                *</span>
+<a name="l00017"></a>00017 <span class="comment">* description: Defines cppBMP class                 *</span>
+<a name="l00018"></a>00018 <span class="comment">*                                                *</span>
+<a name="l00019"></a>00019 <span class="comment">*************************************************/</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _EasyBMP_BMP_h_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_BMP_h_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#7151a3d14fa85dc0d9f4909b188c6b91">SafeFread</a>( <span class="keywordtype">char</span>* <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, <span class="keywordtype">int</span> <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#156878bfbcff0c64d75da712abe72bd6">size</a>, <span class="keywordtype">int</span> number, FILE* fp );
+<a name="l00025"></a>00025 <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#06ce9e359783f4a482de8e3055957dce">EasyBMPcheckDataSize</a>( <span class="keywordtype">void</span> );
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="classcpp_b_m_p.html">00027</a> <span class="keyword">class </span><a class="code" href="classcpp_b_m_p.html">cppBMP</a>
+<a name="l00028"></a>00028 {<span class="keyword">private</span>:
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030  <span class="keywordtype">int</span> BitDepth;
+<a name="l00031"></a>00031  <span class="keywordtype">int</span> Width;
+<a name="l00032"></a>00032  <span class="keywordtype">int</span> Height;
+<a name="l00033"></a>00033  <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>** Pixels;
+<a name="l00034"></a>00034  <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>* Colors;
+<a name="l00035"></a>00035  <span class="keywordtype">int</span> XPelsPerMeter;
+<a name="l00036"></a>00036  <span class="keywordtype">int</span> YPelsPerMeter;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* MetaData1;
+<a name="l00039"></a>00039  <span class="keywordtype">int</span> SizeOfMetaData1;
+<a name="l00040"></a>00040  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* MetaData2;
+<a name="l00041"></a>00041  <span class="keywordtype">int</span> SizeOfMetaData2;
+<a name="l00042"></a>00042    
+<a name="l00043"></a>00043  <span class="keywordtype">bool</span> Read32bitRow( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );   
+<a name="l00044"></a>00044  <span class="keywordtype">bool</span> Read24bitRow( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );   
+<a name="l00045"></a>00045  <span class="keywordtype">bool</span> Read8bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );  
+<a name="l00046"></a>00046  <span class="keywordtype">bool</span> Read4bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );  
+<a name="l00047"></a>00047  <span class="keywordtype">bool</span> Read1bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );
+<a name="l00048"></a>00048    
+<a name="l00049"></a>00049  <span class="keywordtype">bool</span> Write32bitRow( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );   
+<a name="l00050"></a>00050  <span class="keywordtype">bool</span> Write24bitRow( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );   
+<a name="l00051"></a>00051  <span class="keywordtype">bool</span> Write8bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );  
+<a name="l00052"></a>00052  <span class="keywordtype">bool</span> Write4bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );  
+<a name="l00053"></a>00053  <span class="keywordtype">bool</span> Write1bitRow(  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>* Buffer, <span class="keywordtype">int</span> BufferSize, <span class="keywordtype">int</span> Row );
+<a name="l00054"></a>00054  
+<a name="l00055"></a>00055  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a> FindClosestColor( <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>&amp; input );
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057  <span class="keyword">public</span>: 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#95cf17f997cf74cbfaf889572bf7d751">TellBitDepth</a>( <span class="keywordtype">void</span> );
+<a name="l00060"></a>00060  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a>( <span class="keywordtype">void</span> );
+<a name="l00061"></a>00061  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a>( <span class="keywordtype">void</span> );
+<a name="l00062"></a>00062  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#aef114087d702d456ef994bb64535e6e">TellNumberOfColors</a>( <span class="keywordtype">void</span> );
+<a name="l00063"></a>00063  <span class="keywordtype">void</span> <a class="code" href="classcpp_b_m_p.html#96505f0e4666bd19d0c60e8eed948158">SetDPI</a>( <span class="keywordtype">int</span> HorizontalDPI, <span class="keywordtype">int</span> VerticalDPI );
+<a name="l00064"></a>00064  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#809856c4aae1027fa37a7c3dd94d06c9">TellVerticalDPI</a>( <span class="keywordtype">void</span> );
+<a name="l00065"></a>00065  <span class="keywordtype">int</span> <a class="code" href="classcpp_b_m_p.html#b0d8279d21b6890e9f7664bc46d4ff64">TellHorizontalDPI</a>( <span class="keywordtype">void</span> );
+<a name="l00066"></a>00066   
+<a name="l00067"></a>00067  <a class="code" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a>();
+<a name="l00068"></a>00068  <a class="code" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; Input );
+<a name="l00069"></a>00069  <a class="code" href="classcpp_b_m_p.html#ea62579b6a8a25449e108121de524019">~cppBMP</a>();
+<a name="l00070"></a>00070  <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>* <a class="code" href="classcpp_b_m_p.html#ffad438a22f268b9cf73d8dcbbcbb13f">operator()</a>(<span class="keywordtype">int</span> i,<span class="keywordtype">int</span> j);
+<a name="l00071"></a>00071  
+<a name="l00072"></a>00072  <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> <a class="code" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a>( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j ) <span class="keyword">const</span>;
+<a name="l00073"></a>00073  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#3d02d63c0abf0c87bb3698b26ac78dae">SetPixel</a>( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> NewPixel );
+<a name="l00074"></a>00074  
+<a name="l00075"></a>00075  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#2784c5b22510793c4f33bb9f566de4a7">CreateStandardColorTable</a>( <span class="keywordtype">void</span> );
+<a name="l00076"></a>00076  
+<a name="l00077"></a>00077  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#9a6372827cbeb056c76f418bf764455d">SetSize</a>( <span class="keywordtype">int</span> NewWidth, <span class="keywordtype">int</span> NewHeight );
+<a name="l00078"></a>00078  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#4929652b47f073d3519b07fc05ed9eab">SetBitDepth</a>( <span class="keywordtype">int</span> NewDepth );
+<a name="l00079"></a>00079  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#bee4a161c6d3ad3d627b70b62735259d">WriteToFile</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* FileName );
+<a name="l00080"></a>00080  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* FileName );
+<a name="l00081"></a>00081  
+<a name="l00082"></a>00082  <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> <a class="code" href="classcpp_b_m_p.html#fa347d92080c6aa4870eb4b076d1aeba">GetColor</a>( <span class="keywordtype">int</span> ColorNumber );
+<a name="l00083"></a>00083  <span class="keywordtype">bool</span> <a class="code" href="classcpp_b_m_p.html#954ee0b08e8b0e9455fe5c4a9e7a7181">SetColor</a>( <span class="keywordtype">int</span> ColorNumber, <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> NewColor ); 
+<a name="l00084"></a>00084 };
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

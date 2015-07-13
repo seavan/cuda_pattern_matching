@@ -1,0 +1,162 @@
+\hypertarget{simple_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simple/simple.cpp}
+\label{simple_8cpp}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simple/simple.cpp@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/simple/simple.cpp}}
+}
+{\tt \#include \char`\"{}simple.h\char`\"{}}\par
+{\tt \#include \char`\"{}math.h\char`\"{}}\par
+{\tt \#include $<$algorithm$>$}\par
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{simple_8cpp_142c33db5b6c713cbb1e5d107173c80d}{THREADNO}~1
+\begin{CompactList}\small\item\em Алгоритм быстрой ненормализованной корреляции. \item\end{CompactList}\item 
+\#define \hyperlink{simple_8cpp_6d9e427bab1dac1f642507484f12fd86}{THREADIDX\_\-Y}~0
+\item 
+\#define \hyperlink{simple_8cpp_ef625f61f1d9933fb1b508f849978a73}{THREADIDX\_\-X}~0
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+int $\ast$ \hyperlink{simple_8cpp_03109b9214863a4215e533ae09f48048}{calculateSumTable} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height)
+\begin{CompactList}\small\item\em Расчитать таблицу суммации. \item\end{CompactList}\item 
+int $\ast$ \hyperlink{simple_8cpp_97b4185e8a6043f32232693b97744b33}{calculateSquareSumTable} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height)
+\begin{CompactList}\small\item\em Расчитать таблицу квадратичной суммации. \item\end{CompactList}\item 
+unsigned char $\ast$ \hyperlink{simple_8cpp_63becd2a7421e65ea8dda9043896582f}{calculateMeanImage} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height)
+\begin{CompactList}\small\item\em Выровнять по среднему значению яркости изображение. На данный момент не используется. \item\end{CompactList}\item 
+int \hyperlink{simple_8cpp_86f2736d9c949fffb9abad4704be2ceb}{calculateEnergy} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height)
+\begin{CompactList}\small\item\em Расчитать энергию изображения. На данный момент не используется. Формулу см. ПДФ. \item\end{CompactList}\item 
+int \hyperlink{simple_8cpp_275f57e0acd390014cf554e9e0628da5}{getSumFromTable} (int $\ast$\_\-input, int \_\-width, int \_\-height, int \_\-sx, int \_\-sy, int \_\-sw, int \_\-sh)
+\begin{CompactList}\small\item\em Получить значение суммы области из просчитанной таблицы суммации. \item\end{CompactList}\item 
+void \hyperlink{simple_8cpp_5d24707b83c22324e058940332dc7e3f}{doMatching} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnWidth, int \_\-ptnHeight, unsigned char $\ast$\_\-output)
+\begin{CompactList}\small\item\em Интерфейс к методу корреляции. \item\end{CompactList}\item 
+unsigned char $\ast$ \hyperlink{simple_8cpp_f88ff23d148fb2e06334c8461b24f08d}{simpleMatchingCPU} (int argc, char $\ast$$\ast$argv, unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnWidth, int \_\-ptnHeight)
+\begin{CompactList}\small\item\em Интерфейс к методу корреляции. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{simple_8cpp_ef625f61f1d9933fb1b508f849978a73}{
+\index{simple.cpp@{simple.cpp}!THREADIDX\_\-X@{THREADIDX\_\-X}}
+\index{THREADIDX\_\-X@{THREADIDX\_\-X}!simple.cpp@{simple.cpp}}
+\subsubsection[{THREADIDX\_\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define THREADIDX\_\-X~0}}
+\label{simple_8cpp_ef625f61f1d9933fb1b508f849978a73}
+
+
+\hypertarget{simple_8cpp_6d9e427bab1dac1f642507484f12fd86}{
+\index{simple.cpp@{simple.cpp}!THREADIDX\_\-Y@{THREADIDX\_\-Y}}
+\index{THREADIDX\_\-Y@{THREADIDX\_\-Y}!simple.cpp@{simple.cpp}}
+\subsubsection[{THREADIDX\_\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define THREADIDX\_\-Y~0}}
+\label{simple_8cpp_6d9e427bab1dac1f642507484f12fd86}
+
+
+\hypertarget{simple_8cpp_142c33db5b6c713cbb1e5d107173c80d}{
+\index{simple.cpp@{simple.cpp}!THREADNO@{THREADNO}}
+\index{THREADNO@{THREADNO}!simple.cpp@{simple.cpp}}
+\subsubsection[{THREADNO}]{\setlength{\rightskip}{0pt plus 5cm}\#define THREADNO~1}}
+\label{simple_8cpp_142c33db5b6c713cbb1e5d107173c80d}
+
+
+Алгоритм быстрой ненормализованной корреляции. 
+
+\begin{Desc}
+\item[Автор:]Масленников К. \end{Desc}
+
+
+\subsection{Функции}
+\hypertarget{simple_8cpp_86f2736d9c949fffb9abad4704be2ceb}{
+\index{simple.cpp@{simple.cpp}!calculateEnergy@{calculateEnergy}}
+\index{calculateEnergy@{calculateEnergy}!simple.cpp@{simple.cpp}}
+\subsubsection[{calculateEnergy}]{\setlength{\rightskip}{0pt plus 5cm}int calculateEnergy (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{simple_8cpp_86f2736d9c949fffb9abad4704be2ceb}
+
+
+Расчитать энергию изображения. На данный момент не используется. Формулу см. ПДФ. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Входное построчное изображение \item[{\em \_\-width}]Ширина \item[{\em \_\-height}]Высота \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_63becd2a7421e65ea8dda9043896582f}{
+\index{simple.cpp@{simple.cpp}!calculateMeanImage@{calculateMeanImage}}
+\index{calculateMeanImage@{calculateMeanImage}!simple.cpp@{simple.cpp}}
+\subsubsection[{calculateMeanImage}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ calculateMeanImage (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{simple_8cpp_63becd2a7421e65ea8dda9043896582f}
+
+
+Выровнять по среднему значению яркости изображение. На данный момент не используется. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Входное построчное изображение \item[{\em \_\-width}]Ширина \item[{\em \_\-height}]Высота \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_97b4185e8a6043f32232693b97744b33}{
+\index{simple.cpp@{simple.cpp}!calculateSquareSumTable@{calculateSquareSumTable}}
+\index{calculateSquareSumTable@{calculateSquareSumTable}!simple.cpp@{simple.cpp}}
+\subsubsection[{calculateSquareSumTable}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ calculateSquareSumTable (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{simple_8cpp_97b4185e8a6043f32232693b97744b33}
+
+
+Расчитать таблицу квадратичной суммации. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Входное построчное изображение \item[{\em \_\-width}]Ширина \item[{\em \_\-height}]Высота \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_03109b9214863a4215e533ae09f48048}{
+\index{simple.cpp@{simple.cpp}!calculateSumTable@{calculateSumTable}}
+\index{calculateSumTable@{calculateSumTable}!simple.cpp@{simple.cpp}}
+\subsubsection[{calculateSumTable}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ calculateSumTable (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{simple_8cpp_03109b9214863a4215e533ae09f48048}
+
+
+Расчитать таблицу суммации. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Входное построчное изображение \item[{\em \_\-width}]Ширина \item[{\em \_\-height}]Высота \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_5d24707b83c22324e058940332dc7e3f}{
+\index{simple.cpp@{simple.cpp}!doMatching@{doMatching}}
+\index{doMatching@{doMatching}!simple.cpp@{simple.cpp}}
+\subsubsection[{doMatching}]{\setlength{\rightskip}{0pt plus 5cm}void doMatching (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnWidth}, \/  int {\em \_\-ptnHeight}, \/  unsigned char $\ast$ {\em \_\-output})}}
+\label{simple_8cpp_5d24707b83c22324e058940332dc7e3f}
+
+
+Интерфейс к методу корреляции. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчное входное изображение оригинала \item[{\em \_\-width}]Ширина изображения \item[{\em \_\-height}]Высота изображения \item[{\em \_\-pattern}]Построчное входное изображение шаблона \item[{\em \_\-ptnWidth}]Ширина изображения шаблона \item[{\em \_\-ptnHeight}]Высота изображения шаблона \item[{\em \_\-output}]Результат \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_275f57e0acd390014cf554e9e0628da5}{
+\index{simple.cpp@{simple.cpp}!getSumFromTable@{getSumFromTable}}
+\index{getSumFromTable@{getSumFromTable}!simple.cpp@{simple.cpp}}
+\subsubsection[{getSumFromTable}]{\setlength{\rightskip}{0pt plus 5cm}int getSumFromTable (int $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  int {\em \_\-sx}, \/  int {\em \_\-sy}, \/  int {\em \_\-sw}, \/  int {\em \_\-sh})}}
+\label{simple_8cpp_275f57e0acd390014cf554e9e0628da5}
+
+
+Получить значение суммы области из просчитанной таблицы суммации. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчное входное изображение \item[{\em \_\-width}]Ширина изображения \item[{\em \_\-height}]Высота изображения \item[{\em \_\-sx}]Координата X левого верхнего угла области \item[{\em \_\-sy}]Координата Y левого верхнего угла области \item[{\em \_\-sw}]Ширина области \item[{\em \_\-sh}]Высота области \end{description}
+\end{Desc}
+\hypertarget{simple_8cpp_f88ff23d148fb2e06334c8461b24f08d}{
+\index{simple.cpp@{simple.cpp}!simpleMatchingCPU@{simpleMatchingCPU}}
+\index{simpleMatchingCPU@{simpleMatchingCPU}!simple.cpp@{simple.cpp}}
+\subsubsection[{simpleMatchingCPU}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ simpleMatchingCPU (int {\em argc}, \/  char $\ast$$\ast$ {\em argv}, \/  unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnWidth}, \/  int {\em \_\-ptnHeight})}}
+\label{simple_8cpp_f88ff23d148fb2e06334c8461b24f08d}
+
+
+Интерфейс к методу корреляции. 
+
+\begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em argc}]Не используется. Для совместимости с CUDA \item[{\em argv}]Не используется. Для совместимости с CUDA \item[{\em \_\-input}]Построчное входное изображение оригинала \item[{\em \_\-width}]Ширина изображения \item[{\em \_\-height}]Высота изображения \item[{\em \_\-pattern}]Построчное входное изображение шаблона \item[{\em \_\-ptnWidth}]Ширина изображения шаблона \item[{\em \_\-ptnHeight}]Высота изображения шаблона \end{description}
+\end{Desc}

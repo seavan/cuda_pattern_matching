@@ -1,0 +1,170 @@
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+}
+{\tt \#include \char`\"{}EasyBMP.h\char`\"{}}\par
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a572cda955cea246911a9d44fa19f96d}{SetEasyBMPwarningsOff} (void)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_c27f66464409775cfc3833843bff8245}{SetEasyBMPwarningsOn} (void)
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7de7f5371407388438c70e9e33c61395}{GetEasyBMPwarningState} (void)
+\item 
+int \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f52dc2e4faaa0a793efd117aac7473c9}{IntPow} (int base, int exponent)
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7151a3d14fa85dc0d9f4909b188c6b91}{SafeFread} (char $\ast$\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_bcaa56f51c20292898754fce33b5a991}{buffer}, int \hyperlink{filtration__run_2free_image_2_free_image_8h_156878bfbcff0c64d75da712abe72bd6}{size}, int number, FILE $\ast$fp)
+\item 
+\hyperlink{class_b_m_f_h}{BMFH} \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_66cd5022854084cc377337cced3866e6}{GetBMFH} (const char $\ast$szFileNameIn)
+\item 
+\hyperlink{class_b_m_i_h}{BMIH} \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d3884939602af9979dab7e63b8892ce6}{GetBMIH} (const char $\ast$szFileNameIn)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f5917ccb612d45cdb324804c573052e6}{DisplayBitmapInfo} (const char $\ast$szFileNameIn)
+\item 
+int \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_8a847e3d65680531be233837bccd46e1}{GetBitmapColorDepth} (const char $\ast$szFileNameIn)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_ba80d82c4847200740ea11fa6f604d9f}{PixelToPixelCopy} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromX, int FromY, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_922fefb711a86d220afece6d98770d17}{PixelToPixelCopyTransparent} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromX, int FromY, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY, \hyperlink{struct_r_g_b_apixel}{RGBApixel} \&Transparent)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_cd1a7ee93b0e7a40f970ba3af1d6bb75}{RangedPixelToPixelCopy} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromL, int FromR, int FromB, int FromT, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY)
+\item 
+void \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_206d4e0294b4e1b55f3be10d024c2759}{RangedPixelToPixelCopyTransparent} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromL, int FromR, int FromB, int FromT, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY, \hyperlink{struct_r_g_b_apixel}{RGBApixel} \&Transparent)
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a109743bea7d0c389e7fcbbc66bdc79c}{CreateGrayscaleColorTable} (\hyperlink{classcpp_b_m_p}{cppBMP} \&InputImage)
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_06ce9e359783f4a482de8e3055957dce}{EasyBMPcheckDataSize} (void)
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_9b2bca20900fcd707efd350299e3fb45}{Rescale} (\hyperlink{classcpp_b_m_p}{cppBMP} \&InputImage, char mode, int NewDimension)
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d2d40fce178ed9d70559f10759d66304}{EasyBMPwarnings} = true
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a109743bea7d0c389e7fcbbc66bdc79c}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!CreateGrayscaleColorTable@{CreateGrayscaleColorTable}}
+\index{CreateGrayscaleColorTable@{CreateGrayscaleColorTable}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{CreateGrayscaleColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool CreateGrayscaleColorTable ({\bf cppBMP} \& {\em InputImage})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a109743bea7d0c389e7fcbbc66bdc79c}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f5917ccb612d45cdb324804c573052e6}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!DisplayBitmapInfo@{DisplayBitmapInfo}}
+\index{DisplayBitmapInfo@{DisplayBitmapInfo}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{DisplayBitmapInfo}]{\setlength{\rightskip}{0pt plus 5cm}void DisplayBitmapInfo (const char $\ast$ {\em szFileNameIn})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f5917ccb612d45cdb324804c573052e6}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_06ce9e359783f4a482de8e3055957dce}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!EasyBMPcheckDataSize@{EasyBMPcheckDataSize}}
+\index{EasyBMPcheckDataSize@{EasyBMPcheckDataSize}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{EasyBMPcheckDataSize}]{\setlength{\rightskip}{0pt plus 5cm}bool EasyBMPcheckDataSize (void)}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_06ce9e359783f4a482de8e3055957dce}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_8a847e3d65680531be233837bccd46e1}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!GetBitmapColorDepth@{GetBitmapColorDepth}}
+\index{GetBitmapColorDepth@{GetBitmapColorDepth}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{GetBitmapColorDepth}]{\setlength{\rightskip}{0pt plus 5cm}int GetBitmapColorDepth (const char $\ast$ {\em szFileNameIn})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_8a847e3d65680531be233837bccd46e1}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_66cd5022854084cc377337cced3866e6}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!GetBMFH@{GetBMFH}}
+\index{GetBMFH@{GetBMFH}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{GetBMFH}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BMFH} GetBMFH (const char $\ast$ {\em szFileNameIn})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_66cd5022854084cc377337cced3866e6}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d3884939602af9979dab7e63b8892ce6}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!GetBMIH@{GetBMIH}}
+\index{GetBMIH@{GetBMIH}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{GetBMIH}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BMIH} GetBMIH (const char $\ast$ {\em szFileNameIn})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d3884939602af9979dab7e63b8892ce6}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7de7f5371407388438c70e9e33c61395}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!GetEasyBMPwarningState@{GetEasyBMPwarningState}}
+\index{GetEasyBMPwarningState@{GetEasyBMPwarningState}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{GetEasyBMPwarningState}]{\setlength{\rightskip}{0pt plus 5cm}bool GetEasyBMPwarningState (void)}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7de7f5371407388438c70e9e33c61395}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f52dc2e4faaa0a793efd117aac7473c9}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!IntPow@{IntPow}}
+\index{IntPow@{IntPow}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{IntPow}]{\setlength{\rightskip}{0pt plus 5cm}int IntPow (int {\em base}, \/  int {\em exponent})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_f52dc2e4faaa0a793efd117aac7473c9}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_ba80d82c4847200740ea11fa6f604d9f}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!PixelToPixelCopy@{PixelToPixelCopy}}
+\index{PixelToPixelCopy@{PixelToPixelCopy}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{PixelToPixelCopy}]{\setlength{\rightskip}{0pt plus 5cm}void PixelToPixelCopy ({\bf cppBMP} \& {\em From}, \/  int {\em FromX}, \/  int {\em FromY}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_ba80d82c4847200740ea11fa6f604d9f}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_922fefb711a86d220afece6d98770d17}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!PixelToPixelCopyTransparent@{PixelToPixelCopyTransparent}}
+\index{PixelToPixelCopyTransparent@{PixelToPixelCopyTransparent}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{PixelToPixelCopyTransparent}]{\setlength{\rightskip}{0pt plus 5cm}void PixelToPixelCopyTransparent ({\bf cppBMP} \& {\em From}, \/  int {\em FromX}, \/  int {\em FromY}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY}, \/  {\bf RGBApixel} \& {\em Transparent})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_922fefb711a86d220afece6d98770d17}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_cd1a7ee93b0e7a40f970ba3af1d6bb75}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!RangedPixelToPixelCopy@{RangedPixelToPixelCopy}}
+\index{RangedPixelToPixelCopy@{RangedPixelToPixelCopy}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{RangedPixelToPixelCopy}]{\setlength{\rightskip}{0pt plus 5cm}void RangedPixelToPixelCopy ({\bf cppBMP} \& {\em From}, \/  int {\em FromL}, \/  int {\em FromR}, \/  int {\em FromB}, \/  int {\em FromT}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_cd1a7ee93b0e7a40f970ba3af1d6bb75}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_206d4e0294b4e1b55f3be10d024c2759}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!RangedPixelToPixelCopyTransparent@{RangedPixelToPixelCopyTransparent}}
+\index{RangedPixelToPixelCopyTransparent@{RangedPixelToPixelCopyTransparent}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{RangedPixelToPixelCopyTransparent}]{\setlength{\rightskip}{0pt plus 5cm}void RangedPixelToPixelCopyTransparent ({\bf cppBMP} \& {\em From}, \/  int {\em FromL}, \/  int {\em FromR}, \/  int {\em FromB}, \/  int {\em FromT}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY}, \/  {\bf RGBApixel} \& {\em Transparent})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_206d4e0294b4e1b55f3be10d024c2759}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_9b2bca20900fcd707efd350299e3fb45}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!Rescale@{Rescale}}
+\index{Rescale@{Rescale}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{Rescale}]{\setlength{\rightskip}{0pt plus 5cm}bool Rescale ({\bf cppBMP} \& {\em InputImage}, \/  char {\em mode}, \/  int {\em NewDimension})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_9b2bca20900fcd707efd350299e3fb45}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7151a3d14fa85dc0d9f4909b188c6b91}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!SafeFread@{SafeFread}}
+\index{SafeFread@{SafeFread}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{SafeFread}]{\setlength{\rightskip}{0pt plus 5cm}bool SafeFread (char $\ast$ {\em buffer}, \/  int {\em size}, \/  int {\em number}, \/  FILE $\ast$ {\em fp})}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_7151a3d14fa85dc0d9f4909b188c6b91}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a572cda955cea246911a9d44fa19f96d}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!SetEasyBMPwarningsOff@{SetEasyBMPwarningsOff}}
+\index{SetEasyBMPwarningsOff@{SetEasyBMPwarningsOff}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{SetEasyBMPwarningsOff}]{\setlength{\rightskip}{0pt plus 5cm}void SetEasyBMPwarningsOff (void)}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_a572cda955cea246911a9d44fa19f96d}
+
+
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_c27f66464409775cfc3833843bff8245}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!SetEasyBMPwarningsOn@{SetEasyBMPwarningsOn}}
+\index{SetEasyBMPwarningsOn@{SetEasyBMPwarningsOn}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{SetEasyBMPwarningsOn}]{\setlength{\rightskip}{0pt plus 5cm}void SetEasyBMPwarningsOn (void)}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_c27f66464409775cfc3833843bff8245}
+
+
+
+
+\subsection{Переменные}
+\hypertarget{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d2d40fce178ed9d70559f10759d66304}{
+\index{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}!EasyBMPwarnings@{EasyBMPwarnings}}
+\index{EasyBMPwarnings@{EasyBMPwarnings}!walsh_hadamard_run/bmp/EasyBMP.cpp@{walsh\_\-hadamard\_\-run/bmp/EasyBMP.cpp}}
+\subsubsection[{EasyBMPwarnings}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf EasyBMPwarnings} = true}}
+\label{walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp_d2d40fce178ed9d70559f10759d66304}
+
+

@@ -1,0 +1,57 @@
+\hypertarget{image_library_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/image\_\-lib/imageLibrary.h}
+\label{image_library_8h}\index{D:/Projects/MatchingSolution/source/image\_\-lib/imageLibrary.h@{D:/Projects/MatchingSolution/source/image\_\-lib/imageLibrary.h}}
+}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{image_library_8h_c3197cdf8e689fd262207dc76f8e26d9}{IMAGELIBRARY\_\-API}~\_\-\_\-declspec(dllimport)
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+IMAGELIBRARY\_\-API unsigned char $\ast$ \hyperlink{image_library_8h_ce3267bc08e7dffe3dc8066b24b614a6}{loadImage} (const char $\ast$\_\-fileName, int \&\_\-width, int \&\_\-height)
+\item 
+IMAGELIBRARY\_\-API void \hyperlink{image_library_8h_b955f4c5a707e94d62f533b24f5c9b3d}{saveImage} (const char $\ast$\_\-fileName, unsigned char $\ast$\_\-image, int \_\-width, int \_\-height)
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{image_library_8h_c3197cdf8e689fd262207dc76f8e26d9}{
+\index{imageLibrary.h@{imageLibrary.h}!IMAGELIBRARY\_\-API@{IMAGELIBRARY\_\-API}}
+\index{IMAGELIBRARY\_\-API@{IMAGELIBRARY\_\-API}!imageLibrary.h@{imageLibrary.h}}
+\subsubsection[{IMAGELIBRARY\_\-API}]{\setlength{\rightskip}{0pt plus 5cm}\#define IMAGELIBRARY\_\-API~\_\-\_\-declspec(dllimport)}}
+\label{image_library_8h_c3197cdf8e689fd262207dc76f8e26d9}
+
+
+
+
+\subsection{Функции}
+\hypertarget{image_library_8h_ce3267bc08e7dffe3dc8066b24b614a6}{
+\index{imageLibrary.h@{imageLibrary.h}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!imageLibrary.h@{imageLibrary.h}}
+\subsubsection[{loadImage}]{\setlength{\rightskip}{0pt plus 5cm}IMAGELIBRARY\_\-API unsigned char$\ast$ loadImage (const char $\ast$ {\em \_\-fileName}, \/  int \& {\em \_\-width}, \/  int \& {\em \_\-height})}}
+\label{image_library_8h_ce3267bc08e7dffe3dc8066b24b614a6}
+
+
+Автоматическое определение формата и загрузка изображения из указанного файла \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-fileName}]Путь к файлу с изображением \item[{\em \_\-width}]Ширина загруженного изображения \item[{\em \_\-height}]Высота загруженного изображения \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке \end{Desc}
+\hypertarget{image_library_8h_b955f4c5a707e94d62f533b24f5c9b3d}{
+\index{imageLibrary.h@{imageLibrary.h}!saveImage@{saveImage}}
+\index{saveImage@{saveImage}!imageLibrary.h@{imageLibrary.h}}
+\subsubsection[{saveImage}]{\setlength{\rightskip}{0pt plus 5cm}IMAGELIBRARY\_\-API void saveImage (const char $\ast$ {\em \_\-fileName}, \/  unsigned char $\ast$ {\em \_\-image}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{image_library_8h_b955f4c5a707e94d62f533b24f5c9b3d}
+
+
+Сохранение изображения в формате BMP \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-fileName}]Путь к файлу с изображением \item[{\em \_\-width}]Ширина загруженного изображения \item[{\em \_\-height}]Высота загруженного изображения \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке \end{Desc}

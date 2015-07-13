@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/simple_matching_run/bmp/EasyBMP_DataStructures.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/simple_matching_run/bmp/EasyBMP_DataStructures.h</h1><a href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">*                                                *</span>
+<a name="l00003"></a>00003 <span class="comment">*  EasyBMP Cross-Platform Windows Bitmap Library * </span>
+<a name="l00004"></a>00004 <span class="comment">*                                                *</span>
+<a name="l00005"></a>00005 <span class="comment">*  Author: Paul Macklin                          *</span>
+<a name="l00006"></a>00006 <span class="comment">*   email: macklin01@users.sourceforge.net       *</span>
+<a name="l00007"></a>00007 <span class="comment">* support: http://easybmp.sourceforge.net        *</span>
+<a name="l00008"></a>00008 <span class="comment">*                                                *</span>
+<a name="l00009"></a>00009 <span class="comment">*          file: EasyBMP_DataStructures.h        *</span>
+<a name="l00010"></a>00010 <span class="comment">*    date added: 05-02-2005                      *</span>
+<a name="l00011"></a>00011 <span class="comment">* date modified: 12-01-2006                      *</span>
+<a name="l00012"></a>00012 <span class="comment">*       version: 1.06                            *</span>
+<a name="l00013"></a>00013 <span class="comment">*                                                *</span>
+<a name="l00014"></a>00014 <span class="comment">*   License: BSD (revised/modified)              *</span>
+<a name="l00015"></a>00015 <span class="comment">* Copyright: 2005-6 by the EasyBMP Project       * </span>
+<a name="l00016"></a>00016 <span class="comment">*                                                *</span>
+<a name="l00017"></a>00017 <span class="comment">* description: Defines basic data structures for *</span>
+<a name="l00018"></a>00018 <span class="comment">*              the cppBMP class                     *</span>
+<a name="l00019"></a>00019 <span class="comment">*                                                *</span>
+<a name="l00020"></a>00020 <span class="comment">*************************************************/</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="preprocessor">#ifndef _EasyBMP_Custom_Math_Functions_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_Custom_Math_Functions_</span>
+<a name="l00024"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#8e24ca8974baacbdab1b564da5439845">00024</a> <span class="preprocessor"></span><span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#8e24ca8974baacbdab1b564da5439845">Square</a>( <span class="keywordtype">double</span> number )
+<a name="l00025"></a>00025 { <span class="keywordflow">return</span> number*number; }
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#11374fd1247aaf2dd8e95e5c4853ba05">00027</a> <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#11374fd1247aaf2dd8e95e5c4853ba05">IntSquare</a>( <span class="keywordtype">int</span> number )
+<a name="l00028"></a>00028 { <span class="keywordflow">return</span> number*number; }
+<a name="l00029"></a>00029 <span class="preprocessor">#endif</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span>
+<a name="l00031"></a>00031 <span class="keywordtype">int</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#f52dc2e4faaa0a793efd117aac7473c9">IntPow</a>( <span class="keywordtype">int</span> base, <span class="keywordtype">int</span> exponent );
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="preprocessor">#ifndef _EasyBMP_Defined_WINGDI</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_Defined_WINGDI</span>
+<a name="l00035"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">00035</a> <span class="preprocessor"></span> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a>;
+<a name="l00036"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">00036</a>  <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>;
+<a name="l00037"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">00037</a>  <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a>;
+<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040 <span class="preprocessor">#ifndef _EasyBMP_DataStructures_h_</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_DataStructures_h_</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#c6ab566aa4b7764fb0cbcaab5afab089">00043</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#c6ab566aa4b7764fb0cbcaab5afab089">IsBigEndian</a>()
+<a name="l00044"></a>00044 {
+<a name="l00045"></a>00045  <span class="keywordtype">short</span> word = 0x0001;
+<a name="l00046"></a>00046  <span class="keywordflow">if</span>((*(<span class="keywordtype">char</span> *)&amp; word) != 0x01 )
+<a name="l00047"></a>00047  { <span class="keywordflow">return</span> <span class="keyword">true</span>; }
+<a name="l00048"></a>00048  <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#f747c0c8ddceeffab9b86640d59cb14a">00051</a> <span class="keyword">inline</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#f747c0c8ddceeffab9b86640d59cb14a">FlipWORD</a>( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a> in )
+<a name="l00052"></a>00052 { <span class="keywordflow">return</span> ( (in &gt;&gt; 8) | (in &lt;&lt; 8) ); }
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="simple__matching__run_2bmp_2_easy_b_m_p___data_structures_8h.html#109ee493d87625eee6f8a528ee85eec4">00054</a> <span class="keyword">inline</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#109ee493d87625eee6f8a528ee85eec4">FlipDWORD</a>( <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> in )
+<a name="l00055"></a>00055 {
+<a name="l00056"></a>00056  <span class="keywordflow">return</span> ( ((in&amp;0xFF000000)&gt;&gt;24) | ((in&amp;0x000000FF)&lt;&lt;24) | 
+<a name="l00057"></a>00057           ((in&amp;0x00FF0000)&gt;&gt;8 ) | ((in&amp;0x0000FF00)&lt;&lt;8 )   );
+<a name="l00058"></a>00058 }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="comment">// it's easier to use a struct than a class</span>
+<a name="l00061"></a>00061 <span class="comment">// because we can read/write all four of the bytes </span>
+<a name="l00062"></a>00062 <span class="comment">// at once (as we can count on them being continuous </span>
+<a name="l00063"></a>00063 <span class="comment">// in memory</span>
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> {
+<a name="l00066"></a>00066         <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a> <a class="code" href="struct_r_g_b_apixel.html#f12bfb2ddd00995b59ef07e4e77c11af">Blue</a>;
+<a name="l00067"></a>00067         <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a> <a class="code" href="struct_r_g_b_apixel.html#9a9cd569a585a627910620a7b13690e7">Green</a>;
+<a name="l00068"></a>00068         <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a> <a class="code" href="struct_r_g_b_apixel.html#0d2e09cc0a67fd3da76b17289146fc26">Red</a>;
+<a name="l00069"></a>00069         <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#05a8d0fee523be837bbfb6dcd147009f">ebmpBYTE</a> <a class="code" href="struct_r_g_b_apixel.html#531e2866b6daa3975738cdd37db6270c">Alpha</a>;
+<a name="l00070"></a>00070 } <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>; 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">class </span><a class="code" href="class_b_m_f_h.html">BMFH</a>{
+<a name="l00073"></a>00073 <span class="keyword">public</span>:
+<a name="l00074"></a>00074  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>  <a class="code" href="class_b_m_f_h.html#214beda14254f1eb53b192f788622cc5">bfType</a>;
+<a name="l00075"></a>00075  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_f_h.html#0b9654dc1130f38957058cd7385920cc">bfSize</a>;
+<a name="l00076"></a>00076  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>  <a class="code" href="class_b_m_f_h.html#72e928c772aba8fe4828f78dddf5bd0d">bfReserved1</a>;
+<a name="l00077"></a>00077  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>  <a class="code" href="class_b_m_f_h.html#cb35df8e47efd20b50968ca252758678">bfReserved2</a>;
+<a name="l00078"></a>00078  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_f_h.html#3ede15c91c9ce0a65c68fe2be591448a">bfOffBits</a>; 
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080  <a class="code" href="class_b_m_f_h.html#fde965142b7c9c4f358175c2438e8668">BMFH</a>();
+<a name="l00081"></a>00081  <span class="keywordtype">void</span> <a class="code" href="class_b_m_f_h.html#66ce85f14dfc812a2692a227af6cb225">display</a>( <span class="keywordtype">void</span> );
+<a name="l00082"></a>00082  <span class="keywordtype">void</span> <a class="code" href="class_b_m_f_h.html#749e4bb6cfa10ed9fa77c3578c471110">SwitchEndianess</a>( <span class="keywordtype">void</span> );
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="keyword">class </span><a class="code" href="class_b_m_i_h.html">BMIH</a>{
+<a name="l00086"></a>00086 <span class="keyword">public</span>:
+<a name="l00087"></a>00087  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#2db3ef93c59706bc0fa570969a1b977d">biSize</a>;
+<a name="l00088"></a>00088  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#d0c7404fbebd92bfb2a7d6d9465779c8">biWidth</a>;
+<a name="l00089"></a>00089  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#a8e0f59fede14cd0d8fa5c4b5f24e6b0">biHeight</a>;
+<a name="l00090"></a>00090  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>  <a class="code" href="class_b_m_i_h.html#85822751ad3c5761aa722da52a3e8fc7">biPlanes</a>;
+<a name="l00091"></a>00091  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#5a51f6f2df4a239a0da076c4d1430c0c">ebmpWORD</a>  <a class="code" href="class_b_m_i_h.html#483836ab0ab74bbbadc3aaaefb3bc6ff">biBitCount</a>;
+<a name="l00092"></a>00092  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#e8082e74c08c30be9ece489b51989a36">biCompression</a>;
+<a name="l00093"></a>00093  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#da57ca087ba23b0bfafcf161343f45b5">biSizeImage</a>;
+<a name="l00094"></a>00094  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#3def1dbb5bdf27a3c9b36cd27228aa2e">biXPelsPerMeter</a>;
+<a name="l00095"></a>00095  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#933d1de74ec3e28cad20e83ca5751319">biYPelsPerMeter</a>;
+<a name="l00096"></a>00096  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#92a19ff093c553a393d53d0a3bd6c5e7">biClrUsed</a>;
+<a name="l00097"></a>00097  <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p___data_structures_8h.html#20a57d22320667d61e226cbc6c4f6c8c">ebmpDWORD</a> <a class="code" href="class_b_m_i_h.html#b36b35be2c0a89f215049baa7f46efb3">biClrImportant</a>;
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099  <a class="code" href="class_b_m_i_h.html#f16a14a7fe56a28349067fe18858f9f3">BMIH</a>();
+<a name="l00100"></a>00100  <span class="keywordtype">void</span> <a class="code" href="class_b_m_i_h.html#3204317506996229b6fefaacbb2d79cb">display</a>( <span class="keywordtype">void</span> );
+<a name="l00101"></a>00101  <span class="keywordtype">void</span> <a class="code" href="class_b_m_i_h.html#ece3c1b46fe1712b5926d0b47eb1739f">SwitchEndianess</a>( <span class="keywordtype">void</span> );
+<a name="l00102"></a>00102 };
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

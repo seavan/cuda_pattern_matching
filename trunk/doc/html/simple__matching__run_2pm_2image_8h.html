@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/simple_matching_run/pm/image.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/simple_matching_run/pm/image.h</h1><code>#include &quot;<a class="el" href="simple__matching__run_2pm_2defs_8h_source.html">defs.h</a>&quot;</code><br>
+
+<p>
+<a href="simple__matching__run_2pm_2image_8h_source.html">См. исходные тексты.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Структуры данных</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_image.html">Image</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Макросы</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#768f8aeac010667e17b502625102794f">imRows</a>(im)&nbsp;&nbsp;&nbsp;(im-&gt;rows)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#a9db98794d88c4e96ad91bfeb5bf353b">imCols</a>(im)&nbsp;&nbsp;&nbsp;(im-&gt;cols)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#91c8a9019f0fa2ae91a1c8a0d9d5cca2">pixelsPtr</a>(im)&nbsp;&nbsp;&nbsp;(im-&gt;pixels)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#289bb81030befd89fcf48246db78552e">pixelVal</a>(im, y, x)&nbsp;&nbsp;&nbsp;(im-&gt;pixels[y * im-&gt;cols + x])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#6d8fc9a340714a1c62da73a9496f7d74">pixelValD</a>(im, i)&nbsp;&nbsp;&nbsp;(im-&gt;pixels[i])</td></tr>
+
+<tr><td colspan="2"><br><h2>Определения типов</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a></td></tr>
+
+</table>
+<hr><h2>Макросы</h2>
+<a class="anchor" name="a9db98794d88c4e96ad91bfeb5bf353b"></a><!-- doxytag: member="image.h::imCols" ref="a9db98794d88c4e96ad91bfeb5bf353b" args="(im)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define imCols          </td>
+          <td>(</td>
+          <td class="paramtype">im&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(im-&gt;cols)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="768f8aeac010667e17b502625102794f"></a><!-- doxytag: member="image.h::imRows" ref="768f8aeac010667e17b502625102794f" args="(im)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define imRows          </td>
+          <td>(</td>
+          <td class="paramtype">im&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(im-&gt;rows)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="91c8a9019f0fa2ae91a1c8a0d9d5cca2"></a><!-- doxytag: member="image.h::pixelsPtr" ref="91c8a9019f0fa2ae91a1c8a0d9d5cca2" args="(im)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define pixelsPtr          </td>
+          <td>(</td>
+          <td class="paramtype">im&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(im-&gt;pixels)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="289bb81030befd89fcf48246db78552e"></a><!-- doxytag: member="image.h::pixelVal" ref="289bb81030befd89fcf48246db78552e" args="(im, y, x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define pixelVal          </td>
+          <td>(</td>
+          <td class="paramtype">im,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">y,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">x&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(im-&gt;pixels[y * im-&gt;cols + x])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="6d8fc9a340714a1c62da73a9496f7d74"></a><!-- doxytag: member="image.h::pixelValD" ref="6d8fc9a340714a1c62da73a9496f7d74" args="(im, i)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define pixelValD          </td>
+          <td>(</td>
+          <td class="paramtype">im,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">i&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;(im-&gt;pixels[i])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Типы</h2>
+<a class="anchor" name="f75219364b309824eef21d65e9edc43d"></a><!-- doxytag: member="image.h::coordT" ref="f75219364b309824eef21d65e9edc43d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned int <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="54b1fd08a12b5c079874c56eb482c516"></a><!-- doxytag: member="image.h::pixelT" ref="54b1fd08a12b5c079874c56eb482c516" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned char <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

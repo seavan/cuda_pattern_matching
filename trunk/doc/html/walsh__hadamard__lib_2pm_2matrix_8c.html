@@ -1,0 +1,725 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/walsh_hadamard_lib/pm/matrix.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/walsh_hadamard_lib/pm/matrix.c</h1><code>#include &quot;<a class="el" href="walsh__hadamard__lib_2pm_2matrix_8h_source.html">matrix.h</a>&quot;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;memory.h&gt;</code><br>
+<code>#include &lt;math.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#e2651d62fad27cd482ddc4840ae62420">allocMatrix</a> (<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#e55e3ff581f9fea0a9492cba696ea4a1">imageToMatrix</a> (<a class="el" href="struct_image.html">Image</a> *image)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#c24445e9ac9bf05cf4c9f3a9062f3a3a">matrixToImage</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#093cd57d92bc0a4a25bf73a200f5807f">destroyMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#7d2daf21d136f6f0fd8a2f64caf76138">fillMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> cellValue)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#3a5f6ba791013cee04d947e1bf53b776">addMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat1, <a class="el" href="struct_matrix.html">Matrix</a> *mat2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#3d13707f4dce886dcd41d7e003ba205d">subMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat1, <a class="el" href="struct_matrix.html">Matrix</a> *mat2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#0a8b1ecc621f3bed9d716fa3752e9647">mulMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat1, <a class="el" href="struct_matrix.html">Matrix</a> *mat2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#27aecc34626240faadb44affcf24ce50">divMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat1, <a class="el" href="struct_matrix.html">Matrix</a> *mat2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#b8d861abd2a3cfab7783d3839c548b10">sumMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#86c8d1e9657ad1747c5d1b1724d09c95">minMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#026b2f260dff8880370b3af3935c4c4a">maxMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#368705f484251b9b09b9cb34c7ebf802">mulMatrixByConst</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#36f25578c616ae9eef3a415c4a2629cf">divMatrixByConst</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#cafac4b7f2a0681fa93efe150bb23b09">addConstToMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#7eba9a6bc31825849077a736f1b83c2c">dotProductMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat1, <a class="el" href="struct_matrix.html">Matrix</a> *mat2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#9dfe0eeefac1b3c3cc63c443938f35d6">zeroPadMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startRow, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startCol)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#2dd9b18d5aad7fac22714b8be0be2ed5">rotate180Matrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#57243bea80a1e7d9ed383da23e05eadf">convoluteMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat, <a class="el" href="struct_matrix.html">Matrix</a> *mask)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#b92ec93e974d556c963b23b989aba0a0">cloneMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#c8dd4a661e4c6cbf7d824242fa195c68">normalizeMatrix</a> (<a class="el" href="struct_matrix.html">Matrix</a> *mat)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__lib_2pm_2matrix_8c.html#f8e5cf7806a77bc0245e838c4b7e49b9">copyMatrixSegment</a> (<a class="el" href="struct_matrix.html">Matrix</a> *source, <a class="el" href="struct_matrix.html">Matrix</a> *dest, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartRow, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartRow, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfRows, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartCol, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartCol, <a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfCols)</td></tr>
+
+</table>
+<hr><h2>Функции</h2>
+<a class="anchor" name="cafac4b7f2a0681fa93efe150bb23b09"></a><!-- doxytag: member="matrix.c::addConstToMatrix" ref="cafac4b7f2a0681fa93efe150bb23b09" args="(Matrix *mat, cellValueT constant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addConstToMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td>
+          <td class="paramname"> <em>constant</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3a5f6ba791013cee04d947e1bf53b776"></a><!-- doxytag: member="matrix.c::addMatrix" ref="3a5f6ba791013cee04d947e1bf53b776" args="(Matrix *mat1, Matrix *mat2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e2651d62fad27cd482ddc4840ae62420"></a><!-- doxytag: member="matrix.c::allocMatrix" ref="e2651d62fad27cd482ddc4840ae62420" args="(coordT rows, coordT cols)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* allocMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>cols</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b92ec93e974d556c963b23b989aba0a0"></a><!-- doxytag: member="matrix.c::cloneMatrix" ref="b92ec93e974d556c963b23b989aba0a0" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* cloneMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="57243bea80a1e7d9ed383da23e05eadf"></a><!-- doxytag: member="matrix.c::convoluteMatrix" ref="57243bea80a1e7d9ed383da23e05eadf" args="(Matrix *mat, Matrix *mask)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* convoluteMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mask</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f8e5cf7806a77bc0245e838c4b7e49b9"></a><!-- doxytag: member="matrix.c::copyMatrixSegment" ref="f8e5cf7806a77bc0245e838c4b7e49b9" args="(Matrix *source, Matrix *dest, coordT sourceStartRow, coordT destStartRow, coordT numOfRows, coordT sourceStartCol, coordT destStartCol, coordT numOfCols)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void copyMatrixSegment           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>sourceStartRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>destStartRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>numOfRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>sourceStartCol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>destStartCol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>numOfCols</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="093cd57d92bc0a4a25bf73a200f5807f"></a><!-- doxytag: member="matrix.c::destroyMatrix" ref="093cd57d92bc0a4a25bf73a200f5807f" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="27aecc34626240faadb44affcf24ce50"></a><!-- doxytag: member="matrix.c::divMatrix" ref="27aecc34626240faadb44affcf24ce50" args="(Matrix *mat1, Matrix *mat2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void divMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="36f25578c616ae9eef3a415c4a2629cf"></a><!-- doxytag: member="matrix.c::divMatrixByConst" ref="36f25578c616ae9eef3a415c4a2629cf" args="(Matrix *mat, cellValueT constant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void divMatrixByConst           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td>
+          <td class="paramname"> <em>constant</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7eba9a6bc31825849077a736f1b83c2c"></a><!-- doxytag: member="matrix.c::dotProductMatrix" ref="7eba9a6bc31825849077a736f1b83c2c" args="(Matrix *mat1, Matrix *mat2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dotProductMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7d2daf21d136f6f0fd8a2f64caf76138"></a><!-- doxytag: member="matrix.c::fillMatrix" ref="7d2daf21d136f6f0fd8a2f64caf76138" args="(Matrix *mat, cellValueT cellValue)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fillMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td>
+          <td class="paramname"> <em>cellValue</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e55e3ff581f9fea0a9492cba696ea4a1"></a><!-- doxytag: member="matrix.c::imageToMatrix" ref="e55e3ff581f9fea0a9492cba696ea4a1" args="(Image *image)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* imageToMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_image.html">Image</a> *&nbsp;</td>
+          <td class="paramname"> <em>image</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c24445e9ac9bf05cf4c9f3a9062f3a3a"></a><!-- doxytag: member="matrix.c::matrixToImage" ref="c24445e9ac9bf05cf4c9f3a9062f3a3a" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_image.html">Image</a>* matrixToImage           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="026b2f260dff8880370b3af3935c4c4a"></a><!-- doxytag: member="matrix.c::maxMatrix" ref="026b2f260dff8880370b3af3935c4c4a" args="(Matrix *mat, coordT *y, coordT *x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> maxMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *&nbsp;</td>
+          <td class="paramname"> <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *&nbsp;</td>
+          <td class="paramname"> <em>x</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="86c8d1e9657ad1747c5d1b1724d09c95"></a><!-- doxytag: member="matrix.c::minMatrix" ref="86c8d1e9657ad1747c5d1b1724d09c95" args="(Matrix *mat, coordT *y, coordT *x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> minMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *&nbsp;</td>
+          <td class="paramname"> <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *&nbsp;</td>
+          <td class="paramname"> <em>x</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0a8b1ecc621f3bed9d716fa3752e9647"></a><!-- doxytag: member="matrix.c::mulMatrix" ref="0a8b1ecc621f3bed9d716fa3752e9647" args="(Matrix *mat1, Matrix *mat2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mulMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="368705f484251b9b09b9cb34c7ebf802"></a><!-- doxytag: member="matrix.c::mulMatrixByConst" ref="368705f484251b9b09b9cb34c7ebf802" args="(Matrix *mat, cellValueT constant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mulMatrixByConst           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>&nbsp;</td>
+          <td class="paramname"> <em>constant</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c8dd4a661e4c6cbf7d824242fa195c68"></a><!-- doxytag: member="matrix.c::normalizeMatrix" ref="c8dd4a661e4c6cbf7d824242fa195c68" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void normalizeMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2dd9b18d5aad7fac22714b8be0be2ed5"></a><!-- doxytag: member="matrix.c::rotate180Matrix" ref="2dd9b18d5aad7fac22714b8be0be2ed5" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* rotate180Matrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3d13707f4dce886dcd41d7e003ba205d"></a><!-- doxytag: member="matrix.c::subMatrix" ref="3d13707f4dce886dcd41d7e003ba205d" args="(Matrix *mat1, Matrix *mat2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void subMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b8d861abd2a3cfab7783d3839c548b10"></a><!-- doxytag: member="matrix.c::sumMatrix" ref="b8d861abd2a3cfab7783d3839c548b10" args="(Matrix *mat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sumMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9dfe0eeefac1b3c3cc63c443938f35d6"></a><!-- doxytag: member="matrix.c::zeroPadMatrix" ref="9dfe0eeefac1b3c3cc63c443938f35d6" args="(Matrix *mat, coordT rows, coordT cols, coordT startRow, coordT startCol)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_matrix.html">Matrix</a>* zeroPadMatrix           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_matrix.html">Matrix</a> *&nbsp;</td>
+          <td class="paramname"> <em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>startRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>&nbsp;</td>
+          <td class="paramname"> <em>startCol</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

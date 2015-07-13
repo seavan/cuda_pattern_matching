@@ -1,0 +1,61 @@
+\hypertarget{correlation_cuda_library_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.cpp}
+\label{correlation_cuda_library_8cpp}\index{D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.cpp@{D:/Projects/MatchingSolution/source/correlation\_\-cuda\_\-lib/correlationCudaLibrary.cpp}}
+}
+{\tt \#include \char`\"{}correlationCudaLibrary.h\char`\"{}}\par
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+unsigned char $\ast$ \hyperlink{correlation_cuda_library_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}{correlationCpu} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+unsigned char $\ast$ \hyperlink{correlation_cuda_library_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}{correlationCuda} (int argc, char $\ast$$\ast$argv, unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+unsigned char $\ast$ \hyperlink{correlation_cuda_library_8cpp_ddb22b016dc94ce490c99a03670f42c3}{correlationCpuL} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+unsigned char $\ast$ \hyperlink{correlation_cuda_library_8cpp_7bafb4759842eaa380ce27a9e1a5ebb5}{correlationCudaL} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{correlation_cuda_library_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}{
+\index{correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}!correlationCpu@{correlationCpu}}
+\index{correlationCpu@{correlationCpu}!correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}}
+\subsubsection[{correlationCpu}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCpu (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}
+
+
+\hypertarget{correlation_cuda_library_8cpp_ddb22b016dc94ce490c99a03670f42c3}{
+\index{correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}!correlationCpuL@{correlationCpuL}}
+\index{correlationCpuL@{correlationCpuL}!correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}}
+\subsubsection[{correlationCpuL}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCpuL (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8cpp_ddb22b016dc94ce490c99a03670f42c3}
+
+
+! Просчет корреляции средствами CPU \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчный массив с исходным изображением \item[{\em \_\-width}]Ширина исходного изображения \item[{\em \_\-height}]Высота исходного изображения \item[{\em \_\-pattern}]Построчный массив с шаблоном \item[{\em \_\-ptnwidth}]Ширина шаблона \item[{\em \_\-ptnheight}]Высота шаблона \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]\end{Desc}
+\hypertarget{correlation_cuda_library_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}{
+\index{correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}!correlationCuda@{correlationCuda}}
+\index{correlationCuda@{correlationCuda}!correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}}
+\subsubsection[{correlationCuda}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCuda (int {\em argc}, \/  char $\ast$$\ast$ {\em argv}, \/  unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}
+
+
+\hypertarget{correlation_cuda_library_8cpp_7bafb4759842eaa380ce27a9e1a5ebb5}{
+\index{correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}!correlationCudaL@{correlationCudaL}}
+\index{correlationCudaL@{correlationCudaL}!correlationCudaLibrary.cpp@{correlationCudaLibrary.cpp}}
+\subsubsection[{correlationCudaL}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCudaL (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{correlation_cuda_library_8cpp_7bafb4759842eaa380ce27a9e1a5ebb5}
+
+
+! Просчет корреляции средствами видеокарты \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчный массив с исходным изображением \item[{\em \_\-width}]Ширина исходного изображения \item[{\em \_\-height}]Высота исходного изображения \item[{\em \_\-pattern}]Построчный массив с шаблоном \item[{\em \_\-ptnwidth}]Ширина шаблона \item[{\em \_\-ptnheight}]Высота шаблона \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]\end{Desc}

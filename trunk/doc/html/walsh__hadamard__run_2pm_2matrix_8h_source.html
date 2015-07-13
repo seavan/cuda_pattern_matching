@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/matrix.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/matrix.h</h1><a href="walsh__hadamard__run_2pm_2matrix_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00003"></a>00003 <span class="comment"> *****************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment"> * file:        matrix.h                                                     *</span>
+<a name="l00005"></a>00005 <span class="comment"> *                                                                           *</span>
+<a name="l00006"></a>00006 <span class="comment"> * description: Utilities for handling 2-D matrices with 32-bit values.      *</span>
+<a name="l00007"></a>00007 <span class="comment"> *              A Matrix is allocated using it's dimensions (rows,cols).     *</span>
+<a name="l00008"></a>00008 <span class="comment"> *              It is also possible to create a matrix from a given image.   *</span>
+<a name="l00009"></a>00009 <span class="comment"> *              The Matrix data should be accessed only using the available  *</span>
+<a name="l00010"></a>00010 <span class="comment"> *              macros.                                                      *</span>
+<a name="l00011"></a>00011 <span class="comment"> *****************************************************************************/</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef _matrix_h_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define _matrix_h_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2defs_8h.html">defs.h</a>"</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2image_8h.html">image.h</a>"</span>
+<a name="l00018"></a>00018 
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">00021</a> <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a>;
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">00023</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">00025</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a>;
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00028"></a>00028         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, cols;
+<a name="l00029"></a>00029         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#156878bfbcff0c64d75da712abe72bd6">size</a>;
+<a name="l00030"></a>00030         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *cellValues;
+<a name="l00031"></a>00031         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> **rowsPtr;
+<a name="l00032"></a>00032 } <a class="code" href="struct_matrix.html">Matrix</a>;
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035 
+<a name="l00036"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#64532c673824aaf7357c8dd5ee2bb840">00036</a> <span class="preprocessor">#define HIGHEST_CELL_VALUE 0x7fffffff</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#8eb64dd5bf0124215d7005db399a7c95">00038</a> <span class="preprocessor">#define LOWEST_CELL_VALUE 0x80000000</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#7956d21aff5d9ffe6de094f60f3a161d">00042</a> <span class="preprocessor">#define matVal(mat, y, x)       (mat-&gt;rowsPtr[y][x])</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00044"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#d3ab0f5f302717285a12303f1f5a9e86">00044</a> <span class="preprocessor">#define matValD(mat, i)         (mat-&gt;cellValues[i])</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span>
+<a name="l00046"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">00046</a> <span class="preprocessor">#define matValPtr(mat)      (mat-&gt;cellValues)</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">00048</a> <span class="preprocessor">#define matCols(mat)            (mat-&gt;cols)</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>
+<a name="l00050"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#6c80e2fcef10381dd06bd211dbdcf530">00050</a> <span class="preprocessor">#define matRows(mat)            (mat-&gt;rows)</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00052"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#b1dc6c39709ef7d2160f2f4d4761fd57">00052</a> <span class="preprocessor">#define matSize(mat)            (mat-&gt;size)</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span>
+<a name="l00054"></a>00054 
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="comment">/*</span>
+<a name="l00058"></a>00058 <span class="comment">Returns the distance between the given win and the segment from the given matrix</span>
+<a name="l00059"></a>00059 <span class="comment">that starts in (startRow, startCol). The segment's size will be as the win's size.</span>
+<a name="l00060"></a>00060 <span class="comment">*/</span>
+<a name="l00061"></a><a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html#1411e90b906c182ab9940fdbe216c7eb">00061</a> __inline <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> <a class="code" href="matrix__funcs_8h.html#1411e90b906c182ab9940fdbe216c7eb">findMatrixDistance</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startCol, <a class="code" href="struct_matrix.html">Matrix</a> *win) {
+<a name="l00062"></a>00062         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *matPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(mat) + startRow * <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(mat) + startCol,
+<a name="l00063"></a>00063                    *winPtr = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#1379a049272f210908e5461b2b668ba7">matValPtr</a>(win);
+<a name="l00064"></a>00064         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6c80e2fcef10381dd06bd211dbdcf530">matRows</a>(win), cols = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(win), col;
+<a name="l00065"></a>00065         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> colsDif = <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#ff1179b18ab2047060bab837df4a4527">matCols</a>(mat) - cols;
+<a name="l00066"></a>00066         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> result = 0;
+<a name="l00067"></a>00067         <span class="keywordflow">while</span> (rows--) {
+<a name="l00068"></a>00068                 col = cols;
+<a name="l00069"></a>00069                 <span class="keywordflow">while</span> (col--) {
+<a name="l00070"></a>00070                         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> dif = *(matPtr++) - *(winPtr++);
+<a name="l00071"></a>00071                         result += dif * dif;
+<a name="l00072"></a>00072                 }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074                 matPtr += colsDif;
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keywordflow">return</span> result;
+<a name="l00078"></a>00078 }
+<a name="l00079"></a>00079 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e2651d62fad27cd482ddc4840ae62420">allocMatrix</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols);
+<a name="l00083"></a>00083 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#093cd57d92bc0a4a25bf73a200f5807f">destroyMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00084"></a>00084 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#b92ec93e974d556c963b23b989aba0a0">cloneMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#e55e3ff581f9fea0a9492cba696ea4a1">imageToMatrix</a>(<a class="code" href="struct_image.html">Image</a> *image);
+<a name="l00087"></a>00087 <a class="code" href="struct_image.html">Image</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#c24445e9ac9bf05cf4c9f3a9062f3a3a">matrixToImage</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#7d2daf21d136f6f0fd8a2f64caf76138">fillMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> cellValue);
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#c8dd4a661e4c6cbf7d824242fa195c68">normalizeMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#3a5f6ba791013cee04d947e1bf53b776">addMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00094"></a>00094 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#3d13707f4dce886dcd41d7e003ba205d">subMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00095"></a>00095 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#0a8b1ecc621f3bed9d716fa3752e9647">mulMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00096"></a>00096 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#27aecc34626240faadb44affcf24ce50">divMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00097"></a>00097 <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#7eba9a6bc31825849077a736f1b83c2c">dotProductMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat1, <a class="code" href="struct_matrix.html">Matrix</a> *mat2);
+<a name="l00098"></a>00098 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#368705f484251b9b09b9cb34c7ebf802">mulMatrixByConst</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00099"></a>00099 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#36f25578c616ae9eef3a415c4a2629cf">divMatrixByConst</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00100"></a>00100 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#cafac4b7f2a0681fa93efe150bb23b09">addConstToMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> constant);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#b8d861abd2a3cfab7783d3839c548b10">sumMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00103"></a>00103 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#86c8d1e9657ad1747c5d1b1724d09c95">minMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x);
+<a name="l00104"></a>00104 <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#026b2f260dff8880370b3af3935c4c4a">maxMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *y, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *x);
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#57243bea80a1e7d9ed383da23e05eadf">convoluteMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="struct_matrix.html">Matrix</a> *mask);
+<a name="l00107"></a>00107 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#9dfe0eeefac1b3c3cc63c443938f35d6">zeroPadMatrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> startCol);
+<a name="l00108"></a>00108 <a class="code" href="struct_matrix.html">Matrix</a> * <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#2dd9b18d5aad7fac22714b8be0be2ed5">rotate180Matrix</a>(<a class="code" href="struct_matrix.html">Matrix</a> *mat);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2matrix_8c.html#f8e5cf7806a77bc0245e838c4b7e49b9">copyMatrixSegment</a>(<a class="code" href="struct_matrix.html">Matrix</a> *source, <a class="code" href="struct_matrix.html">Matrix</a> *dest,
+<a name="l00111"></a>00111                                            <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartRow, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfRows,
+<a name="l00112"></a>00112                                            <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> destStartCol, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> numOfCols);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

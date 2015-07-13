@@ -1,0 +1,620 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP.cpp</h1><code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h_source.html">EasyBMP.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#a572cda955cea246911a9d44fa19f96d">SetEasyBMPwarningsOff</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#c27f66464409775cfc3833843bff8245">SetEasyBMPwarningsOn</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#7de7f5371407388438c70e9e33c61395">GetEasyBMPwarningState</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#f52dc2e4faaa0a793efd117aac7473c9">IntPow</a> (int base, int exponent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#7151a3d14fa85dc0d9f4909b188c6b91">SafeFread</a> (char *<a class="el" href="walsh__hadamard__run_2pm_2whimport_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>, int <a class="el" href="filtration__run_2free_image_2_free_image_8h.html#156878bfbcff0c64d75da712abe72bd6">size</a>, int number, FILE *fp)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_b_m_f_h.html">BMFH</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#66cd5022854084cc377337cced3866e6">GetBMFH</a> (const char *szFileNameIn)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_b_m_i_h.html">BMIH</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#d3884939602af9979dab7e63b8892ce6">GetBMIH</a> (const char *szFileNameIn)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#f5917ccb612d45cdb324804c573052e6">DisplayBitmapInfo</a> (const char *szFileNameIn)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#8a847e3d65680531be233837bccd46e1">GetBitmapColorDepth</a> (const char *szFileNameIn)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#ba80d82c4847200740ea11fa6f604d9f">PixelToPixelCopy</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;From, int FromX, int FromY, <a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;To, int ToX, int ToY)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#922fefb711a86d220afece6d98770d17">PixelToPixelCopyTransparent</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;From, int FromX, int FromY, <a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;To, int ToX, int ToY, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> &amp;Transparent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#cd1a7ee93b0e7a40f970ba3af1d6bb75">RangedPixelToPixelCopy</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;From, int FromL, int FromR, int FromB, int FromT, <a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;To, int ToX, int ToY)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#206d4e0294b4e1b55f3be10d024c2759">RangedPixelToPixelCopyTransparent</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;From, int FromL, int FromR, int FromB, int FromT, <a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;To, int ToX, int ToY, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> &amp;Transparent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#a109743bea7d0c389e7fcbbc66bdc79c">CreateGrayscaleColorTable</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;InputImage)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#06ce9e359783f4a482de8e3055957dce">EasyBMPcheckDataSize</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#9b2bca20900fcd707efd350299e3fb45">Rescale</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;InputImage, char mode, int NewDimension)</td></tr>
+
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#d2d40fce178ed9d70559f10759d66304">EasyBMPwarnings</a> = true</td></tr>
+
+</table>
+<hr><h2>Функции</h2>
+<a class="anchor" name="a109743bea7d0c389e7fcbbc66bdc79c"></a><!-- doxytag: member="EasyBMP.cpp::CreateGrayscaleColorTable" ref="a109743bea7d0c389e7fcbbc66bdc79c" args="(cppBMP &amp;InputImage)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CreateGrayscaleColorTable           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>InputImage</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f5917ccb612d45cdb324804c573052e6"></a><!-- doxytag: member="EasyBMP.cpp::DisplayBitmapInfo" ref="f5917ccb612d45cdb324804c573052e6" args="(const char *szFileNameIn)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayBitmapInfo           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>szFileNameIn</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="06ce9e359783f4a482de8e3055957dce"></a><!-- doxytag: member="EasyBMP.cpp::EasyBMPcheckDataSize" ref="06ce9e359783f4a482de8e3055957dce" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EasyBMPcheckDataSize           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8a847e3d65680531be233837bccd46e1"></a><!-- doxytag: member="EasyBMP.cpp::GetBitmapColorDepth" ref="8a847e3d65680531be233837bccd46e1" args="(const char *szFileNameIn)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GetBitmapColorDepth           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>szFileNameIn</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="66cd5022854084cc377337cced3866e6"></a><!-- doxytag: member="EasyBMP.cpp::GetBMFH" ref="66cd5022854084cc377337cced3866e6" args="(const char *szFileNameIn)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_m_f_h.html">BMFH</a> GetBMFH           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>szFileNameIn</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="d3884939602af9979dab7e63b8892ce6"></a><!-- doxytag: member="EasyBMP.cpp::GetBMIH" ref="d3884939602af9979dab7e63b8892ce6" args="(const char *szFileNameIn)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_m_i_h.html">BMIH</a> GetBMIH           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>szFileNameIn</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7de7f5371407388438c70e9e33c61395"></a><!-- doxytag: member="EasyBMP.cpp::GetEasyBMPwarningState" ref="7de7f5371407388438c70e9e33c61395" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GetEasyBMPwarningState           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f52dc2e4faaa0a793efd117aac7473c9"></a><!-- doxytag: member="EasyBMP.cpp::IntPow" ref="f52dc2e4faaa0a793efd117aac7473c9" args="(int base, int exponent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IntPow           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>exponent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ba80d82c4847200740ea11fa6f604d9f"></a><!-- doxytag: member="EasyBMP.cpp::PixelToPixelCopy" ref="ba80d82c4847200740ea11fa6f604d9f" args="(cppBMP &amp;From, int FromX, int FromY, cppBMP &amp;To, int ToX, int ToY)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixelToPixelCopy           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>From</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>To</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToY</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="922fefb711a86d220afece6d98770d17"></a><!-- doxytag: member="EasyBMP.cpp::PixelToPixelCopyTransparent" ref="922fefb711a86d220afece6d98770d17" args="(cppBMP &amp;From, int FromX, int FromY, cppBMP &amp;To, int ToX, int ToY, RGBApixel &amp;Transparent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixelToPixelCopyTransparent           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>From</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>To</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Transparent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="cd1a7ee93b0e7a40f970ba3af1d6bb75"></a><!-- doxytag: member="EasyBMP.cpp::RangedPixelToPixelCopy" ref="cd1a7ee93b0e7a40f970ba3af1d6bb75" args="(cppBMP &amp;From, int FromL, int FromR, int FromB, int FromT, cppBMP &amp;To, int ToX, int ToY)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RangedPixelToPixelCopy           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>From</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromL</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>To</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToY</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="206d4e0294b4e1b55f3be10d024c2759"></a><!-- doxytag: member="EasyBMP.cpp::RangedPixelToPixelCopyTransparent" ref="206d4e0294b4e1b55f3be10d024c2759" args="(cppBMP &amp;From, int FromL, int FromR, int FromB, int FromT, cppBMP &amp;To, int ToX, int ToY, RGBApixel &amp;Transparent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RangedPixelToPixelCopyTransparent           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>From</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromL</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>FromT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>To</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ToY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Transparent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9b2bca20900fcd707efd350299e3fb45"></a><!-- doxytag: member="EasyBMP.cpp::Rescale" ref="9b2bca20900fcd707efd350299e3fb45" args="(cppBMP &amp;InputImage, char mode, int NewDimension)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Rescale           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>InputImage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewDimension</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7151a3d14fa85dc0d9f4909b188c6b91"></a><!-- doxytag: member="EasyBMP.cpp::SafeFread" ref="7151a3d14fa85dc0d9f4909b188c6b91" args="(char *buffer, int size, int number, FILE *fp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SafeFread           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&nbsp;</td>
+          <td class="paramname"> <em>fp</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="a572cda955cea246911a9d44fa19f96d"></a><!-- doxytag: member="EasyBMP.cpp::SetEasyBMPwarningsOff" ref="a572cda955cea246911a9d44fa19f96d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetEasyBMPwarningsOff           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c27f66464409775cfc3833843bff8245"></a><!-- doxytag: member="EasyBMP.cpp::SetEasyBMPwarningsOn" ref="c27f66464409775cfc3833843bff8245" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetEasyBMPwarningsOn           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="d2d40fce178ed9d70559f10759d66304"></a><!-- doxytag: member="EasyBMP.cpp::EasyBMPwarnings" ref="d2d40fce178ed9d70559f10759d66304" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html#d2d40fce178ed9d70559f10759d66304">EasyBMPwarnings</a> = true          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

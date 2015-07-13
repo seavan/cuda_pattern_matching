@@ -1,0 +1,809 @@
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/pm/whimport.h}
+\label{walsh__hadamard__run_2pm_2whimport_8h}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/pm/whimport.h@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-run/pm/whimport.h}}
+}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}defs.h\char`\"{}}\par
+\subsection*{Структуры данных}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_image}{Image}
+\item 
+struct \hyperlink{struct_matrix}{Matrix}
+\item 
+struct \hyperlink{struct_branch}{Branch}
+\item 
+struct \hyperlink{struct_match}{Match}
+\item 
+struct \hyperlink{struct_w_h_setup}{WHSetup}
+\end{CompactItemize}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_768f8aeac010667e17b502625102794f}{imRows}(im)~(im $\rightarrow$ rows)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_a9db98794d88c4e96ad91bfeb5bf353b}{imCols}(im)~(im $\rightarrow$ cols)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_91c8a9019f0fa2ae91a1c8a0d9d5cca2}{pixelsPtr}(im)~(im $\rightarrow$ pixels)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_289bb81030befd89fcf48246db78552e}{pixelVal}(im, y, x)~(im $\rightarrow$ pixels\mbox{[}y $\ast$ im $\rightarrow$ cols + x\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6d8fc9a340714a1c62da73a9496f7d74}{pixelValD}(im, i)~(im $\rightarrow$ pixels\mbox{[}i\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_64532c673824aaf7357c8dd5ee2bb840}{HIGHEST\_\-CELL\_\-VALUE}~0x7fffffff
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_8eb64dd5bf0124215d7005db399a7c95}{LOWEST\_\-CELL\_\-VALUE}~0x80000000
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_7956d21aff5d9ffe6de094f60f3a161d}{matVal}(mat, y, x)~(mat $\rightarrow$ rowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_d3ab0f5f302717285a12303f1f5a9e86}{matValD}(mat, i)~(mat $\rightarrow$ cellValues\mbox{[}i\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_1379a049272f210908e5461b2b668ba7}{matValPtr}(mat)~(mat $\rightarrow$ cellValues)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_ff1179b18ab2047060bab837df4a4527}{matCols}(mat)~(mat $\rightarrow$ cols)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6c80e2fcef10381dd06bd211dbdcf530}{matRows}(mat)~(mat $\rightarrow$ rows)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_b1dc6c39709ef7d2160f2f4d4761fd57}{matSize}(mat)~(mat $\rightarrow$ \hyperlink{filtration__run_2free_image_2_free_image_8h_156878bfbcff0c64d75da712abe72bd6}{size})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_779dbe79f385842ec6084a7b4cdc2f03}{MAX\_\-PATTERN\_\-32}
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_39bb8f7702939d842b16ba48024d07a3}{MAX\_\-BASIS\_\-1024}
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_90eb498bf38dedbae958f1ee5bea9954}{BUFFER\_\-SIZE\_\-32}~16832
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_dd413e620f5e31f4f42f74080a0bda56}{BUFFER\_\-SIZE\_\-64}~34664
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_2bd1b712d38fe5f23ec3975a4b717a2f}{BUFFER\_\-SIZE\_\-128}~69328
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_0ea7ff5947c5f5430a29fdd98391eb2a}{PLUS}~1
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_5381a445a1e4bdc36460151d82eed95a}{MINUS}~-1
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_220ef7e31d8d839246660bf0aa8f3eee}{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}~10.0
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e3b6e60cca467e955b438882e4506614}{DEFAULT\_\-DISTANCE\_\-PERCENT}~2.0
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_\-SIZE}~BUFFER\_\-SIZE\_\-32
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_05c2a39bc9d9c3bf57641f06785b7f70}{branchMat}(branch, matNo)~(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_1c79dde1ae3480ce56fa4e8f64649437}{branchDepth}(branch)~(branch $\rightarrow$ depth)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_4f3d00962845d4993ce72f5dabc809bb}{branchBasisInd}(branch)~(branch $\rightarrow$ basisInd)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_5d1fad4fca13ec080c34a6eba4d31f47}{branchDelta}(branch, matNo)~(branch $\rightarrow$ delta\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_031bfe7195c8d69ce52a0765914a0975}{branchHorizontal}(branch, matNo)~(branch $\rightarrow$ horizontal\mbox{[}matNo\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_de04439c7240984ad37d2469bb4314f0}{branchSign}(branch, matNo, basisInd)~(branch $\rightarrow$ sign\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_950a2bdc868f52ecb16c26efb89c26f0}{branchNodeID}(branch, matNo, basisInd)~(branch $\rightarrow$ nodeID\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}{branchPixelNodeID}(branch, y, x)~(branch $\rightarrow$ pixelNodeIDRowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_1dcc45ac7e24a99e3c41f607a0b79b22}{branchPixelNodeIDPtr}(branch)~(branch $\rightarrow$ pixelNodeIDValues)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c49d8ecb153f3f6ce620045c9f122dee}{branchClimbLevels}(branch, toBasisInd)~(branch $\rightarrow$ climbLevels\mbox{[}branch $\rightarrow$ basisInd\mbox{]}\mbox{[}toBasisInd\mbox{]})
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_783480734d7ad3d7573206e765ac9145}{branchMatVal}(branch, matNo, y, x)~(matVal(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]}, y, x))
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_a66d385c2e91f8d7c80afea53fd62e00}{matchY}(match)~(match $\rightarrow$ y)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e41ed6a5b2e5512f4a01b68870782bef}{matchX}(match)~(match $\rightarrow$ x)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_78dfc6921c8a1c7d2c90a954b45e9280}{matchDistance}(match)~(match $\rightarrow$ distance)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_1818f71e58a09056d2c3d8658d25cf7d}{matches}(setup)~(setup $\rightarrow$ matches)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_69fc91113933df80ff4538183d57b500}{numOfMatches}(setup)~(setup $\rightarrow$ numOfMatches)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e546127c403cf0cbb041e0ebeb8ba664}{sourceImage}(setup)~(setup $\rightarrow$ sourceImage)
+\item 
+\#define \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e009f5822ff50acfdf0873c916f5a834}{patternImage}(setup)~(setup $\rightarrow$ patternImage)
+\end{CompactItemize}
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef \_\-int8 \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_696db3d7aea6d9d091f2ac73432b948b}{booleanT}
+\item 
+typedef unsigned char \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT}
+\item 
+typedef unsigned int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT}
+\item 
+typedef signed int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT}
+\item 
+typedef unsigned int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_7b872890b3a65c758de9e62cdf739754}{matrixSizeT}
+\item 
+typedef unsigned int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT}
+\item 
+typedef signed \_\-int32 \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{basisT}
+\item 
+typedef unsigned \_\-int8 \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_22f5977248d0f2af892f3ac9af10b1a7}{depthT}
+\item 
+typedef \_\-int8 \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_14e3c9888ccc350e9e7af9cff09ebcc5}{signT}
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_659b96445aaa02061098d2a7c183dcfb}{exitWithError} (char $\ast$message)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f0ed98a439633805c834ce41bba31bf5}{createImage} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{pixelT} $\ast$pixels, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_fac650c01cf1fdc985e41e1979d563f4}{destroyImage} (\hyperlink{struct_image}{Image} $\ast$image)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_2ed0e79edb3905e7fb8da4055915cc83}{logImage} (\hyperlink{struct_image}{Image} $\ast$image)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_5b1eb316cbff69b93f2989dcaa4170a3}{copyImageSegment} (\hyperlink{struct_image}{Image} $\ast$source, \hyperlink{struct_image}{Image} $\ast$dest, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfCols)
+\item 
+\_\-\_\-inline \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT} \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_1411e90b906c182ab9940fdbe216c7eb}{findMatrixDistance} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startCol, \hyperlink{struct_matrix}{Matrix} $\ast$win)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e2651d62fad27cd482ddc4840ae62420}{allocMatrix} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_093cd57d92bc0a4a25bf73a200f5807f}{destroyMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_b92ec93e974d556c963b23b989aba0a0}{cloneMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e55e3ff581f9fea0a9492cba696ea4a1}{imageToMatrix} (\hyperlink{struct_image}{Image} $\ast$image)
+\item 
+\hyperlink{struct_image}{Image} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}{matrixToImage} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_7d2daf21d136f6f0fd8a2f64caf76138}{fillMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} cellValue)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c8dd4a661e4c6cbf7d824242fa195c68}{normalizeMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_3a5f6ba791013cee04d947e1bf53b776}{addMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_3d13707f4dce886dcd41d7e003ba205d}{subMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_0a8b1ecc621f3bed9d716fa3752e9647}{mulMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_27aecc34626240faadb44affcf24ce50}{divMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_7eba9a6bc31825849077a736f1b83c2c}{dotProductMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat1, \hyperlink{struct_matrix}{Matrix} $\ast$mat2)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_368705f484251b9b09b9cb34c7ebf802}{mulMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_36f25578c616ae9eef3a415c4a2629cf}{divMatrixByConst} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_cafac4b7f2a0681fa93efe150bb23b09}{addConstToMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} constant)
+\item 
+int \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_b8d861abd2a3cfab7783d3839c548b10}{sumMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_86c8d1e9657ad1747c5d1b1724d09c95}{minMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_026b2f260dff8880370b3af3935c4c4a}{maxMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$y, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} $\ast$x)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_57243bea80a1e7d9ed383da23e05eadf}{convoluteMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{struct_matrix}{Matrix} $\ast$mask)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_9dfe0eeefac1b3c3cc63c443938f35d6}{zeroPadMatrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} rows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} cols, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} startCol)
+\item 
+\hyperlink{struct_matrix}{Matrix} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_2dd9b18d5aad7fac22714b8be0be2ed5}{rotate180Matrix} (\hyperlink{struct_matrix}{Matrix} $\ast$mat)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f8e5cf7806a77bc0245e838c4b7e49b9}{copyMatrixSegment} (\hyperlink{struct_matrix}{Matrix} $\ast$source, \hyperlink{struct_matrix}{Matrix} $\ast$dest, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartRow, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} destStartCol, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} numOfCols)
+\item 
+\hyperlink{struct_w_h_setup}{WHSetup} $\ast$ \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_3534f26e4654fc23f764d313133e7e14}{createWHSetup} (\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} sourceCols, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{coordT} patternRows, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{basisT} numOfBasis)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_e5520182a27a209d6e6f1e387cbc6609}{destroyWHSetup} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_9c54b2b6010eb7b4c98c15532d03e24d}{setPatternImage} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{struct_image}{Image} $\ast$pattern)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_d2ab0e9bb1416c9e7def0c3abba79750}{setSourceImage} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{struct_image}{Image} $\ast$source)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_da6128fb2d8fc2053aa760648a81ed53}{setMethodStartPercent} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, float bottomUpStartPercent, float distanceStartPercent)
+\item 
+void \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_ea0a46965a2dea1e086f8d0b6875e180}{whPatternMatch} (\hyperlink{struct_w_h_setup}{WHSetup} $\ast$setup, \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{distanceT} rejectThresh)
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+\hyperlink{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{cellValueT} \hyperlink{walsh__hadamard__run_2pm_2whimport_8h_bcaa56f51c20292898754fce33b5a991}{buffer} \mbox{[}BUFFER\_\-SIZE\mbox{]}
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_4f3d00962845d4993ce72f5dabc809bb}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchBasisInd@{branchBasisInd}}
+\index{branchBasisInd@{branchBasisInd}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchBasisInd}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchBasisInd(branch)~(branch $\rightarrow$ basisInd)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_4f3d00962845d4993ce72f5dabc809bb}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_c49d8ecb153f3f6ce620045c9f122dee}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchClimbLevels@{branchClimbLevels}}
+\index{branchClimbLevels@{branchClimbLevels}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchClimbLevels}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchClimbLevels(branch, \/  toBasisInd)~(branch $\rightarrow$ climbLevels\mbox{[}branch $\rightarrow$ basisInd\mbox{]}\mbox{[}toBasisInd\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_c49d8ecb153f3f6ce620045c9f122dee}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_5d1fad4fca13ec080c34a6eba4d31f47}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchDelta@{branchDelta}}
+\index{branchDelta@{branchDelta}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchDelta}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchDelta(branch, \/  matNo)~(branch $\rightarrow$ delta\mbox{[}matNo\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_5d1fad4fca13ec080c34a6eba4d31f47}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_1c79dde1ae3480ce56fa4e8f64649437}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchDepth@{branchDepth}}
+\index{branchDepth@{branchDepth}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchDepth}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchDepth(branch)~(branch $\rightarrow$ depth)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_1c79dde1ae3480ce56fa4e8f64649437}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_031bfe7195c8d69ce52a0765914a0975}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchHorizontal@{branchHorizontal}}
+\index{branchHorizontal@{branchHorizontal}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchHorizontal}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchHorizontal(branch, \/  matNo)~(branch $\rightarrow$ horizontal\mbox{[}matNo\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_031bfe7195c8d69ce52a0765914a0975}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_05c2a39bc9d9c3bf57641f06785b7f70}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchMat@{branchMat}}
+\index{branchMat@{branchMat}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchMat}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchMat(branch, \/  matNo)~(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_05c2a39bc9d9c3bf57641f06785b7f70}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_783480734d7ad3d7573206e765ac9145}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchMatVal@{branchMatVal}}
+\index{branchMatVal@{branchMatVal}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchMatVal}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchMatVal(branch, \/  matNo, \/  y, \/  x)~(matVal(branch $\rightarrow$ matrices\mbox{[}matNo\mbox{]}, y, x))}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_783480734d7ad3d7573206e765ac9145}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_950a2bdc868f52ecb16c26efb89c26f0}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchNodeID@{branchNodeID}}
+\index{branchNodeID@{branchNodeID}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchNodeID}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchNodeID(branch, \/  matNo, \/  basisInd)~(branch $\rightarrow$ nodeID\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_950a2bdc868f52ecb16c26efb89c26f0}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchPixelNodeID@{branchPixelNodeID}}
+\index{branchPixelNodeID@{branchPixelNodeID}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchPixelNodeID}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchPixelNodeID(branch, \/  y, \/  x)~(branch $\rightarrow$ pixelNodeIDRowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_7b7e5d114a9e9cab35111bdd0d6d8d04}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_1dcc45ac7e24a99e3c41f607a0b79b22}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchPixelNodeIDPtr@{branchPixelNodeIDPtr}}
+\index{branchPixelNodeIDPtr@{branchPixelNodeIDPtr}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchPixelNodeIDPtr}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchPixelNodeIDPtr(branch)~(branch $\rightarrow$ pixelNodeIDValues)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_1dcc45ac7e24a99e3c41f607a0b79b22}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_de04439c7240984ad37d2469bb4314f0}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!branchSign@{branchSign}}
+\index{branchSign@{branchSign}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{branchSign}]{\setlength{\rightskip}{0pt plus 5cm}\#define branchSign(branch, \/  matNo, \/  basisInd)~(branch $\rightarrow$ sign\mbox{[}matNo\mbox{]}\mbox{[}basisInd\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_de04439c7240984ad37d2469bb4314f0}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_6b20d41d6252e9871430c242cb1a56e7}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!BUFFER\_\-SIZE@{BUFFER\_\-SIZE}}
+\index{BUFFER\_\-SIZE@{BUFFER\_\-SIZE}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE~BUFFER\_\-SIZE\_\-32}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_6b20d41d6252e9871430c242cb1a56e7}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_2bd1b712d38fe5f23ec3975a4b717a2f}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!BUFFER\_\-SIZE\_\-128@{BUFFER\_\-SIZE\_\-128}}
+\index{BUFFER\_\-SIZE\_\-128@{BUFFER\_\-SIZE\_\-128}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-128}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-128~69328}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_2bd1b712d38fe5f23ec3975a4b717a2f}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_90eb498bf38dedbae958f1ee5bea9954}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!BUFFER\_\-SIZE\_\-32@{BUFFER\_\-SIZE\_\-32}}
+\index{BUFFER\_\-SIZE\_\-32@{BUFFER\_\-SIZE\_\-32}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-32}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-32~16832}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_90eb498bf38dedbae958f1ee5bea9954}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_dd413e620f5e31f4f42f74080a0bda56}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!BUFFER\_\-SIZE\_\-64@{BUFFER\_\-SIZE\_\-64}}
+\index{BUFFER\_\-SIZE\_\-64@{BUFFER\_\-SIZE\_\-64}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{BUFFER\_\-SIZE\_\-64}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE\_\-64~34664}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_dd413e620f5e31f4f42f74080a0bda56}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_220ef7e31d8d839246660bf0aa8f3eee}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT@{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}}
+\index{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT@{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-BOTTOM\_\-UP\_\-PERCENT~10.0}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_220ef7e31d8d839246660bf0aa8f3eee}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e3b6e60cca467e955b438882e4506614}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!DEFAULT\_\-DISTANCE\_\-PERCENT@{DEFAULT\_\-DISTANCE\_\-PERCENT}}
+\index{DEFAULT\_\-DISTANCE\_\-PERCENT@{DEFAULT\_\-DISTANCE\_\-PERCENT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{DEFAULT\_\-DISTANCE\_\-PERCENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-DISTANCE\_\-PERCENT~2.0}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e3b6e60cca467e955b438882e4506614}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_64532c673824aaf7357c8dd5ee2bb840}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!HIGHEST\_\-CELL\_\-VALUE@{HIGHEST\_\-CELL\_\-VALUE}}
+\index{HIGHEST\_\-CELL\_\-VALUE@{HIGHEST\_\-CELL\_\-VALUE}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{HIGHEST\_\-CELL\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}\#define HIGHEST\_\-CELL\_\-VALUE~0x7fffffff}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_64532c673824aaf7357c8dd5ee2bb840}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_a9db98794d88c4e96ad91bfeb5bf353b}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!imCols@{imCols}}
+\index{imCols@{imCols}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{imCols}]{\setlength{\rightskip}{0pt plus 5cm}\#define imCols(im)~(im $\rightarrow$ cols)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_a9db98794d88c4e96ad91bfeb5bf353b}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_768f8aeac010667e17b502625102794f}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!imRows@{imRows}}
+\index{imRows@{imRows}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{imRows}]{\setlength{\rightskip}{0pt plus 5cm}\#define imRows(im)~(im $\rightarrow$ rows)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_768f8aeac010667e17b502625102794f}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_8eb64dd5bf0124215d7005db399a7c95}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!LOWEST\_\-CELL\_\-VALUE@{LOWEST\_\-CELL\_\-VALUE}}
+\index{LOWEST\_\-CELL\_\-VALUE@{LOWEST\_\-CELL\_\-VALUE}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{LOWEST\_\-CELL\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOWEST\_\-CELL\_\-VALUE~0x80000000}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_8eb64dd5bf0124215d7005db399a7c95}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_78dfc6921c8a1c7d2c90a954b45e9280}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matchDistance@{matchDistance}}
+\index{matchDistance@{matchDistance}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matchDistance}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchDistance(match)~(match $\rightarrow$ distance)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_78dfc6921c8a1c7d2c90a954b45e9280}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_1818f71e58a09056d2c3d8658d25cf7d}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matches@{matches}}
+\index{matches@{matches}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matches}]{\setlength{\rightskip}{0pt plus 5cm}\#define matches(setup)~(setup $\rightarrow$ matches)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_1818f71e58a09056d2c3d8658d25cf7d}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e41ed6a5b2e5512f4a01b68870782bef}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matchX@{matchX}}
+\index{matchX@{matchX}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matchX}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchX(match)~(match $\rightarrow$ x)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e41ed6a5b2e5512f4a01b68870782bef}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_a66d385c2e91f8d7c80afea53fd62e00}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matchY@{matchY}}
+\index{matchY@{matchY}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matchY}]{\setlength{\rightskip}{0pt plus 5cm}\#define matchY(match)~(match $\rightarrow$ y)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_a66d385c2e91f8d7c80afea53fd62e00}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_ff1179b18ab2047060bab837df4a4527}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matCols@{matCols}}
+\index{matCols@{matCols}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matCols}]{\setlength{\rightskip}{0pt plus 5cm}\#define matCols(mat)~(mat $\rightarrow$ cols)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_ff1179b18ab2047060bab837df4a4527}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_6c80e2fcef10381dd06bd211dbdcf530}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matRows@{matRows}}
+\index{matRows@{matRows}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matRows}]{\setlength{\rightskip}{0pt plus 5cm}\#define matRows(mat)~(mat $\rightarrow$ rows)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_6c80e2fcef10381dd06bd211dbdcf530}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_b1dc6c39709ef7d2160f2f4d4761fd57}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matSize@{matSize}}
+\index{matSize@{matSize}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matSize}]{\setlength{\rightskip}{0pt plus 5cm}\#define matSize(mat)~(mat $\rightarrow$ {\bf size})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_b1dc6c39709ef7d2160f2f4d4761fd57}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_7956d21aff5d9ffe6de094f60f3a161d}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matVal@{matVal}}
+\index{matVal@{matVal}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matVal}]{\setlength{\rightskip}{0pt plus 5cm}\#define matVal(mat, \/  y, \/  x)~(mat $\rightarrow$ rowsPtr\mbox{[}y\mbox{]}\mbox{[}x\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_7956d21aff5d9ffe6de094f60f3a161d}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_d3ab0f5f302717285a12303f1f5a9e86}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matValD@{matValD}}
+\index{matValD@{matValD}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matValD}]{\setlength{\rightskip}{0pt plus 5cm}\#define matValD(mat, \/  i)~(mat $\rightarrow$ cellValues\mbox{[}i\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_d3ab0f5f302717285a12303f1f5a9e86}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_1379a049272f210908e5461b2b668ba7}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matValPtr@{matValPtr}}
+\index{matValPtr@{matValPtr}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matValPtr}]{\setlength{\rightskip}{0pt plus 5cm}\#define matValPtr(mat)~(mat $\rightarrow$ cellValues)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_1379a049272f210908e5461b2b668ba7}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_39bb8f7702939d842b16ba48024d07a3}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!MAX\_\-BASIS\_\-1024@{MAX\_\-BASIS\_\-1024}}
+\index{MAX\_\-BASIS\_\-1024@{MAX\_\-BASIS\_\-1024}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{MAX\_\-BASIS\_\-1024}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-BASIS\_\-1024}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_39bb8f7702939d842b16ba48024d07a3}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_779dbe79f385842ec6084a7b4cdc2f03}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!MAX\_\-PATTERN\_\-32@{MAX\_\-PATTERN\_\-32}}
+\index{MAX\_\-PATTERN\_\-32@{MAX\_\-PATTERN\_\-32}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{MAX\_\-PATTERN\_\-32}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-PATTERN\_\-32}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_779dbe79f385842ec6084a7b4cdc2f03}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_5381a445a1e4bdc36460151d82eed95a}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!MINUS@{MINUS}}
+\index{MINUS@{MINUS}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{MINUS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MINUS~-1}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_5381a445a1e4bdc36460151d82eed95a}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_69fc91113933df80ff4538183d57b500}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!numOfMatches@{numOfMatches}}
+\index{numOfMatches@{numOfMatches}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{numOfMatches}]{\setlength{\rightskip}{0pt plus 5cm}\#define numOfMatches(setup)~(setup $\rightarrow$ numOfMatches)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_69fc91113933df80ff4538183d57b500}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e009f5822ff50acfdf0873c916f5a834}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!patternImage@{patternImage}}
+\index{patternImage@{patternImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{patternImage}]{\setlength{\rightskip}{0pt plus 5cm}\#define patternImage(setup)~(setup $\rightarrow$ patternImage)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e009f5822ff50acfdf0873c916f5a834}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_91c8a9019f0fa2ae91a1c8a0d9d5cca2}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!pixelsPtr@{pixelsPtr}}
+\index{pixelsPtr@{pixelsPtr}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{pixelsPtr}]{\setlength{\rightskip}{0pt plus 5cm}\#define pixelsPtr(im)~(im $\rightarrow$ pixels)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_91c8a9019f0fa2ae91a1c8a0d9d5cca2}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_289bb81030befd89fcf48246db78552e}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!pixelVal@{pixelVal}}
+\index{pixelVal@{pixelVal}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{pixelVal}]{\setlength{\rightskip}{0pt plus 5cm}\#define pixelVal(im, \/  y, \/  x)~(im $\rightarrow$ pixels\mbox{[}y $\ast$ im $\rightarrow$ cols + x\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_289bb81030befd89fcf48246db78552e}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_6d8fc9a340714a1c62da73a9496f7d74}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!pixelValD@{pixelValD}}
+\index{pixelValD@{pixelValD}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{pixelValD}]{\setlength{\rightskip}{0pt plus 5cm}\#define pixelValD(im, \/  i)~(im $\rightarrow$ pixels\mbox{[}i\mbox{]})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_6d8fc9a340714a1c62da73a9496f7d74}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_0ea7ff5947c5f5430a29fdd98391eb2a}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!PLUS@{PLUS}}
+\index{PLUS@{PLUS}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{PLUS}]{\setlength{\rightskip}{0pt plus 5cm}\#define PLUS~1}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_0ea7ff5947c5f5430a29fdd98391eb2a}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e546127c403cf0cbb041e0ebeb8ba664}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!sourceImage@{sourceImage}}
+\index{sourceImage@{sourceImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{sourceImage}]{\setlength{\rightskip}{0pt plus 5cm}\#define sourceImage(setup)~(setup $\rightarrow$ sourceImage)}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e546127c403cf0cbb041e0ebeb8ba664}
+
+
+
+
+\subsection{Типы}
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!basisT@{basisT}}
+\index{basisT@{basisT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{basisT}]{\setlength{\rightskip}{0pt plus 5cm}typedef signed \_\-int32 {\bf basisT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e75f61aaa63d0b7478b8fc8f4f8a15cb}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_696db3d7aea6d9d091f2ac73432b948b}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!booleanT@{booleanT}}
+\index{booleanT@{booleanT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{booleanT}]{\setlength{\rightskip}{0pt plus 5cm}typedef \_\-int8 {\bf booleanT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_696db3d7aea6d9d091f2ac73432b948b}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!cellValueT@{cellValueT}}
+\index{cellValueT@{cellValueT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{cellValueT}]{\setlength{\rightskip}{0pt plus 5cm}typedef signed int {\bf cellValueT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_6a63c2ffcfd00315baff593b8895f32a}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!coordT@{coordT}}
+\index{coordT@{coordT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{coordT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf coordT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_f75219364b309824eef21d65e9edc43d}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_22f5977248d0f2af892f3ac9af10b1a7}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!depthT@{depthT}}
+\index{depthT@{depthT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{depthT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned \_\-int8 {\bf depthT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_22f5977248d0f2af892f3ac9af10b1a7}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!distanceT@{distanceT}}
+\index{distanceT@{distanceT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{distanceT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf distanceT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_c1c41d7d1d0ed2da28d8a632864fdd86}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_7b872890b3a65c758de9e62cdf739754}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matrixSizeT@{matrixSizeT}}
+\index{matrixSizeT@{matrixSizeT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matrixSizeT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf matrixSizeT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_7b872890b3a65c758de9e62cdf739754}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!pixelT@{pixelT}}
+\index{pixelT@{pixelT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{pixelT}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf pixelT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_54b1fd08a12b5c079874c56eb482c516}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_14e3c9888ccc350e9e7af9cff09ebcc5}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!signT@{signT}}
+\index{signT@{signT}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{signT}]{\setlength{\rightskip}{0pt plus 5cm}typedef \_\-int8 {\bf signT}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_14e3c9888ccc350e9e7af9cff09ebcc5}
+
+
+
+
+\subsection{Функции}
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_cafac4b7f2a0681fa93efe150bb23b09}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!addConstToMatrix@{addConstToMatrix}}
+\index{addConstToMatrix@{addConstToMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{addConstToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addConstToMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_cafac4b7f2a0681fa93efe150bb23b09}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_3a5f6ba791013cee04d947e1bf53b776}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!addMatrix@{addMatrix}}
+\index{addMatrix@{addMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{addMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void addMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_3a5f6ba791013cee04d947e1bf53b776}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e2651d62fad27cd482ddc4840ae62420}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!allocMatrix@{allocMatrix}}
+\index{allocMatrix@{allocMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{allocMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ allocMatrix ({\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e2651d62fad27cd482ddc4840ae62420}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_b92ec93e974d556c963b23b989aba0a0}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!cloneMatrix@{cloneMatrix}}
+\index{cloneMatrix@{cloneMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{cloneMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ cloneMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_b92ec93e974d556c963b23b989aba0a0}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_57243bea80a1e7d9ed383da23e05eadf}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!convoluteMatrix@{convoluteMatrix}}
+\index{convoluteMatrix@{convoluteMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{convoluteMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ convoluteMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf Matrix} $\ast$ {\em mask})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_57243bea80a1e7d9ed383da23e05eadf}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_5b1eb316cbff69b93f2989dcaa4170a3}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!copyImageSegment@{copyImageSegment}}
+\index{copyImageSegment@{copyImageSegment}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{copyImageSegment}]{\setlength{\rightskip}{0pt plus 5cm}void copyImageSegment ({\bf Image} $\ast$ {\em source}, \/  {\bf Image} $\ast$ {\em dest}, \/  {\bf coordT} {\em sourceStartRow}, \/  {\bf coordT} {\em destStartRow}, \/  {\bf coordT} {\em numOfRows}, \/  {\bf coordT} {\em sourceStartCol}, \/  {\bf coordT} {\em destStartCol}, \/  {\bf coordT} {\em numOfCols})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_5b1eb316cbff69b93f2989dcaa4170a3}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_f8e5cf7806a77bc0245e838c4b7e49b9}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!copyMatrixSegment@{copyMatrixSegment}}
+\index{copyMatrixSegment@{copyMatrixSegment}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{copyMatrixSegment}]{\setlength{\rightskip}{0pt plus 5cm}void copyMatrixSegment ({\bf Matrix} $\ast$ {\em source}, \/  {\bf Matrix} $\ast$ {\em dest}, \/  {\bf coordT} {\em sourceStartRow}, \/  {\bf coordT} {\em destStartRow}, \/  {\bf coordT} {\em numOfRows}, \/  {\bf coordT} {\em sourceStartCol}, \/  {\bf coordT} {\em destStartCol}, \/  {\bf coordT} {\em numOfCols})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_f8e5cf7806a77bc0245e838c4b7e49b9}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_f0ed98a439633805c834ce41bba31bf5}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!createImage@{createImage}}
+\index{createImage@{createImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{createImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ createImage ({\bf pixelT} $\ast$ {\em pixels}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_f0ed98a439633805c834ce41bba31bf5}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_3534f26e4654fc23f764d313133e7e14}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!createWHSetup@{createWHSetup}}
+\index{createWHSetup@{createWHSetup}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{createWHSetup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WHSetup}$\ast$ createWHSetup ({\bf coordT} {\em sourceRows}, \/  {\bf coordT} {\em sourceCols}, \/  {\bf coordT} {\em patternRows}, \/  {\bf basisT} {\em numOfBasis})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_3534f26e4654fc23f764d313133e7e14}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_fac650c01cf1fdc985e41e1979d563f4}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!destroyImage@{destroyImage}}
+\index{destroyImage@{destroyImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{destroyImage}]{\setlength{\rightskip}{0pt plus 5cm}void destroyImage ({\bf Image} $\ast$ {\em image})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_fac650c01cf1fdc985e41e1979d563f4}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_093cd57d92bc0a4a25bf73a200f5807f}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!destroyMatrix@{destroyMatrix}}
+\index{destroyMatrix@{destroyMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{destroyMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void destroyMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_093cd57d92bc0a4a25bf73a200f5807f}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e5520182a27a209d6e6f1e387cbc6609}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!destroyWHSetup@{destroyWHSetup}}
+\index{destroyWHSetup@{destroyWHSetup}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{destroyWHSetup}]{\setlength{\rightskip}{0pt plus 5cm}void destroyWHSetup ({\bf WHSetup} $\ast$ {\em setup})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e5520182a27a209d6e6f1e387cbc6609}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_27aecc34626240faadb44affcf24ce50}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!divMatrix@{divMatrix}}
+\index{divMatrix@{divMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{divMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_27aecc34626240faadb44affcf24ce50}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_36f25578c616ae9eef3a415c4a2629cf}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!divMatrixByConst@{divMatrixByConst}}
+\index{divMatrixByConst@{divMatrixByConst}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{divMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void divMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_36f25578c616ae9eef3a415c4a2629cf}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_7eba9a6bc31825849077a736f1b83c2c}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!dotProductMatrix@{dotProductMatrix}}
+\index{dotProductMatrix@{dotProductMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{dotProductMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int dotProductMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_7eba9a6bc31825849077a736f1b83c2c}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_659b96445aaa02061098d2a7c183dcfb}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!exitWithError@{exitWithError}}
+\index{exitWithError@{exitWithError}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{exitWithError}]{\setlength{\rightskip}{0pt plus 5cm}void exitWithError (char $\ast$ {\em message})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_659b96445aaa02061098d2a7c183dcfb}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_7d2daf21d136f6f0fd8a2f64caf76138}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!fillMatrix@{fillMatrix}}
+\index{fillMatrix@{fillMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{fillMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void fillMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em cellValue})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_7d2daf21d136f6f0fd8a2f64caf76138}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_1411e90b906c182ab9940fdbe216c7eb}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!findMatrixDistance@{findMatrixDistance}}
+\index{findMatrixDistance@{findMatrixDistance}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{findMatrixDistance}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-inline {\bf distanceT} findMatrixDistance ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} {\em startRow}, \/  {\bf coordT} {\em startCol}, \/  {\bf Matrix} $\ast$ {\em win})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_1411e90b906c182ab9940fdbe216c7eb}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_e55e3ff581f9fea0a9492cba696ea4a1}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!imageToMatrix@{imageToMatrix}}
+\index{imageToMatrix@{imageToMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{imageToMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ imageToMatrix ({\bf Image} $\ast$ {\em image})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_e55e3ff581f9fea0a9492cba696ea4a1}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_2ed0e79edb3905e7fb8da4055915cc83}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!logImage@{logImage}}
+\index{logImage@{logImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{logImage}]{\setlength{\rightskip}{0pt plus 5cm}void logImage ({\bf Image} $\ast$ {\em image})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_2ed0e79edb3905e7fb8da4055915cc83}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!matrixToImage@{matrixToImage}}
+\index{matrixToImage@{matrixToImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{matrixToImage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ matrixToImage ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_c24445e9ac9bf05cf4c9f3a9062f3a3a}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_026b2f260dff8880370b3af3935c4c4a}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!maxMatrix@{maxMatrix}}
+\index{maxMatrix@{maxMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{maxMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} maxMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_026b2f260dff8880370b3af3935c4c4a}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_86c8d1e9657ad1747c5d1b1724d09c95}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!minMatrix@{minMatrix}}
+\index{minMatrix@{minMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{minMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} minMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} $\ast$ {\em y}, \/  {\bf coordT} $\ast$ {\em x})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_86c8d1e9657ad1747c5d1b1724d09c95}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_0a8b1ecc621f3bed9d716fa3752e9647}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!mulMatrix@{mulMatrix}}
+\index{mulMatrix@{mulMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{mulMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_0a8b1ecc621f3bed9d716fa3752e9647}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_368705f484251b9b09b9cb34c7ebf802}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!mulMatrixByConst@{mulMatrixByConst}}
+\index{mulMatrixByConst@{mulMatrixByConst}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{mulMatrixByConst}]{\setlength{\rightskip}{0pt plus 5cm}void mulMatrixByConst ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf cellValueT} {\em constant})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_368705f484251b9b09b9cb34c7ebf802}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_c8dd4a661e4c6cbf7d824242fa195c68}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!normalizeMatrix@{normalizeMatrix}}
+\index{normalizeMatrix@{normalizeMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{normalizeMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void normalizeMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_c8dd4a661e4c6cbf7d824242fa195c68}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_2dd9b18d5aad7fac22714b8be0be2ed5}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!rotate180Matrix@{rotate180Matrix}}
+\index{rotate180Matrix@{rotate180Matrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{rotate180Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ rotate180Matrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_2dd9b18d5aad7fac22714b8be0be2ed5}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_da6128fb2d8fc2053aa760648a81ed53}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!setMethodStartPercent@{setMethodStartPercent}}
+\index{setMethodStartPercent@{setMethodStartPercent}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{setMethodStartPercent}]{\setlength{\rightskip}{0pt plus 5cm}void setMethodStartPercent ({\bf WHSetup} $\ast$ {\em setup}, \/  float {\em bottomUpStartPercent}, \/  float {\em distanceStartPercent})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_da6128fb2d8fc2053aa760648a81ed53}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_9c54b2b6010eb7b4c98c15532d03e24d}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!setPatternImage@{setPatternImage}}
+\index{setPatternImage@{setPatternImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{setPatternImage}]{\setlength{\rightskip}{0pt plus 5cm}void setPatternImage ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf Image} $\ast$ {\em pattern})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_9c54b2b6010eb7b4c98c15532d03e24d}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_d2ab0e9bb1416c9e7def0c3abba79750}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!setSourceImage@{setSourceImage}}
+\index{setSourceImage@{setSourceImage}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{setSourceImage}]{\setlength{\rightskip}{0pt plus 5cm}void setSourceImage ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf Image} $\ast$ {\em source})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_d2ab0e9bb1416c9e7def0c3abba79750}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_3d13707f4dce886dcd41d7e003ba205d}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!subMatrix@{subMatrix}}
+\index{subMatrix@{subMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{subMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void subMatrix ({\bf Matrix} $\ast$ {\em mat1}, \/  {\bf Matrix} $\ast$ {\em mat2})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_3d13707f4dce886dcd41d7e003ba205d}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_b8d861abd2a3cfab7783d3839c548b10}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!sumMatrix@{sumMatrix}}
+\index{sumMatrix@{sumMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{sumMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int sumMatrix ({\bf Matrix} $\ast$ {\em mat})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_b8d861abd2a3cfab7783d3839c548b10}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_ea0a46965a2dea1e086f8d0b6875e180}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!whPatternMatch@{whPatternMatch}}
+\index{whPatternMatch@{whPatternMatch}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{whPatternMatch}]{\setlength{\rightskip}{0pt plus 5cm}void whPatternMatch ({\bf WHSetup} $\ast$ {\em setup}, \/  {\bf distanceT} {\em rejectThresh})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_ea0a46965a2dea1e086f8d0b6875e180}
+
+
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_9dfe0eeefac1b3c3cc63c443938f35d6}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!zeroPadMatrix@{zeroPadMatrix}}
+\index{zeroPadMatrix@{zeroPadMatrix}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{zeroPadMatrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$\ast$ zeroPadMatrix ({\bf Matrix} $\ast$ {\em mat}, \/  {\bf coordT} {\em rows}, \/  {\bf coordT} {\em cols}, \/  {\bf coordT} {\em startRow}, \/  {\bf coordT} {\em startCol})}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_9dfe0eeefac1b3c3cc63c443938f35d6}
+
+
+
+
+\subsection{Переменные}
+\hypertarget{walsh__hadamard__run_2pm_2whimport_8h_bcaa56f51c20292898754fce33b5a991}{
+\index{walsh\_\-hadamard\_\-run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}!buffer@{buffer}}
+\index{buffer@{buffer}!walsh_hadamard_run/pm/whimport.h@{walsh\_\-hadamard\_\-run/pm/whimport.h}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cellValueT} {\bf buffer}\mbox{[}BUFFER\_\-SIZE\mbox{]}}}
+\label{walsh__hadamard__run_2pm_2whimport_8h_bcaa56f51c20292898754fce33b5a991}
+
+

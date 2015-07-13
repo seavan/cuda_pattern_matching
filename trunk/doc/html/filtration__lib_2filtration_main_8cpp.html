@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Файл D:/Projects/MatchingSolution/source/filtration_lib/filtrationMain.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл D:/Projects/MatchingSolution/source/filtration_lib/filtrationMain.cpp</h1><code>#include &quot;<a class="el" href="stdafx_8h_source.html">stdafx.h</a>&quot;</code><br>
+<code>#include &lt;conio.h&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
+<code>#include &lt;fstream&gt;</code><br>
+<code>#include &quot;<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8h_source.html">bmp/EasyBMP.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="filtration__run_2free_image_2_free_image_8h_source.html">FreeImage.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Определения типов</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef unsigned char(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#21f294357250b2513bab932511573c6f">TMethod</a> )(<a class="el" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a> *)</td></tr>
+
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#3106e348f2f7c1251cc32cc07d5eaed6">correlationCuda</a> (int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnwidth, int _ptnheight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#68b2cd9e202f4b22c9ac08d2e44ef039">correlationCpu</a> (unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnwidth, int _ptnheight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a> (<a class="el" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a> *_pixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a> (const char *_fileName, int &amp;_width, int &amp;_height)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#9bfd5275785bd0a8fd3b49a48853bcdc">saveImage</a> (const char *_fileName, unsigned char *_image, int _width, int _height)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#353674c5af92be7fb389265cde4e5e03">_tmain</a> (int argc, _TCHAR *argv[])</td></tr>
+
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="filtration__lib_2filtration_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = grayScale</td></tr>
+
+</table>
+<hr><h2>Типы</h2>
+<a class="anchor" name="21f294357250b2513bab932511573c6f"></a><!-- doxytag: member="filtrationMain.cpp::TMethod" ref="21f294357250b2513bab932511573c6f" args=")(RGBQUAD *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned char(* <a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a>)(<a class="el" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a> *)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Функции</h2>
+<a class="anchor" name="353674c5af92be7fb389265cde4e5e03"></a><!-- doxytag: member="filtrationMain.cpp::_tmain" ref="353674c5af92be7fb389265cde4e5e03" args="(int argc, _TCHAR *argv[])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int _tmain           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">_TCHAR *&nbsp;</td>
+          <td class="paramname"> <em>argv</em>[]</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="68b2cd9e202f4b22c9ac08d2e44ef039"></a><!-- doxytag: member="filtrationMain.cpp::correlationCpu" ref="68b2cd9e202f4b22c9ac08d2e44ef039" args="(unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnwidth, int _ptnheight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* correlationCpu           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnwidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnheight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3106e348f2f7c1251cc32cc07d5eaed6"></a><!-- doxytag: member="filtrationMain.cpp::correlationCuda" ref="3106e348f2f7c1251cc32cc07d5eaed6" args="(int argc, char **argv, unsigned char *_input, int _width, int _height, unsigned char *_pattern, int _ptnwidth, int _ptnheight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* correlationCuda           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnwidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_ptnheight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4dd9cfb128076adb7fa7d22c14aa9f97"></a><!-- doxytag: member="filtrationMain.cpp::grayScale" ref="4dd9cfb128076adb7fa7d22c14aa9f97" args="(RGBQUAD *_pixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char grayScale           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtag_r_g_b_q_u_a_d.html">RGBQUAD</a> *&nbsp;</td>
+          <td class="paramname"> <em>_pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="006ab3bb0a37bebbfaa07f674d0f7299"></a><!-- doxytag: member="filtrationMain.cpp::loadImage" ref="006ab3bb0a37bebbfaa07f674d0f7299" args="(const char *_fileName, int &amp;_width, int &amp;_height)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* loadImage           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>_fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>_height</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Автоматическое определение формата и загрузка изображения из указанного файла <dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>_fileName</em>&nbsp;</td><td>Путь к файлу с изображением </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_width</em>&nbsp;</td><td>Ширина загруженного изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_height</em>&nbsp;</td><td>Высота загруженного изображения </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="9bfd5275785bd0a8fd3b49a48853bcdc"></a><!-- doxytag: member="filtrationMain.cpp::saveImage" ref="9bfd5275785bd0a8fd3b49a48853bcdc" args="(const char *_fileName, unsigned char *_image, int _width, int _height)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveImage           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>_fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>_image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>_height</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Сохранение изображения в формате BMP <dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>_fileName</em>&nbsp;</td><td>Путь к файлу с изображением </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_width</em>&nbsp;</td><td>Ширина загруженного изображения </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>_height</em>&nbsp;</td><td>Высота загруженного изображения </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке </dd></dl>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="884bc9c4b36f5374b842d2aca48e34fb"></a><!-- doxytag: member="filtrationMain.cpp::method" ref="884bc9c4b36f5374b842d2aca48e34fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="wh__main_8cpp.html#5882544fccae5d66b769ad92980a4802">TMethod</a> <a class="el" href="wh__main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = grayScale          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

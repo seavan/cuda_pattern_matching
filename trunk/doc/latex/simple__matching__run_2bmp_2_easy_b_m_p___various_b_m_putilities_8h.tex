@@ -1,0 +1,100 @@
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h}\index{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{D:/Projects/MatchingSolution/source/simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_b_m_f_h}{BMFH} \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_66cd5022854084cc377337cced3866e6}{GetBMFH} (const char $\ast$szFileNameIn)
+\item 
+\hyperlink{class_b_m_i_h}{BMIH} \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_d3884939602af9979dab7e63b8892ce6}{GetBMIH} (const char $\ast$szFileNameIn)
+\item 
+void \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_f5917ccb612d45cdb324804c573052e6}{DisplayBitmapInfo} (const char $\ast$szFileNameIn)
+\item 
+int \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_8a847e3d65680531be233837bccd46e1}{GetBitmapColorDepth} (const char $\ast$szFileNameIn)
+\item 
+void \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_ba80d82c4847200740ea11fa6f604d9f}{PixelToPixelCopy} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromX, int FromY, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY)
+\item 
+void \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_922fefb711a86d220afece6d98770d17}{PixelToPixelCopyTransparent} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromX, int FromY, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY, \hyperlink{struct_r_g_b_apixel}{RGBApixel} \&Transparent)
+\item 
+void \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_cd1a7ee93b0e7a40f970ba3af1d6bb75}{RangedPixelToPixelCopy} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromL, int FromR, int FromB, int FromT, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY)
+\item 
+void \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_206d4e0294b4e1b55f3be10d024c2759}{RangedPixelToPixelCopyTransparent} (\hyperlink{classcpp_b_m_p}{cppBMP} \&From, int FromL, int FromR, int FromB, int FromT, \hyperlink{classcpp_b_m_p}{cppBMP} \&To, int ToX, int ToY, \hyperlink{struct_r_g_b_apixel}{RGBApixel} \&Transparent)
+\item 
+bool \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_a109743bea7d0c389e7fcbbc66bdc79c}{CreateGrayscaleColorTable} (\hyperlink{classcpp_b_m_p}{cppBMP} \&InputImage)
+\item 
+bool \hyperlink{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_9b2bca20900fcd707efd350299e3fb45}{Rescale} (\hyperlink{classcpp_b_m_p}{cppBMP} \&InputImage, char mode, int NewDimension)
+\end{CompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_a109743bea7d0c389e7fcbbc66bdc79c}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!CreateGrayscaleColorTable@{CreateGrayscaleColorTable}}
+\index{CreateGrayscaleColorTable@{CreateGrayscaleColorTable}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{CreateGrayscaleColorTable}]{\setlength{\rightskip}{0pt plus 5cm}bool CreateGrayscaleColorTable ({\bf cppBMP} \& {\em InputImage})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_a109743bea7d0c389e7fcbbc66bdc79c}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_f5917ccb612d45cdb324804c573052e6}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!DisplayBitmapInfo@{DisplayBitmapInfo}}
+\index{DisplayBitmapInfo@{DisplayBitmapInfo}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{DisplayBitmapInfo}]{\setlength{\rightskip}{0pt plus 5cm}void DisplayBitmapInfo (const char $\ast$ {\em szFileNameIn})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_f5917ccb612d45cdb324804c573052e6}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_8a847e3d65680531be233837bccd46e1}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!GetBitmapColorDepth@{GetBitmapColorDepth}}
+\index{GetBitmapColorDepth@{GetBitmapColorDepth}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{GetBitmapColorDepth}]{\setlength{\rightskip}{0pt plus 5cm}int GetBitmapColorDepth (const char $\ast$ {\em szFileNameIn})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_8a847e3d65680531be233837bccd46e1}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_66cd5022854084cc377337cced3866e6}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!GetBMFH@{GetBMFH}}
+\index{GetBMFH@{GetBMFH}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{GetBMFH}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BMFH} GetBMFH (const char $\ast$ {\em szFileNameIn})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_66cd5022854084cc377337cced3866e6}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_d3884939602af9979dab7e63b8892ce6}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!GetBMIH@{GetBMIH}}
+\index{GetBMIH@{GetBMIH}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{GetBMIH}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BMIH} GetBMIH (const char $\ast$ {\em szFileNameIn})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_d3884939602af9979dab7e63b8892ce6}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_ba80d82c4847200740ea11fa6f604d9f}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!PixelToPixelCopy@{PixelToPixelCopy}}
+\index{PixelToPixelCopy@{PixelToPixelCopy}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{PixelToPixelCopy}]{\setlength{\rightskip}{0pt plus 5cm}void PixelToPixelCopy ({\bf cppBMP} \& {\em From}, \/  int {\em FromX}, \/  int {\em FromY}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_ba80d82c4847200740ea11fa6f604d9f}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_922fefb711a86d220afece6d98770d17}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!PixelToPixelCopyTransparent@{PixelToPixelCopyTransparent}}
+\index{PixelToPixelCopyTransparent@{PixelToPixelCopyTransparent}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{PixelToPixelCopyTransparent}]{\setlength{\rightskip}{0pt plus 5cm}void PixelToPixelCopyTransparent ({\bf cppBMP} \& {\em From}, \/  int {\em FromX}, \/  int {\em FromY}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY}, \/  {\bf RGBApixel} \& {\em Transparent})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_922fefb711a86d220afece6d98770d17}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_cd1a7ee93b0e7a40f970ba3af1d6bb75}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!RangedPixelToPixelCopy@{RangedPixelToPixelCopy}}
+\index{RangedPixelToPixelCopy@{RangedPixelToPixelCopy}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{RangedPixelToPixelCopy}]{\setlength{\rightskip}{0pt plus 5cm}void RangedPixelToPixelCopy ({\bf cppBMP} \& {\em From}, \/  int {\em FromL}, \/  int {\em FromR}, \/  int {\em FromB}, \/  int {\em FromT}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_cd1a7ee93b0e7a40f970ba3af1d6bb75}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_206d4e0294b4e1b55f3be10d024c2759}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!RangedPixelToPixelCopyTransparent@{RangedPixelToPixelCopyTransparent}}
+\index{RangedPixelToPixelCopyTransparent@{RangedPixelToPixelCopyTransparent}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{RangedPixelToPixelCopyTransparent}]{\setlength{\rightskip}{0pt plus 5cm}void RangedPixelToPixelCopyTransparent ({\bf cppBMP} \& {\em From}, \/  int {\em FromL}, \/  int {\em FromR}, \/  int {\em FromB}, \/  int {\em FromT}, \/  {\bf cppBMP} \& {\em To}, \/  int {\em ToX}, \/  int {\em ToY}, \/  {\bf RGBApixel} \& {\em Transparent})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_206d4e0294b4e1b55f3be10d024c2759}
+
+
+\hypertarget{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_9b2bca20900fcd707efd350299e3fb45}{
+\index{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}!Rescale@{Rescale}}
+\index{Rescale@{Rescale}!simple_matching_run/bmp/EasyBMP_VariousBMPutilities.h@{simple\_\-matching\_\-run/bmp/EasyBMP\_\-VariousBMPutilities.h}}
+\subsubsection[{Rescale}]{\setlength{\rightskip}{0pt plus 5cm}bool Rescale ({\bf cppBMP} \& {\em InputImage}, \/  char {\em mode}, \/  int {\em NewDimension})}}
+\label{simple__matching__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h_9b2bca20900fcd707efd350299e3fb45}
+
+

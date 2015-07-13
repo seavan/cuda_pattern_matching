@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/simple_matching_run/pm/image.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/simple_matching_run/pm/image.h</h1><a href="simple__matching__run_2pm_2image_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00003"></a>00003 <span class="comment"> *****************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment"> * file:        image.h                                                      *</span>
+<a name="l00005"></a>00005 <span class="comment"> *                                                                           *</span>
+<a name="l00006"></a>00006 <span class="comment"> * description: Utilities for handling 8-bit grey level images.              *</span>
+<a name="l00007"></a>00007 <span class="comment"> *              An Image is created using an array of pixels (each pixel     *</span>
+<a name="l00008"></a>00008 <span class="comment"> *              indicates a grey level) and the image's dimensions.          *</span>
+<a name="l00009"></a>00009 <span class="comment"> *              The pixel array should be in rows order, i.e. the top row    *</span>
+<a name="l00010"></a>00010 <span class="comment"> *              from left to right, then the second row from left to right,  *</span>
+<a name="l00011"></a>00011 <span class="comment"> *              etc.                                                         *</span>
+<a name="l00012"></a>00012 <span class="comment"> *              The image data should be accessed only using the available   *</span>
+<a name="l00013"></a>00013 <span class="comment"> *              macros.                                                      *</span>
+<a name="l00014"></a>00014 <span class="comment"> ****************************************************************************/</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#ifndef _image_h_</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#define _image_h_</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include "<a class="code" href="simple__matching__run_2pm_2defs_8h.html">defs.h</a>"</span>
+<a name="l00020"></a>00020 
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">00023</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">00025</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a>;
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="struct_image.html">00027</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00028"></a><a class="code" href="struct_image.html#4a618c18ca804c04077fa256e3d2f381">00028</a>         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, cols;
+<a name="l00029"></a><a class="code" href="struct_image.html#f5500233b42a09a7c8940399646accaf">00029</a>         <a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels; <span class="comment">// P0,0..P0,width  P1,0..P1,width ... Pheigth,0..Pheight,width</span>
+<a name="l00030"></a>00030 } <a class="code" href="struct_image.html">Image</a>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00034"></a>00034 
+<a name="l00035"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#768f8aeac010667e17b502625102794f">00035</a> <span class="preprocessor">#define imRows(im)    (im-&gt;rows)</span>
+<a name="l00036"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#a9db98794d88c4e96ad91bfeb5bf353b">00036</a> <span class="preprocessor"></span><span class="preprocessor">#define imCols(im)    (im-&gt;cols)</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#91c8a9019f0fa2ae91a1c8a0d9d5cca2">00038</a> <span class="preprocessor">#define pixelsPtr(im) (im-&gt;pixels)</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#289bb81030befd89fcf48246db78552e">00040</a> <span class="preprocessor">#define pixelVal(im, y, x) (im-&gt;pixels[y * im-&gt;cols + x])</span>
+<a name="l00041"></a><a class="code" href="simple__matching__run_2pm_2image_8h.html#6d8fc9a340714a1c62da73a9496f7d74">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define pixelValD(im, i)   (im-&gt;pixels[i])</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

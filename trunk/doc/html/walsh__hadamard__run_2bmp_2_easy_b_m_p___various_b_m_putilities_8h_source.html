@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP_VariousBMPutilities.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/EasyBMP_VariousBMPutilities.h</h1><a href="walsh__hadamard__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">*                                                *</span>
+<a name="l00003"></a>00003 <span class="comment">*  EasyBMP Cross-Platform Windows Bitmap Library * </span>
+<a name="l00004"></a>00004 <span class="comment">*                                                *</span>
+<a name="l00005"></a>00005 <span class="comment">*  Author: Paul Macklin                          *</span>
+<a name="l00006"></a>00006 <span class="comment">*   email: macklin01@users.sourceforge.net       *</span>
+<a name="l00007"></a>00007 <span class="comment">* support: http://easybmp.sourceforge.net        *</span>
+<a name="l00008"></a>00008 <span class="comment">*                                                *</span>
+<a name="l00009"></a>00009 <span class="comment">*          file: EasyBMP_VariousBMPutilities.h   *</span>
+<a name="l00010"></a>00010 <span class="comment">*    date added: 05-02-2005                      *</span>
+<a name="l00011"></a>00011 <span class="comment">* date modified: 12-01-2006                      *</span>
+<a name="l00012"></a>00012 <span class="comment">*       version: 1.06                            *</span>
+<a name="l00013"></a>00013 <span class="comment">*                                                *</span>
+<a name="l00014"></a>00014 <span class="comment">*   License: BSD (revised/modified)              *</span>
+<a name="l00015"></a>00015 <span class="comment">* Copyright: 2005-6 by the EasyBMP Project       * </span>
+<a name="l00016"></a>00016 <span class="comment">*                                                *</span>
+<a name="l00017"></a>00017 <span class="comment">* description: Various utilities.                *</span>
+<a name="l00018"></a>00018 <span class="comment">*                                                *</span>
+<a name="l00019"></a>00019 <span class="comment">*************************************************/</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _EasyBMP_VariousBMPutilities_h_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_VariousBMPutilities_h_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <a class="code" href="class_b_m_f_h.html">BMFH</a> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#66cd5022854084cc377337cced3866e6">GetBMFH</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* szFileNameIn );
+<a name="l00025"></a>00025 <a class="code" href="class_b_m_i_h.html">BMIH</a> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#d3884939602af9979dab7e63b8892ce6">GetBMIH</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* szFileNameIn );
+<a name="l00026"></a>00026 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#f5917ccb612d45cdb324804c573052e6">DisplayBitmapInfo</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* szFileNameIn );
+<a name="l00027"></a>00027 <span class="keywordtype">int</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#8a847e3d65680531be233837bccd46e1">GetBitmapColorDepth</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* szFileNameIn );
+<a name="l00028"></a>00028 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#ba80d82c4847200740ea11fa6f604d9f">PixelToPixelCopy</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; From, <span class="keywordtype">int</span> FromX, <span class="keywordtype">int</span> FromY,  
+<a name="l00029"></a>00029                        <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; To, <span class="keywordtype">int</span> ToX, <span class="keywordtype">int</span> ToY);
+<a name="l00030"></a>00030 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#922fefb711a86d220afece6d98770d17">PixelToPixelCopyTransparent</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; From, <span class="keywordtype">int</span> FromX, <span class="keywordtype">int</span> FromY,  
+<a name="l00031"></a>00031                                   <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; To, <span class="keywordtype">int</span> ToX, <span class="keywordtype">int</span> ToY,
+<a name="l00032"></a>00032                                   <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>&amp; Transparent );
+<a name="l00033"></a>00033 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#cd1a7ee93b0e7a40f970ba3af1d6bb75">RangedPixelToPixelCopy</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; From, <span class="keywordtype">int</span> FromL , <span class="keywordtype">int</span> FromR, <span class="keywordtype">int</span> FromB, <span class="keywordtype">int</span> FromT, 
+<a name="l00034"></a>00034                              <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; To, <span class="keywordtype">int</span> ToX, <span class="keywordtype">int</span> ToY );
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#206d4e0294b4e1b55f3be10d024c2759">RangedPixelToPixelCopyTransparent</a>( 
+<a name="l00036"></a>00036      <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; From, <span class="keywordtype">int</span> FromL , <span class="keywordtype">int</span> FromR, <span class="keywordtype">int</span> FromB, <span class="keywordtype">int</span> FromT, 
+<a name="l00037"></a>00037      <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; To, <span class="keywordtype">int</span> ToX, <span class="keywordtype">int</span> ToY ,
+<a name="l00038"></a>00038      <a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>&amp; Transparent );
+<a name="l00039"></a>00039 <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#a109743bea7d0c389e7fcbbc66bdc79c">CreateGrayscaleColorTable</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; InputImage );
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#9b2bca20900fcd707efd350299e3fb45">Rescale</a>( <a class="code" href="classcpp_b_m_p.html">cppBMP</a>&amp; InputImage , <span class="keywordtype">char</span> mode, <span class="keywordtype">int</span> NewDimension );
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

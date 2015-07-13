@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/simple_matching_run/simpleMatching_cuda.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/simple_matching_run/simpleMatching_cuda.cpp</h1><a href="simple_matching__cuda_8cpp.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// alg2.cpp : Defines the entry point for the console application.</span>
+<a name="l00002"></a>00002 <span class="comment">//</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;conio.h&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "bmp/EasyBMP.h"</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include "pm/whimport.h"</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="simple_8h.html">simple/simple.h</a>"</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple_matching__cuda_8cpp.html#4cebdacbdee561119bb615ae18d3d506">cudaPatternMatch</a>();
+<a name="l00012"></a>00012 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <a class="code" href="struct_image.html">Image</a> *<a class="code" href="simple__matching__run_2pm_2image_8c.html#ef3e4ac6a6da6b6cc0c4a7d287cfcd8c">createImage2</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#54b1fd08a12b5c079874c56eb482c516">pixelT</a> *pixels, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> rows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> cols);
+<a name="l00013"></a>00013 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">void</span> <a class="code" href="simple_matching__cuda_8cpp.html#76e6bbf2dc8db703a21bce9a5fd9cd95">runTest</a>( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv);
+<a name="l00014"></a>00014 <span class="keyword">extern</span> <span class="stringliteral">"C"</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="simple_matching__cuda_8cpp.html#fc788118d03a4c52faa29e816f0b951e">simpleMatchingCuda</a>( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv, 
+<a name="l00015"></a>00015                                                                    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _input, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _height, 
+<a name="l00016"></a>00016                                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* _pattern, <span class="keywordtype">int</span> _ptnWidth, <span class="keywordtype">int</span> _ptnHeight);
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="simple_matching__cuda_8cpp.html#f179b724e8502f3d77ef713385ed2555">00018</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> char (*<a class="code" href="correlation_main_8cpp.html#21f294357250b2513bab932511573c6f">TMethod</a>) (<a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a>);
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="simple_matching__cuda_8cpp.html#017828ccde9e86dedd48b5d4f3462b6d">00020</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>(<a class="code" href="struct_r_g_b_apixel.html">RGBApixel</a> _pixel)
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022         <span class="keywordflow">return</span> (_pixel.<a class="code" href="struct_r_g_b_apixel.html#0d2e09cc0a67fd3da76b17289146fc26">Red</a> + _pixel.<a class="code" href="struct_r_g_b_apixel.html#9a9cd569a585a627910620a7b13690e7">Green</a> + _pixel.<a class="code" href="struct_r_g_b_apixel.html#f12bfb2ddd00995b59ef07e4e77c11af">Blue</a>) / 3;
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="simple_matching__cuda_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">00025</a> <a class="code" href="correlation_main_8cpp.html#21f294357250b2513bab932511573c6f">TMethod</a> <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>;
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="simple_matching__cuda_8cpp.html#ab3b8954b0ceea95e3f7a6a13bd42a7b">00027</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(<a class="code" href="classcpp_b_m_p.html">cppBMP</a>* _bitmap, <span class="keywordtype">int</span>&amp; _width, <span class="keywordtype">int</span>&amp; _height)
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029         <span class="keywordtype">unsigned</span> dim = std::max(_bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a>(), _bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a>());
+<a name="l00030"></a>00030         <span class="keywordtype">unsigned</span> dimX = _bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a>();
+<a name="l00031"></a>00031         <span class="keywordtype">unsigned</span> dimY = _bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a>();
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* result = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[dim * dim];
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         <span class="keywordtype">int</span> index = 0;
+<a name="l00036"></a>00036         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> y = 0; y &lt; dimY; ++y)
+<a name="l00037"></a>00037         {
+<a name="l00038"></a>00038                 <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> x = 0; x &lt; dimX; ++x)
+<a name="l00039"></a>00039                 {
+<a name="l00040"></a>00040                         <span class="comment">/*if( (x &lt; dimX) &amp;&amp; (y &lt; dimY) )*/</span>result[index] = <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a>(_bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a>(x, y));
+<a name="l00041"></a>00041                         ++index;
+<a name="l00042"></a>00042                 }
+<a name="l00043"></a>00043         }
+<a name="l00044"></a>00044         _width = dimX;
+<a name="l00045"></a>00045         _height = dimY;
+<a name="l00046"></a>00046         <span class="keywordflow">return</span> result;
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="simple_matching__cuda_8cpp.html#7542cf893e429eb8648b56548f5a26ed">00050</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="simple_matching__cuda_8cpp.html#7542cf893e429eb8648b56548f5a26ed">loadPatternImage</a>(<a class="code" href="classcpp_b_m_p.html">cppBMP</a>* _bitmap, <span class="keywordtype">int</span>&amp; _width, <span class="keywordtype">int</span>&amp; _height)
+<a name="l00051"></a>00051 {
+<a name="l00052"></a>00052         <span class="keywordtype">unsigned</span> dim = std::min(_bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a>(), _bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a>());
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* result = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[dim * dim];
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056         <span class="keywordtype">int</span> index = 0;
+<a name="l00057"></a>00057         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> y = 0; y &lt; dim; ++y)
+<a name="l00058"></a>00058         {
+<a name="l00059"></a>00059                 <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> x = 0; x &lt; dim; ++x)
+<a name="l00060"></a>00060                 {
+<a name="l00061"></a>00061                         result[index] = <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a>(_bitmap-&gt;<a class="code" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a>(x, y));
+<a name="l00062"></a>00062                         <span class="comment">//printf(result[index] &gt; 100 ? "*":" ");</span>
+<a name="l00063"></a>00063                         ++index;
+<a name="l00064"></a>00064                 
+<a name="l00065"></a>00065                 }
+<a name="l00066"></a>00066                 <span class="comment">//printf("\n");</span>
+<a name="l00067"></a>00067         }
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         _width = dim;
+<a name="l00070"></a>00070         _height = dim;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="keywordflow">return</span> result;
+<a name="l00073"></a>00073 }
+<a name="l00074"></a>00074 
+<a name="l00075"></a><a class="code" href="simple_matching__cuda_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">00075</a> <span class="keywordtype">int</span> <a class="code" href="correlation_cuda_main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])
+<a name="l00076"></a>00076 {
+<a name="l00077"></a>00077         printf(<span class="stringliteral">"Simple pattern matching\n"</span>);
+<a name="l00078"></a>00078         <span class="keywordflow">if</span>(argc &lt; 4)
+<a name="l00079"></a>00079         {
+<a name="l00080"></a>00080                 printf(<span class="stringliteral">"Usage: alg2.exe &lt;input.bmp&gt; &lt;pattern.bmp&gt; &lt;result.txt&gt; &lt;parameter&gt;\n"</span>);
+<a name="l00081"></a>00081                 <span class="keywordflow">return</span> 1;
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083         
+<a name="l00084"></a>00084         <span class="keywordtype">char</span>* featureFileName = argv[1];
+<a name="l00085"></a>00085         <span class="keywordtype">char</span>* patternFileName = argv[2];
+<a name="l00086"></a>00086         <span class="keywordtype">char</span>* outputResult = argv[3];
+<a name="l00087"></a>00087         <span class="keywordtype">int</span> corrpercent = atoi(argv[4]);
+<a name="l00088"></a>00088         printf(<span class="stringliteral">"Corrpercent: %d\n"</span>, corrpercent);
+<a name="l00089"></a>00089         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> corrlimit = corrpercent * 255.0 / 100;
+<a name="l00090"></a>00090         printf(<span class="stringliteral">"Corrlimit: %d\n"</span>, corrlimit);
+<a name="l00091"></a>00091         <span class="keyword">const</span> <span class="keywordtype">char</span>* strMethod = argv[5];
+<a name="l00092"></a>00092         <a class="code" href="correlation_main_8cpp.html#884bc9c4b36f5374b842d2aca48e34fb">method</a> = <a class="code" href="correlation_main_8cpp.html#4dd9cfb128076adb7fa7d22c14aa9f97">grayScale</a>;
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         printf(<span class="stringliteral">"source image: %s\n"</span>, featureFileName);
+<a name="l00095"></a>00095         <a class="code" href="classcpp_b_m_p.html">cppBMP</a> srcBmp;
+<a name="l00096"></a>00096         srcBmp.<a class="code" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a>(featureFileName);
+<a name="l00097"></a>00097         <span class="keywordtype">int</span> imwidth, imheight;
+<a name="l00098"></a>00098         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* image = <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(&amp;srcBmp, imwidth, imheight);
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100         printf(<span class="stringliteral">"pattern image: %s\n"</span>, patternFileName);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102         <a class="code" href="classcpp_b_m_p.html">cppBMP</a> ptnBmp;
+<a name="l00103"></a>00103         ptnBmp.<a class="code" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a>(patternFileName);
+<a name="l00104"></a>00104         <span class="keywordtype">int</span> ptnWidth, ptnHeight;
+<a name="l00105"></a>00105         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pattern = <a class="code" href="correlation_main_8cpp.html#006ab3bb0a37bebbfaa07f674d0f7299">loadImage</a>(&amp;ptnBmp, ptnWidth, ptnHeight);
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107         printf(<span class="stringliteral">"corrpercent: %d\n"</span>, corrpercent);
+<a name="l00108"></a>00108         printf(<span class="stringliteral">"writing results to: %s\n"</span>, outputResult);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110         FILE* f = fopen(outputResult, <span class="stringliteral">"wt"</span>);
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112         printf(<span class="stringliteral">"===\nInitializing CUDA kernel...\n"</span>);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* cudaResult = <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00115"></a>00115         
+<a name="l00116"></a>00116         <span class="keywordflow">if</span>( strstr(strMethod, <span class="stringliteral">"cuda"</span>) != <a class="code" href="correlation__cuda__lib_2_free_image_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a> )
+<a name="l00117"></a>00117         {
+<a name="l00118"></a>00118                 cudaResult = <a class="code" href="simple_8cpp.html#f88ff23d148fb2e06334c8461b24f08d" title="Интерфейс к методу корреляции.">simpleMatchingCPU</a>(1, argv, image, imwidth, imheight, pattern, ptnWidth, ptnHeight);
+<a name="l00119"></a>00119         }
+<a name="l00120"></a>00120         <span class="keywordflow">else</span>
+<a name="l00121"></a>00121         {
+<a name="l00122"></a>00122                 cudaResult = <a class="code" href="simple_8cpp.html#f88ff23d148fb2e06334c8461b24f08d" title="Интерфейс к методу корреляции.">simpleMatchingCPU</a>(1, argv, image, imwidth, imheight, pattern, ptnWidth, ptnHeight);
+<a name="l00123"></a>00123         }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; imheight; ++y)
+<a name="l00126"></a>00126                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; imwidth; ++x)
+<a name="l00127"></a>00127                 {
+<a name="l00128"></a>00128                         <span class="keywordflow">if</span>( (*cudaResult &gt; corrlimit ) &amp;&amp; (y &lt; imheight - ptnHeight) &amp;&amp; (x &lt; imwidth - ptnWidth) )
+<a name="l00129"></a>00129                         {
+<a name="l00130"></a>00130                                 <span class="comment">//printf("%d %d %d\r\n", x, y, *cudaResult);</span>
+<a name="l00131"></a>00131                                 fprintf(f, <span class="stringliteral">"%d %d %d %d\n"</span>, x, y, *cudaResult, *image);
+<a name="l00132"></a>00132                         }
+<a name="l00133"></a>00133                         ++cudaResult;
+<a name="l00134"></a>00134                         ++image;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136                 }
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138         fclose(f);
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140         <span class="keywordflow">return</span> 0;
+<a name="l00141"></a>00141 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:40:44 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

@@ -1,0 +1,2032 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Класс cppBMP</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li><a href="functions.html"><span>Поля&nbsp;структур</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Класс cppBMP</h1><!-- doxytag: class="cppBMP" --><code>#include &lt;<a class="el" href="filtration__cuda__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Открытые члены</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#95cf17f997cf74cbfaf889572bf7d751">TellBitDepth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#aef114087d702d456ef994bb64535e6e">TellNumberOfColors</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#96505f0e4666bd19d0c60e8eed948158">SetDPI</a> (int HorizontalDPI, int VerticalDPI)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#809856c4aae1027fa37a7c3dd94d06c9">TellVerticalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b0d8279d21b6890e9f7664bc46d4ff64">TellHorizontalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#97909a5d65342669eb673dc264600058">cppBMP</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;Input)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#ea62579b6a8a25449e108121de524019">~cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#ffad438a22f268b9cf73d8dcbbcbb13f">operator()</a> (int i, int j)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a> (int i, int j) const </td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#3d02d63c0abf0c87bb3698b26ac78dae">SetPixel</a> (int i, int j, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewPixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#2784c5b22510793c4f33bb9f566de4a7">CreateStandardColorTable</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#9a6372827cbeb056c76f418bf764455d">SetSize</a> (int NewWidth, int NewHeight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#4929652b47f073d3519b07fc05ed9eab">SetBitDepth</a> (int NewDepth)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#bee4a161c6d3ad3d627b70b62735259d">WriteToFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#fa347d92080c6aa4870eb4b076d1aeba">GetColor</a> (int ColorNumber)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#954ee0b08e8b0e9455fe5c4a9e7a7181">SetColor</a> (int ColorNumber, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewColor)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#95cf17f997cf74cbfaf889572bf7d751">TellBitDepth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#aef114087d702d456ef994bb64535e6e">TellNumberOfColors</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#96505f0e4666bd19d0c60e8eed948158">SetDPI</a> (int HorizontalDPI, int VerticalDPI)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#809856c4aae1027fa37a7c3dd94d06c9">TellVerticalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b0d8279d21b6890e9f7664bc46d4ff64">TellHorizontalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#97909a5d65342669eb673dc264600058">cppBMP</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;Input)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#ea62579b6a8a25449e108121de524019">~cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#02a494f74cfc7d319e6ea9c1ab70c672">operator()</a> (int i, int j)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a> (int i, int j) const </td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#3d02d63c0abf0c87bb3698b26ac78dae">SetPixel</a> (int i, int j, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewPixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#2784c5b22510793c4f33bb9f566de4a7">CreateStandardColorTable</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#9a6372827cbeb056c76f418bf764455d">SetSize</a> (int NewWidth, int NewHeight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#4929652b47f073d3519b07fc05ed9eab">SetBitDepth</a> (int NewDepth)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#bee4a161c6d3ad3d627b70b62735259d">WriteToFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#fa347d92080c6aa4870eb4b076d1aeba">GetColor</a> (int ColorNumber)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#954ee0b08e8b0e9455fe5c4a9e7a7181">SetColor</a> (int ColorNumber, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewColor)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#95cf17f997cf74cbfaf889572bf7d751">TellBitDepth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#aef114087d702d456ef994bb64535e6e">TellNumberOfColors</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#96505f0e4666bd19d0c60e8eed948158">SetDPI</a> (int HorizontalDPI, int VerticalDPI)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#809856c4aae1027fa37a7c3dd94d06c9">TellVerticalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b0d8279d21b6890e9f7664bc46d4ff64">TellHorizontalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#97909a5d65342669eb673dc264600058">cppBMP</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;Input)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#ea62579b6a8a25449e108121de524019">~cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#02a494f74cfc7d319e6ea9c1ab70c672">operator()</a> (int i, int j)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a> (int i, int j) const </td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#3d02d63c0abf0c87bb3698b26ac78dae">SetPixel</a> (int i, int j, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewPixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#2784c5b22510793c4f33bb9f566de4a7">CreateStandardColorTable</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#9a6372827cbeb056c76f418bf764455d">SetSize</a> (int NewWidth, int NewHeight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#4929652b47f073d3519b07fc05ed9eab">SetBitDepth</a> (int NewDepth)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#bee4a161c6d3ad3d627b70b62735259d">WriteToFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#fa347d92080c6aa4870eb4b076d1aeba">GetColor</a> (int ColorNumber)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#954ee0b08e8b0e9455fe5c4a9e7a7181">SetColor</a> (int ColorNumber, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewColor)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#95cf17f997cf74cbfaf889572bf7d751">TellBitDepth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#539ec9582a0ebd2853d168eae6bfc68f">TellWidth</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#8dd563361efe9adc4bbe8ac88681811b">TellHeight</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#aef114087d702d456ef994bb64535e6e">TellNumberOfColors</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#96505f0e4666bd19d0c60e8eed948158">SetDPI</a> (int HorizontalDPI, int VerticalDPI)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#809856c4aae1027fa37a7c3dd94d06c9">TellVerticalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b0d8279d21b6890e9f7664bc46d4ff64">TellHorizontalDPI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#dd999f78c5b629a718c9ff82dca1b64a">cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#97909a5d65342669eb673dc264600058">cppBMP</a> (<a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;Input)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#ea62579b6a8a25449e108121de524019">~cppBMP</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#02a494f74cfc7d319e6ea9c1ab70c672">operator()</a> (int i, int j)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#230d6694feababb803a9b4cdd4885d4d">GetPixel</a> (int i, int j) const </td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#3d02d63c0abf0c87bb3698b26ac78dae">SetPixel</a> (int i, int j, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewPixel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#2784c5b22510793c4f33bb9f566de4a7">CreateStandardColorTable</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#9a6372827cbeb056c76f418bf764455d">SetSize</a> (int NewWidth, int NewHeight)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#4929652b47f073d3519b07fc05ed9eab">SetBitDepth</a> (int NewDepth)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#bee4a161c6d3ad3d627b70b62735259d">WriteToFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#b6b3269e3dc09cc5a9650578d5f5aa45">ReadFromFile</a> (const char *FileName)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#fa347d92080c6aa4870eb4b076d1aeba">GetColor</a> (int ColorNumber)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpp_b_m_p.html#954ee0b08e8b0e9455fe5c4a9e7a7181">SetColor</a> (int ColorNumber, <a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> NewColor)</td></tr>
+
+</table>
+<hr><h2>Конструктор(ы)</h2>
+<a class="anchor" name="dd999f78c5b629a718c9ff82dca1b64a"></a><!-- doxytag: member="cppBMP::cppBMP" ref="dd999f78c5b629a718c9ff82dca1b64a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="97909a5d65342669eb673dc264600058"></a><!-- doxytag: member="cppBMP::cppBMP" ref="97909a5d65342669eb673dc264600058" args="(cppBMP &amp;Input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Input</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ea62579b6a8a25449e108121de524019"></a><!-- doxytag: member="cppBMP::~cppBMP" ref="ea62579b6a8a25449e108121de524019" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::~cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="dd999f78c5b629a718c9ff82dca1b64a"></a><!-- doxytag: member="cppBMP::cppBMP" ref="dd999f78c5b629a718c9ff82dca1b64a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="97909a5d65342669eb673dc264600058"></a><!-- doxytag: member="cppBMP::cppBMP" ref="97909a5d65342669eb673dc264600058" args="(cppBMP &amp;Input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Input</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ea62579b6a8a25449e108121de524019"></a><!-- doxytag: member="cppBMP::~cppBMP" ref="ea62579b6a8a25449e108121de524019" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::~cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="dd999f78c5b629a718c9ff82dca1b64a"></a><!-- doxytag: member="cppBMP::cppBMP" ref="dd999f78c5b629a718c9ff82dca1b64a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="97909a5d65342669eb673dc264600058"></a><!-- doxytag: member="cppBMP::cppBMP" ref="97909a5d65342669eb673dc264600058" args="(cppBMP &amp;Input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Input</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ea62579b6a8a25449e108121de524019"></a><!-- doxytag: member="cppBMP::~cppBMP" ref="ea62579b6a8a25449e108121de524019" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::~cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="dd999f78c5b629a718c9ff82dca1b64a"></a><!-- doxytag: member="cppBMP::cppBMP" ref="dd999f78c5b629a718c9ff82dca1b64a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="97909a5d65342669eb673dc264600058"></a><!-- doxytag: member="cppBMP::cppBMP" ref="97909a5d65342669eb673dc264600058" args="(cppBMP &amp;Input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::cppBMP           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpp_b_m_p.html">cppBMP</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>Input</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ea62579b6a8a25449e108121de524019"></a><!-- doxytag: member="cppBMP::~cppBMP" ref="ea62579b6a8a25449e108121de524019" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cppBMP::~cppBMP           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Методы</h2>
+<a class="anchor" name="2784c5b22510793c4f33bb9f566de4a7"></a><!-- doxytag: member="cppBMP::CreateStandardColorTable" ref="2784c5b22510793c4f33bb9f566de4a7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::CreateStandardColorTable           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2784c5b22510793c4f33bb9f566de4a7"></a><!-- doxytag: member="cppBMP::CreateStandardColorTable" ref="2784c5b22510793c4f33bb9f566de4a7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::CreateStandardColorTable           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2784c5b22510793c4f33bb9f566de4a7"></a><!-- doxytag: member="cppBMP::CreateStandardColorTable" ref="2784c5b22510793c4f33bb9f566de4a7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::CreateStandardColorTable           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2784c5b22510793c4f33bb9f566de4a7"></a><!-- doxytag: member="cppBMP::CreateStandardColorTable" ref="2784c5b22510793c4f33bb9f566de4a7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::CreateStandardColorTable           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fa347d92080c6aa4870eb4b076d1aeba"></a><!-- doxytag: member="cppBMP::GetColor" ref="fa347d92080c6aa4870eb4b076d1aeba" args="(int ColorNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fa347d92080c6aa4870eb4b076d1aeba"></a><!-- doxytag: member="cppBMP::GetColor" ref="fa347d92080c6aa4870eb4b076d1aeba" args="(int ColorNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fa347d92080c6aa4870eb4b076d1aeba"></a><!-- doxytag: member="cppBMP::GetColor" ref="fa347d92080c6aa4870eb4b076d1aeba" args="(int ColorNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fa347d92080c6aa4870eb4b076d1aeba"></a><!-- doxytag: member="cppBMP::GetColor" ref="fa347d92080c6aa4870eb4b076d1aeba" args="(int ColorNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="230d6694feababb803a9b4cdd4885d4d"></a><!-- doxytag: member="cppBMP::GetPixel" ref="230d6694feababb803a9b4cdd4885d4d" args="(int i, int j) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="230d6694feababb803a9b4cdd4885d4d"></a><!-- doxytag: member="cppBMP::GetPixel" ref="230d6694feababb803a9b4cdd4885d4d" args="(int i, int j) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="230d6694feababb803a9b4cdd4885d4d"></a><!-- doxytag: member="cppBMP::GetPixel" ref="230d6694feababb803a9b4cdd4885d4d" args="(int i, int j) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="230d6694feababb803a9b4cdd4885d4d"></a><!-- doxytag: member="cppBMP::GetPixel" ref="230d6694feababb803a9b4cdd4885d4d" args="(int i, int j) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> cppBMP::GetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="02a494f74cfc7d319e6ea9c1ab70c672"></a><!-- doxytag: member="cppBMP::operator()" ref="02a494f74cfc7d319e6ea9c1ab70c672" args="(int i, int j)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>* cppBMP::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="02a494f74cfc7d319e6ea9c1ab70c672"></a><!-- doxytag: member="cppBMP::operator()" ref="02a494f74cfc7d319e6ea9c1ab70c672" args="(int i, int j)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>* cppBMP::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="02a494f74cfc7d319e6ea9c1ab70c672"></a><!-- doxytag: member="cppBMP::operator()" ref="02a494f74cfc7d319e6ea9c1ab70c672" args="(int i, int j)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>* cppBMP::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="ffad438a22f268b9cf73d8dcbbcbb13f"></a><!-- doxytag: member="cppBMP::operator()" ref="ffad438a22f268b9cf73d8dcbbcbb13f" args="(int i, int j)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a> * cppBMP::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b6b3269e3dc09cc5a9650578d5f5aa45"></a><!-- doxytag: member="cppBMP::ReadFromFile" ref="b6b3269e3dc09cc5a9650578d5f5aa45" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::ReadFromFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b6b3269e3dc09cc5a9650578d5f5aa45"></a><!-- doxytag: member="cppBMP::ReadFromFile" ref="b6b3269e3dc09cc5a9650578d5f5aa45" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::ReadFromFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b6b3269e3dc09cc5a9650578d5f5aa45"></a><!-- doxytag: member="cppBMP::ReadFromFile" ref="b6b3269e3dc09cc5a9650578d5f5aa45" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::ReadFromFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b6b3269e3dc09cc5a9650578d5f5aa45"></a><!-- doxytag: member="cppBMP::ReadFromFile" ref="b6b3269e3dc09cc5a9650578d5f5aa45" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::ReadFromFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4929652b47f073d3519b07fc05ed9eab"></a><!-- doxytag: member="cppBMP::SetBitDepth" ref="4929652b47f073d3519b07fc05ed9eab" args="(int NewDepth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewDepth</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4929652b47f073d3519b07fc05ed9eab"></a><!-- doxytag: member="cppBMP::SetBitDepth" ref="4929652b47f073d3519b07fc05ed9eab" args="(int NewDepth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewDepth</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4929652b47f073d3519b07fc05ed9eab"></a><!-- doxytag: member="cppBMP::SetBitDepth" ref="4929652b47f073d3519b07fc05ed9eab" args="(int NewDepth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewDepth</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4929652b47f073d3519b07fc05ed9eab"></a><!-- doxytag: member="cppBMP::SetBitDepth" ref="4929652b47f073d3519b07fc05ed9eab" args="(int NewDepth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewDepth</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="954ee0b08e8b0e9455fe5c4a9e7a7181"></a><!-- doxytag: member="cppBMP::SetColor" ref="954ee0b08e8b0e9455fe5c4a9e7a7181" args="(int ColorNumber, RGBApixel NewColor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewColor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="954ee0b08e8b0e9455fe5c4a9e7a7181"></a><!-- doxytag: member="cppBMP::SetColor" ref="954ee0b08e8b0e9455fe5c4a9e7a7181" args="(int ColorNumber, RGBApixel NewColor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewColor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="954ee0b08e8b0e9455fe5c4a9e7a7181"></a><!-- doxytag: member="cppBMP::SetColor" ref="954ee0b08e8b0e9455fe5c4a9e7a7181" args="(int ColorNumber, RGBApixel NewColor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewColor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="954ee0b08e8b0e9455fe5c4a9e7a7181"></a><!-- doxytag: member="cppBMP::SetColor" ref="954ee0b08e8b0e9455fe5c4a9e7a7181" args="(int ColorNumber, RGBApixel NewColor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetColor           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ColorNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewColor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="96505f0e4666bd19d0c60e8eed948158"></a><!-- doxytag: member="cppBMP::SetDPI" ref="96505f0e4666bd19d0c60e8eed948158" args="(int HorizontalDPI, int VerticalDPI)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cppBMP::SetDPI           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>HorizontalDPI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>VerticalDPI</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="96505f0e4666bd19d0c60e8eed948158"></a><!-- doxytag: member="cppBMP::SetDPI" ref="96505f0e4666bd19d0c60e8eed948158" args="(int HorizontalDPI, int VerticalDPI)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cppBMP::SetDPI           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>HorizontalDPI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>VerticalDPI</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="96505f0e4666bd19d0c60e8eed948158"></a><!-- doxytag: member="cppBMP::SetDPI" ref="96505f0e4666bd19d0c60e8eed948158" args="(int HorizontalDPI, int VerticalDPI)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cppBMP::SetDPI           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>HorizontalDPI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>VerticalDPI</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="96505f0e4666bd19d0c60e8eed948158"></a><!-- doxytag: member="cppBMP::SetDPI" ref="96505f0e4666bd19d0c60e8eed948158" args="(int HorizontalDPI, int VerticalDPI)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cppBMP::SetDPI           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>HorizontalDPI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>VerticalDPI</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3d02d63c0abf0c87bb3698b26ac78dae"></a><!-- doxytag: member="cppBMP::SetPixel" ref="3d02d63c0abf0c87bb3698b26ac78dae" args="(int i, int j, RGBApixel NewPixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewPixel</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3d02d63c0abf0c87bb3698b26ac78dae"></a><!-- doxytag: member="cppBMP::SetPixel" ref="3d02d63c0abf0c87bb3698b26ac78dae" args="(int i, int j, RGBApixel NewPixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewPixel</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3d02d63c0abf0c87bb3698b26ac78dae"></a><!-- doxytag: member="cppBMP::SetPixel" ref="3d02d63c0abf0c87bb3698b26ac78dae" args="(int i, int j, RGBApixel NewPixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewPixel</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3d02d63c0abf0c87bb3698b26ac78dae"></a><!-- doxytag: member="cppBMP::SetPixel" ref="3d02d63c0abf0c87bb3698b26ac78dae" args="(int i, int j, RGBApixel NewPixel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetPixel           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_r_g_b_apixel.html">RGBApixel</a>&nbsp;</td>
+          <td class="paramname"> <em>NewPixel</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9a6372827cbeb056c76f418bf764455d"></a><!-- doxytag: member="cppBMP::SetSize" ref="9a6372827cbeb056c76f418bf764455d" args="(int NewWidth, int NewHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9a6372827cbeb056c76f418bf764455d"></a><!-- doxytag: member="cppBMP::SetSize" ref="9a6372827cbeb056c76f418bf764455d" args="(int NewWidth, int NewHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9a6372827cbeb056c76f418bf764455d"></a><!-- doxytag: member="cppBMP::SetSize" ref="9a6372827cbeb056c76f418bf764455d" args="(int NewWidth, int NewHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9a6372827cbeb056c76f418bf764455d"></a><!-- doxytag: member="cppBMP::SetSize" ref="9a6372827cbeb056c76f418bf764455d" args="(int NewWidth, int NewHeight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::SetSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>NewHeight</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="95cf17f997cf74cbfaf889572bf7d751"></a><!-- doxytag: member="cppBMP::TellBitDepth" ref="95cf17f997cf74cbfaf889572bf7d751" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="95cf17f997cf74cbfaf889572bf7d751"></a><!-- doxytag: member="cppBMP::TellBitDepth" ref="95cf17f997cf74cbfaf889572bf7d751" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="95cf17f997cf74cbfaf889572bf7d751"></a><!-- doxytag: member="cppBMP::TellBitDepth" ref="95cf17f997cf74cbfaf889572bf7d751" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="95cf17f997cf74cbfaf889572bf7d751"></a><!-- doxytag: member="cppBMP::TellBitDepth" ref="95cf17f997cf74cbfaf889572bf7d751" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellBitDepth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8dd563361efe9adc4bbe8ac88681811b"></a><!-- doxytag: member="cppBMP::TellHeight" ref="8dd563361efe9adc4bbe8ac88681811b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHeight           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8dd563361efe9adc4bbe8ac88681811b"></a><!-- doxytag: member="cppBMP::TellHeight" ref="8dd563361efe9adc4bbe8ac88681811b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHeight           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8dd563361efe9adc4bbe8ac88681811b"></a><!-- doxytag: member="cppBMP::TellHeight" ref="8dd563361efe9adc4bbe8ac88681811b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHeight           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8dd563361efe9adc4bbe8ac88681811b"></a><!-- doxytag: member="cppBMP::TellHeight" ref="8dd563361efe9adc4bbe8ac88681811b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHeight           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b0d8279d21b6890e9f7664bc46d4ff64"></a><!-- doxytag: member="cppBMP::TellHorizontalDPI" ref="b0d8279d21b6890e9f7664bc46d4ff64" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHorizontalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b0d8279d21b6890e9f7664bc46d4ff64"></a><!-- doxytag: member="cppBMP::TellHorizontalDPI" ref="b0d8279d21b6890e9f7664bc46d4ff64" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHorizontalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b0d8279d21b6890e9f7664bc46d4ff64"></a><!-- doxytag: member="cppBMP::TellHorizontalDPI" ref="b0d8279d21b6890e9f7664bc46d4ff64" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHorizontalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b0d8279d21b6890e9f7664bc46d4ff64"></a><!-- doxytag: member="cppBMP::TellHorizontalDPI" ref="b0d8279d21b6890e9f7664bc46d4ff64" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellHorizontalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="aef114087d702d456ef994bb64535e6e"></a><!-- doxytag: member="cppBMP::TellNumberOfColors" ref="aef114087d702d456ef994bb64535e6e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellNumberOfColors           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="aef114087d702d456ef994bb64535e6e"></a><!-- doxytag: member="cppBMP::TellNumberOfColors" ref="aef114087d702d456ef994bb64535e6e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellNumberOfColors           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="aef114087d702d456ef994bb64535e6e"></a><!-- doxytag: member="cppBMP::TellNumberOfColors" ref="aef114087d702d456ef994bb64535e6e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellNumberOfColors           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="aef114087d702d456ef994bb64535e6e"></a><!-- doxytag: member="cppBMP::TellNumberOfColors" ref="aef114087d702d456ef994bb64535e6e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellNumberOfColors           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="809856c4aae1027fa37a7c3dd94d06c9"></a><!-- doxytag: member="cppBMP::TellVerticalDPI" ref="809856c4aae1027fa37a7c3dd94d06c9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellVerticalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="809856c4aae1027fa37a7c3dd94d06c9"></a><!-- doxytag: member="cppBMP::TellVerticalDPI" ref="809856c4aae1027fa37a7c3dd94d06c9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellVerticalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="809856c4aae1027fa37a7c3dd94d06c9"></a><!-- doxytag: member="cppBMP::TellVerticalDPI" ref="809856c4aae1027fa37a7c3dd94d06c9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellVerticalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="809856c4aae1027fa37a7c3dd94d06c9"></a><!-- doxytag: member="cppBMP::TellVerticalDPI" ref="809856c4aae1027fa37a7c3dd94d06c9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellVerticalDPI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="539ec9582a0ebd2853d168eae6bfc68f"></a><!-- doxytag: member="cppBMP::TellWidth" ref="539ec9582a0ebd2853d168eae6bfc68f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellWidth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="539ec9582a0ebd2853d168eae6bfc68f"></a><!-- doxytag: member="cppBMP::TellWidth" ref="539ec9582a0ebd2853d168eae6bfc68f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellWidth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="539ec9582a0ebd2853d168eae6bfc68f"></a><!-- doxytag: member="cppBMP::TellWidth" ref="539ec9582a0ebd2853d168eae6bfc68f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellWidth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="539ec9582a0ebd2853d168eae6bfc68f"></a><!-- doxytag: member="cppBMP::TellWidth" ref="539ec9582a0ebd2853d168eae6bfc68f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cppBMP::TellWidth           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="bee4a161c6d3ad3d627b70b62735259d"></a><!-- doxytag: member="cppBMP::WriteToFile" ref="bee4a161c6d3ad3d627b70b62735259d" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::WriteToFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="bee4a161c6d3ad3d627b70b62735259d"></a><!-- doxytag: member="cppBMP::WriteToFile" ref="bee4a161c6d3ad3d627b70b62735259d" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::WriteToFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="bee4a161c6d3ad3d627b70b62735259d"></a><!-- doxytag: member="cppBMP::WriteToFile" ref="bee4a161c6d3ad3d627b70b62735259d" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::WriteToFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="bee4a161c6d3ad3d627b70b62735259d"></a><!-- doxytag: member="cppBMP::WriteToFile" ref="bee4a161c6d3ad3d627b70b62735259d" args="(const char *FileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cppBMP::WriteToFile           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>FileName</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr>Объявления и описания членов классов находятся в файлах:<ul>
+<li>D:/Projects/MatchingSolution/source/filtration_cuda_run/bmp/<a class="el" href="filtration__cuda__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a><li>D:/Projects/MatchingSolution/source/filtration_run/bmp/<a class="el" href="filtration__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a><li>D:/Projects/MatchingSolution/source/simple_matching_run/bmp/<a class="el" href="simple__matching__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a><li>D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p___b_m_p_8h_source.html">EasyBMP_BMP.h</a><li>D:/Projects/MatchingSolution/source/filtration_cuda_run/bmp/<a class="el" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html">EasyBMP.cpp</a><li>D:/Projects/MatchingSolution/source/filtration_run/bmp/<a class="el" href="filtration__run_2bmp_2_easy_b_m_p_8cpp.html">EasyBMP.cpp</a><li>D:/Projects/MatchingSolution/source/simple_matching_run/bmp/<a class="el" href="simple__matching__run_2bmp_2_easy_b_m_p_8cpp.html">EasyBMP.cpp</a><li>D:/Projects/MatchingSolution/source/walsh_hadamard_run/bmp/<a class="el" href="walsh__hadamard__run_2bmp_2_easy_b_m_p_8cpp.html">EasyBMP.cpp</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

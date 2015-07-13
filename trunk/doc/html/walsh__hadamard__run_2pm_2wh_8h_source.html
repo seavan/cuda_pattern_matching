@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/walsh_hadamard_run/pm/wh.h</h1><a href="walsh__hadamard__run_2pm_2wh_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> *           Real Time Pattern Matching Using Projection Kernels             *</span>
+<a name="l00003"></a>00003 <span class="comment"> *****************************************************************************</span>
+<a name="l00004"></a>00004 <span class="comment"> * file:        wh.h                                                         *</span>
+<a name="l00005"></a>00005 <span class="comment"> *                                                                           *</span>
+<a name="l00006"></a>00006 <span class="comment"> * description: A utility for performing pattern matching using projection   *</span>
+<a name="l00007"></a>00007 <span class="comment"> *              on Walsh Hadamard kernels.                                   *</span>
+<a name="l00008"></a>00008 <span class="comment"> *              A WHSetup struct should be created first, defining the       *</span>
+<a name="l00009"></a>00009 <span class="comment"> *              sizes of the source image and the pattern, and the required  *</span>
+<a name="l00010"></a>00010 <span class="comment"> *              amount of WH kernels to be used.                             *</span>
+<a name="l00011"></a>00011 <span class="comment"> *              Next, the desired source image and pattern for matching      *</span>
+<a name="l00012"></a>00012 <span class="comment"> *              should be specified.                                         *</span>
+<a name="l00013"></a>00013 <span class="comment"> *              Now the pattern matching may be performed, and the results   *</span>
+<a name="l00014"></a>00014 <span class="comment"> *              may be obtained from the WHSetup using the available         *</span>
+<a name="l00015"></a>00015 <span class="comment"> *              macros. The results include an array of Matches (each match  *</span>
+<a name="l00016"></a>00016 <span class="comment"> *              contains the location of the match in the source image and   *</span>
+<a name="l00017"></a>00017 <span class="comment"> *              the euclidean distance of the match from the pattern) and    *</span>
+<a name="l00018"></a>00018 <span class="comment"> *              number of matches that were found.                           *</span>
+<a name="l00019"></a>00019 <span class="comment"> *****************************************************************************/</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _walsh_h_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _walsh_h_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2defs_8h.html">defs.h</a>"</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2matrix_8h.html">matrix.h</a>"</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include "<a class="code" href="walsh__hadamard__run_2pm_2image_8h.html">image.h</a>"</span>
+<a name="l00027"></a>00027 
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="comment">// define only one of the following three definitions according to the required pattern size:</span>
+<a name="l00031"></a>00031 <span class="comment">//#define MAX_PATTERN_32 // define if max pattern size is 32x32</span>
+<a name="l00032"></a>00032 <span class="comment">//#define MAX_PATTERN_64 // define if max pattern size is 64x64</span>
+<a name="l00033"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#93a65f53ddc9aab0ba551cc7d89f3e88">00033</a> <span class="preprocessor">#define MAX_PATTERN_128 // define if max pattern size is 128x128</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00035"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#39bb8f7702939d842b16ba48024d07a3">00035</a> <span class="preprocessor">#define MAX_BASIS_1024 // define if up to 1024 basis are used (which is always the case in 32x32)</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>
+<a name="l00037"></a>00037 <span class="comment">// the following values should only be changed if they produce better running time</span>
+<a name="l00038"></a>00038 <span class="comment">// on the specific machine.</span>
+<a name="l00039"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#90eb498bf38dedbae958f1ee5bea9954">00039</a> <span class="preprocessor">#define BUFFER_SIZE_32 16832 // the buffer size to use for patterns sizes up to 32x32</span>
+<a name="l00040"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#dd413e620f5e31f4f42f74080a0bda56">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define BUFFER_SIZE_64 34664 // the buffer size to use for patterns sizes up to 64x64</span>
+<a name="l00041"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#2bd1b712d38fe5f23ec3975a4b717a2f">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define BUFFER_SIZE_128 69328 // the buffer size to use for patterns sizes up to 128x128</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">00045</a> <span class="keyword">typedef</span> <span class="keywordtype">signed</span> _int32 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">00047</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> _int8 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a>;
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">00049</a> <span class="keyword">typedef</span> _int8 <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="comment">// A branch in the WH tree. Every node contains a matrix.</span>
+<a name="l00052"></a>00052 <span class="comment">// The top matrix is the original image, and the leaf is the convolution of the</span>
+<a name="l00053"></a>00053 <span class="comment">// original image with the corresponding WH basis.</span>
+<a name="l00054"></a>00054 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00055"></a>00055         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> depth;  <span class="comment">// number of levels in the branch (excluding the top original image)</span>
+<a name="l00056"></a>00056         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> basisInd; <span class="comment">// current basis index of the branch</span>
+<a name="l00057"></a>00057         <a class="code" href="struct_matrix.html">Matrix</a> **matrices; <span class="comment">// array of depth size: the matrices in each level</span>
+<a name="l00058"></a>00058         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> *delta; <span class="comment">// array of depth size: the delta between pixels that are added/subtracted in each level</span>
+<a name="l00059"></a>00059         <a class="code" href="simple__matching__run_2pm_2defs_8h.html#696db3d7aea6d9d091f2ac73432b948b">booleanT</a> *horizontal; <span class="comment">// array of depth size: the direction of addition/subtraction in each level (true=horizontal,false=vertical)</span>
+<a name="l00060"></a>00060         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#14e3c9888ccc350e9e7af9cff09ebcc5">signT</a> **sign; <span class="comment">// array [depth][numOfBasis]: the sign (addition/subtraction) for each level and basis index</span>
+<a name="l00061"></a>00061         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **nodeID; <span class="comment">// array [depth + 1][numOfBasis]: the ID of each node in the WH tree (in post order)</span>
+<a name="l00062"></a>00062         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> *pixelNodeIDValues; <span class="comment">// array of the original image size: the node ID to which each pixel in the matrix is updated for.</span>
+<a name="l00063"></a>00063         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> **pixelNodeIDRowsPtr; <span class="comment">// rows pointer for the pixelNodeIDValues array.</span>
+<a name="l00064"></a>00064 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>        <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> **climbLevels; <span class="comment">// array [numOfBasis][numOfBasis]: the levels to climb in the tree when moving from one basis index to another.</span>
+<a name="l00066"></a>00066 <span class="preprocessor">#else </span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>        <a class="code" href="simple__matching__run_2pm_2wh_8h.html#22f5977248d0f2af892f3ac9af10b1a7">depthT</a> *climbLevels; <span class="comment">// array of numOfBasis size: the levels to climb in the tree when moving from a basis index to the following basis.</span>
+<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span>} <a class="code" href="struct_branch.html">Branch</a>;
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="comment">// A match between the pattern and the source image.</span>
+<a name="l00072"></a>00072 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00073"></a>00073         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> y, x; <span class="comment">// the location of the match in the source image</span>
+<a name="l00074"></a>00074         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> distance; <span class="comment">// the euclidean distance between the pattern and the match</span>
+<a name="l00075"></a>00075 } <a class="code" href="struct_match.html">Match</a>;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="comment">// A setup for pattern matching. A setup is created per source image size, pattern size &amp;</span>
+<a name="l00078"></a>00078 <span class="comment">// required number of WH basis. Whenever the source image or pattern are </span>
+<a name="l00079"></a>00079 <span class="comment">// changed (and their size remain the same), the setup should be updated. It is also</span>
+<a name="l00080"></a>00080 <span class="comment">// possible to set the percentage that control the pattern matching method.</span>
+<a name="l00081"></a>00081 <span class="comment">// The result of the pattern matching are updated in the setup (the matches array and</span>
+<a name="l00082"></a>00082 <span class="comment">// numOfMatches).</span>
+<a name="l00083"></a>00083 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00084"></a>00084         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows; <span class="comment">// number of rows in the source image</span>
+<a name="l00085"></a>00085         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols; <span class="comment">// number of cols in the source image</span>
+<a name="l00086"></a>00086         <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows; <span class="comment">// number of rows (and cols) in the pattern image</span>
+<a name="l00087"></a>00087         <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis; <span class="comment">// number of supported WH basis</span>
+<a name="l00088"></a>00088         <a class="code" href="struct_matrix.html">Matrix</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e546127c403cf0cbb041e0ebeb8ba664">sourceImage</a>; <span class="comment">// source image</span>
+<a name="l00089"></a>00089         <a class="code" href="struct_matrix.html">Matrix</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#e009f5822ff50acfdf0873c916f5a834">patternImage</a>; <span class="comment">// pattern image</span>
+<a name="l00090"></a>00090         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> *patternProjections; <span class="comment">// array of numOfBasis size: the projections of the pattern on the first numOfBasis WH basis</span>
+<a name="l00091"></a>00091         <a class="code" href="struct_branch.html">Branch</a> *branch; <span class="comment">// a branch in the WH tree</span>
+<a name="l00092"></a>00092         <span class="keywordtype">float</span> startBottomUpPercent; <span class="comment">// for suspected windows under this percentage, the bottom up method should be used</span>
+<a name="l00093"></a>00093         <span class="keywordtype">float</span> startDistancePercent; <span class="comment">// for suspected windows under this percentage, the direct distance method should be used</span>
+<a name="l00094"></a>00094         <a class="code" href="struct_match.html">Match</a> *<a class="code" href="simple__matching__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">matches</a>; <span class="comment">// an array of matches that were found in the pattern matching process</span>
+<a name="l00095"></a>00095         <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#7b872890b3a65c758de9e62cdf739754">matrixSizeT</a> <a class="code" href="simple__matching__run_2pm_2wh_8h.html#69fc91113933df80ff4538183d57b500">numOfMatches</a>; <span class="comment">// number of matches found in the pattern matching process</span>
+<a name="l00096"></a>00096 } <a class="code" href="struct_w_h_setup.html">WHSetup</a>;
+<a name="l00097"></a>00097 
+<a name="l00099"></a>00099 
+<a name="l00100"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#0ea7ff5947c5f5430a29fdd98391eb2a">00100</a> <span class="preprocessor">#define PLUS 1 // represents the plus sign</span>
+<a name="l00101"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#5381a445a1e4bdc36460151d82eed95a">00101</a> <span class="preprocessor"></span><span class="preprocessor">#define MINUS -1 // represents the minus sign</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>
+<a name="l00103"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#220ef7e31d8d839246660bf0aa8f3eee">00103</a> <span class="preprocessor">#define DEFAULT_BOTTOM_UP_PERCENT 10.0 // default percentage under which the bottom up method should be used</span>
+<a name="l00104"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#e3b6e60cca467e955b438882e4506614">00104</a> <span class="preprocessor"></span><span class="preprocessor">#define DEFAULT_DISTANCE_PERCENT 2.0 // default percentage under which the direct distance method should be used</span>
+<a name="l00105"></a>00105 <span class="preprocessor"></span>
+<a name="l00106"></a>00106 <span class="preprocessor">#ifdef MAX_PATTERN_32</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span><span class="preprocessor">        #define BUFFER_SIZE BUFFER_SIZE_32</span>
+<a name="l00108"></a>00108 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span><span class="preprocessor">        #ifdef MAX_PATTERN_64</span>
+<a name="l00110"></a>00110 <span class="preprocessor"></span><span class="preprocessor">                #define BUFFER_SIZE BUFFER_SIZE_64</span>
+<a name="l00111"></a>00111 <span class="preprocessor"></span><span class="preprocessor">        #else</span>
+<a name="l00112"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">00112</a> <span class="preprocessor"></span><span class="preprocessor">                #define BUFFER_SIZE BUFFER_SIZE_128</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span><span class="preprocessor">        #endif</span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00115"></a>00115 <span class="preprocessor"></span>
+<a name="l00117"></a>00117 
+<a name="l00118"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#bcaa56f51c20292898754fce33b5a991">00118</a> <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#6a63c2ffcfd00315baff593b8895f32a">cellValueT</a> <a class="code" href="wh__funcs_8h.html#bcaa56f51c20292898754fce33b5a991">buffer</a>[<a class="code" href="simple__matching__run_2pm_2wh_8h.html#6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]; <span class="comment">// buffer for heavy memory operations</span>
+<a name="l00119"></a>00119 
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="comment">// Branch</span>
+<a name="l00123"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#05c2a39bc9d9c3bf57641f06785b7f70">00123</a> <span class="preprocessor">#define branchMat(branch, matNo)                (branch-&gt;matrices[matNo])</span>
+<a name="l00124"></a>00124 <span class="preprocessor"></span>
+<a name="l00125"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#1c79dde1ae3480ce56fa4e8f64649437">00125</a> <span class="preprocessor">#define branchDepth(branch)                 (branch-&gt;depth)</span>
+<a name="l00126"></a>00126 <span class="preprocessor"></span>
+<a name="l00127"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#4f3d00962845d4993ce72f5dabc809bb">00127</a> <span class="preprocessor">#define branchBasisInd(branch)          (branch-&gt;basisInd)</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span>
+<a name="l00129"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#5d1fad4fca13ec080c34a6eba4d31f47">00129</a> <span class="preprocessor">#define branchDelta(branch, matNo)      (branch-&gt;delta[matNo])</span>
+<a name="l00130"></a>00130 <span class="preprocessor"></span>
+<a name="l00131"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#031bfe7195c8d69ce52a0765914a0975">00131</a> <span class="preprocessor">#define branchHorizontal(branch, matNo)    (branch-&gt;horizontal[matNo])</span>
+<a name="l00132"></a>00132 <span class="preprocessor"></span>
+<a name="l00133"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#de04439c7240984ad37d2469bb4314f0">00133</a> <span class="preprocessor">#define branchSign(branch, matNo, basisInd) (branch-&gt;sign[matNo][basisInd])</span>
+<a name="l00134"></a>00134 <span class="preprocessor"></span>
+<a name="l00135"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#950a2bdc868f52ecb16c26efb89c26f0">00135</a> <span class="preprocessor">#define branchNodeID(branch, matNo, basisInd) (branch-&gt;nodeID[matNo][basisInd])</span>
+<a name="l00136"></a>00136 <span class="preprocessor"></span>
+<a name="l00137"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#7b7e5d114a9e9cab35111bdd0d6d8d04">00137</a> <span class="preprocessor">#define branchPixelNodeID(branch, y, x) (branch-&gt;pixelNodeIDRowsPtr[y][x])</span>
+<a name="l00138"></a>00138 <span class="preprocessor"></span>
+<a name="l00139"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#1dcc45ac7e24a99e3c41f607a0b79b22">00139</a> <span class="preprocessor">#define branchPixelNodeIDPtr(branch) (branch-&gt;pixelNodeIDValues)</span>
+<a name="l00140"></a>00140 <span class="preprocessor"></span>
+<a name="l00141"></a>00141 <span class="preprocessor">#ifdef MAX_BASIS_1024</span>
+<a name="l00142"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#c49d8ecb153f3f6ce620045c9f122dee">00142</a> <span class="preprocessor"></span><span class="preprocessor">        #define branchClimbLevels(branch, toBasisInd) (branch-&gt;climbLevels[branch-&gt;basisInd][toBasisInd])</span>
+<a name="l00143"></a>00143 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00144"></a>00144 <span class="preprocessor"></span><span class="preprocessor">        #define branchClimbLevels(branch, toBasisInd) ((toBasisInd - branch-&gt;basisInd == 1) ? branch-&gt;climbLevels[branch-&gt;basisInd] : getClimbLevels(toBasisInd, branch-&gt;basisInd))</span>
+<a name="l00145"></a>00145 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00146"></a>00146 <span class="preprocessor"></span>
+<a name="l00147"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#783480734d7ad3d7573206e765ac9145">00147</a> <span class="preprocessor">#define branchMatVal(branch, matNo, y, x)    (matVal(branch-&gt;matrices[matNo], y, x))</span>
+<a name="l00148"></a>00148 <span class="preprocessor"></span>
+<a name="l00149"></a>00149 <span class="comment">// Match</span>
+<a name="l00150"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#a66d385c2e91f8d7c80afea53fd62e00">00150</a> <span class="preprocessor">#define matchY(match)        (match-&gt;y)</span>
+<a name="l00151"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#e41ed6a5b2e5512f4a01b68870782bef">00151</a> <span class="preprocessor"></span><span class="preprocessor">#define matchX(match)        (match-&gt;x)</span>
+<a name="l00152"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#78dfc6921c8a1c7d2c90a954b45e9280">00152</a> <span class="preprocessor"></span><span class="preprocessor">#define matchDistance(match) (match-&gt;distance)</span>
+<a name="l00153"></a>00153 <span class="preprocessor"></span>
+<a name="l00154"></a>00154 <span class="comment">// WHSetup</span>
+<a name="l00155"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#1818f71e58a09056d2c3d8658d25cf7d">00155</a> <span class="preprocessor">#define matches(setup)      (setup-&gt;matches)</span>
+<a name="l00156"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#69fc91113933df80ff4538183d57b500">00156</a> <span class="preprocessor"></span><span class="preprocessor">#define numOfMatches(setup) (setup-&gt;numOfMatches)</span>
+<a name="l00157"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#e546127c403cf0cbb041e0ebeb8ba664">00157</a> <span class="preprocessor"></span><span class="preprocessor">#define sourceImage(setup)  (setup-&gt;sourceImage)</span>
+<a name="l00158"></a><a class="code" href="walsh__hadamard__run_2pm_2wh_8h.html#e009f5822ff50acfdf0873c916f5a834">00158</a> <span class="preprocessor"></span><span class="preprocessor">#define patternImage(setup) (setup-&gt;patternImage)</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span>
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 <a class="code" href="struct_w_h_setup.html">WHSetup</a> *<a class="code" href="simple__matching__run_2pm_2wh_8c.html#66afe4ca6ff6ee07c3d3d6e00fce94de">createWHSetup</a>(<a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceRows, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> sourceCols, <a class="code" href="simple__matching__run_2pm_2image_8h.html#f75219364b309824eef21d65e9edc43d">coordT</a> patternRows, <a class="code" href="simple__matching__run_2pm_2wh_8h.html#e75f61aaa63d0b7478b8fc8f4f8a15cb">basisT</a> numOfBasis);
+<a name="l00163"></a>00163 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#149d1e82609813b9b9f911aa2d43f8a4">destroyWHSetup</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup);
+<a name="l00164"></a>00164 
+<a name="l00165"></a>00165 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#86a52c3d80ad4fd61b122306675c4718">setPatternImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *pattern);
+<a name="l00166"></a>00166 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#fa05aa21c32b80945192afdaec72fae7">setSourceImage</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="struct_image.html">Image</a> *source);
+<a name="l00167"></a>00167 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#da6128fb2d8fc2053aa760648a81ed53">setMethodStartPercent</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <span class="keywordtype">float</span> bottomUpStartPercent, <span class="keywordtype">float</span> distanceStartPercent);
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169 <span class="keywordtype">void</span> <a class="code" href="simple__matching__run_2pm_2wh_8c.html#ea0a46965a2dea1e086f8d0b6875e180">whPatternMatch</a>(<a class="code" href="struct_w_h_setup.html">WHSetup</a> *setup, <a class="code" href="simple__matching__run_2pm_2matrix_8h.html#c1c41d7d1d0ed2da28d8a632864fdd86">distanceT</a> rejectThresh);
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

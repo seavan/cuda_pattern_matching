@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>MatchingSolution: Исходный файл D:/Projects/MatchingSolution/source/filtration_run/bmp/EasyBMP.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.9 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&nbsp;имен</span></a></li>
+      <li><a href="annotated.html"><span>Структуры&nbsp;данных</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+<h1>D:/Projects/MatchingSolution/source/filtration_run/bmp/EasyBMP.h</h1><a href="filtration__run_2bmp_2_easy_b_m_p_8h.html">См. документацию.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">*                                                *</span>
+<a name="l00003"></a>00003 <span class="comment">*  EasyBMP Cross-Platform Windows Bitmap Library * </span>
+<a name="l00004"></a>00004 <span class="comment">*                                                *</span>
+<a name="l00005"></a>00005 <span class="comment">*  Author: Paul Macklin                          *</span>
+<a name="l00006"></a>00006 <span class="comment">*   email: macklin01@users.sourceforge.net       *</span>
+<a name="l00007"></a>00007 <span class="comment">* support: http://easybmp.sourceforge.net        *</span>
+<a name="l00008"></a>00008 <span class="comment">*                                                *</span>
+<a name="l00009"></a>00009 <span class="comment">*          file: EasyBMP.h                       * </span>
+<a name="l00010"></a>00010 <span class="comment">*    date added: 01-31-2005                      *</span>
+<a name="l00011"></a>00011 <span class="comment">* date modified: 12-01-2006                      *</span>
+<a name="l00012"></a>00012 <span class="comment">*       version: 1.06                            *</span>
+<a name="l00013"></a>00013 <span class="comment">*                                                *</span>
+<a name="l00014"></a>00014 <span class="comment">*   License: BSD (revised/modified)              *</span>
+<a name="l00015"></a>00015 <span class="comment">* Copyright: 2005-6 by the EasyBMP Project       * </span>
+<a name="l00016"></a>00016 <span class="comment">*                                                *</span>
+<a name="l00017"></a>00017 <span class="comment">* description: Main include file                 *</span>
+<a name="l00018"></a>00018 <span class="comment">*                                                *</span>
+<a name="l00019"></a>00019 <span class="comment">*************************************************/</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#ifdef _MSC_VER </span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="comment">// MS Visual Studio gives warnings when using </span>
+<a name="l00023"></a>00023 <span class="comment">// fopen. But fopen_s is not going to work well </span>
+<a name="l00024"></a>00024 <span class="comment">// with most compilers, and fopen_s uses different </span>
+<a name="l00025"></a>00025 <span class="comment">// syntax than fopen. (i.e., a macro won't work) </span>
+<a name="l00026"></a>00026 <span class="comment">// So, we'lll use this:</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#define _CRT_SECURE_NO_DEPRECATE</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;cmath&gt;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;cctype&gt;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;cstring&gt;</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="preprocessor">#ifndef EasyBMP</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define EasyBMP</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038 <span class="preprocessor">#ifdef __BCPLUSPLUS__ </span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="comment">// The Borland compiler must use this because something</span>
+<a name="l00040"></a>00040 <span class="comment">// is wrong with their cstdio file. </span>
+<a name="l00041"></a>00041 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00042"></a>00042 <span class="preprocessor">#else </span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#include &lt;cstdio&gt;</span>
+<a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span>
+<a name="l00046"></a>00046 <span class="preprocessor">#ifdef __GNUC__</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="comment">// If g++ specific code is ever required, this is </span>
+<a name="l00048"></a>00048 <span class="comment">// where it goes. </span>
+<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
+<a name="l00051"></a>00051 <span class="preprocessor">#ifdef __INTEL_COMPILER</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="comment">// If Intel specific code is ever required, this is </span>
+<a name="l00053"></a>00053 <span class="comment">// where it goes. </span>
+<a name="l00054"></a>00054 <span class="preprocessor">#endif</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>
+<a name="l00056"></a>00056 <span class="preprocessor">#ifndef _DefaultXPelsPerMeter_</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span><span class="preprocessor">#define _DefaultXPelsPerMeter_</span>
+<a name="l00058"></a><a class="code" href="filtration__run_2bmp_2_easy_b_m_p_8h.html#f7eb31fa97b9d2c823bb12255dfb725a">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define DefaultXPelsPerMeter 3780</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="comment">// set to a default of 96 dpi </span>
+<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00062"></a>00062 <span class="preprocessor">#ifndef _DefaultYPelsPerMeter_</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define _DefaultYPelsPerMeter_</span>
+<a name="l00064"></a><a class="code" href="filtration__run_2bmp_2_easy_b_m_p_8h.html#e07aa0909b1dce7af7b038e84beef89d">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define DefaultYPelsPerMeter 3780</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="comment">// set to a default of 96 dpi</span>
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00068"></a>00068 <span class="preprocessor">#include "<a class="code" href="filtration__run_2bmp_2_easy_b_m_p___data_structures_8h.html">EasyBMP_DataStructures.h</a>"</span>
+<a name="l00069"></a>00069 <span class="preprocessor">#include "<a class="code" href="filtration__run_2bmp_2_easy_b_m_p___b_m_p_8h.html">EasyBMP_BMP.h</a>"</span>
+<a name="l00070"></a>00070 <span class="preprocessor">#include "<a class="code" href="filtration__run_2bmp_2_easy_b_m_p___various_b_m_putilities_8h.html">EasyBMP_VariousBMPutilities.h</a>"</span>
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="preprocessor">#ifndef _EasyBMP_Version_</span>
+<a name="l00073"></a><a class="code" href="filtration__run_2bmp_2_easy_b_m_p_8h.html#603da21fb9911d4e9ed84ffe16d61297">00073</a> <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_Version_ 1.06</span>
+<a name="l00074"></a><a class="code" href="filtration__run_2bmp_2_easy_b_m_p_8h.html#9c97040f27886f2282883c58a1882eef">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_Version_Integer_ 106</span>
+<a name="l00075"></a><a class="code" href="filtration__run_2bmp_2_easy_b_m_p_8h.html#4d893b3d4354ace9917ea74dc0822775">00075</a> <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMP_Version_String_ "1.06"</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
+<a name="l00078"></a>00078 <span class="preprocessor">#ifndef _EasyBMPwarnings_</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define _EasyBMPwarnings_</span>
+<a name="l00080"></a>00080 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>
+<a name="l00082"></a>00082 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#a572cda955cea246911a9d44fa19f96d">SetEasyBMPwarningsOff</a>( <span class="keywordtype">void</span> );
+<a name="l00083"></a>00083 <span class="keywordtype">void</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#c27f66464409775cfc3833843bff8245">SetEasyBMPwarningsOn</a>( <span class="keywordtype">void</span> );
+<a name="l00084"></a>00084 <span class="keywordtype">bool</span> <a class="code" href="filtration__cuda__run_2bmp_2_easy_b_m_p_8cpp.html#7de7f5371407388438c70e9e33c61395">GetEasyBMPwarningState</a>( <span class="keywordtype">void</span> );
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Документация по MatchingSolution. Последние изменения: Tue Jun 2 22:50:43 2009. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.9 </small></address>
+</body>
+</html>

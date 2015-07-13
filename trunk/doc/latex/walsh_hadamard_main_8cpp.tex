@@ -1,0 +1,114 @@
+\hypertarget{walsh_hadamard_main_8cpp}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardMain.cpp}
+\label{walsh_hadamard_main_8cpp}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardMain.cpp@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardMain.cpp}}
+}
+{\tt \#include \char`\"{}stdafx.h\char`\"{}}\par
+{\tt \#include $<$conio.h$>$}\par
+{\tt \#include $<$algorithm$>$}\par
+{\tt \#include $<$fstream$>$}\par
+{\tt \#include \char`\"{}bmp/EasyBMP.h\char`\"{}}\par
+{\tt \#include \char`\"{}FreeImage.h\char`\"{}}\par
+\subsection*{Определения типов}
+\begin{CompactItemize}
+\item 
+typedef unsigned char($\ast$ \hyperlink{walsh_hadamard_main_8cpp_21f294357250b2513bab932511573c6f}{TMethod} )(\hyperlink{structtag_r_g_b_q_u_a_d}{RGBQUAD} $\ast$)
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+unsigned char $\ast$ \hyperlink{walsh_hadamard_main_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}{correlationCuda} (int argc, char $\ast$$\ast$argv, unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+unsigned char $\ast$ \hyperlink{walsh_hadamard_main_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}{correlationCpu} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, unsigned char $\ast$\_\-pattern, int \_\-ptnwidth, int \_\-ptnheight)
+\item 
+unsigned char \hyperlink{walsh_hadamard_main_8cpp_4dd9cfb128076adb7fa7d22c14aa9f97}{grayScale} (\hyperlink{structtag_r_g_b_q_u_a_d}{RGBQUAD} $\ast$\_\-pixel)
+\item 
+unsigned char $\ast$ \hyperlink{walsh_hadamard_main_8cpp_006ab3bb0a37bebbfaa07f674d0f7299}{loadImage} (const char $\ast$\_\-fileName, int \&\_\-width, int \&\_\-height)
+\item 
+void \hyperlink{walsh_hadamard_main_8cpp_9bfd5275785bd0a8fd3b49a48853bcdc}{saveImage} (const char $\ast$\_\-fileName, unsigned char $\ast$\_\-image, int \_\-width, int \_\-height)
+\item 
+int \hyperlink{walsh_hadamard_main_8cpp_353674c5af92be7fb389265cde4e5e03}{\_\-tmain} (int argc, \_\-TCHAR $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{CompactItemize}
+\subsection*{Переменные}
+\begin{CompactItemize}
+\item 
+\hyperlink{wh__main_8cpp_5882544fccae5d66b769ad92980a4802}{TMethod} \hyperlink{walsh_hadamard_main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{method} = grayScale
+\end{CompactItemize}
+
+
+\subsection{Типы}
+\hypertarget{walsh_hadamard_main_8cpp_21f294357250b2513bab932511573c6f}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!TMethod@{TMethod}}
+\index{TMethod@{TMethod}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{TMethod}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char($\ast$ {\bf TMethod})({\bf RGBQUAD} $\ast$)}}
+\label{walsh_hadamard_main_8cpp_21f294357250b2513bab932511573c6f}
+
+
+
+
+\subsection{Функции}
+\hypertarget{walsh_hadamard_main_8cpp_353674c5af92be7fb389265cde4e5e03}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!\_\-tmain@{\_\-tmain}}
+\index{\_\-tmain@{\_\-tmain}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{\_\-tmain}]{\setlength{\rightskip}{0pt plus 5cm}int \_\-tmain (int {\em argc}, \/  \_\-TCHAR $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{walsh_hadamard_main_8cpp_353674c5af92be7fb389265cde4e5e03}
+
+
+\hypertarget{walsh_hadamard_main_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!correlationCpu@{correlationCpu}}
+\index{correlationCpu@{correlationCpu}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{correlationCpu}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCpu (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{walsh_hadamard_main_8cpp_68b2cd9e202f4b22c9ac08d2e44ef039}
+
+
+\hypertarget{walsh_hadamard_main_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!correlationCuda@{correlationCuda}}
+\index{correlationCuda@{correlationCuda}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{correlationCuda}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ correlationCuda (int {\em argc}, \/  char $\ast$$\ast$ {\em argv}, \/  unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  unsigned char $\ast$ {\em \_\-pattern}, \/  int {\em \_\-ptnwidth}, \/  int {\em \_\-ptnheight})}}
+\label{walsh_hadamard_main_8cpp_3106e348f2f7c1251cc32cc07d5eaed6}
+
+
+\hypertarget{walsh_hadamard_main_8cpp_4dd9cfb128076adb7fa7d22c14aa9f97}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!grayScale@{grayScale}}
+\index{grayScale@{grayScale}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{grayScale}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char grayScale ({\bf RGBQUAD} $\ast$ {\em \_\-pixel})}}
+\label{walsh_hadamard_main_8cpp_4dd9cfb128076adb7fa7d22c14aa9f97}
+
+
+\hypertarget{walsh_hadamard_main_8cpp_006ab3bb0a37bebbfaa07f674d0f7299}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{loadImage}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ loadImage (const char $\ast$ {\em \_\-fileName}, \/  int \& {\em \_\-width}, \/  int \& {\em \_\-height})}}
+\label{walsh_hadamard_main_8cpp_006ab3bb0a37bebbfaa07f674d0f7299}
+
+
+Автоматическое определение формата и загрузка изображения из указанного файла \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-fileName}]Путь к файлу с изображением \item[{\em \_\-width}]Ширина загруженного изображения \item[{\em \_\-height}]Высота загруженного изображения \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке \end{Desc}
+\hypertarget{walsh_hadamard_main_8cpp_9bfd5275785bd0a8fd3b49a48853bcdc}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!saveImage@{saveImage}}
+\index{saveImage@{saveImage}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{saveImage}]{\setlength{\rightskip}{0pt plus 5cm}void saveImage (const char $\ast$ {\em \_\-fileName}, \/  unsigned char $\ast$ {\em \_\-image}, \/  int {\em \_\-width}, \/  int {\em \_\-height})}}
+\label{walsh_hadamard_main_8cpp_9bfd5275785bd0a8fd3b49a48853bcdc}
+
+
+Сохранение изображения в формате BMP \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-fileName}]Путь к файлу с изображением \item[{\em \_\-width}]Ширина загруженного изображения \item[{\em \_\-height}]Высота загруженного изображения \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]Массив байт загруженного изображения в режиме 8 bit (grayscale), ширину и высоту полученного изображения по ссылке \end{Desc}
+
+
+\subsection{Переменные}
+\hypertarget{walsh_hadamard_main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}{
+\index{walshHadamardMain.cpp@{walshHadamardMain.cpp}!method@{method}}
+\index{method@{method}!walshHadamardMain.cpp@{walshHadamardMain.cpp}}
+\subsubsection[{method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TMethod} {\bf method} = grayScale}}
+\label{walsh_hadamard_main_8cpp_884bc9c4b36f5374b842d2aca48e34fb}
+
+

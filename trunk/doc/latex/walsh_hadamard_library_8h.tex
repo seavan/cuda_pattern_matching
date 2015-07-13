@@ -1,0 +1,41 @@
+\hypertarget{walsh_hadamard_library_8h}{
+\section{Файл D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardLibrary.h}
+\label{walsh_hadamard_library_8h}\index{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardLibrary.h@{D:/Projects/MatchingSolution/source/walsh\_\-hadamard\_\-lib/walshHadamardLibrary.h}}
+}
+\subsection*{Макросы}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{walsh_hadamard_library_8h_f5818b4b91675ed322d636bd417d4e25}{FILTRATIONLIBRARY\_\-API}~\_\-\_\-declspec(dllimport)
+\end{CompactItemize}
+\subsection*{Функции}
+\begin{CompactItemize}
+\item 
+FILTRATIONLIBRARY\_\-API unsigned char $\ast$ \hyperlink{walsh_hadamard_library_8h_426460b10f7ee354dc2d14bff87485da}{filtration} (unsigned char $\ast$\_\-input, int \_\-width, int \_\-height, int \_\-method, float \_\-coeff)
+\end{CompactItemize}
+
+
+\subsection{Макросы}
+\hypertarget{walsh_hadamard_library_8h_f5818b4b91675ed322d636bd417d4e25}{
+\index{walshHadamardLibrary.h@{walshHadamardLibrary.h}!FILTRATIONLIBRARY\_\-API@{FILTRATIONLIBRARY\_\-API}}
+\index{FILTRATIONLIBRARY\_\-API@{FILTRATIONLIBRARY\_\-API}!walshHadamardLibrary.h@{walshHadamardLibrary.h}}
+\subsubsection[{FILTRATIONLIBRARY\_\-API}]{\setlength{\rightskip}{0pt plus 5cm}\#define FILTRATIONLIBRARY\_\-API~\_\-\_\-declspec(dllimport)}}
+\label{walsh_hadamard_library_8h_f5818b4b91675ed322d636bd417d4e25}
+
+
+
+
+\subsection{Функции}
+\hypertarget{walsh_hadamard_library_8h_426460b10f7ee354dc2d14bff87485da}{
+\index{walshHadamardLibrary.h@{walshHadamardLibrary.h}!filtration@{filtration}}
+\index{filtration@{filtration}!walshHadamardLibrary.h@{walshHadamardLibrary.h}}
+\subsubsection[{filtration}]{\setlength{\rightskip}{0pt plus 5cm}FILTRATIONLIBRARY\_\-API unsigned char$\ast$ filtration (unsigned char $\ast$ {\em \_\-input}, \/  int {\em \_\-width}, \/  int {\em \_\-height}, \/  int {\em \_\-method}, \/  float {\em \_\-coeff})}}
+\label{walsh_hadamard_library_8h_426460b10f7ee354dc2d14bff87485da}
+
+
+Фильтрация изображения заданным методом (CPU) \begin{Desc}
+\item[Аргументы:]
+\begin{description}
+\item[{\em \_\-input}]Построчный массив с исходным изображением \item[{\em \_\-width}]Ширина исходного изображения \item[{\em \_\-height}]Высота исходного изображения \item[{\em \_\-method}]Метод (0 - Собель, 1 - Пюритт, 2 - Лаплас) \item[{\em \_\-scale}]Резкость фильтрации \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Возвращает:]Массив байт с отфильтрованным изображением с глубиной цвета - 8 (grayscale) \end{Desc}
